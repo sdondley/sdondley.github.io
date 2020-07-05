@@ -139,7 +139,7 @@ exclude:
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Offerings{{ ":" }} A blog by Steve Dondley
+title: "Offerings: A blog by Steve Dondley"
 email: s@dondley.com
 description: >- # this means to ignore newlines until "baseurl:"
   A blog for sharing contributions with mostly technical people.
