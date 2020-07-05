@@ -17,7 +17,6 @@ _sass/.scss-lint.yml
 =======
 .jekyll-cache
 .jekyll-metadata
-.github/workflows/main.yml
 vendor
 shell.sh
 >>>>>>> f887033... move files to root
