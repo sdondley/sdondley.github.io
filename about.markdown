@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This blog is sporadically maintained by Steve Dondley. The subject matter
-varies, but is mostly focused on sharing technical knowledge. It's my futile
-effort to try to return all that have taken.
+This blog is sporadically maintained by Steve Dondley. The subject matter is
+primarily focused on sharing technical knowledge and a futile attempt at
+returning the favor to all of those who have done the same.
