@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Steve.Dondley.com Moves to Jekyll
-date: 2020-07-06 8:12:19.000000000 -05:00
+date: 2020-07-06 08:12:19
 type: post
 parent_id: '0'
 published: true
