@@ -1,0 +1,16 @@
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+/Users/stevedondley/.rbenv/versions/2.7.1/bin/ruby -I /Users/stevedondley/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20200707-21668-1tl2x5x.rb extconf.rb
+creating Makefile
+
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR=" clean
+
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR="
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.bundle
+
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 ruby_http_parser.bundle ./.gem.20200707-21668-6cqqti

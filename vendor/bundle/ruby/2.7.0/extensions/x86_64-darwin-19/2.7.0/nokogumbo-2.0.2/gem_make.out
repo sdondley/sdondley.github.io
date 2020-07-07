@@ -1,0 +1,66 @@
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/nokogumbo-2.0.2/ext/nokogumbo
+/Users/stevedondley/.rbenv/versions/2.7.1/bin/ruby -I /Users/stevedondley/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20200707-21668-1e5h99y.rb extconf.rb
+checking for xmlNewDoc() in -lxml2... yes
+checking for nokogiri.h in /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri... yes
+creating Makefile
+
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/nokogumbo-2.0.2/ext/nokogumbo
+make "DESTDIR=" clean
+
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/nokogumbo-2.0.2/ext/nokogumbo
+make "DESTDIR="
+compiling nokogumbo.c
+In file included from nokogumbo.c:53:
+/Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/nokogiri.h:13:9: warning: '_GNU_SOURCE' macro redefined [-Wmacro-redefined]
+#define _GNU_SOURCE
+        ^
+/Users/stevedondley/.rbenv/versions/2.7.1/include/ruby-2.7.0/x86_64-darwin19/ruby/config.h:16:9: note: previous definition is here
+#define _GNU_SOURCE 1
+        ^
+nokogumbo.c:505:20: warning: incompatible pointer types passing 'VALUE (ParseArgs *)' (aka 'unsigned long (ParseArgs *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+  return rb_ensure(parse_continue, (VALUE)&args, parse_cleanup, (VALUE)&args);
+                   ^~~~~~~~~~~~~~
+/Users/stevedondley/.rbenv/versions/2.7.1/include/ruby-2.7.0/ruby/ruby.h:1990:24: note: passing argument to parameter here
+VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+                       ^
+nokogumbo.c:505:50: warning: incompatible pointer types passing 'VALUE (ParseArgs *)' (aka 'unsigned long (ParseArgs *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+  return rb_ensure(parse_continue, (VALUE)&args, parse_cleanup, (VALUE)&args);
+                                                 ^~~~~~~~~~~~~
+/Users/stevedondley/.rbenv/versions/2.7.1/include/ruby-2.7.0/ruby/ruby.h:1990:46: note: passing argument to parameter here
+VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+                                             ^
+nokogumbo.c:695:13: warning: incompatible pointer types passing 'VALUE (ParseArgs *)' (aka 'unsigned long (ParseArgs *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+  rb_ensure(fragment_continue, (VALUE)&args, parse_cleanup, (VALUE)&args);
+            ^~~~~~~~~~~~~~~~~
+/Users/stevedondley/.rbenv/versions/2.7.1/include/ruby-2.7.0/ruby/ruby.h:1990:24: note: passing argument to parameter here
+VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+                       ^
+nokogumbo.c:695:46: warning: incompatible pointer types passing 'VALUE (ParseArgs *)' (aka 'unsigned long (ParseArgs *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+  rb_ensure(fragment_continue, (VALUE)&args, parse_cleanup, (VALUE)&args);
+                                             ^~~~~~~~~~~~~
+/Users/stevedondley/.rbenv/versions/2.7.1/include/ruby-2.7.0/ruby/ruby.h:1990:46: note: passing argument to parameter here
+VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+                                             ^
+5 warnings generated.
+compiling ./../../gumbo-parser/src/string_buffer.c
+compiling ./../../gumbo-parser/src/svg_attrs.c
+compiling ./../../gumbo-parser/src/ascii.c
+compiling ./../../gumbo-parser/src/util.c
+compiling ./../../gumbo-parser/src/svg_tags.c
+compiling ./../../gumbo-parser/src/vector.c
+compiling ./../../gumbo-parser/src/attribute.c
+compiling ./../../gumbo-parser/src/token_buffer.c
+compiling ./../../gumbo-parser/src/char_ref.c
+compiling ./../../gumbo-parser/src/utf8.c
+compiling ./../../gumbo-parser/src/error.c
+compiling ./../../gumbo-parser/src/tag.c
+compiling ./../../gumbo-parser/src/parser.c
+compiling ./../../gumbo-parser/src/foreign_attrs.c
+compiling ./../../gumbo-parser/src/tokenizer.c
+compiling ./../../gumbo-parser/src/string_piece.c
+compiling ./../../gumbo-parser/src/tag_lookup.c
+linking shared-object nokogumbo/nokogumbo.bundle
+
+current directory: /Users/stevedondley/git_repos/unionconnect.github.io/kjaer.io/vendor/bundle/ruby/2.7.0/gems/nokogumbo-2.0.2/ext/nokogumbo
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 nokogumbo.bundle ./.gem.20200707-21668-1veb7jj/nokogumbo
