@@ -104,53 +104,7 @@
 <p>Taskwarrior (TW) is an open source task management platform built for those who prefer to work on the command line. Like most command line tools with any sophistication, it has a learning curve that, at first, requires a fairly significant investment of time in order take advantage of its best features. But like any serious tool, once mastered, your time invested will pay off in spades with much increased efficiency and much less agony dealing with a GUI that slows you down and makes you want to scratch your eyeballs out.</p>
 <h2 id="the-problem">The Problem</h2>
 <p>Out of the box, Taskwarrior dumps all of your projects into one list. Yes, there are ways you can filter these lists. But there are cases where you may want to have a separate project area dedicated to certain types of projects. For example, you may have one task list that you share with others and another that you’d prefer to keep private.</p>
-<h2 id="the-solution-multiple-.taskrc-files-and-.task-directories">The Solution: Multiple <code>.taskrc</code> Files and <code>.task</code> Directories</h2>
-<p>As outlined in <code>man taskd</code>, TW provides a mechanism for overriding which <code>.taskrc</code> file is used. By default, TW uses <code>~/.taskrc</code>. This is the file, like other “rc” files, that you can use to change the behavior of your application. So modifying the configuration settings in <code>~/.taskrc</code> will change how TW behaves. Among other things, the <code>.taskrc</code> file controls which <code>~/.task</code> directory is used to store data about your tasks and this is the key mechanism we use to switch between project areas. The other bit of magic needed to make this happen is setting a simple environment variable to tell TW which <code>.taskrc</code> file to load.</p>
-<p>Below are the steps to take to modify this file and directory so you can segregate your tasks into different project areas. For the purposes of this tutorial, we will set up a “work” project area for tasks related to pleasing your bosses (or pissing them off, if you are so inclined), and a “personal” project area for holding your life together and hopefully making a more pleasurable one for yourself.</p>
-<h3 id="step-1-copy-the-.taskrc-file">Step 1: Copy the <code>.taskrc</code> file</h3>
-<p><code>cd ~</code></p>
-<p><code>cp .taskrc .taskrc_work</code></p>
-<p>This is the .taskrc we will use for our work tasks. For simplicity’s sake, we will leave the default rc file name unchanged and use it for our personal tasks.</p>
-<h3 id="step-2-copy-the-.task-directory">Step 2: Copy the <code>.task</code> directory</h3>
-<p><code>cp -r .task .task_work</code></p>
-<p>Now we have a new home for storing our work tasks.</p>
-<h3 id="step-3-edit-the-.taskrc_work-file">Step 3: Edit the <code>~/.taskrc_work</code> file</h3>
-<h4 id="step-3a-modify-the-data.location-setting">Step 3a: Modify the <code>data.location</code> setting</h4>
-<p>Look for the <code>data.location</code> key and change its value to <code>~/.task_work</code></p>
-<p>Here we tell our rc file to used the directory we created in step 2 for our tasks.</p>
-<h4 id="step-3b-change-the-color-theme">Step 3b: Change the color theme</h4>
-<p>Now uncomment out one the first color theme to make it easy to identify which project area you are working in and comment out the active color theme if you have one activated. If you don’t like this theme, change it later. Just uncomment out the first one for now.</p>
-<p>That’s it. Leave everything else the same and save the file, unless you are using a taskserver. In which case, do Step 3c:</p>
-<h4 id="step-3c-if-you-are-using-a-taskserver-change-taskd.credentials">Step 3c: If you are using a taskserver, change <code>taskd.credentials</code></h4>
-<p>If you are syncing your tasks with taskserver, you’ll want to create a user account in a different organization with a new key. Once you do that, replace the value of <code>taskd.credentials</code> with your new Org/User/Key credentials.</p>
-<h3 id="step-4-set-the-value-of-the-taskrc-environment-variable">Step 4: Set the value of the $TASKRC environment variable</h3>
-<p>This is where the magic happens. Set the value of $TASKRC with the following bash command:</p>
-<p><code>export TASKRC="$HOME/.taskrc_work"</code></p>
-<h3 id="step-5-see-if-the-new-color-theme-is-working">Step 5: See if the new color theme is working</h3>
-<p>Issue the following command:</p>
-<p><code>task list</code></p>
-<p>You should now see all of your tasks in the new color scheme. If not, go back and check your work and try again. You’ll also see a message above your task list that warns you that you have overridden the default <code>TASKRC</code> file.</p>
-<h3 id="step-6-delete-the-tasks-in-the-new-.task_work-directory">Step 6: Delete the tasks in the new <code>.task_work</code> directory</h3>
-<p>Go through and delete all your personal tasks from the list using the usual <code>task</code> commands leaving just the work ones behind. Alternatively, if you don’t want to keep any of the tasks and are starting fresh, remove all the <code>*.data</code> files from the <code>.task_work</code> directory:</p>
-<p><code>rm -f ~/.task_work*.data</code></p>
-<h3 id="step-7-set-up-aliases-to-make-it-more-convenient-to-switch-between-project">Step 7: Set up aliases to make it more convenient to switch between project areas</h3>
-<p>First, add an alias to switch to your work project area. Add this alias to the appropriate bash configuration file of your choosing:</p>
-<p><code>alias wtasks="export TASKRC=$HOME/.taskrc_work"</code></p>
-<p>And now add an alias to unset the <code>TASKRC</code> variable:</p>
-<p>alias ptasks=‘unset TASKRC’</p>
-<p>That’s it! Now you can quickly switch between project areas. If you’d like to set up more project areas, just follow the steps above for each project area.</p>
-<p>If you’d like to also be able to manipulate tasks in one project area while in another, proceed to the next step.</p>
-<h3 id="step-8-set-project-area-aliases-for-the-task-command-optional">Step 8: Set project area aliases for the task command (OPTIONAL)</h3>
-<p>Let’s say you are at work and think of something important that you need to take care of to get ready for vacation. Instead of switching to your personal tasks, adding the task, and then switching back, there is another feature TW provides so you can temporarily modify the settings in your <code>.taskrc</code> file for a single command.</p>
-<p>This is done by adding an <strong>override</strong> to the <code>task</code> command. It’s simple and it looks like this:</p>
-<p><code>task &lt;override&gt; &lt;command&gt;</code></p>
-<p>So if you are at work and wish to see screw the man and view your personal tasks, you can do this:</p>
-<p><code>task rc.data.location=~/.taskrc list</code></p>
-<p>You don’t want to have to type all that in, however, so save your future self some aggravation and set up aliases for the task command for each work area:</p>
-<p><code>alias taskw='task rc.data.location=~/.taskrc_work'</code></p>
-<p><code>alias taskp='task rc.data.location=~/.taskrc'</code></p>
-<p>Now you can quickly issue task commands to any work area. Great!</p>
-<p>
+
         <a href="/setting-up-multiple-project-areas-with-task-warrior/">Read more</a>
     </article>
 
@@ -192,7 +146,9 @@
             
 
         </header>
-        <p>
+        <h2>A Quick Primer on DNS</h2>
+<p>Here's a very quick primer on the Domain Name System (DNS), a giant database distributed over millions of computers across the globe. It's primary job is to "resolve," or look up, the IP address for a given human-readable internet address. For example, the "google.com" address meant for humans resolves to the IP address of "172.217.6.206," the number that computers use to "dial" google's website up. This makes the internet much more convenient to use. Typing in long and not very memorable IP addresses is much more of a hassle than typing in an address made up of common letters and words.</p>
+<p>
         <a href="/setting-up-a-split-dns-configuration-on-a-synology-nas-for-hosting-websites/">Read more</a>
     </article>
 
@@ -234,7 +190,9 @@
             
 
         </header>
-        <p>
+        <p>I spent the last few days writing a beginner's guide for <a href="https://en.wikipedia.org/wiki/Tmux">tmux</a> users. It currently weighs in at about 22 printed pages.</p>
+<p>tmux is a tool mostly used by developers to help them work across several documents at the same time. It's very useful, but hard to master without sinking a lot of time into it.</p>
+<p>
         <a href="/super-guide-to-the-split-window-tmux-subcommand-and-beyond/">Read more</a>
     </article>
 
