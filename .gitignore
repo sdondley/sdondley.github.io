@@ -1,6 +1,6 @@
 _site
+_notes_archive
 .sass-cache
-<<<<<<< HEAD
 .DS_Store
 .jekyll
 .jekyll-cache
@@ -14,9 +14,4 @@ _sass/.scss-lint.yml
 *.iml
 .idea
 .directory
-=======
-.jekyll-cache
-.jekyll-metadata
 vendor
-shell.sh
->>>>>>> f887033... move files to root
