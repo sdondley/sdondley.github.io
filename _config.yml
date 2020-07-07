@@ -33,7 +33,7 @@ author:
 
 # Data for the hero image
 hero:
-  image: /images/hero/trees.jpg # The relative path to the default hero image
+  image: /images/hero/laugh.jpg # The relative path to the default hero image
   fallback-color: "#d3dbe7" # The fallback color that will be used behind the image
   breakpoints: # Responsive image breakpoints. Important that these be in decreasing order!
     - 1440px
