@@ -6,6 +6,7 @@ type: post
 parent_id: '0'
 published: true
 password: ''
+image: /images/hero/spiral.jpg
 status: publish
 categories:
 - Tech
@@ -19,15 +20,7 @@ author:
   display_name: Steve Dondley
 permalink: "/change-the-name-of-current-directory-from-the-command-line/"
 ---
-<p><!-- wp:paragraph --></p>
 <p>Here is a simple bash function for renaming the current directory you are in from the command line:</p>
-<p><!-- /wp:paragraph --></p>
-<p><!-- wp:preformatted --></p>
 <pre class="wp-block-preformatted">rename_current_dir() {<br />   cd=${PWD##*/}<br />   cd ..<br />   mv $cd $1<br />   cd $1<br /> }<br /></pre>
-<p><!-- /wp:preformatted --></p>
-<p><!-- wp:paragraph --></p>
 <p>Create an alias of your choice to this command so it's easier to type:</p>
-<p><!-- /wp:paragraph --></p>
-<p><!-- wp:preformatted --></p>
 <pre class="wp-block-preformatted">alias rncd='rename_current_dir'</pre>
-<p><!-- /wp:preformatted --></p>
