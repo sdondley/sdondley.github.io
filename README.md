@@ -1,10 +1,13 @@
-# [kjaer.io](https://kjaer.io)
+# [Steve.Dondley.com](https://steve.dondley.com)
 
-[![Build Status](https://travis-ci.com/MaximeKjaer/kjaer.io.svg?branch=master)](https://travis-ci.com/MaximeKjaer/kjaer.io)
+<!-- [![Build
+Status](https://travis-ci.com/MaximeKjaer/kjaer.io.svg?branch=master)](https://travis-ci.com/MaximeKjaer/kjaer.io)
+-->
 
-My personal blog. Built with Jekyll.
+My blog, built with Jekyll and a fork of [kjaer.io](https://kjaer.io).
 
-[![Screenshot of my website](https://i.imgur.com/QVTzndb.jpg "Screenshot of my website")](https://i.imgur.com/QVTzndb.jpg)
+<!-- [![Screenshot of my website](https://i.imgur.com/QVTzndb.jpg "Screenshot
+of my website")](https://i.imgur.com/QVTzndb.jpg) -->
 
 ## Installation
 
