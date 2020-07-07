@@ -1,5 +1,5 @@
 ---
-#layout: post
+layout: post
 title: Setting Up Multiple Project Areas with Taskwarrior
 date: 2019-04-30 00:30:19.000000000 -04:00
 type: post
@@ -23,6 +23,7 @@ permalink: "/setting-up-multiple-project-areas-with-task-warrior/"
 <p>Taskwarrior (TW) is an open source task management platform built for those who prefer to work on the command line. Like most command line tools with any sophistication, it has a learning curve that, at first, requires a fairly significant investment of time in order take advantage of its best features. But like any serious tool, once mastered, your time invested will pay off in spades with much increased efficiency and much less agony dealing with a GUI that slows you down and makes you want to scratch your eyeballs out.</p>
 <h2 id="the-problem">The Problem</h2>
 <p>Out of the box, Taskwarrior dumps all of your projects into one list. Yes, there are ways you can filter these lists. But there are cases where you may want to have a separate project area dedicated to certain types of projects. For example, you may have one task list that you share with others and another that you’d prefer to keep private.</p>
+<!-- more -->
 <h2 id="the-solution-multiple-.taskrc-files-and-.task-directories">The Solution: Multiple <code>.taskrc</code> Files and <code>.task</code> Directories</h2>
 <p>As outlined in <code>man taskd</code>, TW provides a mechanism for overriding which <code>.taskrc</code> file is used. By default, TW uses <code>~/.taskrc</code>. This is the file, like other “rc” files, that you can use to change the behavior of your application. So modifying the configuration settings in <code>~/.taskrc</code> will change how TW behaves. Among other things, the <code>.taskrc</code> file controls which <code>~/.task</code> directory is used to store data about your tasks and this is the key mechanism we use to switch between project areas. The other bit of magic needed to make this happen is setting a simple environment variable to tell TW which <code>.taskrc</code> file to load.</p>
 <p>Below are the steps to take to modify this file and directory so you can segregate your tasks into different project areas. For the purposes of this tutorial, we will set up a “work” project area for tasks related to pleasing your bosses (or pissing them off, if you are so inclined), and a “personal” project area for holding your life together and hopefully making a more pleasurable one for yourself.</p>
