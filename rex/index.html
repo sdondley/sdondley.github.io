@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<head>
+       
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unofficial Rex Tips, Tricks, and Advice</title>
+<meta name="author" content="Steve Dondley">
+<meta name="description" content="kelpful guidance for Rex">
+<link rel="icon" href="/favicon.ico?v=1.0">
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700|Oswald:300,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/css/index.css">
+<!-- OpenGraph meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley">
+<meta property="article:author" content="/about/">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta property="og:title" content="Unofficial Rex Tips, Tricks, and Advice">
+<meta name="twitter:title" content="Unofficial Rex Tips, Tricks, and Advice">
+<meta property="og:description" content="kelpful guidance for Rex">
+<meta name="twitter:description" content="kelpful guidance for Rex">
+<meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+<meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+    <meta property="og:type" content="article">
+        <meta property="article:published_time" content="2020-07-07T00:00:00-04:00">
+    <meta property="og:url" content="https://steve.dondley.com/rex/">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
+<!-- Google Analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-138585660-1', 'auto');
+    ga('send', 'pageview', {
+      'anonymizeIp': true,
+      'page': '/rex/',
+      'title': 'Unofficial Rex Tips, Tricks, and Advice'
+    });
+</script>
+
+
+    
+        <style type="text/css">
+        .hero {
+            background-color: #d3dbe7;
+            background-image: url('/images/hero/laugh.jpg');
+        }
+@media (max-device-width: 1440px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1440px.jpg');
+	}
+}
+@media (max-device-width: 1200px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1200px.jpg');
+	}
+}
+@media (max-device-width: 800px) {
+	.hero {
+		background-image: url('/images/hero/laugh-800px.jpg');
+	}
+}
+@media (max-device-width: 550px) {
+	.hero {
+		background-image: url('/images/hero/laugh-550px.jpg');
+	}
+}
+@media (max-device-width: 380px) {
+	.hero {
+		background-image: url('/images/hero/laugh-380px.jpg');
+	}
+}
+        </style>
+
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <a href="/notes/">NOTES</a>
+            <a href="/about/">ABOUT</a>
+        </nav>
+         
+        <div class="title">
+            <a href="/">
+                <h1>OFFERINGS</h1>
+                <p>by <span title="Steve Dondley">Steve Dondley</span></p>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+       <div class="container">
+           
+           <article class="post">
+	
+	<header>
+		<h1>Unofficial Rex Tips, Tricks, and Advice</h1>
+		
+    <p class="date">
+        
+        <time datetime="2020-07-07">
+            July  7, 2020
+        </time>
+    </p>
+
+
+		
+
+	</header>
+	
+	
+	<p><strong>Rex is a great time saver. Unfortunately, its documentation is rather disjointed and a bit cryptic. This page isn’t a substitute for the official documentation but instead tries to fill in some gaps and offer some big picture ideas and fine-grained recipes to get you productively using the Rex framework faster than you would otherwise.</strong>
+<!-- more --></p>
+
+<h2 id="tip-1-learn-rexs-typical-use-case-and-set-up-a-dedicated-directory-for-all-your-rex-tasks">Tip #1: Learn Rex’s typical use case and set up a dedicated directory for all your Rex tasks</h2>
+<p>Because Rex is a framework, it can be a little confusing to know what it’s typical use case is. The most typical, easiest use case is to have one Rexfile in a single directory and all tasks split out and grouped into modules to make them maintainable. So let’s spell out how to accomplish this:</p>
+
+<ol>
+  <li>You should have one dedicated directory on your hard drive for your rex tasks. Example: <code class="highlighter-rouge">~/rex</code></li>
+  <li>Inside this directory, you will have a file called <code class="highlighter-rouge">Rexfile</code>.</li>
+  <li>You can throw all your tasks into this one Rexfile. But don’t do that because it’ll probably be a huge maintenance headache as it grows insize</li>
+  <li>Instead, you should create modules in your rex directory for your tasks. Each module should have a collection of related tasks. For example, you might have a module in this directory called <code class="highlighter-rouge">Local::Network::Configuration</code> which contain tasks related to managing your local network. You might have another directory called <code class="highlighter-rouge">Web::Servers::Mail</code> for administering mail servers.</li>
+  <li>Create a module with the following command:
+<code class="highlighter-rouge">rexify Your::Module::Name --create-module</code>. If your Rexfile already exists, your modules will be placed inside a <code class="highlighter-rouge">lib</code> directory. If the Rexfile hasn’t been created yet, your modules will be placed directly into the current directory.</li>
+  <li>Repeat step 5 for each of your modules.</li>
+  <li>Edit/create your Rexfile. For each module you added and want to access with the rex command, place <code class="highlighter-rouge">require Your::Module::Name;</code> at the top. Also be sure you have <code class="highlighter-rouge">use Rex</code> along with any <code class="highlighter-rouge">-feature</code> import argument <a href="https://www.rexify.org/docs/guides/feature_flags.html">per the documenation.</a></li>
+  <li>Add your tasks to the <code class="highlighter-rouge">__module__.pm</code> automatically generated for you inside the last directory of each module. You can safely delete the meta.yml file. It’s not needed with newer versions of Rex.</li>
+  <li>Now, <code class="highlighter-rouge">rex &lt;command&gt;</code> can access and task from inside each of the module directories you just created.</li>
+  <li>By default, you must prefix alls tasks with the module name like so:
+<code class="highlighter-rouge">rex Your:Module:name:task_name</code>
+Note the single colon, not double colon, between each of the path segments. Note also that when tasks are called by another task, they must also used this notation to fully qualify the task name.</li>
+  <li>The good news is you don’t have to prefix task names if you are careful about avoiding namespace clashes by ensuring your tasks have unique names across all your different <code class="highlighter-rouge">__module__.pm</code> files containing your tasks. To pull this off, simply remove the <code class="highlighter-rouge"><span class="k">package</span> <span class="n">Your</span><span class="p">::</span><span class="n">Module</span><span class="p">::</span><span class="n">Name</span><span class="p">;</span></code> line form the <code class="highlighter-rouge">__module__.pm</code> file from each of your modules you’d prefer to not prefix with the module name.</li>
+</ol>
+
+<h2 id="tip-2-set-up-bash-completions">Tip #2: Set up bash completions</h2>
+<p>Tab completion allows you to quickly type in task names, group names, file names, host names, and environment names from the command line. You simply type in the first few letters of the name, hit the <TAB> key and bash will do it's best to finish typing in the rest of the name for you, or as much as it can until you type in another letter or two and hit <TAB> again.</TAB></TAB></p>
+
+<p>Tab completion for rex kicks in when you type in the <code class="highlighter-rouge">rex</code> command at the command line and hit the <TAB> key. bash will then look for a Rexfile or rex yaml file in the current directory to compile a list of potential completions. The completion feature also determines where in the rex command you are to help determine which name you intend to type. For example, if you just typed in the `-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash completion script will provide bash with list of possible groups based on the letters you typed.</TAB></TAB></p>
+
+<h3 id="setting-up-tab-completion">Setting up tab completion</h3>
+
+<p>Follow these steps to get rex’s tab completion feature working on your command line:</p>
+
+<ol>
+  <li>Download or copy and paste the <a href="https://github.com/RexOps/Rex/blob/master/misc/rex-tab-completion.bash">Rex tab completion script</a> into a file</li>
+  <li>Place the script into your desired location, usually in your home directory.</li>
+  <li>Source the script with by running <code class="highlighter-rouge">source /path/to/script/rex-tab-completion.bash</code> on the command line.</li>
+  <li>If desired, add the command in step 3 to your <code class="highlighter-rouge">.bashrc</code> file so it will be available every time you log into your shell.</li>
+  <li>If you add more commands and entities to your Rexfile, type <code class="highlighter-rouge">exec bash</code> on the command line to update your completions. Note that you must have completed step 4 for this to work.</li>
+</ol>
+
+<h2 id="tip-3-run-rex-from-any-directory-on-your-local-machine">Tip #3: Run rex from any directory on your local machine</h2>
+<p>Typically, you have to go to the <code class="highlighter-rouge">~/rex</code> directory (or to whatever directory contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of bash magic, you can run your rex tasks from anywhere on the machine and even keep your bash completion. This works best when you have all your rex modules and Rexfile in a single directory as described in Tip #1.</p>
+
+<p>Here’s how to set it up:</p>
+
+<ol>
+  <li>First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">r <span class="o">()</span> <span class="o">{</span>
+  <span class="nb">builtin cd</span> <span class="nv">$HOME</span>/rex     <span class="c"># set this to the path where you store your Rexfile</span>
+  rex <span class="nv">$@</span>
+  <span class="nb">builtin cd</span> <span class="nv">$OLDPWD</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That’s it! Now you can just type in <code class="highlighter-rouge">r &lt;command&gt;</code> from anywhere on your machine. Don’t forget to resource your bash configuration to get it working.</p>
+
+<ol>
+  <li>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-perl" data-lang="perl"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="code"><pre><span class="o">...</span>
+<span class="nv">_rex</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="o">...</span>
+    <span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="nv">z</span> <span class="nv">$_rex_yaml</span> <span class="p">]];</span> <span class="k">then</span>
+        <span class="c1">### on the following line, change 'Rexfile' to your full Rexfile path</span>
+        <span class="nv">_rex_yaml</span><span class="o">=</span><span class="nv">$</span><span class="err">(</span><span class="nv">rex</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="o">-</span><span class="nv">Ty</span> <span class="mi">2</span><span class="o">&gt;</span><span class="sr">/dev/null</span><span class="p">)</span>
+    <span class="nv">fi</span>
+<span class="o">...</span>
+            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">### change 'Rexfile' to your full Rexfile path</span>
+<span class="o">...</span>
+            <span class="nv">fi</span>
+            <span class="p">;;</span>
+        <span class="o">-</span><span class="nv">E</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">#### change 'Rexfile' to your full Rexfile path</span>
+<span class="o">...</span>
+            <span class="nv">fi</span>
+            <span class="p">;;</span>
+        <span class="o">-</span><span class="nv">G</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">### change 'Rexfile' to your full Rexfile path</span>
+<span class="o">...</span>
+            <span class="nv">fi</span>
+            <span class="p">;;</span>
+
+        <span class="o">*</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">### change 'Rexfile' to your full Rexfile path</span>
+<span class="o">...</span>
+<span class="nv">complete</span> <span class="o">-</span><span class="nv">F</span> <span class="nv">_rex</span> <span class="nv">rex</span>
+
+<span class="c1">### Add this line</span>
+<span class="nv">complete</span> <span class="o">-</span><span class="nv">F</span> <span class="nv">_rex</span> <span class="nv">r</span>
+
+<span class="o">...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<ol>
+  <li>Now save your file and open up a new bash process and you should now be able to do <code class="highlighter-rouge">r &lt;partial_command&gt;&lt;tab&gt;</code> and perform rex bash completions from anywhere on your machine.</li>
+</ol>
+
+<h2 id="tip-4-use-rexdondleyprocesstaskargs-to-process-arguments-passed-to-your-tasks">Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks</h2>
+
+<p>The way arguments are passed into Rex tasks is a little…weird. Command line argument with names, those preceded with a double dashed label (e.g. –arg_name=value), are passed to tasks with a hash reference. Unnamed arguments get passed in via an array reference. So your <code class="highlighter-rouge">@_</code> will looks something like this:</p>
+
+<p><code class="highlighter-rouge">({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])</code>.</p>
+
+<p>The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren’t passed in. Appropriate errors are set if the passed arguments don’t meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.</p>
+
+<p>See <a href="https://metacpan.org/release/Rex-Dondley-ProcessTaskArgs">Rex::Dondley::ProcessTaskArgs</a> for more details on how the module works.</p>
+
+<h2 id="tip-5-document-arguments-to-your-tasks-using-the-desc-function">Tip #5: Document arguments to your tasks using the <code class="highlighter-rouge">desc</code> function</h2>
+<p>As most developers can bear witness, undocumented code is useless code even if you wrote it yourself. Unless you are blessed with mental superpowers, there’s simply no way you are going to remember all the commands you wrote years, months, days, or even hours ago. So here’s a quick hack to painlessly document your task arguments and make them easily accessible right from the command line.</p>
+
+<ol>
+  <li>Before each task, write a simple <code class="highlighter-rouge">desc</code> of the task followed by the argument it takes:
+<code class="highlighter-rouge">desc 'this task does X | --domain=some.domain.com [ --quiet ]';</code></li>
+  <li>Place optional arguments in square brackets</li>
+  <li>For arguments that take values, provide a sample argument</li>
+  <li>Notice the “pipe” character to help provide visual separation from the description
+% endhighlight %}</li>
+</ol>
+
+	
+	
+
+
+
+	<ul class="article-links">
+		
+		<li>
+			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
+			</svg>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/rex.md">View the edit history</a>
+		</li>
+		
+		
+	</ul>
+
+
+<a href="/" id="back">&laquo; Back </a>
+
+</article>
+
+
+	
+
+
+        
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://twitter.com/">Twitter</a>
+            </li>
+            <li>
+                <a href="/feed.xml">RSS Feed</a>
+            </li>
+            <li>
+                <a href="https://github.com/sdondley/sdondley.github.io">Source</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>
