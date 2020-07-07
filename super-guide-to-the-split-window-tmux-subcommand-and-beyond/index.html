@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<head>
+       
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Guide to the split-window tmux Subcommand (and Beyond)</title>
+<meta name="author" content="Steve Dondley">
+<meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<link rel="icon" href="/favicon.ico?v=1.0">
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700|Oswald:300,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/css/index.css">
+<!-- OpenGraph meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley">
+<meta property="article:author" content="/about/">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta property="og:title" content="Super Guide to the split-window tmux Subcommand (and Beyond)">
+<meta name="twitter:title" content="Super Guide to the split-window tmux Subcommand (and Beyond)">
+<meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+<meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+    <meta property="og:type" content="article">
+        <meta property="article:published_time" content="2019-04-17T22:40:01-04:00">
+            <meta property="article:section" content="Tech">
+            <meta property="article:tag" content="git">
+            <meta property="article:tag" content="tmux">
+            <meta property="article:tag" content="vim">
+    <meta property="og:url" content="https://steve.dondley.com/super-guide-to-the-split-window-tmux-subcommand-and-beyond/">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
+
+
+    
+        <style type="text/css">
+        .hero {
+            background-color: #d3dbe7;
+            background-image: url('/images/hero/laugh.jpg');
+        }
+@media (max-device-width: 1440px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1440px.jpg');
+	}
+}
+@media (max-device-width: 1200px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1200px.jpg');
+	}
+}
+@media (max-device-width: 800px) {
+	.hero {
+		background-image: url('/images/hero/laugh-800px.jpg');
+	}
+}
+@media (max-device-width: 550px) {
+	.hero {
+		background-image: url('/images/hero/laugh-550px.jpg');
+	}
+}
+@media (max-device-width: 380px) {
+	.hero {
+		background-image: url('/images/hero/laugh-380px.jpg');
+	}
+}
+        </style>
+
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <a href="/notes/">NOTES</a>
+            <a href="/about/">ABOUT</a>
+        </nav>
+         
+        <div class="title">
+            <a href="/">
+                <h1>OFFERINGS</h1>
+                <p>by <span title="Steve Dondley">Steve Dondley</span></p>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+       <div class="container">
+           
+           <article class="post">
+	
+	<header>
+		<h1>Super Guide to the split-window tmux Subcommand (and Beyond)</h1>
+		
+    <p class="date">
+        
+        <time datetime="2019-04-17">
+            April 17, 2019
+        </time>
+    </p>
+
+
+		
+
+	</header>
+	
+	
+	<p><!-- wp:paragraph --></p>
+<p>I spent the last few days writing a beginner's guide for <a href="https://en.wikipedia.org/wiki/Tmux">tmux</a> users. It currently weighs in at about 22 printed pages.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>tmux is a tool mostly used by developers to help them work across several documents at the same time. It's very useful, but hard to master without sinking a lot of time into it.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Technical notes</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>I wrote it using <a href="http://vim wikipedia">vim,</a> another power tool developers mostly used for editing software code but it's an excellent editor for any text document. As an experiment, <a href="https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e">the document</a> is hosted to the public with <a href="https://en.wikipedia.org/wiki/GitHub">GitHub's</a> "Gist" service which allows you to easily integrate it with a <a href="https://en.wikipedia.org/wiki/Git">git</a> repository. This permits me to edit the file locally and when I'm finished making edits, I can push the the document out to the "gist" on GitHub. Since the document is tracked in a git repository, others can "fork" the document and make their own changes it without changing the original. It's similar in concept to Google Docs. It's unlikely, however, anyone would fork this document, but who knows?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>My biggest interest in the the gist service is that each document has a  javascript snippet for embedding the document on a web page. So as I continue to make changes to the document, the website will be updated as well. Seems like there is some potential for doing some interesting experiments; it could be very useful for live blogging. It seems, in general, GitHub integration with a WordPress site could open up <a href="https://wordpress.org/plugins/writing-on-github/">interesting creative possibilities.</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Anyway, here is the guide, live from GitHub:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!--more--></p>
+<p><script src="https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e.js"></script></p>
+
+	
+	
+
+
+
+	<ul class="article-links">
+		
+		<li>
+			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
+			</svg>
+			<a href="https://github.com/sdondley/sdondly.github.io/commits/master/_posts/2019-04-17-super-guide-to-the-split-window-tmux-subcommand-and-beyond.html">View the edit history</a>
+		</li>
+		
+		
+	</ul>
+
+
+<a href="/" id="back">&laquo; Back </a>
+
+</article>
+
+
+	
+
+
+        
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://twitter.com/">Twitter</a>
+            </li>
+            <li>
+                <a href="/feed.xml">RSS Feed</a>
+            </li>
+            <li>
+                <a href="https://github.com/sdondley/sdondley.github.io">Source</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<head>
+       
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setting up a "split DNS" configuration on a Synology NAS for hosting websites</title>
+<meta name="author" content="Steve Dondley">
+<meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<link rel="icon" href="/favicon.ico?v=1.0">
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700|Oswald:300,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/css/index.css">
+<!-- OpenGraph meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley">
+<meta property="article:author" content="/about/">
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+<meta property="og:title" content="Setting up a &quot;split DNS&quot; configuration on a Synology NAS for hosting websites">
+<meta name="twitter:title" content="Setting up a &quot;split DNS&quot; configuration on a Synology NAS for hosting websites">
+<meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+<meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+    <meta property="og:type" content="article">
+        <meta property="article:published_time" content="2019-04-20T17:25:03-04:00">
+            <meta property="article:section" content="Tech">
+            <meta property="article:tag" content="dns">
+    <meta property="og:url" content="https://steve.dondley.com/setting-up-a-split-dns-configuration-on-a-synology-nas-for-hosting-websites/">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
+
+
+    
+        <style type="text/css">
+        .hero {
+            background-color: #d3dbe7;
+            background-image: url('/images/hero/laugh.jpg');
+        }
+@media (max-device-width: 1440px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1440px.jpg');
+	}
+}
+@media (max-device-width: 1200px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1200px.jpg');
+	}
+}
+@media (max-device-width: 800px) {
+	.hero {
+		background-image: url('/images/hero/laugh-800px.jpg');
+	}
+}
+@media (max-device-width: 550px) {
+	.hero {
+		background-image: url('/images/hero/laugh-550px.jpg');
+	}
+}
+@media (max-device-width: 380px) {
+	.hero {
+		background-image: url('/images/hero/laugh-380px.jpg');
+	}
+}
+        </style>
+
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <a href="/notes/">NOTES</a>
+            <a href="/about/">ABOUT</a>
+        </nav>
+         
+        <div class="title">
+            <a href="/">
+                <h1>OFFERINGS</h1>
+                <p>by <span title="Steve Dondley">Steve Dondley</span></p>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+       <div class="container">
+           
+           <article class="post">
+	
+	<header>
+		<h1>Setting up a "split DNS" configuration on a Synology NAS for hosting websites</h1>
+		
+    <p class="date">
+        
+        <time datetime="2019-04-20">
+            April 20, 2019
+        </time>
+    </p>
+
+
+		
+
+	</header>
+	
+	
+	<p><!-- wp:heading --></p>
+<h2>A Quick Primer on DNS</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Here's a very quick primer on the Domain Name System (DNS), a giant database distributed over millions of computers across the globe. It's primary job is to "resolve," or look up, the IP address for a given human-readable internet address. For example, the "google.com" address meant for humans resolves to the IP address of "172.217.6.206," the number that computers use to "dial" google's website up. This makes the internet much more convenient to use. Typing in long and not very memorable IP addresses is much more of a hassle than typing in an address made up of common letters and words.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The DNS system is quite ingenious. Rather than one organization maintaining and updating a centralized database of all IP addresses and their associates names, it is the responsibility of the owners of each domain to create and update a "zone record" for the domains they have ownership of. For a few bucks a year, you can purchase your own domain and manage your own zone records which let the rest of the world know the IP addresses of the computers associated with your domain. Of course, you also need to pay someone to use an IP addresses provisioned to you and be sure that the computers attached to these IP addresses respond properly when the IP address is "dialed" by another computer, but that's a topic for another day.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So when you type in an address to your browser, how does your computer know where to find these zone records? That’s the job of what are called “name servers.” If you've ever purchased a domain, you know that the registrar requires you to associate two more name servers with your new domain name. It's the job of these name servers to tell other computers where to find your zone records. Once your computer knows where to find the zone records for a domain, it will then query that computer for the IP address of the human-readable address it's looking for. Two name servers are usually required to provide redundancy. So if one of the name servers goes down temporarily, a least one other name server will be around to handle incoming requests.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Usually, registrars will give you free use of their name servers and provide a simple web-based interface for updating your own zone records. This makes things easy. But if you need more control over how DNS requests are handled for your domain, you'll need to set up and run your own name servers so you can handle the requests yourself. To do that, you just have to provide the registrar with the names of the custom name servers that you wish to use.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>The Problem</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hosting your own websites from your own home network, as I do, is one scenario where it's probably a good idea to run your own name servers and manage your own zone records for you domain. In my case, after getting my website, https://steve.dondley.com, set up on my local network, I noticed that though I could reach my websites from outside my network, computers on my local network at home could could not pull up my website.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Not being familiar with this problem, I googled around and determined I had to set up what's called a split DNS configuration. I won't go into all the gory details here. I'm not enough of an expert on DNS to do that. But if you are interested as to what split DNS is and why it's needed in this case, <a href="http://techgenix.com/you_need_to_create_a_split_dns/">check out this excellent explanation.</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>The Solution</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>The solution I implemented, outlined below, is specific to the Synology NAS device I have set up on my home network. More specifically, I have model DS1511+ running DSM version 6.2.1-23824, Update 6 with the "DNS Server" package installed. I should also note that the solution below is specific to my situation where I have name server being hosted servers outside of my local network.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Finally, a word of caution: I am not familiar with DNS or Synology's solution that it calls "Views" to say if the instructions below are optimal. Though the solution works for me, I may be overcomplicating things. You should consult with the official, built-in "DSM Help" documetnation (under "Packages -&gt; "DNS Server" -&gt; "Views") or your friendly DNS expert to see if this solution can be improved upon:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list {"ordered":true} --></p>
+<ol>
+<li>On the nameserver, create a zone record for&nbsp;<a href="https://subdomain.myowndomain.com/" rel="noreferrer noopener" target="_blank">subdomain.myowndomain.com</a>&nbsp;if it doesn't already exist</li>
+<li>Set up slave zone record for&nbsp;<a href="https://formyowndomain.com/" rel="noreferrer noopener" target="_blank">myowndomain.com</a>&nbsp;on synology and fetch records from master zone record</li>
+<li>Set up a master zone record for&nbsp;<a href="https://myowndomain.com/" rel="noreferrer noopener" target="_blank">myowndomain.com</a>&nbsp;on synology using the interface under "Zone" in synology's DNS server software</li>
+<li>Add a&nbsp;<a href="https://subdomain.myowndomain.com/" rel="noreferrer noopener" target="_blank">subdomain.myowndomain.com</a>&nbsp;to the new master zone record. The IP address is the internal address of your synology device.</li>
+<li>Go down to the "Views" tab in synology's DNS server software.</li>
+<li>Create a new view called "internal" (name is arbitrary)</li>
+<li>Set up the forwarders</li>
+<li>Under "select zone," select the "slave" zone then save the view</li>
+<li>Create a second view called "external"</li>
+<li>set up forwarders</li>
+<li>Under "select zone", select the "master" zone and save the view</li>
+<li>Make sure internal is listed first and then the external view. If change the order with the "up/down" buttons.</li>
+</ol>
+<p><!-- /wp:list --></p>
+<p><!-- wp:paragraph --></p>
+<p></p>
+<p><!-- /wp:paragraph --></p>
+
+	
+	
+
+
+
+	<ul class="article-links">
+		
+		<li>
+			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
+			</svg>
+			<a href="https://github.com/sdondley/sdondly.github.io/commits/master/_posts/2019-04-20-setting-up-a-split-dns-configuration-on-a-synology-nas-for-hosting-websites.html">View the edit history</a>
+		</li>
+		
+		
+	</ul>
+
+
+<a href="/" id="back">&laquo; Back </a>
+
+</article>
+
+
+	
+
+
+        
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://twitter.com/">Twitter</a>
+            </li>
+            <li>
+                <a href="/feed.xml">RSS Feed</a>
+            </li>
+            <li>
+                <a href="https://github.com/sdondley/sdondley.github.io">Source</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>
