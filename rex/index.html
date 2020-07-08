@@ -160,56 +160,52 @@ Note the single colon, not double colon, between each of the path segments. Note
 <p>Here’s how to set it up:</p>
 
 <ol>
-  <li>First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:</li>
-</ol>
+  <li>First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> r () {
+   builtin cd $HOME/rex     # set this to the path where you store your Rexfile
+   rex $@
+   builtin cd $OLDPWD
+ }
+</code></pre></div>    </div>
+    <p>This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That’s it! Now you can just type in <code class="highlighter-rouge">r &lt;command&gt;</code> from anywhere on your machine. Don’t forget to resource your bash configuration to get it working.</p>
+  </li>
+  <li>
+    <p>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">r <span class="o">()</span> <span class="o">{</span>
-  <span class="nb">builtin cd</span> <span class="nv">$HOME</span>/rex     <span class="c"># set this to the path where you store your Rexfile</span>
-  rex <span class="nv">$@</span>
-  <span class="nb">builtin cd</span> <span class="nv">$OLDPWD</span>
-<span class="o">}</span></code></pre></figure>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> _rex()
+ {
+ ...
+     if [[ -z $_rex_yaml ]]; then
+         ### on the following line, change 'Rexfile' to your full Rexfile path
+         _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2&gt;/dev/null)
+     fi
+ ...
+             if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+ ...
+             fi
+             ;;
+         -E)
+             if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
+ ...
+             fi
+             ;;
+         -G)
+             if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+ ...
+             fi
+             ;;
 
-<p>This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That’s it! Now you can just type in <code class="highlighter-rouge">r &lt;command&gt;</code> from anywhere on your machine. Don’t forget to resource your bash configuration to get it working.</p>
+         *)
+             if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+ ...
+ complete -F _rex rex
 
-<ol>
-  <li>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:</li>
-</ol>
+ ### Add this line
+ complete -F _rex r
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_rex()
-{
-...
-    if [[ -z $_rex_yaml ]]; then
-        ### on the following line, change 'Rexfile' to your full Rexfile path
-        _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2&gt;/dev/null)
-    fi
-...
-            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-...
-            fi
-            ;;
-        -E)
-            if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
-...
-            fi
-            ;;
-        -G)
-            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-...
-            fi
-            ;;
-
-        *)
-            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-...
-complete -F _rex rex
-
-### Add this line
-complete -F _rex r
-
-...
-</code></pre></div></div>
-
-<ol>
+ ...
+</code></pre></div>    </div>
+  </li>
   <li>Now save your file and open up a new bash process and you should now be able to do <code class="highlighter-rouge">r &lt;partial_command&gt;&lt;tab&gt;</code> and perform rex bash completions from anywhere on your machine.</li>
 </ol>
 
