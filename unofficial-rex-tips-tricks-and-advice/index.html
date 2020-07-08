@@ -176,117 +176,123 @@ them with a module name. <strong>NOTE: This is an unsupported hack. Use it at yo
 own peril.</strong></li>
 </ol>
 
-<h2 id="tip-2-set-up-tab-completions-tab-completion-allows-you-to-quickly-type-in">Tip #2: Set up tab completions Tab completion allows you to quickly type in</h2>
-<p>task names, group names, file names, host names, and environment names from the
-command line. You simply type in the first few letters of the name, hit the</p>
-<TAB> key and bash will do it's best to finish typing in the rest of the name
-for you, or as much as it can until you type in another letter or two and hit
-<TAB> again.
+<h2 id="tip-2-set-up-tab-completions">Tip #2: Set up tab completions</h2>
 
-Tab completion for rex kicks in when you type in the `rex` command at the
+<p>Tab completion allows you to quickly type in task names, group names, file
+names, host names, and environment names from the command line. You simply type
+in the first few letters of the name, hit the <TAB> key and bash will do it's
+best to finish typing in the rest of the name for you, or as much as it can
+until you type in another letter or two and hit <TAB> again.</TAB></TAB></p>
+
+<p>Tab completion for rex kicks in when you type in the <code class="highlighter-rouge">rex</code> command at the
 command line and hit the <TAB> key. bash will then look for a Rexfile or rex
 yaml file in the current directory to compile a list of potential completions.
 The completion feature also determines where in the rex command you are to help
 determine which name you intend to type. For example, if you just typed in the
 `-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash
 completion script will provide bash with list of possible groups based on the
-letters you typed.
+letters you typed.</TAB></TAB></p>
 
-### Setting up tab completion
+<h3 id="setting-up-tab-completion">Setting up tab completion</h3>
 
-Follow these steps to get rex's tab completion feature working on your command line:
+<p>Follow these steps to get rex’s tab completion feature working on your command line:</p>
 
-1. Download or copy and paste the appropriate [Rex tab completion
-   script](https://metacpan.org/release/Rex/source/share). Place the script into
-   your desired location, usually in your home directory.
-2. Source the script with by running `source
-   /path/to/script/rex-tab-completion.bash` on the command line.
-3. If desired, add the command in step 3 to your `.bashrc` file so it will be
-   available every time you log into your shell.
-4. If you add more commands and entities to your Rexfile, type `exec bash` on
-   the command line to update your completions. Note that you must have
-   completed step 3 for this to work.
+<ol>
+  <li>Download or copy and paste the appropriate <a href="https://metacpan.org/release/Rex/source/share">Rex tab completion
+script</a>. Place the script into
+your desired location, usually in your home directory.</li>
+  <li>Source the script with by running <code class="highlighter-rouge">source
+/path/to/script/rex-tab-completion.bash</code> on the command line.</li>
+  <li>If desired, add the command in step 3 to your <code class="highlighter-rouge">.bashrc</code> file so it will be
+available every time you log into your shell.</li>
+  <li>If you add more commands and entities to your Rexfile, type <code class="highlighter-rouge">exec bash</code> on
+the command line to update your completions. Note that you must have
+completed step 3 for this to work.</li>
+</ol>
 
-## Tip #3: Run rex from any directory on your local machine
-Typically, you have to go to the `~/rex` directory (or to whatever directory
+<h2 id="tip-3-run-rex-from-any-directory-on-your-local-machine">Tip #3: Run rex from any directory on your local machine</h2>
+<p>Typically, you have to go to the <code class="highlighter-rouge">~/rex</code> directory (or to whatever directory
 contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of
 bash magic, you can run your rex tasks from anywhere on the machine and even
 keep your bash completion. This works best when you have all your rex modules
-and Rexfile in a single directory as described in Tip #1.
+and Rexfile in a single directory as described in Tip #1.</p>
 
-Here's how to set it up:
+<p>Here’s how to set it up:</p>
 
-1. First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
-    ```bash
-    r () {
-      builtin cd $HOME/rex     # set this to the path where you store your Rexfile
-      rex $@
-      builtin cd $OLDPWD
-    }
-    ```
-    This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That's it! Now you can just type in `r <command />` from anywhere on your machine. Don't forget to resource your bash configuration to get it working.
-1. If you set up bash completion in Tip #2, you'll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with `###`, below:
-    ```bash
-    _rex()
-    {
-    ...
-        if [[ -z $_rex_yaml ]]; then
-            ### on the following line, change 'Rexfile' to your full Rexfile path
-            _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2&gt;/dev/null)
-        fi
-    ...
-                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-    ...
-                fi
-                ;;
-            -E)
-                if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
-    ...
-                fi
-                ;;
-            -G)
-                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-    ...
-                fi
-                ;;
+<ol>
+  <li>First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> r <span class="o">()</span> <span class="o">{</span>
+   <span class="nb">builtin cd</span> <span class="nv">$HOME</span>/rex     <span class="c"># set this to the path where you store your Rexfile</span>
+   rex <span class="nv">$@</span>
+   <span class="nb">builtin cd</span> <span class="nv">$OLDPWD</span>
+ <span class="o">}</span>
+</code></pre></div>    </div>
+    <p>This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That’s it! Now you can just type in <code class="highlighter-rouge">r &lt;command&gt;</code> from anywhere on your machine. Don’t forget to resource your bash configuration to get it working.</p>
+  </li>
+  <li>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> _rex<span class="o">()</span>
+ <span class="o">{</span>
+ ...
+     <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$_rex_yaml</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+         <span class="c">### on the following line, change 'Rexfile' to your full Rexfile path</span>
+         <span class="nv">_rex_yaml</span><span class="o">=</span><span class="si">$(</span>rex <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="nt">-Ty</span> 2&gt;/dev/null<span class="si">)</span>
+     <span class="k">fi</span>
+ ...
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+ ...
+             <span class="k">fi</span>
+             <span class="p">;;</span>
+         <span class="nt">-E</span><span class="o">)</span>
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">#### change 'Rexfile' to your full Rexfile path</span>
+ ...
+             <span class="k">fi</span>
+             <span class="p">;;</span>
+         <span class="nt">-G</span><span class="o">)</span>
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+ ...
+             <span class="k">fi</span>
+             <span class="p">;;</span>
 
-            *)
-                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-    ...
-    complete -F _rex rex
+         <span class="k">*</span><span class="o">)</span>
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+ ...
+ <span class="nb">complete</span> <span class="nt">-F</span> _rex rex
 
-    ### Add this line
-    complete -F _rex r
+ <span class="c">### Add this line</span>
+ <span class="nb">complete</span> <span class="nt">-F</span> _rex r
 
-    ...
-    ```
-1. Now save your file and open up a new bash process and you should now be able to do `r <partial_command><tab>` and perform rex bash completions from anywhere on your machine.
+ ...
+</code></pre></div>    </div>
+  </li>
+  <li>Now save your file and open up a new bash process and you should now be able to do <code class="highlighter-rouge">r &lt;partial_command&gt;&lt;tab&gt;</code> and perform rex bash completions from anywhere on your machine.</li>
+</ol>
 
-## Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks
+<h2 id="tip-4-use-rexdondleyprocesstaskargs-to-process-arguments-passed-to-your-tasks">Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks</h2>
 
-The way arguments are passed into Rex tasks is a little...weird. Command line
+<p>The way arguments are passed into Rex tasks is a little…weird. Command line
 argument with names, those preceded with a double dashed label (e.g.
-`--arg_name=value`), are passed to tasks with a hash reference. Unnamed
+<code class="highlighter-rouge">--arg_name=value</code>), are passed to tasks with a hash reference. Unnamed
 arguments get passed in via an array reference. So the special variable for the
-argument array, `@_`, will look something like this:
+argument array, <code class="highlighter-rouge">@_</code>, will look something like this:</p>
 
-`({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])`.
+<p><code class="highlighter-rouge">({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])</code>.</p>
 
-The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren't passed in. Appropriate errors are set if the passed arguments don't meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.
+<p>The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren’t passed in. Appropriate errors are set if the passed arguments don’t meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.</p>
 
-See the documentation for
-[Rex::Dondley::ProcessTaskArgs](https://metacpan.org/pod/Rex::Dondley::ProcessTaskArgs)
-for more details.
+<p>See the documentation for
+<a href="https://metacpan.org/pod/Rex::Dondley::ProcessTaskArgs">Rex::Dondley::ProcessTaskArgs</a>
+for more details.</p>
 
-## Tip #5: Document arguments to your tasks using the `desc` function
-As most developers can bear witness, undocumented code is useless code even if you wrote it yourself. Unless you are blessed with mental superpowers, there's simply no way you are going to remember all the commands you wrote years, months, days, or even hours ago. So here's a quick hack to painlessly document your task arguments and make them easily accessible right from the command line.
+<h2 id="tip-5-document-arguments-to-your-tasks-using-the-desc-function">Tip #5: Document arguments to your tasks using the <code class="highlighter-rouge">desc</code> function</h2>
+<p>As most developers can bear witness, undocumented code is useless code even if you wrote it yourself. Unless you are blessed with mental superpowers, there’s simply no way you are going to remember all the commands you wrote years, months, days, or even hours ago. So here’s a quick hack to painlessly document your task arguments and make them easily accessible right from the command line.</p>
 
-1. Before each task, write a simple `desc` of the task followed by the argument it takes:
-`desc 'this task does X | --domain=some.domain.com [ --quiet ]';`
-2. Place optional arguments in square brackets
-3. For arguments that take values, provide a sample argument
-4. Notice the "pipe" character to help provide visual separation from the description
-</tab></partial_command></TAB></TAB></TAB></TAB>
+<ol>
+  <li>Before each task, write a simple <code class="highlighter-rouge">desc</code> of the task followed by the argument it takes:
+<code class="highlighter-rouge">desc 'this task does X | --domain=some.domain.com [ --quiet ]';</code></li>
+  <li>Place optional arguments in square brackets</li>
+  <li>For arguments that take values, provide a sample argument</li>
+  <li>Notice the “pipe” character to help provide visual separation from the description</li>
+</ol>
 
 	
 	
