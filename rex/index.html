@@ -175,71 +175,39 @@ Note the single colon, not double colon, between each of the path segments. Note
   <li>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-</pre></td><td class="code"><pre>_rex<span class="o">()</span>
-<span class="o">{</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_rex()
+{
 ...
-    <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$_rex_yaml</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="c">### on the following line, change 'Rexfile' to your full Rexfile path</span>
-        <span class="nv">_rex_yaml</span><span class="o">=</span><span class="si">$(</span>rex <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="nt">-Ty</span> 2&gt;/dev/null<span class="si">)</span>
-    <span class="k">fi</span>
+    if [[ -z $_rex_yaml ]]; then
+        ### on the following line, change 'Rexfile' to your full Rexfile path
+        _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2&gt;/dev/null)
+    fi
 ...
-            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
 ...
-            <span class="k">fi</span>
-            <span class="p">;;</span>
-        <span class="nt">-E</span><span class="o">)</span>
-            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">#### change 'Rexfile' to your full Rexfile path</span>
+            fi
+            ;;
+        -E)
+            if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
 ...
-            <span class="k">fi</span>
-            <span class="p">;;</span>
-        <span class="nt">-G</span><span class="o">)</span>
-            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+            fi
+            ;;
+        -G)
+            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
 ...
-            <span class="k">fi</span>
-            <span class="p">;;</span>
+            fi
+            ;;
 
-        <span class="k">*</span><span class="o">)</span>
-            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+        *)
+            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
 ...
-<span class="nb">complete</span> <span class="nt">-F</span> _rex rex
+complete -F _rex rex
 
-<span class="c">### Add this line</span>
-<span class="nb">complete</span> <span class="nt">-F</span> _rex r
+### Add this line
+complete -F _rex r
 
 ...
-</pre></td></tr></tbody></table></code></pre></figure>
+</code></pre></div></div>
 
 <ol>
   <li>Now save your file and open up a new bash process and you should now be able to do <code class="highlighter-rouge">r &lt;partial_command&gt;&lt;tab&gt;</code> and perform rex bash completions from anywhere on your machine.</li>
