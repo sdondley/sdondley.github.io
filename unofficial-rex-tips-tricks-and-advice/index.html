@@ -26,7 +26,8 @@
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
-        <meta property="article:published_time" content="2020-07-07T00:00:00-04:00">
+        <meta property="article:published_time" content="2020-05-08T00:00:00-04:00">
+        <meta property="article:modified_time" content="2020-07-08T00:00:00-04:00">
     <meta property="og:url" content="https://steve.dondley.com/unofficial-rex-tips-tricks-and-advice/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -103,13 +104,20 @@
 		
     <p class="date">
         
-        <time datetime="2020-07-07">
-            July  7, 2020
+        <time datetime="2020-05-08">
+            May  8, 2020
         </time>
     </p>
 
 
 		
+    <p class="date">
+        Updated 
+        <time datetime="2020-07-08">
+            July  8, 2020
+        </time>
+    </p>
+
 
 	</header>
 	
@@ -123,119 +131,142 @@ bit by offering some big picture ideas and fine-grained recipes to get you
 productively using the Rex framework faster than you would otherwise.
 <!-- more --></p>
 
-<h2 id="tip-1-learn-rexs-typical-use-case-and-set-up-a-dedicated-directory-for-all-your-rex-tasks">Tip #1: Learn Rex’s typical use case and set up a dedicated directory for all your Rex tasks</h2>
-<p>Because Rex is a framework, it can be a little confusing to know what it’s typical use case is. The most typical, easiest use case is to have one Rexfile in a single directory and all tasks split out and grouped into modules to make them maintainable. So let’s spell out how to accomplish this:</p>
+<h2 id="tip-1-learn-rexs-typical-use-case">Tip #1: Learn Rex’s typical use case</h2>
+<p>Rex is an open-ended framework and it’s documentation doesn’t spell things out,
+so it can be a little confusing to know what it’s typical use case is. The most
+typical, easiest use case is to have one Rexfile in a single directory and all
+tasks split out and grouped into modules to make them maintainable. So let’s
+spell out how to accomplish this:</p>
 
 <ol>
   <li>You should have one dedicated directory on your hard drive for your rex tasks. Example: <code class="highlighter-rouge">~/rex</code></li>
-  <li>Inside this directory, you will have a file called <code class="highlighter-rouge">Rexfile</code>.</li>
-  <li>You can throw all your tasks into this one Rexfile. But don’t do that because it’ll probably be a huge maintenance headache as it grows insize</li>
-  <li>Instead, you should create modules in your rex directory for your tasks. Each module should have a collection of related tasks. For example, you might have a module in this directory called <code class="highlighter-rouge">Local::Network::Configuration</code> which contain tasks related to managing your local network. You might have another directory called <code class="highlighter-rouge">Web::Servers::Mail</code> for administering mail servers.</li>
-  <li>Create a module with the following command:
-<code class="highlighter-rouge">rexify Your::Module::Name --create-module</code>. If your Rexfile already exists, your modules will be placed inside a <code class="highlighter-rouge">lib</code> directory. If the Rexfile hasn’t been created yet, your modules will be placed directly into the current directory.</li>
+  <li>Inside this directory, you will have a file named <code class="highlighter-rouge">Rexfile</code>.</li>
+  <li>While it’s possible to throw all your tasks into this one Rexfile, don’t do
+it. It’ll probably be a huge maintenance headache as it grows in size.</li>
+  <li>Instead, create modules in your rex directory for holding your tasks. Each
+module should have a collection of related tasks. For example, you might have
+a module in this directory called <code class="highlighter-rouge">Local::Network::Configuration</code> for
+containing tasks related to managing your local network. You might have another
+directory called <code class="highlighter-rouge">Web::Servers::Mail</code> for administering mail servers, etc.,
+etc., so on and so forth.</li>
+  <li>Create a module with the following command: <code class="highlighter-rouge">rexify Your::Module::Name
+--create-module</code>. If your Rexfile already exists, your modules will be placed
+inside a <code class="highlighter-rouge">lib</code> directory. If the Rexfile hasn’t been created yet, your
+modules will be placed directly into the current directory.</li>
   <li>Repeat step 5 for each of your modules.</li>
-  <li>Edit/create your Rexfile. For each module you added and want to access with the rex command, place <code class="highlighter-rouge">require Your::Module::Name;</code> at the top. Also be sure you have <code class="highlighter-rouge">use Rex</code> along with any <code class="highlighter-rouge">-feature</code> import argument <a href="https://www.rexify.org/docs/guides/feature_flags.html">per the documenation.</a></li>
-  <li>Add your tasks to the <code class="highlighter-rouge">__module__.pm</code> automatically generated for you inside the last directory of each module. You can safely delete the meta.yml file. It’s not needed with newer versions of Rex.</li>
-  <li>Now, <code class="highlighter-rouge">rex &lt;command&gt;</code> can access and task from inside each of the module directories you just created.</li>
-  <li>By default, you must prefix alls tasks with the module name like so:
-<code class="highlighter-rouge">rex Your:Module:name:task_name</code>
-Note the single colon, not double colon, between each of the path segments. Note also that when tasks are called by another task, they must also used this notation to fully qualify the task name.</li>
-  <li>The good news is you don’t have to prefix task names if you are careful about avoiding namespace clashes by ensuring your tasks have unique names across all your different <code class="highlighter-rouge">__module__.pm</code> files containing your tasks. To pull this off, simply remove the <code class="highlighter-rouge"><span class="k">package</span> <span class="n">Your</span><span class="p">::</span><span class="n">Module</span><span class="p">::</span><span class="n">Name</span><span class="p">;</span></code> line form the <code class="highlighter-rouge">__module__.pm</code> file from each of your modules you’d prefer to not prefix with the module name.</li>
+  <li>Edit/create your Rexfile. For each module you added and want to access with
+the rex command, place <code class="highlighter-rouge">require Your::Module::Name;</code> at the top. Also be sure
+you have <code class="highlighter-rouge">use Rex</code> along with any <code class="highlighter-rouge">-feature</code> import argument <a href="https://www.rexify.org/docs/guides/feature_flags.html">per the
+documenation.</a></li>
+  <li>Add your tasks to the <code class="highlighter-rouge">__module__.pm</code> automatically generated for you inside
+the last directory of each module. You can safely delete the meta.yml file.
+It’s not needed with newer versions of Rex.</li>
+  <li>Now, <code class="highlighter-rouge">rex &lt;command&gt;</code> can access any task from inside each of the module
+directories you just created.</li>
+  <li>By default, you must prefix all tasks with the module name like so: <code class="highlighter-rouge">rex
+Your:Module:name:task_name</code> Note the single colon, not a double colon, between
+each of the path segments. Note also that when tasks are called by another
+task, they must also used this notation to fully qualify the task name.</li>
+  <li>You don’t have to prefix task names if you are careful
+about avoiding namespace clashes by ensuring your tasks have unique names
+across all your different <code class="highlighter-rouge">__module__.pm</code> files containing your tasks. To
+pull this off, simply remove the <code class="highlighter-rouge"><span class="k">package</span> <span class="n">Your</span><span class="p">::</span><span class="n">Module</span><span class="p">::</span><span class="n">Name</span><span class="p">;</span></code> line form the
+<code class="highlighter-rouge">__module__.pm</code> file from each of your modules you’d prefer to not prefix
+them with a module name. <strong>NOTE: This is an unsupported hack. Use it at your
+own peril.</strong></li>
 </ol>
 
-<h2 id="tip-2-set-up-bash-completions">Tip #2: Set up bash completions</h2>
-<p>Tab completion allows you to quickly type in task names, group names, file names, host names, and environment names from the command line. You simply type in the first few letters of the name, hit the <TAB> key and bash will do it's best to finish typing in the rest of the name for you, or as much as it can until you type in another letter or two and hit <TAB> again.</TAB></TAB></p>
+<h2 id="tip-2-set-up-tab-completions-tab-completion-allows-you-to-quickly-type-in">Tip #2: Set up tab completions Tab completion allows you to quickly type in</h2>
+<p>task names, group names, file names, host names, and environment names from the
+command line. You simply type in the first few letters of the name, hit the</p>
+<TAB> key and bash will do it's best to finish typing in the rest of the name
+for you, or as much as it can until you type in another letter or two and hit
+<TAB> again.
 
-<p>Tab completion for rex kicks in when you type in the <code class="highlighter-rouge">rex</code> command at the command line and hit the <TAB> key. bash will then look for a Rexfile or rex yaml file in the current directory to compile a list of potential completions. The completion feature also determines where in the rex command you are to help determine which name you intend to type. For example, if you just typed in the `-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash completion script will provide bash with list of possible groups based on the letters you typed.</TAB></TAB></p>
+Tab completion for rex kicks in when you type in the `rex` command at the command line and hit the <TAB> key. bash will then look for a Rexfile or rex yaml file in the current directory to compile a list of potential completions. The completion feature also determines where in the rex command you are to help determine which name you intend to type. For example, if you just typed in the `-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash completion script will provide bash with list of possible groups based on the letters you typed.
 
-<h3 id="setting-up-tab-completion">Setting up tab completion</h3>
+### Setting up tab completion
 
-<p>Follow these steps to get rex’s tab completion feature working on your command line:</p>
+Follow these steps to get rex's tab completion feature working on your command line:
 
-<ol>
-  <li>Download or copy and paste the <a href="https://github.com/RexOps/Rex/blob/master/misc/rex-tab-completion.bash">Rex tab completion script</a> into a file</li>
-  <li>Place the script into your desired location, usually in your home directory.</li>
-  <li>Source the script with by running <code class="highlighter-rouge">source /path/to/script/rex-tab-completion.bash</code> on the command line.</li>
-  <li>If desired, add the command in step 3 to your <code class="highlighter-rouge">.bashrc</code> file so it will be available every time you log into your shell.</li>
-  <li>If you add more commands and entities to your Rexfile, type <code class="highlighter-rouge">exec bash</code> on the command line to update your completions. Note that you must have completed step 4 for this to work.</li>
-</ol>
+1. Download or copy and paste the [Rex tab completion
+   script](https://metacpan.org/release/Rex/source/share). Place the script into your desired location, usually in your home directory.
+3. Source the script with by running `source /path/to/script/rex-tab-completion.bash` on the command line.
+4. If desired, add the command in step 3 to your `.bashrc` file so it will be available every time you log into your shell.
+5. If you add more commands and entities to your Rexfile, type `exec bash` on the command line to update your completions. Note that you must have completed step 4 for this to work.
 
-<h2 id="tip-3-run-rex-from-any-directory-on-your-local-machine">Tip #3: Run rex from any directory on your local machine</h2>
-<p>Typically, you have to go to the <code class="highlighter-rouge">~/rex</code> directory (or to whatever directory contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of bash magic, you can run your rex tasks from anywhere on the machine and even keep your bash completion. This works best when you have all your rex modules and Rexfile in a single directory as described in Tip #1.</p>
+## Tip #3: Run rex from any directory on your local machine
+Typically, you have to go to the `~/rex` directory (or to whatever directory contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of bash magic, you can run your rex tasks from anywhere on the machine and even keep your bash completion. This works best when you have all your rex modules and Rexfile in a single directory as described in Tip #1.
 
-<p>Here’s how to set it up:</p>
+Here's how to set it up:
 
-<ol>
-  <li>First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> r () {
-   builtin cd $HOME/rex     # set this to the path where you store your Rexfile
-   rex $@
-   builtin cd $OLDPWD
- }
-</code></pre></div>    </div>
-    <p>This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That’s it! Now you can just type in <code class="highlighter-rouge">r &lt;command&gt;</code> from anywhere on your machine. Don’t forget to resource your bash configuration to get it working.</p>
-  </li>
-  <li>
-    <p>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:</p>
+1. First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
+    ```bash
+    r () {
+      builtin cd $HOME/rex     # set this to the path where you store your Rexfile
+      rex $@
+      builtin cd $OLDPWD
+    }
+    ```
+    This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That's it! Now you can just type in `r <command />` from anywhere on your machine. Don't forget to resource your bash configuration to get it working.
+1. If you set up bash completion in Tip #2, you'll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with `###`, below:
+    ```bash
+    _rex()
+    {
+    ...
+        if [[ -z $_rex_yaml ]]; then
+            ### on the following line, change 'Rexfile' to your full Rexfile path
+            _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2&gt;/dev/null)
+        fi
+    ...
+                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+    ...
+                fi
+                ;;
+            -E)
+                if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
+    ...
+                fi
+                ;;
+            -G)
+                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+    ...
+                fi
+                ;;
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> _rex()
- {
- ...
-     if [[ -z $_rex_yaml ]]; then
-         ### on the following line, change 'Rexfile' to your full Rexfile path
-         _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2&gt;/dev/null)
-     fi
- ...
-             if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
- ...
-             fi
-             ;;
-         -E)
-             if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
- ...
-             fi
-             ;;
-         -G)
-             if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
- ...
-             fi
-             ;;
+            *)
+                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+    ...
+    complete -F _rex rex
 
-         *)
-             if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
- ...
- complete -F _rex rex
+    ### Add this line
+    complete -F _rex r
 
- ### Add this line
- complete -F _rex r
+    ...
+    ```
+1. Now save your file and open up a new bash process and you should now be able to do `r <partial_command><tab>` and perform rex bash completions from anywhere on your machine.
 
- ...
-</code></pre></div>    </div>
-  </li>
-  <li>Now save your file and open up a new bash process and you should now be able to do <code class="highlighter-rouge">r &lt;partial_command&gt;&lt;tab&gt;</code> and perform rex bash completions from anywhere on your machine.</li>
-</ol>
+## Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks
 
-<h2 id="tip-4-use-rexdondleyprocesstaskargs-to-process-arguments-passed-to-your-tasks">Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks</h2>
+The way arguments are passed into Rex tasks is a little...weird. Command line
+argument with names, those preceded with a double dashed label (e.g.
+`--arg_name=value`), are passed to tasks with a hash reference. Unnamed arguments get passed in via an array reference. So your `@_` will looks something like this:
 
-<p>The way arguments are passed into Rex tasks is a little…weird. Command line argument with names, those preceded with a double dashed label (e.g. –arg_name=value), are passed to tasks with a hash reference. Unnamed arguments get passed in via an array reference. So your <code class="highlighter-rouge">@_</code> will looks something like this:</p>
+`({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])`.
 
-<p><code class="highlighter-rouge">({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])</code>.</p>
+The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren't passed in. Appropriate errors are set if the passed arguments don't meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.
 
-<p>The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren’t passed in. Appropriate errors are set if the passed arguments don’t meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.</p>
+See [Rex::Dondley::ProcessTaskArgs](https://metacpan.org/pod/Rex::Dondley::ProcessTaskArgs) for more details on how the module works.
 
-<p>See <a href="https://metacpan.org/release/Rex-Dondley-ProcessTaskArgs">Rex::Dondley::ProcessTaskArgs</a> for more details on how the module works.</p>
+## Tip #5: Document arguments to your tasks using the `desc` function
+As most developers can bear witness, undocumented code is useless code even if you wrote it yourself. Unless you are blessed with mental superpowers, there's simply no way you are going to remember all the commands you wrote years, months, days, or even hours ago. So here's a quick hack to painlessly document your task arguments and make them easily accessible right from the command line.
 
-<h2 id="tip-5-document-arguments-to-your-tasks-using-the-desc-function">Tip #5: Document arguments to your tasks using the <code class="highlighter-rouge">desc</code> function</h2>
-<p>As most developers can bear witness, undocumented code is useless code even if you wrote it yourself. Unless you are blessed with mental superpowers, there’s simply no way you are going to remember all the commands you wrote years, months, days, or even hours ago. So here’s a quick hack to painlessly document your task arguments and make them easily accessible right from the command line.</p>
-
-<ol>
-  <li>Before each task, write a simple <code class="highlighter-rouge">desc</code> of the task followed by the argument it takes:
-<code class="highlighter-rouge">desc 'this task does X | --domain=some.domain.com [ --quiet ]';</code></li>
-  <li>Place optional arguments in square brackets</li>
-  <li>For arguments that take values, provide a sample argument</li>
-  <li>Notice the “pipe” character to help provide visual separation from the description
-% endhighlight %}</li>
-</ol>
+1. Before each task, write a simple `desc` of the task followed by the argument it takes:
+`desc 'this task does X | --domain=some.domain.com [ --quiet ]';`
+2. Place optional arguments in square brackets
+3. For arguments that take values, provide a sample argument
+4. Notice the "pipe" character to help provide visual separation from the description
+</tab></partial_command></TAB></TAB></TAB></TAB>
 
 	
 	
