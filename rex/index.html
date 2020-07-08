@@ -175,7 +175,7 @@ Note the single colon, not double colon, between each of the path segments. Note
   <li>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-perl" data-lang="perl"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -207,38 +207,38 @@ Note the single colon, not double colon, between each of the path segments. Note
 30
 31
 32
-</pre></td><td class="code"><pre><span class="nv">_rex</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="o">...</span>
-    <span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="nv">z</span> <span class="nv">$_rex_yaml</span> <span class="p">]];</span> <span class="k">then</span>
-        <span class="c1">### on the following line, change 'Rexfile' to your full Rexfile path</span>
-        <span class="nv">_rex_yaml</span><span class="o">=</span><span class="nv">$</span><span class="err">(</span><span class="nv">rex</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="o">-</span><span class="nv">Ty</span> <span class="mi">2</span><span class="o">&gt;</span><span class="sr">/dev/null</span><span class="p">)</span>
-    <span class="nv">fi</span>
-<span class="o">...</span>
-            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">### change 'Rexfile' to your full Rexfile path</span>
-<span class="o">...</span>
-            <span class="nv">fi</span>
+</pre></td><td class="code"><pre>_rex<span class="o">()</span>
+<span class="o">{</span>
+...
+    <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$_rex_yaml</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="c">### on the following line, change 'Rexfile' to your full Rexfile path</span>
+        <span class="nv">_rex_yaml</span><span class="o">=</span><span class="si">$(</span>rex <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="nt">-Ty</span> 2&gt;/dev/null<span class="si">)</span>
+    <span class="k">fi</span>
+...
+            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+...
+            <span class="k">fi</span>
             <span class="p">;;</span>
-        <span class="o">-</span><span class="nv">E</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">#### change 'Rexfile' to your full Rexfile path</span>
-<span class="o">...</span>
-            <span class="nv">fi</span>
+        <span class="nt">-E</span><span class="o">)</span>
+            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">#### change 'Rexfile' to your full Rexfile path</span>
+...
+            <span class="k">fi</span>
             <span class="p">;;</span>
-        <span class="o">-</span><span class="nv">G</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">### change 'Rexfile' to your full Rexfile path</span>
-<span class="o">...</span>
-            <span class="nv">fi</span>
+        <span class="nt">-G</span><span class="o">)</span>
+            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+...
+            <span class="k">fi</span>
             <span class="p">;;</span>
 
-        <span class="o">*</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">$HOME</span><span class="sr">/rex/</span><span class="nv">Rexfile</span> <span class="p">];</span> <span class="k">then</span>    <span class="c1">### change 'Rexfile' to your full Rexfile path</span>
-<span class="o">...</span>
-<span class="nv">complete</span> <span class="o">-</span><span class="nv">F</span> <span class="nv">_rex</span> <span class="nv">rex</span>
+        <span class="k">*</span><span class="o">)</span>
+            <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+...
+<span class="nb">complete</span> <span class="nt">-F</span> _rex rex
 
-<span class="c1">### Add this line</span>
-<span class="nv">complete</span> <span class="o">-</span><span class="nv">F</span> <span class="nv">_rex</span> <span class="nv">r</span>
+<span class="c">### Add this line</span>
+<span class="nb">complete</span> <span class="nt">-F</span> _rex r
 
-<span class="o">...</span>
+...
 </pre></td></tr></tbody></table></code></pre></figure>
 
 <ol>
