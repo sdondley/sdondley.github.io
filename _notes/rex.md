@@ -46,52 +46,52 @@ Typically, you have to go to the `~/rex` directory (or to whatever directory con
 Here's how to set it up:
 
 1. First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
-{% highlight bash %}
-r () {
-  builtin cd $HOME/rex     # set this to the path where you store your Rexfile
-  rex $@
-  builtin cd $OLDPWD
-}
-{% endhighlight %}
-This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That's it! Now you can just type in `r <command>` from anywhere on your machine. Don't forget to resource your bash configuration to get it working.
+    ```
+    r () {
+      builtin cd $HOME/rex     # set this to the path where you store your Rexfile
+      rex $@
+      builtin cd $OLDPWD
+    }
+    ```
+    This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That's it! Now you can just type in `r <command>` from anywhere on your machine. Don't forget to resource your bash configuration to get it working.
+1. If you set up bash completion in Tip #2, you'll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with `###`, below:
 
-2. If you set up bash completion in Tip #2, you'll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with `###`, below:
-{% highlight perl linenos %}
-...
-_rex()
-{
-...
-    if [[ -z $_rex_yaml ]]; then
-        ### on the following line, change 'Rexfile' to your full Rexfile path
-        _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2>/dev/null)
-    fi
-...
-            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-...
-            fi
-            ;;
-        -E)
-            if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
-...
-            fi
-            ;;
-        -G)
-            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-...
-            fi
-            ;;
+    ```
+    _rex()
+    {
+    ...
+        if [[ -z $_rex_yaml ]]; then
+            ### on the following line, change 'Rexfile' to your full Rexfile path
+            _rex_yaml=$(rex -f $HOME/rex/Rexfile -Ty 2>/dev/null)
+        fi
+    ...
+                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+    ...
+                fi
+                ;;
+            -E)
+                if [ -f $HOME/rex/Rexfile ]; then    #### change 'Rexfile' to your full Rexfile path
+    ...
+                fi
+                ;;
+            -G)
+                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+    ...
+                fi
+                ;;
 
-        *)
-            if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
-...
-complete -F _rex rex
+            *)
+                if [ -f $HOME/rex/Rexfile ]; then    ### change 'Rexfile' to your full Rexfile path
+    ...
+    complete -F _rex rex
 
-### Add this line
-complete -F _rex r
+    ### Add this line
+    complete -F _rex r
 
-...
-{% endhighlight %}
-3. Now save your file and open up a new bash process and you should now be able to do `r <partial_command><tab>` and perform rex bash completions from anywhere on your machine.
+    ...
+    ```
+
+1. Now save your file and open up a new bash process and you should now be able to do `r <partial_command><tab>` and perform rex bash completions from anywhere on your machine.
 
 ## Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks
 
