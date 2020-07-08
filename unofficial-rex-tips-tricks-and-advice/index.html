@@ -183,20 +183,36 @@ command line. You simply type in the first few letters of the name, hit the</p>
 for you, or as much as it can until you type in another letter or two and hit
 <TAB> again.
 
-Tab completion for rex kicks in when you type in the `rex` command at the command line and hit the <TAB> key. bash will then look for a Rexfile or rex yaml file in the current directory to compile a list of potential completions. The completion feature also determines where in the rex command you are to help determine which name you intend to type. For example, if you just typed in the `-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash completion script will provide bash with list of possible groups based on the letters you typed.
+Tab completion for rex kicks in when you type in the `rex` command at the
+command line and hit the <TAB> key. bash will then look for a Rexfile or rex
+yaml file in the current directory to compile a list of potential completions.
+The completion feature also determines where in the rex command you are to help
+determine which name you intend to type. For example, if you just typed in the
+`-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash
+completion script will provide bash with list of possible groups based on the
+letters you typed.
 
 ### Setting up tab completion
 
 Follow these steps to get rex's tab completion feature working on your command line:
 
-1. Download or copy and paste the [Rex tab completion
-   script](https://metacpan.org/release/Rex/source/share). Place the script into your desired location, usually in your home directory.
-3. Source the script with by running `source /path/to/script/rex-tab-completion.bash` on the command line.
-4. If desired, add the command in step 3 to your `.bashrc` file so it will be available every time you log into your shell.
-5. If you add more commands and entities to your Rexfile, type `exec bash` on the command line to update your completions. Note that you must have completed step 4 for this to work.
+1. Download or copy and paste the appropriate [Rex tab completion
+   script](https://metacpan.org/release/Rex/source/share). Place the script into
+   your desired location, usually in your home directory.
+2. Source the script with by running `source
+   /path/to/script/rex-tab-completion.bash` on the command line.
+3. If desired, add the command in step 3 to your `.bashrc` file so it will be
+   available every time you log into your shell.
+4. If you add more commands and entities to your Rexfile, type `exec bash` on
+   the command line to update your completions. Note that you must have
+   completed step 3 for this to work.
 
 ## Tip #3: Run rex from any directory on your local machine
-Typically, you have to go to the `~/rex` directory (or to whatever directory contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of bash magic, you can run your rex tasks from anywhere on the machine and even keep your bash completion. This works best when you have all your rex modules and Rexfile in a single directory as described in Tip #1.
+Typically, you have to go to the `~/rex` directory (or to whatever directory
+contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of
+bash magic, you can run your rex tasks from anywhere on the machine and even
+keep your bash completion. This works best when you have all your rex modules
+and Rexfile in a single directory as described in Tip #1.
 
 Here's how to set it up:
 
@@ -250,13 +266,17 @@ Here's how to set it up:
 
 The way arguments are passed into Rex tasks is a little...weird. Command line
 argument with names, those preceded with a double dashed label (e.g.
-`--arg_name=value`), are passed to tasks with a hash reference. Unnamed arguments get passed in via an array reference. So your `@_` will looks something like this:
+`--arg_name=value`), are passed to tasks with a hash reference. Unnamed
+arguments get passed in via an array reference. So the special variable for the
+argument array, `@_`, will look something like this:
 
 `({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])`.
 
 The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren't passed in. Appropriate errors are set if the passed arguments don't meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.
 
-See [Rex::Dondley::ProcessTaskArgs](https://metacpan.org/pod/Rex::Dondley::ProcessTaskArgs) for more details on how the module works.
+See the documentation for
+[Rex::Dondley::ProcessTaskArgs](https://metacpan.org/pod/Rex::Dondley::ProcessTaskArgs)
+for more details.
 
 ## Tip #5: Document arguments to your tasks using the `desc` function
 As most developers can bear witness, undocumented code is useless code even if you wrote it yourself. Unless you are blessed with mental superpowers, there's simply no way you are going to remember all the commands you wrote years, months, days, or even hours ago. So here's a quick hack to painlessly document your task arguments and make them easily accessible right from the command line.
