@@ -2,6 +2,7 @@
 layout: post
 title: Notes
 comments: false
+image: /images/hero/war.jpg
 ---
 
 Nothing to see here, yet. Just some testing going on.
