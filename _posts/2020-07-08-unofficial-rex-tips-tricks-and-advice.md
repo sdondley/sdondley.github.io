@@ -175,8 +175,119 @@ right from the command line.
 3. For arguments that take values, provide a sample argument
 4. Notice the "pipe" character to help provide visual separation from the description
 
-## Tip #6: Use the CMDB to load information about your servers
+## Tip #6: Use the CMDB feature to load information about your machines
 
-Rex can already probe a remote server and get details about its hardware. But
-there are times when you would like to store other bits of information about
-your servers in command server
+Rex already automatically probes a remote server to get details about its
+hardware for you which you can access using the [Rex::Hardware
+module](https://metacpan.org/pod/Rex::Hardware). But frequently, you would like
+to get other bits of information about both the server you are controlling
+as well as for your local machine. For example, you might wish to store the path
+to where backups are saved. This information can be stored in what's called a
+configuration management database or **CMDB**. In the world of IT, a CMDB helps
+IT administrators track all the hardware and software in use across their entire
+infrastructure.
+
+This tip will show you a recipe for using Rex's built-in CMDB feature to access
+properties about your servers using the default YAML file format. Just follow these
+steps:
+
+1. Create a `cmdb` directory in the same directory as your Rexfile
+2. In the `cmdb` directory create the following directories:
+* `default`
+* A directory for each of the different kinds of operating systems you have
+  (`Darwin`, `Debian`, etc.)
+* A directory for each of the different environments you run (`testing,` `production`, etc.)
+3. In the `default` directory, create a `.yml` file for each of the different
+   hosts you have. Some exmaple file names:
+* `192.1.59.3.yml`
+* `iMac.yml`
+* `charlie.example.com.yml`
+4. Inside each of the operating system and environment directories, create a
+   symlink to each machine that is a member of that operating system or
+   environement. For example, if your iMac machine is part of your testing
+   environment, create a symlink in the `Darwin` folder to the
+   `default/iMac.yml` file.
+
+When you are finished, you should have a directory structure that looks
+something like this:
+
+```
+Rexfile
++-- cmdb
+|   +-- default
+|   |   +-- iMac.yml
+|   |   +-- 192.1.1.3.yml
+|   |   +-- charlie.example.com.yml
+|   +-- Darwin
+|   |   +-- iMac.yml -> ../default/iMac.yml
+|   |   +-- 192.1.1.3.yml -> ../default/192.1.1.3.yml
+|   +-- Debian
+|   |   +-- charlie.example.com.yml -> ../default/charlie.example.com.yml
+|   +-- production
+|   |   +-- charlie.example.com.yml -> ../default/charlie.example.com.yml
+|   +-- testing
+|   |   +-- 192.1.1.3.yml -> ../default/192.1.1.3.yml
+
+```
+
+The next step is to populate each of the yaml files in the `default` directory with
+your key/value pairs using yaml syntax like in the following example:
+
+```yaml
+archive_dir: /path/to/archive_dir
+backup_frequency: daily
+sftp_dir: /path/to/sftp
+user: my_user
+user_password: letmein
+sudo_password: letmeinsudo
+ssh_port: 22
+```
+
+Now that your text-based cmdb is set up, you can query it from within your
+Rexfile and tasks:
+
+{% highlight perl linenos %}
+use Rex -feature => [ qw( 1.4 ) ];
+use strict;
+use warnings;
+
+# outside of a task, get cmdb() retrieves all the key/value pairs for the local machine
+my $cmdb_l = get cmdb();
+
+task 'some_task' => sub {
+  say $cmdb_l->{sudo_password}   # access cmdb values for local machine in the task
+  say get cmdb('archive_dir')    # access cdmb values for the remote machine
+
+};
+
+before_task_start 'ALL' => sub {
+  # save current cmdb path so we can restore it later
+  my $current_cmdb_path = $_[0]->{path};
+
+  # We set a simpler path to pull cmcdb values from yml files in the cmdb/default directory
+  set ( cmdb => {
+      path => 'cmdb',
+      type => 'YAML',
+    }
+  );
+
+  my $server    = $_[0]->server->[0]->name;  # get the server name
+
+  my $cmdb_r    = get cmdb('', $server);     # load all the values from the yaml file
+
+  # pull values form the yml file
+  user          $cmdb_r->{user};
+  user_password $cmdb_r->{password};
+  ssh_port      $cmdb_r->{port};
+
+  # restore cmdb path
+  set ( cmdb => {
+      path => $current_cmdb_path,
+    }
+  );
+};
+{% endhighlight %}
+
+For more details on using the cmdb module, including how you can set default
+yaml values for your machines, [refer to the Rex::CMDB module
+documentation](https://metacpan.org/pod/Rex::CMDB)
