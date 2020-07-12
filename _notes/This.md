@@ -1,11 +1,11 @@
 ---
 title: Got a title!
-date: 2020-07-12 13:00:14
-updated: 2020-07-12 13:00:14
+date: 2020-07-12 13:08:05
+updated: 2020-07-12 13:08:05
 ---
 
 
-and some text!
+updating a note
 
 ---
 #### Other notes linking to this note:
