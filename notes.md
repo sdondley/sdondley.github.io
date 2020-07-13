@@ -5,12 +5,14 @@ comments: false
 image: /images/hero/war.jpg
 ---
 
-These notes aren't meant to be polished or comprehensive, just mental jogs for the
-mind. I'm sharing my notes because a) they can give anyone who cares a good sense
-of what's on my mind and what I do, b) they might be useful to others, and c) I
-want be more diligent keeping notes and making them public will hopefull
-motivate me to do that. I think I've got a good, easy system in place that makes
-posting my notes painless. We'll see how it goes.
+These notes aren't meant to be polished or comprehensive, just mental jogs for
+the mind. I'm sharing my notes because a) they can give anyone who cares a good
+sense of what's on my mind and what I do, b) they might be useful to others, and
+c) I want be more diligent about keeping notes and making them public may help
+motivate me, and d) I want to find a good recipe for [digitial
+gardening](https://christiantietze.de/posts/2020/05/digital-gardening/) that
+others may find useful ([my son](http://sean.dondley.com), for example). So this is a way for me to
+experiment. We'll see how this project goes.
 
 Anyway, some notes on my notes:
 
