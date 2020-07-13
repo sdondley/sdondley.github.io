@@ -27,10 +27,16 @@ I'm still learning the ropes but the short answer is:
   `customizations` branch
 
 ## [Tips Tricks](/Tips/Tricks)
+* Searching the wiki:
+  * use `:VWS /term/`
+  * use `:lopen` to see results
 
-Coming soon
+## Resources
+* [https://mkaz.blog/working-with-vim/vimwiki/](https://mkaz.blog/working-with-vim/vimwiki/)
 
 ---
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
+
+[How This Site Works](/How-this-site-is-built)
