@@ -8,6 +8,7 @@ date: 2020-07-13 04:18:35
 * [Automation](/Automation)
 * [Digital Gardening](/Digital-Gardening)
 * [vimwiki](/vimwiki)
+* [vim](/vim)
 * [Perl](/Perl)
 
 ---

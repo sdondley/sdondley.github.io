@@ -30,9 +30,13 @@ I'm still learning the ropes but the short answer is:
 * Searching the wiki:
   * use `:VWS /term/`
   * use `:lopen` to see results
+* Be sure to use markdown as the syntax for best integration with Jekyll site
+  generation
+* 
 
 ## Resources
 * [https://mkaz.blog/working-with-vim/vimwiki/](https://mkaz.blog/working-with-vim/vimwiki/)
+* [Getting started guide](https://blog.mague.com/?p=602)
 
 ---
 #### Other notes linking here:
