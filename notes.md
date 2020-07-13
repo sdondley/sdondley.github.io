@@ -25,7 +25,7 @@ Anyway, some notes on my notes:
 * However, there are two index pages, one for the diary and one for the wiki.
   These are good places to start browsing through my notes:
   * [Diary Index](/diary)
-  * [Wiki Index](/index)
+  * [Wiki Index](/index/)
 
 ## Diary and Wiki Notes
 
