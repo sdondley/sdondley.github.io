@@ -9,4 +9,4 @@ I'm a liberal Democrat with a strong pragmatic streak. More coming soon.
 ---
 #### Other notes linking here:
 
-[Wiki Index](/index)
+[Wiki Index](/index/)

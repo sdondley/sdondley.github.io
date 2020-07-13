@@ -9,4 +9,4 @@ This is the problem of our era. More coming soon.
 ---
 #### Other notes linking here:
 
-[Wiki Index](/index)
+[Wiki Index](/index/)
