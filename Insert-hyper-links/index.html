@@ -38,7 +38,7 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-138585660-1', 'auto');
     ga('send', 'pageview', {
-      'anonymizeIp': true,
+      'anonymizeIp': false,
       'page': '/Insert-hyper-links/',
       'title': 'Insert hyperlinks into vim (Mac only)'
     });
@@ -133,7 +133,7 @@ inoremap <span class="p">&lt;</span>Leader<span class="p">&gt;</span>gt <span cl
 nnoremap <span class="p">&lt;</span>Leader<span class="p">&gt;</span>gt <span class="p">:</span><span class="k">silent</span> <span class="p">!~</span><span class="sr">/bin/</span>copy_safari_title<span class="p">.</span>osa <span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>"<span class="p">+</span><span class="k">p</span><span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
 
 <span class="c">" Copy and paste **markdown link** of current open Safari tab into vim using title and url</span>
-inoremap <span class="p">&lt;</span>Leader<span class="p">&gt;</span>gg <span class="k">i</span><span class="p">[&lt;</span>esc<span class="p">&gt;:</span><span class="k">silent</span> <span class="p">!~</span><span class="sr">/bin/</span>copy_safari_title<span class="p">.</span>osa <span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span><span class="s2">"+pa](/&lt;esc&gt;:silent-!~/bin/copy_safari_url.osa-&lt;cr&gt;"</span><span class="p">+</span><span class="k">pa</span><span class="p">)</span>
+inoremap <span class="p">&lt;</span>Leader<span class="p">&gt;</span>gg <span class="p">[&lt;</span>esc<span class="p">&gt;:</span><span class="k">silent</span> <span class="p">!~</span><span class="sr">/bin/</span>copy_safari_title<span class="p">.</span>osa <span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span><span class="s2">"+pa](/&lt;esc&gt;:silent-!~/bin/copy_safari_url.osa-&lt;cr&gt;"</span><span class="p">+</span><span class="k">pa</span><span class="p">)</span>
 inoremap <span class="p">&lt;</span>Leader<span class="p">&gt;</span>gt <span class="k">i</span><span class="p">[&lt;</span>esc<span class="p">&gt;:</span><span class="k">silent</span> <span class="p">!~</span><span class="sr">/bin/</span>copy_safari_title<span class="p">.</span>osa <span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span><span class="s2">"+pa](/&lt;esc&gt;:silent-!~/bin/copy_safari_url.osa-&lt;cr&gt;"</span><span class="p">+</span><span class="k">pa</span><span class="p">)&lt;</span>esc<span class="p">&gt;</span>
 </code></pre></div></div>
 
