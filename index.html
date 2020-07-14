@@ -9,8 +9,8 @@ layout: default
             <a href="{{ post.url }}">
                 <h1>{{ post.title }}</h1>
             </a>
-            {% include date.html date=post.date %}
-            {% include date.html prefix="Updated " date=post.updated %}
+		{% include date.html date=post.date %}&nbsp;&nbsp;{% include update_date.html prefix="Updated: " date=post.updated %}
+	</header>
         </header>
         {{ post.excerpt }}
         <a href="{{ post.url }}">Read more</a>

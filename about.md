@@ -5,7 +5,7 @@ permalink: /about/
 comments: false
 ---
 
-This blog is sporadically maintained by Steve Dondley. The subject matter is primarily focused on sharing technical knowledge and a futile attempt at returning the favor to all of those who have done the same.
+Steve Dondley maintains this blog and digital garden (found in the ["Notes"](/notes/) section of this site). The subject matter is primarily focused on sharing technical knowledge and a futile attempt at returning the favor to all of those who have done the same.
 
 ## Who is Steve Dondley?
 I am the owner and founder of [Prometheus Labor

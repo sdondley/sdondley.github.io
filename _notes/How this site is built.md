@@ -1,10 +1,8 @@
 ---
 date: '2020-07-13 07:36:05'
 title: 'How This Site Works'
-update: '2020-07-14 14:13:38'
+updated: '2020-07-14 19:08:54'
 ---
-
-
 Below are some bullet points that provide an outline of what's under the hood of
 this site you are looking at.
 
@@ -25,6 +23,7 @@ this site you are looking at.
 * The theme is not my own and was forked from
   [https://github.com/MaximeKjaer/kjaer.io](https://github.com/MaximeKjaer/kjaer.io)
   * I have made some very modest changes to original forked code
+  * [Opinion: A Shutdown May Be Needed to Stop the Coronavirus - The New York Times](https://www.nytimes.com/2020/07/14/opinion/coronavirus-shutdown.html)
 
 ---
 #### Other notes linking here:

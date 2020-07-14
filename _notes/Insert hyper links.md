@@ -20,8 +20,8 @@ inoremap <Leader>gt <esc>:silent !~/bin/copy_safari_title.osa <cr>a <esc>"+p<cr>
 nnoremap <Leader>gt :silent !~/bin/copy_safari_title.osa <cr>"+p<cr>
 
 " Copy and paste **markdown link** of current open Safari tab into vim using title and url
-inoremap <Leader>gg [<esc>:silent !~/bin/copy_safari_title.osa <cr>"+pa](/<esc>:silent-!~/bin/copy_safari_url.osa-<cr>"+pa)
-inoremap <Leader>gt i[<esc>:silent !~/bin/copy_safari_title.osa <cr>"+pa](/<esc>:silent-!~/bin/copy_safari_url.osa-<cr>"+pa)<esc>
+inoremap <Leader>gg [<esc>:silent !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>"+pa](/<esc>:silent-!~/bin/copy_safari_url.osa-<cr>"+pa)
+nnoremap <Leader>gg a[<esc>:silent !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>"+pa](/<esc>:silent-!~/bin/copy_safari_url.osa-<cr>"+pa)<esc>
 ```
 
 ### Applescripts
