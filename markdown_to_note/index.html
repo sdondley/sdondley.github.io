@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mardown_to_note perl script</title>
+<title>markdown_to_note perl script</title>
 <meta name="author" content="Steve Dondley">
 <meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <link rel="icon" href="/favicon.ico?v=1.0">
@@ -19,14 +19,14 @@
 <meta property="article:author" content="/about/">
 <meta name="twitter:site" content="@steve_dondley">
 <meta name="twitter:creator" content="@steve_dondley">
-<meta property="og:title" content="mardown_to_note perl script">
-<meta name="twitter:title" content="mardown_to_note perl script">
+<meta property="og:title" content="markdown_to_note perl script">
+<meta name="twitter:title" content="markdown_to_note perl script">
 <meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
-        <meta property="article:published_time" content="2020-07-13T00:35:03-04:00">
+        <meta property="article:published_time" content="2020-07-14T11:11:33-04:00">
     <meta property="og:url" content="https://steve.dondley.com/markdown_to_note/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -40,7 +40,7 @@
     ga('send', 'pageview', {
       'anonymizeIp': true,
       'page': '/markdown_to_note/',
-      'title': 'mardown_to_note perl script'
+      'title': 'markdown_to_note perl script'
     });
 </script>
 
@@ -99,12 +99,12 @@
            <p><a href="/notes">⬅  Notes listing</a></p>
 <article>
   <div>
-    <h1 style="font-size: 1.8em; margin-bottom: 0em">mardown_to_note perl script</h1>
+    <h1 style="font-size: 1.8em; margin-bottom: 0em">markdown_to_note perl script</h1>
 		
     <span class="date">
         
-        <time datetime="2020-07-13">
-            July 13, 2020
+        <time datetime="2020-07-14">
+            July 14, 2020
         </time>
     </span>
 
@@ -115,17 +115,14 @@
   <div id="notes-entry-container">
     <content>
       <h2 id="what-is-it">What is it?</h2>
-
 <p>This is bit of perl “glue” script I wrote which is run whenever I save a note in my
 wiki. It is located in my bin path.</p>
 
 <h2 id="what-does-it-do">What does it do?</h2>
-
 <p>It converts an md file in my vimwiki directory to an md file in my jekyll site’s
 _notes directory</p>
 
 <h2 id="what-triggers-it">What triggers it?</h2>
-
 <p>Er, it’s a bit complicated. But here’s a rather cryptic explanation you can
 puzzle through:</p>
 
@@ -140,24 +137,29 @@ It is triggered by an autocmd found in my vim configuration:</p>
 key for for the wiki in <code class="highlighter-rouge">g:vimwiki_list</code> with something like this in your vimrc
 file:</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> wiki_1           <span class="p">=</span> <span class="p">{}</span>
-<span class="k">let</span> wiki_1<span class="p">.</span><span class="nb">path</span>      <span class="p">=</span> <span class="s1">'~/vimwiki/webnotes/'</span>
-<span class="k">let</span> wiki_1<span class="p">.</span>ext       <span class="p">=</span> <span class="s1">'.md'</span>
-<span class="k">let</span> wiki_1<span class="p">.</span>path_html <span class="p">=</span> <span class="s1">'~/git_repos/sdondley.github.io/_notes/'</span>
-<span class="k">let</span> wiki_1<span class="p">.</span>auto_export <span class="p">=</span> <span class="m">1</span>
-<span class="k">let</span> wiki_1<span class="p">.</span><span class="nb">syntax</span>    <span class="p">=</span> <span class="s1">'markdown'</span>
-<span class="k">let</span> wiki_1<span class="p">.</span>custom_wiki2html    <span class="p">=</span> <span class="s1">'/Users/me/bin/markdown_to_note'</span>
-<span class="k">let</span> wiki_1<span class="p">.</span>custom_wiki2html_args    <span class="p">=</span> <span class="s1">'hi'</span>
-<span class="k">let</span> <span class="nv">g:vimwiki_list</span>   <span class="p">=</span> <span class="p">[</span>wiki_1<span class="p">]</span>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> wiki_1                          <span class="p">=</span> <span class="p">{}</span>
+<span class="k">let</span> wiki_1<span class="p">.</span><span class="nb">path</span>                     <span class="p">=</span> <span class="s1">'~/vimwiki/webnotes/'</span>
+<span class="k">let</span> wiki_1<span class="p">.</span>ext                      <span class="p">=</span> <span class="s1">'.md'</span>
+<span class="k">let</span> wiki_1<span class="p">.</span>path_html                <span class="p">=</span> <span class="s1">'~/git_repos/sdondley.github.io/_notes/'</span>
+<span class="k">let</span> wiki_1<span class="p">.</span>auto_export              <span class="p">=</span> <span class="m">1</span>
+<span class="k">let</span> wiki_1<span class="p">.</span><span class="nb">syntax</span>                   <span class="p">=</span> <span class="s1">'markdown'</span>
+<span class="k">let</span> wiki_1<span class="p">.</span>custom_wiki2html         <span class="p">=</span> <span class="s1">'/Users/me/bin/markdown_to_note'</span>
+<span class="k">let</span> wiki_1<span class="p">.</span>custom_wiki2html_args    <span class="p">=</span> <span class="s1">''</span>
+<span class="k">let</span> <span class="nv">g:vimwiki_list</span>                  <span class="p">=</span> <span class="p">[</span>wiki_1<span class="p">]</span>
 
 </code></pre></div></div>
+
+<hr />
+<h4 id="other-notes-linking-here">Other notes linking here:</h4>
+
+<p><a href="/How-this-site-is-built">How This Site Works</a></p>
 
     </content>
     <hr />
 			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
 				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
 			</svg>
-			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/diary/markdown_to_note.md">View the edit history</a>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/markdown_to_note.md">View the edit history</a>
 </article>
 
         

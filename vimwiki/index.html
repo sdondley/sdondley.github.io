@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
-        <meta property="article:published_time" content="2020-07-13T00:19:04-04:00">
+        <meta property="article:published_time" content="2020-07-13T04:19:04-04:00">
     <meta property="og:url" content="https://steve.dondley.com/vimwiki/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -142,7 +142,7 @@ a new wike page.</li>
 <code class="highlighter-rouge">customizations</code> branch</li>
 </ul>
 
-<h2 id="tips-tricks"><a href="/Tips/Tricks">Tips Tricks</a></h2>
+<h2 id="tips-tricks">Tips Tricks</h2>
 <ul>
   <li>Searching the wiki:
     <ul>
@@ -152,7 +152,29 @@ a new wike page.</li>
   </li>
   <li>Be sure to use markdown as the syntax for best integration with Jekyll site
 generation</li>
-  <li></li>
+  <li>Do not place diary in subdirectory (this is the default)
+    <ul>
+      <li>Instead, ensure entries are created in same folder as wiki so that documents
+in diary can link to wiki documents not in the diary
+        <ul>
+          <li>Accomplished by modifying <code class="highlighter-rouge">g:vimwiki_list</code>:
+            <ul>
+              <li><code class="highlighter-rouge">let wiki_1.diary_rel_path = '.'</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Use omni completion to find existing file names:
+    <ul>
+      <li>Type <code class="highlighter-rouge">[](ind</code>
+        <ul>
+          <li>Now type <code class="highlighter-rouge">&lt;C-x&gt;&lt;C-o&gt;</code> to search for files that begin with <code class="highlighter-rouge">ind</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="resources">Resources</h2>
@@ -163,6 +185,8 @@ generation</li>
 
 <hr />
 <h4 id="other-notes-linking-here">Other notes linking here:</h4>
+
+<p><a href="/vim">vim</a></p>
 
 <p><a href="/Tech-stuff">Tech stuff</a></p>
 
