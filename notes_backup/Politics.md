@@ -1,7 +1,6 @@
 ---
-date: '2020-07-13 05:48:52'
+date: '2020-07-14 11:06:08'
 title: Politics
----
 
 
 I'm a liberal Democrat with a strong pragmatic streak. More coming soon.

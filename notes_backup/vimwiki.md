@@ -1,8 +1,6 @@
 ---
-date: '2020-07-13 04:19:04'
+date: '2020-07-14 11:06:08'
 title: vimwiki
-update: '2020-07-14 12:45:50'
----
 
 
 * See the [vimwiki plugin page](https://vimwiki.github.io)
@@ -27,7 +25,7 @@ I'm still learning the ropes but the short answer is:
 * vimwiki is running out of my `~/git_repos` directory using the
   `customizations` branch
 
-## Tips Tricks
+## [Tips Tricks](/Tips/Tricks)
 * Searching the wiki:
   * use `:VWS /term/`
   * use `:lopen` to see results
@@ -38,9 +36,7 @@ I'm still learning the ropes but the short answer is:
     in diary can link to wiki documents not in the diary
     * Accomplished by modifying `g:vimwiki_list`:
       * `let wiki_1.diary_rel_path = '.'`
-* Use omni completion to find existing file names:
-  * Type `[](ind`
-    * Now type `<C-x><C-o>` to search for files that begin with `ind`
+
 
 
 ## Resources
@@ -49,8 +45,6 @@ I'm still learning the ropes but the short answer is:
 
 ---
 #### Other notes linking here:
-
-[vim](/vim)
 
 [Tech stuff](/Tech-stuff)
 

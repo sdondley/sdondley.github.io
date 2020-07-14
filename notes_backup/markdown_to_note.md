@@ -1,7 +1,6 @@
 ---
-title: mardown_to_note perl script
-date: 2020-07-13 04:35:03
----
+date: '2020-07-14 11:06:08'
+title: 'mardown_to_note perl script'
 
 
 ## What is it?
@@ -44,3 +43,8 @@ let wiki_1.custom_wiki2html_args    = 'hi'
 let g:vimwiki_list   = [wiki_1]
 
 ```
+
+---
+#### Other notes linking here:
+
+[How This Site Works](/How-this-site-is-built)

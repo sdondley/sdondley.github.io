@@ -1,7 +1,6 @@
 ---
-date: '2020-07-13 05:55:15'
+date: '2020-07-14 11:06:07'
 title: Automation
----
 
 
 I'm currently writing automation scripts and looking for tools to help remove

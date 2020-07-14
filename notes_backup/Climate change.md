@@ -1,7 +1,6 @@
 ---
-date: '2020-07-13 05:49:31'
+date: '2020-07-14 11:06:07'
 title: 'Climate change'
----
 
 
 This is the problem of our era. More coming soon.

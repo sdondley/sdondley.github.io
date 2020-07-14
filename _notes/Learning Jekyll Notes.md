@@ -1,6 +1,6 @@
 ---
-title: Learning Jekyll
-date: 2020-07-13 05:07:01
+date: '2020-07-14 11:11:32'
+title: 'Learning Jekyll'
 ---
 
 

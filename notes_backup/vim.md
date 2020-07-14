@@ -1,17 +1,7 @@
 ---
-date: '2020-07-13 05:41:57'
+date: '2020-07-14 11:06:08'
 title: vim
-update: '2020-07-14 14:23:26'
----
 
-
-## Maps
-Here's a collection of vim maps I use:
-* [Insert hyper links](/Insert-hyper-links)
-
-## Plugins
-Some useful plugins:
-* [vimwiki](/vimwiki)
 
 ## spell check feature
 * turn on with `set spell`
