@@ -111,18 +111,17 @@
         </time>
     </span>
 
-
-		
+&nbsp;&nbsp;
 
 	</header>
 	
-	
+
 	<p>Here is a simple bash function for renaming the current directory you are in from the command line:</p>
 <pre class="wp-block-preformatted">rename_current_dir() {<br />   cd=${PWD##*/}<br />   cd ..<br />   mv $cd $1<br />   cd $1<br /> }<br /></pre>
 <p>Create an alias of your choice to this command so it's easier to type:</p>
 <pre class="wp-block-preformatted">alias rncd='rename_current_dir'</pre>
 
-	
+
 	
 
 
