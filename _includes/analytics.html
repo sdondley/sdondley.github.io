@@ -7,7 +7,7 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', '{{ site.google_analytics }}', 'auto');
     ga('send', 'pageview', {
-      'anonymizeIp': true,
+      'anonymizeIp': false,
       'page': '{{ page.url }}',
       'title': '{{ page.title | replace: "'", "\\'" }}'
     });

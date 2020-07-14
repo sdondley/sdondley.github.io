@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 07:00:43'
 title: 'Thoughts on Digital Gardening'
-update: '2020-07-14 13:59:16'
+update: '2020-07-14 15:21:02'
 ---
 
 
@@ -45,7 +45,7 @@ full-blown website. Why? I have a few ideas:
   city that other can visit and come listen to you.
 
 ## Interesting examples
-* [https://wiki.nikitavoloboev.xyz/](https://wiki.nikitavoloboev.xyz/)
+* [Introduction - Everything I know](https://wiki.nikitavoloboev.xyz/)
 
 ---
 #### Other notes linking here:
