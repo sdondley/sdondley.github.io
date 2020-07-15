@@ -1,10 +1,8 @@
 ---
 date: '2020-07-13 04:19:04'
 title: vimwiki
-updated: '2020-07-14 12:45:50'
+updated: '2020-07-14 21:14:25'
 ---
-
-
 * See the [vimwiki plugin page](https://vimwiki.github.io)
 
 ## What is it?
@@ -42,6 +40,9 @@ I'm still learning the ropes but the short answer is:
   * Type `[](ind`
     * Now type `<C-x><C-o>` to search for files that begin with `ind`
 
+## Maps
+* `inoremap <buffer> <leader>xo <C-o>"cciW[](<C-r>c)<left><c-x><c-o>`
+* `inoremap <buffer> <c-y><c-y> <c-y><esc><esc>T(vt)y<esc>F[pf)a  <left>`
 
 ## Resources
 * [https://mkaz.blog/working-with-vim/vimwiki/](https://mkaz.blog/working-with-vim/vimwiki/)
@@ -51,7 +52,5 @@ I'm still learning the ropes but the short answer is:
 #### Other notes linking here:
 
 [vim](/vim)
-
-[Tech stuff](/Tech-stuff)
 
 [How This Site Works](/How-this-site-is-built)

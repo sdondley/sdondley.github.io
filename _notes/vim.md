@@ -1,10 +1,8 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-14 14:23:26'
+updated: '2020-07-14 21:17:49'
 ---
-
-
 ## Maps
 Here's a collection of vim maps I use:
 * [Insert hyper links](/Insert-hyper-links)
@@ -12,6 +10,21 @@ Here's a collection of vim maps I use:
 ## Plugins
 Some useful plugins:
 * [vimwiki](/vimwiki)
+
+## Completion
+
+* `echo complete_info()` to get current completion info
+* `<c-e>` to exit completion mode
+* `<c-y>` to choose currently highlighted item in menu
+* good to add to vimrc: `set completeopt+=longest`
+  * allows you to whittle down options in the popup menu by typing more letters
+
+### Official documentation
+From vim command line, run:
+* :h ins-completion
+* :h omnifunc
+* :h compl-omni
+* :h completeopt
 
 ## spell check feature
 * turn on with `set spell`
@@ -21,6 +34,10 @@ Some useful plugins:
   * zG -> add word under cursor to dictionary temporarily
 * more mappings:
   [http://vimdoc.sourceforge.net/htmldoc/spell.html](http://vimdoc.sourceforge.net/htmldoc/spell.html)
+
+## Useful links
+* [At least one Vim trick you might not know • Hillel
+  Wayne](https://www.hillelwayne.com/post/intermedia)
 
 ---
 #### Other notes linking here:
