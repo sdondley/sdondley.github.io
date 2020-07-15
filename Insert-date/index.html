@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Automation</title>
+<title>Insert date in vim</title>
 <meta name="author" content="Steve Dondley">
 <meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <link rel="icon" href="/favicon.ico?v=1.0">
@@ -19,16 +19,15 @@
 <meta property="article:author" content="/about/">
 <meta name="twitter:site" content="@steve_dondley">
 <meta name="twitter:creator" content="@steve_dondley">
-<meta property="og:title" content="Automation">
-<meta name="twitter:title" content="Automation">
+<meta property="og:title" content="Insert date in vim">
+<meta name="twitter:title" content="Insert date in vim">
 <meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
-        <meta property="article:published_time" content="2020-07-13T05:55:15-04:00">
-        <meta property="article:modified_time" content="2020-07-15T09:26:31-04:00">
-    <meta property="og:url" content="https://steve.dondley.com/Automation/">
+        <meta property="article:published_time" content="2020-07-15T00:13:34-04:00">
+    <meta property="og:url" content="https://steve.dondley.com/Insert-date/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
 <!-- Google Analytics -->
@@ -40,8 +39,8 @@
     ga('create', 'UA-138585660-1', 'auto');
     ga('send', 'pageview', {
       'anonymizeIp': false,
-      'page': '/Automation/',
-      'title': 'Automation'
+      'page': '/Insert-date/',
+      'title': 'Insert date in vim'
     });
 </script>
 
@@ -100,47 +99,45 @@
            <p><a href="/notes">⬅  Notes listing</a></p>
 <article>
   <div>
-    <h1 style="font-size: 1.8em; margin-bottom: 0em">Automation</h1>
+    <h1 style="font-size: 1.8em; margin-bottom: 0em">Insert date in vim</h1>
 		
     <span class="date">
         
-        <time datetime="2020-07-13">
-            July 13, 2020
-        </time>
-    </span>
-
-&nbsp;&nbsp;
-    <span class="date">
-        Updated: 
         <time datetime="2020-07-15">
             July 15, 2020
         </time>
     </span>
 
+&nbsp;&nbsp;
 
   </div>
 
   <div id="notes-entry-container">
     <content>
-      <p>I’m currently writing automation scripts and looking for tools to help remove
-some of the eye-gouging tedium of computer work. It helps make using a computer
-a lot more fun again.</p>
-
-<ul>
-  <li><a href="/Rex">Rex</a>, framework for running commands on many machines</li>
+      <ul>
+  <li>normal mode
+    <ul>
+      <li>nnoremap <F4> "=strftime("%m/%d/%y")<CR>P</CR></F4></li>
+    </ul>
+  </li>
+  <li>insert mode
+    <ul>
+      <li>inoremap <F4> <C-R>=strftime("%m/%d/%y")<CR></CR></C-R></F4></li>
+    </ul>
+  </li>
 </ul>
 
 <hr />
 <h4 id="other-notes-linking-here">Other notes linking here:</h4>
 
-<p><a href="/Tech-stuff">Tech stuff</a></p>
+<p><a href="/vim">vim</a></p>
 
     </content>
     <hr />
 			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
 				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
 			</svg>
-			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/Automation.md">View the edit history</a>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/Insert date.md">View the edit history</a>
 </article>
 
         
