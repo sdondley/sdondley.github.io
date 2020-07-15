@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-15 09:30:40'
+updated: '2020-07-15 09:32:13'
 ---
 ## Maps
 Here's a collection of vim maps I use:
