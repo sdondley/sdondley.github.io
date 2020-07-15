@@ -2,8 +2,6 @@
 date: '2020-07-14 11:11:33'
 title: 'markdown_to_note perl script'
 ---
-
-
 ## What is it?
 This is bit of perl "glue" script I wrote which is run whenever I save a note in my
 wiki. It is located in my bin path.

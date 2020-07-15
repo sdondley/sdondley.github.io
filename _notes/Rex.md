@@ -2,8 +2,6 @@
 date: '2020-07-13 05:56:13'
 title: Rex
 ---
-
-
 ## Description
 Rex is a framework, written in Perl, for automating the remote and local execution of commands on
 a machine.

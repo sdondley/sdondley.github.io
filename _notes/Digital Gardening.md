@@ -3,8 +3,6 @@ date: '2020-07-13 07:00:43'
 title: 'Thoughts on Digital Gardening'
 updated: '2020-07-14 15:21:02'
 ---
-
-
 There's apparently a new trend happening right now called "Digital Gardening." I
 won't bore you with a definition of what it is. Other people have already done a
 good job of explaining it so I'll let you [google it.](https://www.google.com/search?q=digital+gardening)

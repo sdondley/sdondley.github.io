@@ -14,7 +14,7 @@ making them public may help motivate me, and d) I want to find a good recipe for
 others may find useful ([my son](http://sean.dondley.com), for example). So this
 is a way for me to experiment. We'll see how it goes.
 
-Anyway, hare are some notes on my notes:
+Anyway, here are some notes on my notes:
 
 * The long bullet list of links below is a pile of notes, listed in alphabetical
   order.

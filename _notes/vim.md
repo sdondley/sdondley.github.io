@@ -1,15 +1,17 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-14 21:17:49'
+updated: '2020-07-15 09:30:40'
 ---
 ## Maps
 Here's a collection of vim maps I use:
-* [Insert hyper links](/Insert-hyper-links)
+* [Insert hyper links from Safari](/Insert-hyper-links)
+* [Insert date](/Insert-date)
 
 ## Plugins
-Some useful plugins:
-* [vimwiki](/vimwiki)
+Some useful plugins I use (this list is not complete):
+* [vimwiki](/vimwiki) - used to generate these notes very quickly
+* [CtrlP](/CtrlP) - for opening files quickly
 
 ## Completion
 
@@ -37,7 +39,7 @@ From vim command line, run:
 
 ## Useful links
 * [At least one Vim trick you might not know • Hillel
-  Wayne](https://www.hillelwayne.com/post/intermedia)
+  Wayne](https://www.hillelwayne.com/post/intermediate-vim/)
 
 ---
 #### Other notes linking here:

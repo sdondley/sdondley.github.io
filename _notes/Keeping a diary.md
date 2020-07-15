@@ -2,8 +2,6 @@
 date: '2020-07-13 04:19:25'
 title: 'Keeping a diary in vimwiki'
 ---
-
-
 ## Default Mappings
 
 * `<Leader>w<Leader>w` create new note for today

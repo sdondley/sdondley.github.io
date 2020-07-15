@@ -2,8 +2,6 @@
 date: '2020-07-13 06:14:27'
 title: Perl
 ---
-
-
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.
 
