@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 04:19:04'
 title: vimwiki
-updated: '2020-07-14 21:14:25'
+updated: '2020-07-15 10:20:28'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
 
@@ -25,10 +25,13 @@ I'm still learning the ropes but the short answer is:
 * vimwiki is running out of my `~/git_repos` directory using the
   `customizations` branch
 
-## Tips Tricks
+## Searching and navigating a vimwiki quickly
+* use [CtrlP](/ctrlp) plugin to jump to files
 * Searching the wiki:
   * use `:VWS /term/`
-  * use `:lopen` to see results
+    * use `:lopen` to see results
+
+## Other Tips, Tricks and Advice
 * Be sure to use markdown as the syntax for best integration with Jekyll site
   generation
 * Do not place diary in subdirectory (this is the default)
@@ -54,3 +57,5 @@ I'm still learning the ropes but the short answer is:
 [vim](/vim)
 
 [How This Site Works](/How-this-site-is-built)
+
+[14th](/2020-07-14)

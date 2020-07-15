@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 07:00:43'
 title: 'Thoughts on Digital Gardening'
-updated: '2020-07-14 15:21:02'
+updated: '2020-07-15 13:02:09'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
 won't bore you with a definition of what it is. Other people have already done a
@@ -44,6 +44,15 @@ full-blown website. Why? I have a few ideas:
 
 ## Interesting examples
 * [Introduction - Everything I know](https://wiki.nikitavoloboev.xyz/)
+  * This site got me inspired to investigate this "Digital Gardening" phenomena.
+    I think it's a great example of what the web was supposed to be.
+
+## Good reads
+* [How can we develop transformative tools for thought?](https://numinous.productions/ttft/)
+  * Exploration of the idea of using computers into true "tools for thought"
+  * "tools for thought" is a thing
+    * [https://numinous.productions/ttft/assets/Iverson1979.pdf](https://numinous.productions/ttft/assets/Iverson1979.pdf)
+    *
 
 ---
 #### Other notes linking here:
