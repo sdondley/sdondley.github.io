@@ -122,10 +122,16 @@
     </ul>
   </li>
   <li>integrate todos with Taskwiki</li>
-  <li>Fix <code class="highlighter-rouge">;gg</code> mapping bugs</li>
-  <li>Looking into intermittent bug that causes markdown links to be placed two
-lines up
+  <li>Fix <code class="highlighter-rouge">;gg</code> mapping bugs
     <ul>
+      <li>Looking into intermittent bug that causes markdown links to be placed two
+lines up
+        <ul>
+          <li>inoremap <Leader>gg [<esc>:silent !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>"+pa](/<esc>:silent-!~/bin/copy_safari_url.osa-<cr>"+pa)</cr></esc></cr></cr></esc></Leader></li>
+          <li>could it be occurring when preceding bullet is automated created by
+vimwiki?</li>
+        </ul>
+      </li>
       <li>Escape parentheses from urls when using</li>
     </ul>
   </li>
@@ -155,6 +161,22 @@ extension
       </li>
     </ul>
   </li>
+  <li>see about fixing weird output about ale being disabled when using vimwiki’s
+<code class="highlighter-rouge">:VWS</code> search feature</li>
+  <li>does disabling ale help?</li>
+  <li>was a misconfigured vim configuration in <code class="highlighter-rouge">ftplugin/markdown.vim</code>
+    <ul>
+      <li>had <code class="highlighter-rouge">g:ale_enabled = 0</code>
+        <ul>
+          <li>should have been <code class="highlighter-rouge">let g:ale_enabled = 0</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>made improvements to how links are automatically inserted into vimwiki</li>
+  <li>fixed broken folding by deleting old nvim views</li>
+  <li>made <c-x><c-o> insertion case insensitive in vimrc (see autocmd file)</c-o></c-x></li>
+  <li>added background to nav buttons on site</li>
 </ul>
 
 <h2 id="quick-notes">Quick notes</h2>
@@ -162,6 +184,23 @@ extension
 <h2 id="rousing-reads">Rousing reads</h2>
 
 <h2 id="notable-news">Notable news</h2>
+<ul>
+  <li><a href="https://twitter.com/thedailybeast/status/1283390359943471105">The Daily Beast on Twitter: “Special Assistant to the President Peter Navarro’s unflinching op-ed in USA Today did not go through the “normal White House clearance processes,” said White House Director of Strategic Communications Alyssa Farah [https://t.co/397lZGLJGI”](https://t.co/397lZGLJGI”) / Twitter</a></li>
+  <li>Absolutely fucking unbelievable: <a href="https://www.cnn.com/2020/07/14/politics/trump-administration-coronavirus-hospital-data-cdc/index.html?utm_term=link&amp;utm_source=twCNN&amp;utm_content=2020-07-15T10%3A30%3A07&amp;utm_medium=social">Coronavirus hospital data will now be sent to Trump administration instead of CDC - CNNPolitics</a></li>
+</ul>
+
+<h2 id="totally-random-but-interesting-junk">Totally random but interesting junk</h2>
+<h3 id="from-xy-problem---wikipedia">From <a href="https://en.wikipedia.org/wiki/XY_problem">XY problem - Wikipedia</a></h3>
+<p>In 1980’s “Applied Management Science: A Quick and Dirty Approach”,[2] Gene Woolsey described a famous example of solving the wrong problem. Management was concerned about complaints that people had to wait too long for elevators, and so spent a lot of time and money researching how to schedule elevators to reduce the wait times. Woolsey pointed out that they were trying to solve the wrong problem. The real problem was that “people were complaining”. The installation of large mirrors in the lobby gave people something to do, and the complaints were drastically reduced.</p>
+
+<h3 id="from-httpsnuminousproductionsttftassetsiverson1979pdf">From <a href="https://numinous.productions/ttft/assets/Iverson1979.pdf">https://numinous.productions/ttft/assets/Iverson1979.pdf</a></h3>
+<ul>
+  <li>That language is an instrument of human reason,and not merely a medium for the expression of thought, is a truth generally admitted
+    <ul>
+      <li>George Boole</li>
+    </ul>
+  </li>
+</ul>
 
 <hr />
 <h4 id="other-notes-linking-here">Other notes linking here:</h4>
