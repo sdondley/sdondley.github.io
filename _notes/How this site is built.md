@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 07:36:05'
 title: 'How This Site Works'
-updated: '2020-07-15 09:27:31'
+updated: '2020-07-15 14:15:41'
 ---
 Below are some bullet points that provide an outline of what's under the hood of
 this site you are looking at.
@@ -15,7 +15,7 @@ this site you are looking at.
     * It's essentially a program that takes files written in markdown and
       converts them to static HTML files.
     * The files are generated on my local machine and then pushed out to my
-      GitHub repository at [https://github.com/sdondley/sdondley.github.io](https://github.com/sdondley/sdondley.github.io)
+      [GitHub repository](https://github.com/sdondley/sdondley.github.io)
 * I use [vimwiki](/vimwiki) to write all the notes and posts and pages
   * Use [vim](/vim), of course
   * I wrote a custom perl script [markdown_to_note](/markdown_to_note) that hooks
