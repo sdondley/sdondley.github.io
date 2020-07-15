@@ -9,8 +9,8 @@ Steve Dondley maintains this blog and digital garden (found in the ["Notes"](/no
 
 ## Who is Steve Dondley?
 I am the owner and founder of [Prometheus Labor
-Communications](http://prometheuslabor.com), a former US Navy submarine veteran
-and labor organizer for UFCW Local 1459 in Springfield, MA. I've had an early
+Communications](http://prometheuslabor.com), a US Navy submarine veteran
+and former labor organizer for UFCW Local 1459 in Springfield, MA. I've had an early
 interest in computers and programming since childhood and a fascination with
 mass communication which I developed during my post secondary education at
 UMass. I combined these passions and began develop websites for labor unions in
