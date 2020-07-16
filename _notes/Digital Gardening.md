@@ -51,7 +51,7 @@ full-blown website. Why? I have a few ideas:
 * [How can we develop transformative tools for thought?](https://numinous.productions/ttft/)
   * Exploration of the idea of using computers into true "tools for thought"
   * "tools for thought" is a thing
-    * [https://numinous.productions/ttft/assets/Iverson1979.pdf](https://numinous.productions/ttft/assets/Iverson1979.pdf)
+    * [https://numinous.productions](https://numinous.productions/ttft/assets/Iverson1979.pdf)
     *
 
 ---

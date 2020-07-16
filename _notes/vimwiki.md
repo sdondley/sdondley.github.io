@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 04:19:04'
 title: vimwiki
-updated: '2020-07-15 10:20:28'
+updated: '2020-07-16 09:33:31'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
 
@@ -31,24 +31,34 @@ I'm still learning the ropes but the short answer is:
   * use `:VWS /term/`
     * use `:lopen` to see results
 
+### Diary navigation
+* `<C-Up_Arrow>`
+  * Open the previous day's diary link if available.
+* `<C-Down_Arrow>`
+  * Open the next day's diary link if available.
+
 ## Other Tips, Tricks and Advice
-* Be sure to use markdown as the syntax for best integration with Jekyll site
-  generation
-* Do not place diary in subdirectory (this is the default)
-  * Instead, ensure entries are created in same folder as wiki so that documents
-    in diary can link to wiki documents not in the diary
-    * Accomplished by modifying `g:vimwiki_list`:
-      * `let wiki_1.diary_rel_path = '.'`
+### If used in conjunctions with a Jekyll site
+  * Be sure to use markdown as the syntax for best integration with Jekyll site
+    generation
+  * Do not place diary in subdirectory (this is the default)
+    * Instead, ensure entries are created in same folder as wiki so that documents
+      in diary can link to wiki documents not in the diary
+      * Accomplished by modifying `g:vimwiki_list`:
+        * `let wiki_1.diary_rel_path = '.'`
 * Use omni completion to find existing file names:
   * Type `[](ind`
     * Now type `<C-x><C-o>` to search for files that begin with `ind`
 
 ## Maps
-* `inoremap <buffer> <leader>xo <C-o>"cciW[](<C-r>c)<left><c-x><c-o>`
-* `inoremap <buffer> <c-y><c-y> <c-y><esc><esc>T(vt)y<esc>F[pf)a  <left>`
+* Insert link to another wiki page:
+  * type in first couple of letters and then:
+    * `inoremap <buffer> <leader>xo <C-o>"cciW[](<C-r>c)<left><c-x><c-o>`
+    * Then to actually select a file:
+      * `inoremap <buffer> <c-y><c-y> <c-y><esc><esc>T(vt)y<esc>F[pf)a  <left>`
 
 ## Resources
-* [https://mkaz.blog/working-with-vim/vimwiki/](https://mkaz.blog/working-with-vim/vimwiki/)
+* [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)
 * [Getting started guide](https://blog.mague.com/?p=602)
 
 ---

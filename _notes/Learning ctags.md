@@ -42,7 +42,7 @@ BSD Unix 3 was released in '79?
 * can be used to find linux kernel files
 * ctags has a command on command line:
   * ctags --version
-  * has a website: [https://ctags.io/](https://ctags.io/)
+  * has a website: [https://ctags.io](https://ctags.io/)
 ### Ctags with Vim
 * run command:
   * ctags -R *

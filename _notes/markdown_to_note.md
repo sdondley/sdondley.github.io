@@ -43,3 +43,7 @@ let g:vimwiki_list                  = [wiki_1]
 #### Other notes linking here:
 
 [How This Site Works](/How-this-site-is-built)
+
+[13th](/2020-07-13)
+
+[14th](/2020-07-14)

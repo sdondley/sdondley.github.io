@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-15 12:36:09'
+updated: '2020-07-16 09:29:20'
 ---
 ## Maps
 
@@ -10,7 +10,7 @@ Here's a collection of vim maps I use:
 * [Insert date](/Insert-date)
 
 ## Plugins
-Some useful plugins I use (this list is not complete):
+Some useful plugins I use (not a complete list):
 * [vimwiki](/vimwiki) - used to generate these notes very quickly
 * [CtrlP](/CtrlP) - for opening files quickly
 
@@ -36,7 +36,7 @@ From vim command line, run:
   * zg -> add word under cursor to dictionary permanently
   * zG -> add word under cursor to dictionary temporarily
 * more mappings:
-  [http://vimdoc.sourceforge.net/htmldoc/spell.html](http://vimdoc.sourceforge.net/htmldoc/spell.html)
+  [http://vimdoc.sourceforge.net](http://vimdoc.sourceforge.net/htmldoc/spell.html)
 
 ## Useful resources and good reads
 * [At least one Vim trick you might not know • Hillel Wayne](https://www.hillelwayne.com/post/intermediate-vim/)

@@ -21,7 +21,7 @@ this site you are looking at.
   * I wrote a custom perl script [markdown_to_note](/markdown_to_note) that hooks
     into the `:VimwikiAll2HTML` command
 * The theme is not my own and was forked from
-  [https://github.com/MaximeKjaer/kjaer.io](https://github.com/MaximeKjaer/kjaer.io)
+  [https://github.com](https://github.com/MaximeKjaer/kjaer.io)
   * I have made some very modest changes to original forked code
 
 ---
