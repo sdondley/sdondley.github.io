@@ -2,6 +2,7 @@
 date: '2020-07-14 14:23:47'
 new: '1'
 title: 'Insert hyperlinks into vim (Mac only)'
+updated: '2020-07-16 12:10:11'
 ---
 # Insert hyperlinks into vim (Mac only)
 
@@ -27,7 +28,7 @@ nnoremap <Leader>gg a[<esc>:silent !~/bin/copy_safari_title.osa <cr>:let @+ = su
 
 ### Applescripts
 
-Add these Applescript
+Add these Applescripts to a directory in your shell's bin `$PATH`
 
 ```applescript
 #!/usr/bin/osascript
