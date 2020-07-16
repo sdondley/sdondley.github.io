@@ -3,7 +3,7 @@ date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
 update_logo: 0
-updated: '2020-07-15 13:02:09'
+updated: '2020-07-16 17:06:22'
 updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
@@ -55,7 +55,6 @@ full-blown website. Why? I have a few ideas:
   * Exploration of the idea of using computers into true "tools for thought"
   * "tools for thought" is a thing
     * [https://numinous.productions](https://numinous.productions/ttft/assets/Iverson1979.pdf)
-    *
 
 ---
 #### Other notes linking here:

@@ -1,10 +1,10 @@
 ---
 date: '2020-07-14 14:23:47'
-new: '1'
+new: 0
 title: 'Insert hyperlinks into vim (Mac only)'
 update_logo: 0
 updated: '2020-07-16 12:10:11'
-updated_logo: '0'
+updated_logo: '1'
 ---
 # Insert hyperlinks into vim (Mac only)
 
