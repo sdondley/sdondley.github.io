@@ -1,5 +1,6 @@
 ---
 date: '2020-07-13 07:00:43'
+new: 0
 title: 'Thoughts on Digital Gardening'
 updated: '2020-07-15 13:02:09'
 ---

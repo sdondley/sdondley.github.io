@@ -1,5 +1,6 @@
 ---
 date: '2020-07-13 05:55:15'
+new: 0
 title: Automation
 updated: '2020-07-15 09:26:31'
 ---

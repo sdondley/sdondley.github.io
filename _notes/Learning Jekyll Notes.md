@@ -1,5 +1,6 @@
 ---
 date: '2020-07-14 11:11:32'
+new: 0
 title: 'Learning Jekyll'
 updated: '2020-07-15 09:37:12'
 ---

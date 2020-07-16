@@ -1,5 +1,6 @@
 ---
 date: '2020-07-15 09:59:05'
+new: '1'
 title: 'Learning ctags'
 ---
 Notes compiled from various source to help learn what ctags are and how to use

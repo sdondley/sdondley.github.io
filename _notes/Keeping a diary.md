@@ -1,5 +1,6 @@
 ---
 date: '2020-07-13 04:19:25'
+new: 0
 title: 'Keeping a diary in vimwiki'
 ---
 ## Default Mappings

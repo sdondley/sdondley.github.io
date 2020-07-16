@@ -1,5 +1,6 @@
 ---
 date: '2020-07-15 00:13:34'
+new: '1'
 title: 'Insert date in vim'
 updated: '2020-07-16 09:27:52'
 ---

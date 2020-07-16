@@ -31,8 +31,13 @@ Anyway, here are some notes on my notes:
 
 <ul>
 {% for post in site.notes %}
+    {% if post.new == '1' %}
+    <span style="display: block; margin-left: -1.5em">🆕 <a href="{{ post.url }}">{{ post.title }}</a></span>
+    {% else %}
     <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
+
+    {% endif %}
 {% endfor %}
 </ul>
