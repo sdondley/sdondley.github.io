@@ -14,11 +14,11 @@
 </url>
 <url>
 <loc>https://steve.dondley.com/diary/</loc>
-<lastmod>2020-07-14T11:11:33-04:00</lastmod>
+<lastmod>2020-07-12T11:11:33-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/2020-07-13/</loc>
-<lastmod>2020-07-14T11:11:31-04:00</lastmod>
+<lastmod>2020-07-13T11:11:31-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/2020-07-14/</loc>
@@ -87,6 +87,10 @@
 <url>
 <loc>https://steve.dondley.com/markdown_to_note/</loc>
 <lastmod>2020-07-14T11:11:33-04:00</lastmod>
+</url>
+<url>
+<loc>https://steve.dondley.com/tmux/</loc>
+<lastmod>2020-07-16T11:52:33-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/vim/</loc>
