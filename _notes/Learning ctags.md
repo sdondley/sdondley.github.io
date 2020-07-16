@@ -2,6 +2,8 @@
 date: '2020-07-15 09:59:05'
 new: '1'
 title: 'Learning ctags'
+update_logo: 0
+updated_logo: '0'
 ---
 Notes compiled from various source to help learn what ctags are and how to use
 them in vim with a particular current interest in using them with vimwiki.

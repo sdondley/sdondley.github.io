@@ -29,15 +29,22 @@ Anyway, here are some notes on my notes:
 
 ## Diary and Wiki Notes
 
+* <span style="display: block">Notes marked 🆕 were <b>created</b> within past 48 hours.</span>
+* <span style="display: block">Notes marked 🆙 were <b>updated</b> within past 48 hours.</span>
+* <span style="display: block">Notes marked 🏁 are <b>finished</b> notes of high quality.</span>
+
 <ul>
 {% for post in site.notes %}
     {% if post.new == '1' %}
-    <span style="display: block; margin-left: -1.5em">🆕 <a href="{{ post.url }}">{{ post.title }}</a></span>
+      <span style="display: block; margin-left: -1.5em">🆕 <a href="{{ post.url }}">{{ post.title }}</a></span>
     {% else %}
-    <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-
+      {% if post.updated_logo == '1' %}
+        <span style="display: block; margin-left: -1.5em">🆙 <a href="{{ post.url }}">{{ post.title }}</a></span>
+      {% else %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+      {% endif %}
     {% endif %}
 {% endfor %}
 </ul>

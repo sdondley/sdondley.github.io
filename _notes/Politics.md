@@ -2,11 +2,17 @@
 date: '2020-07-13 05:48:52'
 new: 0
 title: Politics
-updated: '2020-07-14 19:08:33'
+update_logo: 0
+updated: '2020-07-16 13:23:48'
+updated_logo: '1'
 ---
 ## F Trump
+I'm a passionate Democrat with a strong pragmatic streak. I'm extremely
+frustrated at the state of the world today and the level of stupidity I'm
+witnessing from my fellow Americans.
 
-I'm a liberal Democrat with a strong pragmatic streak. More coming soon.
+## Notes
+* [Notes on Laura Ingraham's Descent Into Despair](/Notes-on-Laura-Ingraham's-Descent-Into-Despair)
 
 ---
 #### Other notes linking here:

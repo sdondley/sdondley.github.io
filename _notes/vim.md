@@ -2,7 +2,9 @@
 date: '2020-07-13 05:41:57'
 new: 0
 title: vim
+update_logo: 0
 updated: '2020-07-16 09:29:20'
+updated_logo: '1'
 ---
 ## Maps
 

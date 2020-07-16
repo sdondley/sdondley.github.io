@@ -2,7 +2,9 @@
 date: '2020-07-13 04:17:41'
 new: 0
 title: 'Wiki Index'
+update_logo: 0
 updated: '2020-07-14 20:31:06'
+updated_logo: '1'
 ---
 * [Tech stuff](/Tech-stuff)
 * [Politics](/Politics)

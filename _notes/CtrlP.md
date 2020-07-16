@@ -2,6 +2,8 @@
 date: '2020-07-15 00:08:58'
 new: '1'
 title: 'CtrlP vim plugin'
+update_logo: 0
+updated_logo: '0'
 ---
 * Installed on 07/15/20 
 * makes it faster to open a file

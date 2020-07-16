@@ -2,7 +2,9 @@
 date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
+update_logo: 0
 updated: '2020-07-15 13:02:09'
+updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
 won't bore you with a definition of what it is. Other people have already done a

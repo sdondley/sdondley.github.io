@@ -2,7 +2,9 @@
 date: '2020-07-13 07:36:05'
 new: 0
 title: 'How This Site Works'
+update_logo: 0
 updated: '2020-07-15 14:15:41'
+updated_logo: '1'
 ---
 Below are some bullet points that provide an outline of what's under the hood of
 this site you are looking at.
