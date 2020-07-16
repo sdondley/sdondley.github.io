@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-13T04:19:04-04:00">
-        <meta property="article:modified_time" content="2020-07-15T10:20:28-04:00">
+        <meta property="article:modified_time" content="2020-07-16T09:33:31-04:00">
     <meta property="og:url" content="https://steve.dondley.com/vimwiki/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -112,8 +112,8 @@
 &nbsp;&nbsp;
     <span class="date">
         Updated: 
-        <time datetime="2020-07-15">
-            July 15, 2020
+        <time datetime="2020-07-16">
+            July 16, 2020
         </time>
     </span>
 
@@ -164,7 +164,22 @@ a new wike page.</li>
   </li>
 </ul>
 
+<h3 id="diary-navigation">Diary navigation</h3>
+<ul>
+  <li><code class="highlighter-rouge">&lt;C-Up_Arrow&gt;</code>
+    <ul>
+      <li>Open the previous day’s diary link if available.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">&lt;C-Down_Arrow&gt;</code>
+    <ul>
+      <li>Open the next day’s diary link if available.</li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="other-tips-tricks-and-advice">Other Tips, Tricks and Advice</h2>
+<h3 id="if-used-in-conjunctions-with-a-jekyll-site">If used in conjunctions with a Jekyll site</h3>
 <ul>
   <li>Be sure to use markdown as the syntax for best integration with Jekyll site
 generation</li>
@@ -195,13 +210,25 @@ in diary can link to wiki documents not in the diary
 
 <h2 id="maps">Maps</h2>
 <ul>
-  <li><code class="highlighter-rouge">inoremap &lt;buffer&gt; &lt;leader&gt;xo &lt;C-o&gt;"cciW[](&lt;C-r&gt;c)&lt;left&gt;&lt;c-x&gt;&lt;c-o&gt;</code></li>
-  <li><code class="highlighter-rouge">inoremap &lt;buffer&gt; &lt;c-y&gt;&lt;c-y&gt; &lt;c-y&gt;&lt;esc&gt;&lt;esc&gt;T(vt)y&lt;esc&gt;F[pf)a  &lt;left&gt;</code></li>
+  <li>Insert link to another wiki page:
+    <ul>
+      <li>type in first couple of letters and then:
+        <ul>
+          <li><code class="highlighter-rouge">inoremap &lt;buffer&gt; &lt;leader&gt;xo &lt;C-o&gt;"cciW[](&lt;C-r&gt;c)&lt;left&gt;&lt;c-x&gt;&lt;c-o&gt;</code></li>
+          <li>Then to actually select a file:
+            <ul>
+              <li><code class="highlighter-rouge">inoremap &lt;buffer&gt; &lt;c-y&gt;&lt;c-y&gt; &lt;c-y&gt;&lt;esc&gt;&lt;esc&gt;T(vt)y&lt;esc&gt;F[pf)a  &lt;left&gt;</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="resources">Resources</h2>
 <ul>
-  <li><a href="https://mkaz.blog/working-with-vim/vimwiki/">https://mkaz.blog/working-with-vim/vimwiki/</a></li>
+  <li><a href="https://mkaz.blog/working-with-vim/vimwiki/">https://mkaz.blog</a></li>
   <li><a href="https://blog.mague.com/?p=602">Getting started guide</a></li>
 </ul>
 
