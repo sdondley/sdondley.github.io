@@ -3,7 +3,7 @@ date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
 update_logo: 0
-updated: '2020-07-17 10:56:32'
+updated: '2020-07-17 12:14:37'
 updated_logo: '1'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
@@ -23,6 +23,8 @@ I'm still learning the ropes but the short answer is:
 3. Hit `<backspace>` to return to your original document
 4. Easily navigate between your wiki pages
 5. Easily maintain a diary. See [keeping a diary](/Keeping-a-diary)
+6. Absolutely fantastic for generating content as an outline which is far faster
+   and easier to write than prose.
 
 ## Random tech notes
 * vimwiki is running out of my `~/git_repos` directory using the

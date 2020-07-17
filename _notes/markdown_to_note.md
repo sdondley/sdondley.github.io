@@ -3,6 +3,8 @@ date: '2020-07-14 11:11:33'
 new: 0
 title: 'markdown_to_note perl script'
 update_logo: 0
+updated: '2020-07-17 12:08:03'
+updated_logo: '1'
 ---
 ## What is it?
 This is bit of perl "glue" script I wrote which is run whenever I save a note in my
@@ -19,14 +21,27 @@ puzzle through:
 The script gets run whenever I save a wiki note in my ~/vimwiki/webnotes folder.
 It is triggered by an autocmd found in my vim configuration:
 
-```
-autocmd BufWritePost *.md call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'no_update', 0) | execute ':silent !VimwikiAll2HTML' | call vimwiki#vars#set_wikilocal('custom_wiki2html_args', '-', 0) | execute ':redraw!'
+```vim
+autocmd BufWritePost *.md call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'no_update', 0) | execute ':silent! Vimwiki2HTML' | call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'hi', 0) | execute ':redraw!'
 ```
 
-This autocmd does not tell the whole story, however. The key to getting the
-`markdown_to_note` script to be called called is to set the `custom_wiki2html`
-key for for the wiki in `g:vimwiki_list` with something like this in your vimrc
-file:
+When I want to convert all the files at once, which is necessary to get accurate
+bidirectional links, the script gets run for every file. I have a map in my vim
+configuration to trigger this process:
+
+```vim
+nnoremap <leader>wha :CvimwikiAll2HTML<cr>
+command! CvimwikiAll2HTML call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'no_update', 0) | execute ':silent! VimwikiAll2HTML' | call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'hi', 0) | execute ':redraw!'
+```
+
+As you can see, it's basically the same as the autocmd except it call
+`VimwikiAll2HTML` instead of `Vimwiki2HTML` command for a single file.
+
+
+The autocmd and map does not tell the whole vim configuration story, however.
+The key to getting the `markdown_to_note` script to be called called is to set
+the `custom_wiki2html` key for for the wiki in `g:vimwiki_list` with something
+like this in your vimrc file:
 
 ```vim
 let wiki_1                          = {}
