@@ -26,3 +26,7 @@ header.hero nav a {
 #notes-entry-container h2 {
   color: #703a3a;
 }
+
+li.new:before { content: "🆕"; margin-left: -1.5em;}
+li.updated:before { content: "🆙"; margin-left: -1.5em; }
+li.plain:before { content: "●"; margin-left: -1.2em; margin-right: .3em; }

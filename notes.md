@@ -33,18 +33,19 @@ Anyway, here are some notes on my notes:
 * <span style="display: block">Notes marked 🆙 were <b>updated</b> within past 48 hours.</span>
 * <span style="display: block">Notes marked 🏁 are <b>finished</b> notes of high quality.</span>
 
-<ul>
+<ul style="list-style:none">
 {% for post in site.notes %}
     {% if post.new == '1' %}
-      <span style="display: block; margin-left: -1.5em">🆕 <a href="{{ post.url }}">{{ post.title }}</a></span>
+      <li class="new">
     {% else %}
       {% if post.updated_logo == '1' %}
-        <span style="display: block; margin-left: -1.5em">🆙 <a href="{{ post.url }}">{{ post.title }}</a></span>
+      <li class="updated">
+
       {% else %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
+        <li class="plain">
       {% endif %}
     {% endif %}
+    <a style="text-indent: 0" href="{{ post.url }}">{{ post.title }}</a>
+    </li>
 {% endfor %}
 </ul>
