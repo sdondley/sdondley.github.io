@@ -27,6 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-14T11:11:33-04:00">
+        <meta property="article:modified_time" content="2020-07-17T12:08:03-04:00">
     <meta property="og:url" content="https://steve.dondley.com/markdown_to_note/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -109,6 +110,13 @@
     </span>
 
 &nbsp;&nbsp;
+    <span class="date">
+        Updated: 
+        <time datetime="2020-07-17">
+            July 17, 2020
+        </time>
+    </span>
+
 
   </div>
 
@@ -129,13 +137,24 @@ puzzle through:</p>
 <p>The script gets run whenever I save a wiki note in my ~/vimwiki/webnotes folder.
 It is triggered by an autocmd found in my vim configuration:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd BufWritePost *.md call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'no_update', 0) | execute ':silent !VimwikiAll2HTML' | call vimwiki#vars#set_wikilocal('custom_wiki2html_args', '-', 0) | execute ':redraw!'
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd <span class="nb">BufWritePost</span> *<span class="p">.</span>md <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'no_update'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':silent! Vimwiki2HTML'</span> <span class="p">|</span> <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':redraw!'</span>
 </code></pre></div></div>
 
-<p>This autocmd does not tell the whole story, however. The key to getting the
-<code class="highlighter-rouge">markdown_to_note</code> script to be called called is to set the <code class="highlighter-rouge">custom_wiki2html</code>
-key for for the wiki in <code class="highlighter-rouge">g:vimwiki_list</code> with something like this in your vimrc
-file:</p>
+<p>When I want to convert all the files at once, which is necessary to get accurate
+bidirectional links, the script gets run for every file. I have a map in my vim
+configuration to trigger this process:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span>wha <span class="p">:</span>CvimwikiAll2HTML<span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
+command<span class="p">!</span> CvimwikiAll2HTML <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'no_update'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':silent! VimwikiAll2HTML'</span> <span class="p">|</span> <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':redraw!'</span>
+</code></pre></div></div>
+
+<p>As you can see, it’s basically the same as the autocmd except it call
+<code class="highlighter-rouge">VimwikiAll2HTML</code> instead of <code class="highlighter-rouge">Vimwiki2HTML</code> command for a single file.</p>
+
+<p>The autocmd and map does not tell the whole vim configuration story, however.
+The key to getting the <code class="highlighter-rouge">markdown_to_note</code> script to be called called is to set
+the <code class="highlighter-rouge">custom_wiki2html</code> key for for the wiki in <code class="highlighter-rouge">g:vimwiki_list</code> with something
+like this in your vimrc file:</p>
 
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> wiki_1                          <span class="p">=</span> <span class="p">{}</span>
 <span class="k">let</span> wiki_1<span class="p">.</span><span class="nb">path</span>                     <span class="p">=</span> <span class="s1">'~/vimwiki/webnotes/'</span>
