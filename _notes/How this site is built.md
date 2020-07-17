@@ -85,3 +85,5 @@ here:
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
+
+[17th](/2020-07-17)
