@@ -1,6 +1,6 @@
 ---
 date: '2020-07-15 09:59:05'
-new: '1'
+new: 0
 title: 'Learning ctags'
 update_logo: 0
 updated_logo: '0'

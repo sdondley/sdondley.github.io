@@ -3,12 +3,25 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: 0
-updated: '2020-07-16 19:37:52'
+updated: '2020-07-17 11:13:30'
 updated_logo: '1'
 ---
+## Why vim?
+* To my knowledge, it is the fastest way for a human to process text on a
+  computer
+  * Can anyone think of another?
+* It's highly customizable and programmable
+* It's highly extensible with plugins
+* It's a power tool, which after a lot of practice and experience with it allows
+  you to:
+  * write almost as fast as you think
+  * correct, revise and reorganize your text extremely fast
+* vim was created mostly for coders, but is also an excellent platform for
+  writers. If you are coder and a writer, vim is pure joy to work with.
+
 ## Maps
 
-Here's a collection of vim maps I use:
+Here's a random collection of vim maps I use:
 * [Insert hyper links from Safari](/Insert-hyper-links)
 * [Insert date](/Insert-date)
 
@@ -51,7 +64,6 @@ From vim command line, run:
 
 ## Vim scripting
 * [https://devhints.io](https://devhints.io/vimscript)
-*
 
 ## Searching
 * lvimgrep

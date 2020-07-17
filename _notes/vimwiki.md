@@ -3,7 +3,7 @@ date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
 update_logo: 0
-updated: '2020-07-16 09:58:23'
+updated: '2020-07-17 10:56:32'
 updated_logo: '1'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
@@ -59,6 +59,31 @@ I'm still learning the ropes but the short answer is:
     * `inoremap <buffer> <leader>xo <C-o>"cciW[](<C-r>c)<left><c-x><c-o>`
     * Then to actually select a file:
       * `inoremap <buffer> <c-y><c-y> <c-y><esc><esc>T(vt)y<esc>F[pf)a  <left>`
+* Rewrite `<cr>` to `Vimwiki 3, 5` per help file
+  * Needed if you are using hard wraps
+  * This will create a bullet on the next line after hitting return if there is
+    more than one line in the bullet
+* faster indenting
+  * `<c-d>` and `<c-t>` outdent and indent
+    * too slow
+      * remap `<<` to outdent
+      * remap `>>` to indent
+```vim
+" faster in/outdenting
+inoremap << <c-d>
+inoremap >> <c-t>
+
+"outdent all the way to margin
+inoremap <leader>,, <esc>0dt*$a
+nnoremap <leader>,, 0dt*$
+
+" needed for vimwiki plugin with hard wrapping
+inoremap <cr> <esc>:VimwikiReturn 3, 5<cr>
+
+" in/outdent next bullet
+imap <c-i><cr> <cr><c-t>
+imap <c-i><c-i><cr> <cr><c-d>
+```
 
 ## Resources
 * [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)
