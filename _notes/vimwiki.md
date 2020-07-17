@@ -71,4 +71,6 @@ I'm still learning the ropes but the short answer is:
 
 [How This Site Works](/How-this-site-is-built)
 
+[Thoughts on Digital Gardening](/Digital-Gardening)
+
 [14th](/2020-07-14)
