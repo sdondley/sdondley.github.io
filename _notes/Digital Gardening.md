@@ -3,7 +3,7 @@ date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
 update_logo: 0
-updated: '2020-07-17 09:21:26'
+updated: '2020-07-17 09:23:36'
 updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
@@ -35,14 +35,14 @@ Why? I have a few ideas:
   them and we learn a lot.
 * **It's becoming much less frictionless for the technically savvy.** Yes, it
   was quite a bit of work to get set up and figure out a workflow that suits me.
-  It took at least a week's worth of effort before it was something I started to
-  feel really happy with and I'm sure I'll spend many more hours tweaking and
-  refining it. But now I've got a custom solution in place that lets me use my
-  vim text editor with other vim [plugins](/vimwiki) that perfectly fits how I
-  prefer to write on a computer. Coupled with Jekyll and Github Pages, I can
-  focus a lot more on on writing and much less on the very tedious and
-  time-consuming job of maintaining a website with a traditional content
-  management system and wrangling with it to get it to do what I want.
+  It took at least a week's worth of effort before the product was something I
+  started to feel really happy with and I'm sure I'll spend many more hours
+  tweaking and refining it. But now I've got a custom solution in place that
+  lets me use my vim text editor with other vim [plugins](/vimwiki) that
+  perfectly fits how I prefer to write on a computer. Coupled with Jekyll and
+  Github Pages, I can focus a lot more on writing and much less on the very
+  tedious and time-consuming job of maintaining a website with a traditional
+  content management system and wrangling with it to get it to do what I want.
 * **People are sick of social media.** Social media has become a cesspool. The
   loudest, dumbest, most obnoxious voices dominate the conversation. Setting up
   a digital garden allows you to communicate without participating in a toxic
