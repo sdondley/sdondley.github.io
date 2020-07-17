@@ -3,7 +3,7 @@ date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
 update_logo: 0
-updated: '2020-07-16 17:06:22'
+updated: '2020-07-17 08:42:18'
 updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
@@ -20,7 +20,7 @@ themselves instead of building a personal website.
 
 ## Everything old is new again
 
-But the "digital [garden](/garden)" phenomena is a movement back toward having a
+But the "digital garden" phenomena is a movement back toward having a
 full-blown website. Why? I have a few ideas:
 
 * **It helps you stand out.** Any schmo can get a Twitter or Facebook account. But
