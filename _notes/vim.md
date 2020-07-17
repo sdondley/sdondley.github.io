@@ -3,7 +3,7 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: 0
-updated: '2020-07-16 16:29:39'
+updated: '2020-07-16 19:37:52'
 updated_logo: '1'
 ---
 ## Maps
@@ -51,6 +51,7 @@ From vim command line, run:
 
 ## Vim scripting
 * [https://devhints.io](https://devhints.io/vimscript)
+*
 
 ## Searching
 * lvimgrep
