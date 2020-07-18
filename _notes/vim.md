@@ -3,7 +3,7 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: 0
-updated: '2020-07-17 11:13:30'
+updated: '2020-07-17 17:11:17'
 updated_logo: '1'
 ---
 ## Why vim?
@@ -18,6 +18,88 @@ updated_logo: '1'
   * correct, revise and reorganize your text extremely fast
 * vim was created mostly for coders, but is also an excellent platform for
   writers. If you are coder and a writer, vim is pure joy to work with.
+
+## Registers
+
+### vim documentation
+* `:h registers`
+
+### Basic tutorial
+* [Vim registers: The basics and beyond](https://www.brianstorti.com/vim-registers/)
+  * Intro
+    * bunch of spaces in memory
+      * these spaces are the registers
+      * vim uses them to store text
+      * each space has an identifier
+      * text in the spaces can be accessed later
+      * similar to storing text in computer clipboard
+        * but vim has many places to store the text
+  * The basic usage
+    * accessing a register
+      * use a double quote before its name
+      * Example, to access text in register 'r':
+        * `"r`
+      * copying selected text to register:
+        * `"ry`
+      * pasting text from register:
+        * `"rp`
+      * registers can be accessed from insert mode:
+        * `<c-r>`<REGISTER_NAME>
+        * Example `<c-r> r`
+      * `:reg` command shows all registers and the content
+        * to view only certain registers, add a space separated list after the
+          command:
+          * `:reg a b c`
+  * the unnamed register
+    * accessed with `""`
+    * holds any text deleted or yanked
+    * by default, `p` key pastes from unnamed register
+      * same as doing `""p
+    * Never lose a yanked text again
+      * Numbered registers
+        * numbered 0 through 9 ("0 to "9)
+        * "0 has the latest **yanked** text
+        * "1 through "9 has the latest **deleted** text (with 9 being the
+          oldest)
+        * you can always paste yanked text with `"0p`
+  * The read only registers
+    * There are 4 read only registers: "., "%, ": and "#
+      * `".` contains the **last inserted text**
+      * `"%` contains the current file path
+        * copy current path to file to clipboard
+          * `:let @+=@%`
+      * `":`
+        * most recently executed command
+        * can be used to rerun last command:
+          * `@:`
+      * `"#` name of the alternate file
+        * can be thought of as the last edited file
+        * see `:h alternate-file`
+        * vim uses it to switch between files when <c-^> is used
+          * can also do `:e <c-r> #`
+  * The expression and the search registers
+    * `"=`
+      * known as the *expression register*
+      * used to deal with the result of expressions
+      * in insert mode, type `<c-r> =`
+        * type in the expression and result will be printed
+        * Examples:
+          * `<c-r>=2+2` will output `4` to the buffer
+          * `<c-r>=system('ls')` will output the list of all files to the buffer
+    * `"/`
+      * Search register
+      * where the last search text goes
+        * changed when a search is performed with `/`, `?`, `*` or `#`
+  * Macros
+    * recording are stored in named registers
+    * you don't have to re record a macro if you do it wrong
+      * you can just edit the register it is in, instead
+    * uppercase register names are how we append contents to a register:
+      * `:let @W='i;'`
+    * to edit a macro in the middle, do:
+      * `:let @w='<c-r> <REGISTER>`
+
+
 
 ## Maps
 
