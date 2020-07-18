@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-13T05:41:57-04:00">
-        <meta property="article:modified_time" content="2020-07-17T11:13:30-04:00">
+        <meta property="article:modified_time" content="2020-07-17T17:11:17-04:00">
     <meta property="og:url" content="https://steve.dondley.com/vim/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -142,6 +142,192 @@ you to:
   </li>
   <li>vim was created mostly for coders, but is also an excellent platform for
 writers. If you are coder and a writer, vim is pure joy to work with.</li>
+</ul>
+
+<h2 id="registers">Registers</h2>
+
+<h3 id="vim-documentation">vim documentation</h3>
+<ul>
+  <li><code class="highlighter-rouge">:h registers</code></li>
+</ul>
+
+<h3 id="basic-tutorial">Basic tutorial</h3>
+<ul>
+  <li><a href="https://www.brianstorti.com/vim-registers/">Vim registers: The basics and beyond</a>
+    <ul>
+      <li>Intro
+        <ul>
+          <li>bunch of spaces in memory
+            <ul>
+              <li>these spaces are the registers</li>
+              <li>vim uses them to store text</li>
+              <li>each space has an identifier</li>
+              <li>text in the spaces can be accessed later</li>
+              <li>similar to storing text in computer clipboard
+                <ul>
+                  <li>but vim has many places to store the text</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>The basic usage
+        <ul>
+          <li>accessing a register
+            <ul>
+              <li>use a double quote before its name</li>
+              <li>Example, to access text in register ‘r’:
+                <ul>
+                  <li><code class="highlighter-rouge">"r</code></li>
+                </ul>
+              </li>
+              <li>copying selected text to register:
+                <ul>
+                  <li><code class="highlighter-rouge">"ry</code></li>
+                </ul>
+              </li>
+              <li>pasting text from register:
+                <ul>
+                  <li><code class="highlighter-rouge">"rp</code></li>
+                </ul>
+              </li>
+              <li>registers can be accessed from insert mode:
+                <ul>
+                  <li><code class="highlighter-rouge">&lt;c-r&gt;</code><REGISTER_NAME></REGISTER_NAME></li>
+                  <li>Example <code class="highlighter-rouge">&lt;c-r&gt; r</code></li>
+                </ul>
+              </li>
+              <li><code class="highlighter-rouge">:reg</code> command shows all registers and the content
+                <ul>
+                  <li>to view only certain registers, add a space separated list after the
+command:
+                    <ul>
+                      <li><code class="highlighter-rouge">:reg a b c</code></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>the unnamed register
+        <ul>
+          <li>accessed with <code class="highlighter-rouge">""</code></li>
+          <li>holds any text deleted or yanked</li>
+          <li>by default, <code class="highlighter-rouge">p</code> key pastes from unnamed register
+            <ul>
+              <li>same as doing `"”p</li>
+            </ul>
+          </li>
+          <li>Never lose a yanked text again
+            <ul>
+              <li>Numbered registers
+                <ul>
+                  <li>numbered 0 through 9 (“0 to “9)</li>
+                  <li>“0 has the latest <strong>yanked</strong> text</li>
+                  <li>“1 through “9 has the latest <strong>deleted</strong> text (with 9 being the
+oldest)</li>
+                  <li>you can always paste yanked text with <code class="highlighter-rouge">"0p</code></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>The read only registers
+        <ul>
+          <li>There are 4 read only registers: “., “%, “: and “#
+            <ul>
+              <li><code class="highlighter-rouge">".</code> contains the <strong>last inserted text</strong></li>
+              <li><code class="highlighter-rouge">"%</code> contains the current file path
+                <ul>
+                  <li>copy current path to file to clipboard
+                    <ul>
+                      <li><code class="highlighter-rouge">:let @+=@%</code></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><code class="highlighter-rouge">":</code>
+                <ul>
+                  <li>most recently executed command</li>
+                  <li>can be used to rerun last command:
+                    <ul>
+                      <li><code class="highlighter-rouge">@:</code></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><code class="highlighter-rouge">"#</code> name of the alternate file
+                <ul>
+                  <li>can be thought of as the last edited file</li>
+                  <li>see <code class="highlighter-rouge">:h alternate-file</code></li>
+                  <li>vim uses it to switch between files when &lt;c-^&gt; is used
+                    <ul>
+                      <li>can also do <code class="highlighter-rouge">:e &lt;c-r&gt; #</code></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>The expression and the search registers
+        <ul>
+          <li><code class="highlighter-rouge">"=</code>
+            <ul>
+              <li>known as the <em>expression register</em></li>
+              <li>used to deal with the result of expressions</li>
+              <li>in insert mode, type <code class="highlighter-rouge">&lt;c-r&gt; =</code>
+                <ul>
+                  <li>type in the expression and result will be printed</li>
+                  <li>Examples:
+                    <ul>
+                      <li><code class="highlighter-rouge">&lt;c-r&gt;=2+2</code> will output <code class="highlighter-rouge">4</code> to the buffer</li>
+                      <li><code class="highlighter-rouge">&lt;c-r&gt;=system('ls')</code> will output the list of all files to the buffer</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><code class="highlighter-rouge">"/</code>
+            <ul>
+              <li>Search register</li>
+              <li>where the last search text goes
+                <ul>
+                  <li>changed when a search is performed with <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">?</code>, <code class="highlighter-rouge">*</code> or <code class="highlighter-rouge">#</code></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Macros
+        <ul>
+          <li>recording are stored in named registers</li>
+          <li>you don’t have to re record a macro if you do it wrong
+            <ul>
+              <li>you can just edit the register it is in, instead</li>
+            </ul>
+          </li>
+          <li>uppercase register names are how we append contents to a register:
+            <ul>
+              <li><code class="highlighter-rouge">:let @W='i;'</code></li>
+            </ul>
+          </li>
+          <li>to edit a macro in the middle, do:
+            <ul>
+              <li><code class="highlighter-rouge">:let @w='&lt;c-r&gt; &lt;REGISTER&gt;</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="maps">Maps</h2>
