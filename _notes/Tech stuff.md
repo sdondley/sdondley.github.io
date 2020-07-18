@@ -3,7 +3,7 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-18 09:36:08'
+updated: '2020-07-18 12:05:47'
 updated_logo: '1'
 ---
 ## Misc. Topics
@@ -30,21 +30,27 @@ enjoy it immensely.
 
 ### Computer hardware
 #### Early years
-Since I was a young boy, I've always been fascinated by computers. The first bit
-of digital technology that transfixed me was owned by my cousin's husband, Jimmy
-Wagner. It was a digital watch with growing LED numbers. It was probably 1975
-and I was 5 years old. If the watch wasn't the [Pulsar P3](https://20centurywatches.com/pulsar-p3/), it was something very close to it.
-I begged for my own digital watch for a present but that, of course, my
-relatives weren't about to spend a couple hundred bucks on a watch for a little
-kid (I did get a Snoopy analog watch, though). I don't think it was until 1979
-that I finally got a digital watch. Although it was a liquid crystal display and
-not LED, it was good enough for me.
+Since I was a young boy, I've always been fascinated by all things digital. The
+first bit of technology to transfix me was owned by my cousin's husband,
+Jimmy Wagner. It was a watch and instead of hands it had glowing LED numbers. It
+was probably 1975 and I was 5 years old. If the watch wasn't the [Pulsar
+P3](https://20centurywatches.com/pulsar-p3/), it was something very close to
+it.
 
-Here's a historical timeline of some of the other hardware I've owned as well as
+I begged my parents and relatives for my own digital watch for a present but, of
+course, they weren't about to spend a couple hundred bucks on a watch
+for a little kid (I did get a cool Snoopy analog watch, though). I don't think
+it was until 1979 that I finally got a digital watch. Although it had a liquid
+crystal display rather than an LED face and had an ugly, goofy, stiff brown
+plastic wristband that was supposed to look like alligator skin, it was good
+enough for me.
+
+Here's a rough timeline of some of the other hardware I've owned as well as
 other experiences that left a mark on my imagination.
 
 * 1977?
   * [Little Professor - Wikipedia](https://en.wikipedia.org/wiki/Little_Professor)
+    * It had the magical, glowing red numbers, just like the digital watch
 * Christmas 1977 (or could have been '78)
   * First video game console: [Coleco Telstar Arcade - Wikipedia](https://en.wikipedia.org/wiki/Coleco_Telstar_Arcade)
 * Early 80s
@@ -63,27 +69,52 @@ other experiences that left a mark on my imagination.
 * 1983
   * My first computer as a kid was an [Apple IIe - Wikipedia](https://en.wikipedia.org/wiki/Apple_IIe)
     * Learned Apple Basic
+    * Used it for gaming, as well
+      * Had all the Zork games
+    * Wrote a database program to obsessively store all the videos I saw on MTV.
+      * Didn't last long. After a couple dozen entries, I got tired of running
+        up the stairs after every video
+    * Conceived a graphical software maze game in 3-D.
+      * Never finished it (and barely started it) but I'm sure it would have
+        been better than Doom
   * Intellivision video game console
-* My sister and brother-in-law had an original Macintosh computer
-  * Didn't have much need for it but was absolutely fascinated by it
+* 1984
+  * My sister and brother-in-law had an original Macintosh computer
+    * Didn't have much need for it but was absolutely fascinated by it and spent
+      hours on it seeing what it could do compared to my Apple IIe
+  * My brother-in-law worked in the software industry and had some kind of
+    printing device (I think it was some kind of portable teletype machine)
+    connected to a modem. I could play games on it.
 * 1991
   * Bought my own first computer, an [IBM PS/1 - Wikipedia](https://en.wikipedia.org/wiki/IBM_PS/1)
     * Operating system was PC DOS
-    * My introduction to bulletin boards and Prodigy
+    * Provided for my introduction to bulletin boards and Prodigy
       * Early precursors to the World Wide Web which got popular a few years
         later
 * Early to mid-90s
-  * Assembled a couple Windows-based computers from components in the early 90s
+  * Assembled a couple Windows-based computers from components
 * 1997
   * Got a [Web TV - Wikipedia](https://en.wikipedia.org/wiki/MSN_TV) to surf the web
 * 1998 - 2008
-  * Various IBM clone Window machines
+  * Bought two or three IBM clone Window machines
+    * Maybe the first was a Gateway? Not sure.
+    * The last one I bought was a Dell
+* 1999/2000
+  * Set up a Linux box on an old, second-hand computer
+    * Installed Debian, the "purists" Linux distribution
+    * Holy hell did it take me hours to get the wifi driver set up. I had no
+      idea what I was doing.
+    * Got bit by the free software bug
+* 2004
+  * Bought a couple of 1U servers and started hosting websites for clients
+  * Housed them in a datacenter
+  * All run Debian
+  * Since that time, I bought several other servers as company grew
 
 #### The Apple FanBoi Years
 I've kind of lost track of all the Apple products I've purchased over the past
-12 years. Here they are to the best of my recollection. I've probably spent
-roughly $30K on them which is probably a bit obsessive, I'll admit. We've all
-got our vices.
+12 years. Here they are to the best of my recollection. I've spent roughly $30K
+on them which is probably a bit obsessive, I'll admit. We've all got our vices.
 
 * 2008
   * Came back to Mac and never looked back with a MacBook Pro

@@ -13,7 +13,7 @@ Communications](http://prometheuslabor.com), a US Navy submarine veteran
 and former labor organizer for UFCW Local 1459 in Springfield, MA. I've had an early
 interest in computers and programming since childhood and a fascination with
 mass communication which I developed during my post secondary education at
-UMass. I combined these passions and began develop websites for labor unions in
+UMass. I combined these passions and began developing websites for labor unions in
 in the late 90s. I launched my company, Prometheus, in 2005.
 
 I continue to be involved in the labor movement and serves as the
