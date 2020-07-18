@@ -2,7 +2,7 @@
 date: '2020-07-14 14:23:47'
 new: 0
 title: 'Insert hyperlinks into vim (Mac only)'
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-18 00:35:57'
 updated_logo: '1'
 ---

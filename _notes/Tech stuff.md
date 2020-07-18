@@ -2,8 +2,8 @@
 date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
-update_logo: 0
-updated: '2020-07-17 23:27:05'
+update_logo: '0'
+updated: '2020-07-18 09:36:08'
 updated_logo: '1'
 ---
 ## Misc. Topics
@@ -69,7 +69,7 @@ other experiences that left a mark on my imagination.
 * 1991
   * Bought my own first computer, an [IBM PS/1 - Wikipedia](https://en.wikipedia.org/wiki/IBM_PS/1)
     * Operating system was PC DOS
-    * My introduction to bulleting boards and Prodigy
+    * My introduction to bulletin boards and Prodigy
       * Early precursors to the World Wide Web which got popular a few years
         later
 * Early to mid-90s

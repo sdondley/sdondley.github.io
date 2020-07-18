@@ -2,7 +2,7 @@
 date: '2020-07-13 05:48:52'
 new: 0
 title: Politics
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-16 13:23:48'
 updated_logo: '1'
 ---

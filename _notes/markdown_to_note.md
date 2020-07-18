@@ -2,7 +2,7 @@
 date: '2020-07-14 11:11:33'
 new: 0
 title: 'markdown_to_note perl script'
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-17 12:08:03'
 updated_logo: '1'
 ---
@@ -58,6 +58,8 @@ let g:vimwiki_list                  = [wiki_1]
 
 ---
 #### Other notes linking here:
+
+[18th](/2020-07-18)
 
 [How This Site Works](/How-this-site-is-built)
 

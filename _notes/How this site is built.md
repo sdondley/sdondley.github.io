@@ -2,8 +2,8 @@
 date: '2020-07-13 07:36:05'
 new: 0
 title: 'How This Site Works'
-update_logo: 0
-updated: '2020-07-17 12:12:58'
+update_logo: '0'
+updated: '2020-07-18 11:42:11'
 updated_logo: '1'
 ---
 ## Technical overview
@@ -14,6 +14,11 @@ this site you are looking at.
   * vim plugins used
     * I use [vimwiki](/vimwiki) to write all the notes and posts and pages
     * [CtrlP](/CtrlP) is used to quickly jump between existing files
+      * However, I just (re)discovered [fzf](/fzf) for finding files and it looks
+        fantastically promising.
+        * Apparently, coupled with ripgrep, it could be a real game changer for
+          switching files and finding text in a project.
+        * see [Unix is my IDE – mkaz.blog](https://mkaz.blog/code/unix-is-my-ide/)
 * The site is statically generated in two stages
   * First stage
     * uses vimwiki to export markdown pages written with vimwiki to prepare

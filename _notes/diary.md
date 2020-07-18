@@ -2,7 +2,7 @@
 date: '2020-07-12 11:11:33'
 new: 0
 title: 'Diary Index'
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-18 00:24:52'
 updated_logo: '1'
 ---

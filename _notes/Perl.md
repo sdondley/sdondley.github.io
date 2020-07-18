@@ -2,7 +2,7 @@
 date: '2020-07-13 06:14:27'
 new: 0
 title: Perl
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-16 14:06:42'
 updated_logo: '1'
 ---

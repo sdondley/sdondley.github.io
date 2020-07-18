@@ -2,7 +2,7 @@
 date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-17 23:26:34'
 updated_logo: '1'
 ---

@@ -2,7 +2,7 @@
 date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
-update_logo: 0
+update_logo: '0'
 updated: '2020-07-17 22:43:15'
 updated_logo: '1'
 ---
@@ -64,6 +64,8 @@ Why? I have a few speculative theories:
 
 ---
 #### Other notes linking here:
+
+[18th](/2020-07-18)
 
 [Tech stuff](/Tech-stuff)
 

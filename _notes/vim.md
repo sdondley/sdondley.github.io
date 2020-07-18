@@ -2,8 +2,8 @@
 date: '2020-07-13 05:41:57'
 new: 0
 title: vim
-update_logo: 0
-updated: '2020-07-18 00:08:43'
+update_logo: '0'
+updated: '2020-07-18 10:39:00'
 updated_logo: '1'
 ---
 ## Why vim?
@@ -112,6 +112,9 @@ Some useful plugins I use (not a complete list):
 * [vimwiki](/vimwiki) - used to generate these notes very quickly
 * [CtrlP](/CtrlP) - for opening files quickly
 
+### Plugins I'm exploring
+* [fzf.vim](/fzf.vim)
+
 ## Completion
 
 * `echo complete_info()` to get current completion info
@@ -160,8 +163,17 @@ From vim command line, run:
       * move not next modified buffer
       * buffer 1
   * Recommended shortcuts
-    * `<leader>3`
-      * to bounce back to last buffer
+    * `nnoremap <leader>3 :b#<cr>`
+      * to bounce back to previous buffer
+    * `nnoremap <leader>n :bn<cr>`
+      * go to next buffer
+    * `nnoremap Q :bd!<cr>`
+      * close buffer
+    * `nnoremap <Leader>, :Buffers<CR> "`
+      * browse buffers
+      * comes from the fzf.vim plugin
+        * allows for a more forgiving fuzzy match of buffer names
+        * author has set up fzf and ripgrep for advanced searching
 
 
 
