@@ -13,13 +13,14 @@ Communications](http://prometheuslabor.com), a US Navy submarine veteran
 and former labor organizer for UFCW Local 1459 in Springfield, MA. I've had an early
 [interest in computers](https://steve.dondley.com/Tech-stuff/#computer-hardware) and programming since childhood and a fascination with
 mass communication which I developed during my post secondary education at
-UMass. I combined these passions and began developing websites for labor unions in
-in the late 90s. I launched my company, Prometheus, in 2005.
+Grossmont Community College in San Diego and UMass. I combined these passions and
+began developing websites for labor unions in in the late 90s. I launched my
+company, Prometheus, in 2005.
 
-I continue to be involved in the labor movement and serves as the
-Recording Secretary for my labor council in Springfield, MA. I also served a
-two-year term as a city councilor in the city of Westfield, MA. I am currently
-focused on the development of the [UnionConnect mobile app
+I continue to be involved in the labor movement and serve as the Recording
+Secretary for my labor council in Springfield, MA. I also served a two-year term
+as a city councilor in the city of Westfield, MA from 2016 to 2018. I am
+currently focused on the development of the [UnionConnect mobile app
 platform](https://unionconnect.com) my company developed for labor unions among
 many other projects.
 
@@ -28,6 +29,6 @@ many other projects.
 This [website theme I shamelessly ripped off](https://github.com/MaximeKjaer/kjaer.io) used
 photos and I wanted to use my own. They are mostly photos I took while on a
 family vacation in Europe. We went to quite a few museums so many of them are
-art-focused. If there's any significance to them other than they might be
-eye-catching, it is that I think life itself is a bit of performance
-art.
+art-focused. If there's any significance to them other than being eye-catching,
+it's that not only is art an expression of life but life itself should be
+thought of an art performance.

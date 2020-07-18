@@ -3,7 +3,7 @@ date: '2020-07-13 06:14:27'
 new: 0
 title: Perl
 update_logo: '0'
-updated: '2020-07-16 14:06:42'
+updated: '2020-07-18 13:47:00'
 updated_logo: '1'
 ---
 Perl is my native programming language and the one I know the best. It was the

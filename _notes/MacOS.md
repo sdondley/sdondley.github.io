@@ -3,7 +3,7 @@ date: '2020-07-17 23:27:59'
 new: '1'
 title: MacOS
 update_logo: '0'
-updated: '2020-07-18 10:22:11'
+updated: '2020-07-18 13:13:14'
 updated_logo: '0'
 ---
 ## CLI tools
@@ -24,7 +24,6 @@ updated_logo: '0'
   * documentation
     * `man rg`
     * `rg [OPTIONS] PATTERN [PATH...]`
-    *
 
 
 ## Random tip and tricks

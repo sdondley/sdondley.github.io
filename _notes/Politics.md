@@ -3,7 +3,7 @@ date: '2020-07-13 05:48:52'
 new: 0
 title: Politics
 update_logo: '0'
-updated: '2020-07-16 13:23:48'
+updated: '2020-07-18 13:42:45'
 updated_logo: '1'
 ---
 ## F Trump
@@ -13,6 +13,8 @@ witnessing from my fellow Americans.
 
 ## Notes
 * [Notes on Laura Ingraham's Descent Into Despair](/Notes-on-Laura-Ingraham's-Descent-Into-Despair)
+  * This is basically an experiment on sharing thoughts about an article
+  * maybe useful for twitter?
 
 ---
 #### Other notes linking here:
