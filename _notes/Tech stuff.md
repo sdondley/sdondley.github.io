@@ -3,7 +3,7 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-18 12:57:40'
+updated: '2020-07-18 12:59:24'
 updated_logo: '1'
 ---
 ## Misc. Topics
@@ -117,7 +117,7 @@ other experiences that left a mark on my imagination.
     * Holy hell did it take me hours to get the wifi driver set up. I had no
       idea what I was doing.
     * Got bit by the free software bug
-  * Taught myself Perl
+  * Taught myself [Perl](/Perl)
 * 2004
   * Bought a couple of 1U servers and started hosting websites for clients
   * Housed them in a datacenter
