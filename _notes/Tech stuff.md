@@ -3,7 +3,7 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-18 12:05:47'
+updated: '2020-07-18 12:57:40'
 updated_logo: '1'
 ---
 ## Misc. Topics
@@ -53,6 +53,12 @@ other experiences that left a mark on my imagination.
     * It had the magical, glowing red numbers, just like the digital watch
 * Christmas 1977 (or could have been '78)
   * First video game console: [Coleco Telstar Arcade - Wikipedia](https://en.wikipedia.org/wiki/Coleco_Telstar_Arcade)
+* 1980 or '81
+  * My first use of a computer attached to a network
+    * Armory Street School, 5th or 6th grade
+    * It was a teletype machine with a dot matrix printer connected to a
+      computer in downtown Springfield
+      * it could play simple games such as madlibs
 * Early 80s
   * Various hand-held games
     * [Coleco Head to Head Football](https://www.handheldmuseum.com/Coleco/H2HFootball.htm)
@@ -60,15 +66,15 @@ other experiences that left a mark on my imagination.
     * [Simon (game) - Wikipedia](https://en.wikipedia.org/wiki/Simon_%28game%29)
     * [Merlin (console) - Wikipedia](https://en.wikipedia.org/wiki/Merlin_%28console%29)
     * [Microvision - Wikipedia](https://en.wikipedia.org/wiki/Microvision)
-* 1980
-  * My first use of a computer attached to a network
-    * Armory Street School, 5th or 6th grade
-    * It was a teletype machine with a dot matrix printer connected to a
-      computer in downtown Springfield
-      * it could play simple games such as madlibs
 * 1983
-  * My first computer as a kid was an [Apple IIe - Wikipedia](https://en.wikipedia.org/wiki/Apple_IIe)
-    * Learned Apple Basic
+  * Got an [Apple IIe - Wikipedia](https://en.wikipedia.org/wiki/Apple_IIe)
+    * It was purchased by my brother, 10 years older than me, while he was in
+      college
+      * I'm not sure if he ever intended to use it for himself but he never did
+        so it essentially became mine.
+      * It sits in my basement to this day
+        * Worked as of about 5 years ago when I last tried it out
+    * Learned Apple Basic with it using the book that came with it
     * Used it for gaming, as well
       * Had all the Zork games
     * Wrote a database program to obsessively store all the videos I saw on MTV.
@@ -78,6 +84,7 @@ other experiences that left a mark on my imagination.
       * Never finished it (and barely started it) but I'm sure it would have
         been better than Doom
   * Intellivision video game console
+    * Video games basically killed my budding career in programming
 * 1984
   * My sister and brother-in-law had an original Macintosh computer
     * Didn't have much need for it but was absolutely fascinated by it and spent
@@ -91,20 +98,26 @@ other experiences that left a mark on my imagination.
     * Provided for my introduction to bulletin boards and Prodigy
       * Early precursors to the World Wide Web which got popular a few years
         later
+    * Tried learning C++ from a book but without success
+      * OO concepts were way over my head at the time
+      * Had way more fun things to do while living in the Bay Area in my early
+        20s
 * Early to mid-90s
   * Assembled a couple Windows-based computers from components
 * 1997
   * Got a [Web TV - Wikipedia](https://en.wikipedia.org/wiki/MSN_TV) to surf the web
-* 1998 - 2008
+* 1998 - 2005
   * Bought two or three IBM clone Window machines
     * Maybe the first was a Gateway? Not sure.
     * The last one I bought was a Dell
+    * Got consumed with the internet and building websites
 * 1999/2000
   * Set up a Linux box on an old, second-hand computer
     * Installed Debian, the "purists" Linux distribution
     * Holy hell did it take me hours to get the wifi driver set up. I had no
       idea what I was doing.
     * Got bit by the free software bug
+  * Taught myself Perl
 * 2004
   * Bought a couple of 1U servers and started hosting websites for clients
   * Housed them in a datacenter
