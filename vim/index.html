@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-13T05:41:57-04:00">
-        <meta property="article:modified_time" content="2020-07-18T00:08:43-04:00">
+        <meta property="article:modified_time" content="2020-07-18T10:39:00-04:00">
     <meta property="og:url" content="https://steve.dondley.com/vim/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -38,7 +38,7 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-138585660-1', 'auto');
-    ga('set' 'anonymizeIp', 'false');
+    ga('set', 'anonymizeIp', 'false');
     ga('send', 'pageview', {
       'anonymizeIp': false,
       'page': '/vim/',
@@ -345,6 +345,11 @@ oldest)</li>
   <li><a href="/CtrlP">CtrlP</a> - for opening files quickly</li>
 </ul>
 
+<h3 id="plugins-im-exploring">Plugins I’m exploring</h3>
+<ul>
+  <li><a href="/fzf.vim">fzf.vim</a></li>
+</ul>
+
 <h2 id="completion">Completion</h2>
 
 <ul>
@@ -448,9 +453,30 @@ oldest)</li>
       </li>
       <li>Recommended shortcuts
         <ul>
-          <li><code class="highlighter-rouge">&lt;leader&gt;3</code>
+          <li><code class="highlighter-rouge">nnoremap &lt;leader&gt;3 :b#&lt;cr&gt;</code>
             <ul>
-              <li>to bounce back to last buffer</li>
+              <li>to bounce back to previous buffer</li>
+            </ul>
+          </li>
+          <li><code class="highlighter-rouge">nnoremap &lt;leader&gt;n :bn&lt;cr&gt;</code>
+            <ul>
+              <li>go to next buffer</li>
+            </ul>
+          </li>
+          <li><code class="highlighter-rouge">nnoremap Q :bd!&lt;cr&gt;</code>
+            <ul>
+              <li>close buffer</li>
+            </ul>
+          </li>
+          <li><code class="highlighter-rouge">nnoremap &lt;Leader&gt;, :Buffers&lt;CR&gt; "</code>
+            <ul>
+              <li>browse buffers</li>
+              <li>comes from the fzf.vim plugin
+                <ul>
+                  <li>allows for a more forgiving fuzzy match of buffer names</li>
+                  <li>author has set up fzf and ripgrep for advanced searching</li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>
