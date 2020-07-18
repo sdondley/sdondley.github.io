@@ -3,7 +3,7 @@ date: '2020-07-14 14:23:47'
 new: 0
 title: 'Insert hyperlinks into vim (Mac only)'
 update_logo: 0
-updated: '2020-07-17 20:33:22'
+updated: '2020-07-18 00:35:57'
 updated_logo: '1'
 ---
 # Insert hyperlinks into vim (Mac only)
@@ -24,8 +24,8 @@ inoremap <Leader>gt <esc>:silent !~/bin/copy_safari_title.osa <cr>a <esc>"+p<cr>
 nnoremap <Leader>gt :silent !~/bin/copy_safari_title.osa <cr>"+p<cr>
 
 " Copy and paste **markdown link** of current open Safari tab into vim using title and url
-inoremap <leader>gg <esc>:set fo-=t <cr>:!~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>:let @x=@+<cr>:!~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z=' [' . getreg('x') . '](/'-.-getreg('y') . ')'<cr>"zp:set fo+=t<cr>a
-nnoremap <leader>gg :set fo-=t <cr>:!~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>:let @x=@+<cr>:!~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z=' [' . getreg('x') . '](/'-.-getreg('y') . ')'<cr>"zp:set fo+=t<cr>
+inoremap <leader>gg <esc>:set fo-=t <cr>:!~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '\\|', 'g')<cr>:let @x=@+<cr>:!~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z=' [' . getreg('x') . '](/'-.-getreg('y') . ')'<cr>"zp:set fo+=t<cr>a
+nnoremap <leader>gg :set fo-=t <cr>:!~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '\\|', 'g')<cr>:let @x=@+<cr>:!~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z=' [' . getreg('x') . '](/'-.-getreg('y') . ')'<cr>"zp:set fo+=t<cr>
 ```
 
 ### Applescripts
@@ -52,6 +52,8 @@ end tell
 
 ---
 #### Other notes linking here:
+
+[18th](/2020-07-18)
 
 [vim](/vim)
 

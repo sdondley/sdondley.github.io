@@ -3,7 +3,7 @@ date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
 update_logo: 0
-updated: '2020-07-17 09:23:36'
+updated: '2020-07-17 22:43:15'
 updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
@@ -21,7 +21,7 @@ themselves instead of building a personal website.
 ## Everything old is new again
 
 But "digital gardens" are a move back toward setting up a full-blown website.
-Why? I have a few ideas:
+Why? I have a few speculative theories:
 
 * **It helps you stand out.** Any schmo can get a Twitter or Facebook account. But
   not everyone has their own website, which still carries some cachet.
@@ -59,6 +59,8 @@ Why? I have a few ideas:
   * Exploration of the idea of using computers into true "tools for thought"
   * "tools for thought" is a thing
     * [https://numinous.productions](https://numinous.productions/ttft/assets/Iverson1979.pdf)
+* [About these notes  Evergreen note-writing as fundamental unit of knowledge work](https://notes.andymatuschak.org/About_these_notes?stackedNotes=z3SjnvsB5aR2ddsycyXofbYR7fCxo7RmKW2be)
+*
 
 ---
 #### Other notes linking here:

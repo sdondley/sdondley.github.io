@@ -3,7 +3,7 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: 0
-updated: '2020-07-17 17:11:17'
+updated: '2020-07-18 00:08:43'
 updated_logo: '1'
 ---
 ## Why vim?
@@ -126,6 +126,44 @@ From vim command line, run:
 * :h omnifunc
 * :h compl-omni
 * :h completeopt
+
+## Navigating buffers
+* From [Buffers  Working with Vim - mkaz.blog](https://mkaz.blog/working-with-vim/buffers/)
+  * What are buffers?
+    * text files residing "in-memory"
+    * vim window is a viewport on the buffer
+    * switching
+      * you can switch between buffers
+        * viewport can show a different buffer
+    * author posits that buffers are better than tabs
+      * [Vim Tab Madness. Buffers vs Tabs - Josh Davis](https://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/)
+  * Opening Multiple Files
+    * `vim file1 file2 file3`
+    * open new file in an additional buffer
+      * `:e file`
+  * Main Buffer Commands
+    * `:buffers` or `:ls`
+      * list buffers
+    * `:b {bufname}` use buffer name, supports completion
+      * good for switching between buffers
+    * `:bd`
+      * close current buffer
+    * `:bn`
+      * next buffer
+    * `:bp`
+      * previous buffer
+    * `:b#`
+      * last buffer
+    * `:b1`
+      * buffer 1
+    * `:bm`
+      * move not next modified buffer
+      * buffer 1
+  * Recommended shortcuts
+    * `<leader>3`
+      * to bounce back to last buffer
+
+
 
 ## spell check feature
 * turn on with `set spell`

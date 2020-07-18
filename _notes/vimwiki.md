@@ -3,7 +3,7 @@ date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
 update_logo: 0
-updated: '2020-07-17 12:14:37'
+updated: '2020-07-17 23:26:34'
 updated_logo: '1'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
@@ -89,7 +89,13 @@ imap <c-i><c-i><cr> <cr><c-d>
 
 ## Resources
 * [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)
-* [Getting started guide](https://blog.mague.com/?p=602)
+* [Getting started guide](https://blog.mague.com/?p=602) **broken link as of 7/16/2020**
+* [A Better Way of Using Vimwiki - YouTube](https://www.youtube.com/watch?v=GPSmRuKL5KQ)
+  * guy in video keeps syaing to use mod-v
+    * actual combo by default:
+      * <leader>ww
+      * consult documentation for how to quickly open other wikis
+      * :h vimwiki-global-mappings
 
 ---
 #### Other notes linking here:
