@@ -12,4 +12,4 @@ updated_logo: 0
 ---
 #### Other notes linking here:
 
-[13th](/2020-07-13)
+[Diary entry for 2020-07-13](/2020-07-13)

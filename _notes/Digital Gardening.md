@@ -3,14 +3,14 @@ date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
 update_logo: '0'
-updated: '2020-07-17 22:43:15'
+updated: '2020-07-19 14:25:12'
 updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
 won't bore you with a definition of what it is. Other people have already done a
 good job of explaining it so I'll let you [google it.](https://www.google.com/search?q=digital+gardening)
 
-Anyway, I guess this new website I put up qualifies as a "digital garden."
+Anyway, I guess the [notes](/notes) section of this site qualifies as a "digital garden."
 
 I've always had an interest in maintaining a personal website. I've started and
 abandoned quite a few. They were just too much of a hassle to upkeep and
@@ -65,8 +65,8 @@ Why? I have a few speculative theories:
 ---
 #### Other notes linking here:
 
-[18th](/2020-07-18)
+[Diary entry for 2020-07-18](/2020-07-18)
 
 [Tech stuff](/Tech-stuff)
 
-[17th](/2020-07-17)
+[Diary entry for 2020-07-17](/2020-07-17)

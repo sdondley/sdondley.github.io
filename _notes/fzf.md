@@ -157,9 +157,9 @@ updated_logo: '0'
 ---
 #### Other notes linking here:
 
-[18th](/2020-07-18)
+[Diary entry for 2020-07-18](/2020-07-18)
 
-[19th](/2020-07-19)
+[Diary entry for 2020-07-19](/2020-07-19)
 
 [How This Site Works](/How-this-site-is-built)
 

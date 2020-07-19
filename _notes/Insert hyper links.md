@@ -53,7 +53,7 @@ end tell
 ---
 #### Other notes linking here:
 
-[18th](/2020-07-18)
+[Diary entry for 2020-07-18](/2020-07-18)
 
 [vim](/vim)
 

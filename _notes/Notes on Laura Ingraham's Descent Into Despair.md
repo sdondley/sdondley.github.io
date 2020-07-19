@@ -27,6 +27,6 @@ updated_logo: 0
 ---
 #### Other notes linking here:
 
-[16th](/2020-07-16)
+[Diary entry for 2020-07-16](/2020-07-16)
 
 [Politics](/Politics)

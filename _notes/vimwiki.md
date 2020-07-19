@@ -111,4 +111,4 @@ I'm still learning the ropes but the short answer is:
 
 [Thoughts on Digital Gardening](/Digital-Gardening)
 
-[14th](/2020-07-14)
+[Diary entry for 2020-07-14](/2020-07-14)

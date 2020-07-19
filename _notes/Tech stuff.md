@@ -3,7 +3,7 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-19 12:57:56'
+updated: '2020-07-19 14:23:14'
 updated_logo: '1'
 ---
 ## Misc. Topics
@@ -104,6 +104,8 @@ other experiences that left a mark on my imagination.
         20s
 * Early to mid-90s
   * Assembled a couple Windows-based computers from components
+* 1996 (maybe '97)
+  * Nintendo 64
 * 1997
   * Got a [Web TV - Wikipedia](https://en.wikipedia.org/wiki/MSN_TV) to surf the web
 * 1998 - 2005

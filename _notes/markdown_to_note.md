@@ -59,10 +59,10 @@ let g:vimwiki_list                  = [wiki_1]
 ---
 #### Other notes linking here:
 
-[18th](/2020-07-18)
+[Diary entry for 2020-07-18](/2020-07-18)
 
 [How This Site Works](/How-this-site-is-built)
 
-[13th](/2020-07-13)
+[Diary entry for 2020-07-13](/2020-07-13)
 
-[14th](/2020-07-14)
+[Diary entry for 2020-07-14](/2020-07-14)
