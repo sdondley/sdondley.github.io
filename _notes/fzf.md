@@ -2,7 +2,7 @@
 date: '2020-07-18 10:43:12'
 new: '1'
 title: fzf
-updated: '2020-07-19 11:53:47'
+updated: '2020-07-19 12:53:31'
 updated_logo: '0'
 ---
 ## What is fzf and how does it work, exactly?
@@ -149,11 +149,6 @@ updated_logo: '0'
       * quickly edit a file with vim
 * shell scripts can leverage fzf to do some really neat stuff
   * See the community examples at [Examples · junegunn/fzf Wiki](https://github.com/junegunn/fzf/wiki/Examples)
-
-###
-
-
-
 
 ## Elsewhere
 * [Official fzf Wiki page](https://github.com/junegunn/fzf/wiki)

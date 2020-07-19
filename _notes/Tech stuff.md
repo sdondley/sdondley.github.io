@@ -3,7 +3,7 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-18 13:46:03'
+updated: '2020-07-19 12:57:56'
 updated_logo: '1'
 ---
 ## Misc. Topics
@@ -37,13 +37,13 @@ was probably 1975 and I was 5 years old. If the watch wasn't the [Pulsar
 P3](https://20centurywatches.com/pulsar-p3/), it was something very close to
 it.
 
-I begged my parents and relatives for my own digital watch for a present but, of
-course, they weren't about to spend a couple hundred bucks on a watch
-for a little kid (I did get a cool Snoopy analog watch, though). I don't think
-it was until 1979 that I finally got a digital watch. Although it had a liquid
-crystal display rather than an LED face and had an ugly, goofy, stiff brown
-plastic wristband that was supposed to look like alligator skin, it was good
-enough for me.
+I begged my parents and relatives for a digital watch as a present but, of
+course, they weren't about to spend a couple hundred bucks on a watch for a
+little kid (I did get a cool Snoopy analog watch, though). I don't think it was
+until 1979 that I finally got a digital watch. Although it had a liquid crystal
+display rather than an LED face and had an ugly, goofy, stiff brown plastic
+wristband that was supposed to look like alligator skin, it was good enough for
+me.
 
 Here's a rough timeline of some of the other hardware I've owned as well as
 other experiences that left a mark on my imagination.
@@ -142,6 +142,7 @@ on them which is probably a bit obsessive, I'll admit. We've all got our vices.
 * 2012
   * New MacBook Pro
   * got another iPad somewhere around this time
+  * Got an AppleTV somewhere in here
 * 2013
   * iPhone 5S
 * 2013 to 2016?
@@ -153,11 +154,13 @@ on them which is probably a bit obsessive, I'll admit. We've all got our vices.
 * 2016
   * New MacBook Pro
   * iPhone 7
+  * Got a newer AppleTV somwhere around here
 * 2017
   * Apple Watch Series 2
   * iPhone X
   * iPad Pro 10.5"
 * 2018
+  * HomePod
   * iPhone XS
 * 2019
   * iPhone 11 Pro

@@ -4,7 +4,7 @@ new: 0
 title: 'markdown_to_note perl script'
 update_logo: '0'
 updated: '2020-07-17 12:08:03'
-updated_logo: '1'
+updated_logo: 0
 ---
 ## What is it?
 This is bit of perl "glue" script I wrote which is run whenever I save a note in my
