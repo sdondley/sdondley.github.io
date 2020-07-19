@@ -27,6 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-18T10:43:12-04:00">
+        <meta property="article:modified_time" content="2020-07-19T11:53:47-04:00">
     <meta property="og:url" content="https://steve.dondley.com/fzf/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -104,26 +105,142 @@
     </span>
 
 &nbsp;&nbsp;
+    <span class="date">
+        Updated: 
+        <time datetime="2020-07-19">
+            July 19, 2020
+        </time>
+    </span>
+
 
   </div>
 
   <div id="notes-entry-container">
     <content>
-      <h2 id="consists-of-4-components">Consists of 4 components</h2>
+      <h2 id="what-is-fzf-and-how-does-it-work-exactly">What is fzf and how does it work, exactly?</h2>
 <ul>
-  <li>the fzf executable</li>
-  <li>a script for called <code class="highlighter-rouge">fzf-tmux</code> for launching fzf in a tmux pane</li>
-  <li>shell extensions
+  <li>It’s a filter and a finder
     <ul>
-      <li>key bindings</li>
-      <li>fuzzy auto-completion</li>
+      <li>Uh, what does that mean?
+        <ul>
+          <li>it helps you find stuff by filtering out the other stuff you’re not interested in</li>
+          <li>imagine you have a box of dirt and you want to find a large gold nugget inside it
+            <ul>
+              <li>fzf is like a sieve you shake the dirt through to help you find the nugget</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li>vim/neovim plugin</li>
 </ul>
 
-<h2 id="notes">Notes</h2>
+<h3 id="what-stuff-does-it-filter-and-find-gold">What stuff does it filter and find? Gold?</h3>
 <ul>
+  <li>Nope, items in a list
+    <ul>
+      <li>what kind of list items?
+        <ul>
+          <li>items that can be represented as strings of text
+            <ul>
+              <li>examples:
+                <ul>
+                  <li>a list of file names</li>
+                  <li>words in a dictionary</li>
+                  <li>your bash history</li>
+                  <li>lines in files</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>by default, fzf will help you filter a list of all the files in your current directory
+and subdirectory to help you find the files you are looking for
+            <ul>
+              <li>Well, OK, not quite all the files
+                <ul>
+                  <li>by default, it ignores certain files
+                    <ul>
+                      <li>you change what fzf ignores</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="how-does-it-filter-items-in-a-list">How does it filter items in a list?</h3>
+<ul>
+  <li>Based on what your input to the fzf prompt
+    <ul>
+      <li>prompt is also called the “interactive finder”</li>
+      <li>let’s say you run <code class="highlighter-rouge">fzf</code> on a list contains the words “fire,” “water,”
+“earth” with this on the command line:
+        <ul>
+          <li><code class="highlighter-rouge">echo -e 'fire\nwater\nearth' | fzf</code></li>
+          <li>Then you type in “fi”
+            <ul>
+              <li>“water” and “earth” get filtered out
+                <ul>
+                  <li>they do not match what you typed in</li>
+                  <li>leaves only “fire” behind</li>
+                </ul>
+              </li>
+              <li>but it’s a fuzzy match
+                <ul>
+                  <li>this means it doesn’t have to be an exact match
+                    <ul>
+                      <li>it filters out based on approximate matches</li>
+                      <li>imperfect but close matches are not filtered out</li>
+                      <li>better matches appear fist, at the bottom of the list so you can
+select them quickly</li>
+                    </ul>
+                  </li>
+                  <li>it also means the match doesn’t have the begin at the start of a
+word</li>
+                  <li>if you type in the letter “a” into the prompt, “fire” will be
+removed and the other two words will remain because those words
+have an “a”</li>
+                  <li>you can tell fzf to do an exact match, too, if you wish</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="how-do-i-create-other-kinds-of-lists-for-fzf-to-filter-and-how-do-i-get-fzf-to-do-something-useful-with-the-string-of-text-i-select">How do I create other kinds of lists for fzf to filter and how do I get fzf to do something useful with the string of text I select?</h3>
+<ul>
+  <li>You use it in combination with other commands</li>
+  <li>See the usage section below for more details</li>
+</ul>
+
+<h3 id="dont-i-already-have-a-find-command-what-do-i-need-fzf-for">Don’t I already have a <code class="highlighter-rouge">find</code> command? What do I need fzf for?</h3>
+<ul>
+  <li>A few big reasons
+    <ul>
+      <li>It’s interactive</li>
+      <li>It’s fuzzy</li>
+      <li>It’s easier</li>
+      <li>It’s more flexible</li>
+      <li>You can make it work <strong>much</strong> faster than <code class="highlighter-rouge">find</code> by using it conjunction
+with other command line utilities</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="notes-on-the-fzf-project">Notes on the fzf project</h2>
+<ul>
+  <li>fzf means “fuzzy finder”</li>
+  <li>project started in 2013</li>
+  <li>written with Rust</li>
   <li>slogan: <strong>command-line fuzzy finder</strong>
     <ul>
       <li>aka “approximate string matcher”
@@ -139,50 +256,185 @@
       <li><a href="https://github.com/junegunn/fzf">junegunn/fzf: A command-line fuzzy finder</a></li>
     </ul>
   </li>
-  <li>install (for MacOS)
+</ul>
+
+<h3 id="consists-of-4-components">Consists of 4 components</h3>
+<ul>
+  <li>the fzf executable</li>
+  <li>a script for called <code class="highlighter-rouge">fzf-tmux</code> for launching fzf in a tmux pane</li>
+  <li>shell extensions
     <ul>
-      <li><code class="highlighter-rouge">brew install fzf</code></li>
-      <li>to use in vim:
+      <li>key bindings</li>
+      <li>fuzzy auto-completion</li>
+    </ul>
+  </li>
+  <li>vim/neovim plugin</li>
+</ul>
+
+<h3 id="install-for-macos">install (for MacOS)</h3>
+<ul>
+  <li><code class="highlighter-rouge">brew install fzf</code></li>
+  <li>to use in vim:
+    <ul>
+      <li>add to vimrc (may have different path on your machine):
         <ul>
-          <li>add to vimrc (may have different path on your machine):
-            <ul>
-              <li><code class="highlighter-rouge">set rtp+=/usr/local/opt/fzf</code></li>
-            </ul>
-          </li>
-          <li>install vim plugins:
-            <ul>
-              <li><code class="highlighter-rouge">Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }</code></li>
-              <li><code class="highlighter-rouge">Plug 'junegunn/fzf.vim'</code></li>
-            </ul>
-          </li>
+          <li><code class="highlighter-rouge">set rtp+=/usr/local/opt/fzf</code></li>
         </ul>
       </li>
-      <li>to install useful key bindings and fuzzy completion
+      <li>install vim plugins:
         <ul>
-          <li>run <code class="highlighter-rouge">/usr/local/opt/fzf/install</code> command</li>
-          <li>answer yes to the prompts</li>
-          <li>restart shell</li>
+          <li><code class="highlighter-rouge">Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }</code></li>
+          <li><code class="highlighter-rouge">Plug 'junegunn/fzf.vim'</code></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>uninstall:
+  <li>to install useful key bindings and fuzzy completion
     <ul>
-      <li>Use uninstall script to remove fzf.</li>
-      <li>For more information, see: <a href="https://github.com/junegunn/fzf">https://github.com</a></li>
+      <li>run <code class="highlighter-rouge">/usr/local/opt/fzf/install</code> command</li>
+      <li>answer yes to the prompts</li>
+      <li>restart shell</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="usage">Usage</h3>
-<h4 id="command-line">Command line</h4>
+<h3 id="uninstall">uninstall</h3>
 <ul>
-  <li>launches an interactive finder
+  <li>Use uninstall script to remove fzf</li>
+  <li>For more information, see: <a href="https://github.com/junegunn/fzf">https://github.com</a></li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+<h3 id="basic-command-line-usage">Basic command line usage</h3>
+<ul>
+  <li>typing <code class="highlighter-rouge">fzf</code> launches an interactive finder
     <ul>
-      <li>read from STDIN</li>
-      <li>writes to STDOUT</li>
+      <li>it reads the list of text string from STDIN</li>
+      <li>it writes out the user’s selection to STDOUT</li>
     </ul>
   </li>
+  <li>simplest usage
+    <ol>
+      <li>type <code class="highlighter-rouge">fzf</code> at command line
+        <ul>
+          <li>uses the <code class="highlighter-rouge">find</code> command, by default, to list all files in current directory
+ and in all subdirectories</li>
+        </ul>
+        <ul>
+          <li>you can tell fzf to use other commands besides <code class="highlighter-rouge">find</code>
+            <ul>
+              <li>more on this later</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>now type in a few letters
+        <ul>
+          <li>file names will be filtered out based on what you type</li>
+        </ul>
+      </li>
+      <li>use <code class="highlighter-rouge">c-n</code> or <code class="highlighter-rouge">c-p</code> (or <code class="highlighter-rouge">c-j</code> and <code class="highlighter-rouge">c-k</code>) to move up and down the file list to select one</li>
+      <li>when you have the file you want selected, hit <code class="highlighter-rouge">return</code>
+        <ul>
+          <li>fzf will now print the name of the selected file to stdout</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="using-fzf-with-other-commands">Using fzf with other commands</h3>
+<ul>
+  <li>unlock the real power of fzf by using it with other commands:
+    <ul>
+      <li>Simple examples:
+        <ul>
+          <li><code class="highlighter-rouge">vim $(fzf)</code>
+            <ul>
+              <li>this lets you quickly find and edit a file that might be buried somewhere deeply
+in your directory tree structure
+                <ul>
+                  <li>This eliminates the need to tediously type, <code class="highlighter-rouge">&lt;tab&gt;</code>, type, <code class="highlighter-rouge">&lt;tab&gt;</code>,
+type, <code class="highlighter-rouge">&lt;tab&gt;</code> with tab completion to get to your file</li>
+                  <li>if you aren’t familiar with shell scripting, surrounding <code class="highlighter-rouge">fzf</code> with
+<code class="highlighter-rouge">$()</code> replaces it with whatever is returned by the <code class="highlighter-rouge">fzf</code> command
+                    <ul>
+                      <li>In this case, it is the file you selected</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Example of fzf with pipes
+            <ul>
+              <li>To list file details about a deeply nested file, you can do this:
+                <ul>
+                  <li><code class="highlighter-rouge">fzf | xargs ls -l</code>
+                    <ul>
+                      <li>this command “pipes” in the output of fzf into the input of <code class="highlighter-rouge">xargs ls -l</code>
+command</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>it’s essential that you are comfortable with the syntax of piping one
+command into the next to get the real benefit of fzf
+                <ul>
+                  <li>seek out a good tutorial on using pipes to familiarize yourself with
+pipes or refresh your memory</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="real-world-usage-of-fzf">Real world usage of fzf</h3>
+<ul>
+  <li>typically, you don’t type <code class="highlighter-rouge">fzf</code> directly into the command line prompt
+    <ul>
+      <li>usually used as part of a shell alias or shell script</li>
+      <li><code class="highlighter-rouge">&lt;c-t&gt;</code> binding supplied with the fzf project can also be used
+        <ul>
+          <li>instead of <code class="highlighter-rouge">vim $(fzf)</code> like in the example above, do:
+            <ul>
+              <li>vim <code class="highlighter-rouge">&lt;c-t&gt;</code> to activate fzf</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>fzf is often used as part of shell aliases
+    <ul>
+      <li>Example:
+        <ul>
+          <li><code class="highlighter-rouge">alias vf='vim $(fzf)'</code>
+            <ul>
+              <li>quickly edit a file with vim</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>shell scripts can leverage fzf to do some really neat stuff
+    <ul>
+      <li>See the community examples at <a href="https://github.com/junegunn/fzf/wiki/Examples">Examples · junegunn/fzf Wiki</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>###</p>
+
+<h2 id="elsewhere">Elsewhere</h2>
+<ul>
+  <li><a href="https://github.com/junegunn/fzf/wiki">Official fzf Wiki page</a></li>
+  <li><a href="https://sidneyliebrand.io/blog/how-fzf-and-ripgrep-improved-my-workflow">How FZF and ripgrep improved my workflow</a></li>
 </ul>
 
 <hr />
@@ -190,9 +442,15 @@
 
 <p><a href="/2020-07-18">18th</a></p>
 
+<p><a href="/2020-07-19">19th</a></p>
+
 <p><a href="/How-this-site-is-built">How This Site Works</a></p>
 
 <p><a href="/fzf.vim">fzf.vim plugin</a></p>
+
+<p><a href="/MacOS">MacOS</a></p>
+
+<p><a href="/fzf">fzf</a></p>
 
     </content>
     <hr />

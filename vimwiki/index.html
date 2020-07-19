@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-13T04:19:04-04:00">
-        <meta property="article:modified_time" content="2020-07-17T23:26:34-04:00">
+        <meta property="article:modified_time" content="2020-07-18T21:32:02-04:00">
     <meta property="og:url" content="https://steve.dondley.com/vimwiki/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -107,8 +107,8 @@
 &nbsp;&nbsp;
     <span class="date">
         Updated: 
-        <time datetime="2020-07-17">
-            July 17, 2020
+        <time datetime="2020-07-18">
+            July 18, 2020
         </time>
     </span>
 
@@ -241,24 +241,38 @@ more than one line in the bullet</li>
 inoremap « <c-d>
 inoremap &gt;&gt; <c-t></c-t></c-d></li>
             </ul>
+
+            <p>“outdent all the way to margin
+inoremap <leader>,, <esc>0dt*$a
+nnoremap <leader>,, 0dt*$</leader></esc></leader></p>
+
+            <p>” needed for vimwiki plugin with hard wrapping
+inoremap <cr> <esc>:VimwikiReturn 3, 5<cr></cr></esc></cr></p>
+
+            <p>” in/outdent next bullet
+imap <c-i><cr> <cr><c-t>
+imap <c-i><c-i><cr> <cr><c-d>
+```</c-d></cr></cr></c-i></c-i></c-t></cr></cr></c-i></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">&lt;tab&gt;</code> key should be remapped
+    <ul>
+      <li>by default vimwiki maps <code class="highlighter-rouge">&lt;tab&gt;</code> to <code class="highlighter-rouge">VimwikiNextLink</code>
+        <ul>
+          <li>Since <code class="highlighter-rouge">&lt;tab&gt;</code> and <code class="highlighter-rouge">&lt;c-i&gt;</code> are the same as a result of some terminal quirk,
+you are also overriding the default behavior of <code class="highlighter-rouge">&lt;c-i&gt;</code>
+            <ul>
+              <li>default behavior is to go forward in jump list</li>
+            </ul>
           </li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
-
-<p>“outdent all the way to margin
-inoremap <leader>,, <esc>0dt*$a
-nnoremap <leader>,, 0dt*$</leader></esc></leader></p>
-
-<p>” needed for vimwiki plugin with hard wrapping
-inoremap <cr> <esc>:VimwikiReturn 3, 5<cr></cr></esc></cr></p>
-
-<p>” in/outdent next bullet
-imap <c-i><cr> <cr><c-t>
-imap <c-i><c-i><cr> <cr><c-d>
-```</c-d></cr></cr></c-i></c-i></c-t></cr></cr></c-i></p>
 
 <h2 id="resources">Resources</h2>
 <ul>
