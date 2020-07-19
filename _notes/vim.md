@@ -3,7 +3,7 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: '0'
-updated: '2020-07-18 10:39:00'
+updated: '2020-07-18 23:31:24'
 updated_logo: '1'
 ---
 ## Why vim?
@@ -112,8 +112,11 @@ Some useful plugins I use (not a complete list):
 * [vimwiki](/vimwiki) - used to generate these notes very quickly
 * [CtrlP](/CtrlP) - for opening files quickly
 
-### Plugins I'm exploring
+### Plugins I'm currently exploring
 * [fzf.vim](/fzf.vim)
+
+## Jump lists
+* [Understanding Vim’s Jump List. One of the great joys of Vim is its… | by Kade Killary | Medium](https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0)
 
 ## Completion
 

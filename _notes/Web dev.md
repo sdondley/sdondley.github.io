@@ -1,10 +1,10 @@
 ---
 date: '2020-07-17 01:40:48'
-new: '1'
+new: 0
 title: 'Web Development'
 update_logo: '0'
 updated: '2020-07-18 00:19:12'
-updated_logo: '0'
+updated_logo: '1'
 ---
 ## css
 ### utf8 characters for bullets

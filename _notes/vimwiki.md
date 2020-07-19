@@ -3,7 +3,7 @@ date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
 update_logo: '0'
-updated: '2020-07-17 23:26:34'
+updated: '2020-07-18 21:32:02'
 updated_logo: '1'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
@@ -70,22 +70,27 @@ I'm still learning the ropes but the short answer is:
     * too slow
       * remap `<<` to outdent
       * remap `>>` to indent
-```vim
-" faster in/outdenting
-inoremap << <c-d>
-inoremap >> <c-t>
+      ```vim
+      " faster in/outdenting
+      inoremap << <c-d>
+      inoremap >> <c-t>
 
-"outdent all the way to margin
-inoremap <leader>,, <esc>0dt*$a
-nnoremap <leader>,, 0dt*$
+      "outdent all the way to margin
+      inoremap <leader>,, <esc>0dt*$a
+      nnoremap <leader>,, 0dt*$
 
-" needed for vimwiki plugin with hard wrapping
-inoremap <cr> <esc>:VimwikiReturn 3, 5<cr>
+      " needed for vimwiki plugin with hard wrapping
+      inoremap <cr> <esc>:VimwikiReturn 3, 5<cr>
 
-" in/outdent next bullet
-imap <c-i><cr> <cr><c-t>
-imap <c-i><c-i><cr> <cr><c-d>
-```
+      " in/outdent next bullet
+      imap <c-i><cr> <cr><c-t>
+      imap <c-i><c-i><cr> <cr><c-d>
+      ```
+* `<tab>` key should be remapped
+  * by default vimwiki maps `<tab>` to `VimwikiNextLink`
+    * Since `<tab>` and `<c-i>` are the same as a result of some terminal quirk,
+      you are also overriding the default behavior of `<c-i>`
+      * default behavior is to go forward in jump list
 
 ## Resources
 * [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)

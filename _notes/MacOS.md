@@ -3,12 +3,12 @@ date: '2020-07-17 23:27:59'
 new: '1'
 title: MacOS
 update_logo: '0'
-updated: '2020-07-18 13:13:14'
+updated: '2020-07-18 23:34:59'
 updated_logo: '0'
 ---
 ## CLI tools
 ### ripgrep as a replacement for grep
-* GitHub proejct
+* GitHub project
   * [BurntSushi/ripgrep: ripgrep recursively searches directories for a regex pattern](https://github.com/BurntSushi/ripgrep)
 * File searching tool
   * claims to be much faster than grep
@@ -25,6 +25,8 @@ updated_logo: '0'
     * `man rg`
     * `rg [OPTIONS] PATTERN [PATH...]`
 
+### fzf
+* see [fzf](/fzf)
 
 ## Random tip and tricks
 * open man page as a pdf

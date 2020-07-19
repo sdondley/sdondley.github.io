@@ -3,7 +3,7 @@ date: '2020-07-13 07:36:05'
 new: 0
 title: 'How This Site Works'
 update_logo: '0'
-updated: '2020-07-18 13:17:00'
+updated: '2020-07-18 16:49:47'
 updated_logo: '1'
 ---
 ## Technical overview
@@ -30,17 +30,17 @@ this site you are looking at.
           automatically called
         * saved to my `_notes` directory within Jekyll directory
       * the command typically outputs markdown files to HTML with an `.html` extension
-      * however, you can tell the command to use a custom script instead.
-        * allows you to convert and save the files however you like
-          * I wrote a custom perl script [markdown_to_note](/markdown_to_note) that
-            performs the custom conversion
-            * it fixes links so they don't break in Jekyll
-            * it adds a header to the markdown pages for processing by Jekyll
-            * it generates bidirectional links
-              * bidirectional links are an important feature for helping uses
-                navigate content
-                * see [A Short History of Bi-Directional Links](https://maggieappleton.com/bidirectionals)
-            * other misc. stuff
+        * however, you can tell the command to use a custom script instead.
+          * this allows you to convert and save the files however you like
+            * I wrote a custom perl script [markdown_to_note](/markdown_to_note) that
+              performs the custom conversion
+              * it fixes links so they don't break in Jekyll
+              * it adds a header to the markdown pages for processing by Jekyll
+              * it generates bidirectional links
+                * bidirectional links are an important feature for helping uses
+                  navigate content
+                  * see [A Short History of Bi-Directional Links](https://maggieappleton.com/bidirectionals)
+              * other misc. stuff
   * Second stage
     * I run a bash script manually when I'm ready to make an update to the
       production site
