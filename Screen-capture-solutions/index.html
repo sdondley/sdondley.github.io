@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MacOS</title>
+<title>Open source screen capture solutions for macOS</title>
 <meta name="author" content="Steve Dondley">
 <meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <link rel="icon" href="/favicon.ico?v=1.0">
@@ -19,16 +19,15 @@
 <meta property="article:author" content="/about/">
 <meta name="twitter:site" content="@steve_dondley">
 <meta name="twitter:creator" content="@steve_dondley">
-<meta property="og:title" content="MacOS">
-<meta name="twitter:title" content="MacOS">
+<meta property="og:title" content="Open source screen capture solutions for macOS">
+<meta name="twitter:title" content="Open source screen capture solutions for macOS">
 <meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
-        <meta property="article:published_time" content="2020-07-17T23:27:59-04:00">
-        <meta property="article:modified_time" content="2020-07-19T14:49:40-04:00">
-    <meta property="og:url" content="https://steve.dondley.com/MacOS/">
+        <meta property="article:published_time" content="2020-07-19T14:53:47-04:00">
+    <meta property="og:url" content="https://steve.dondley.com/Screen-capture-solutions/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -95,92 +94,112 @@
            <p><a href="/notes">⬅  Notes listing</a></p>
 <article>
   <div>
-    <h1 style="font-size: 1.8em; margin-bottom: 0em">MacOS</h1>
+    <h1 style="font-size: 1.8em; margin-bottom: 0em">Open source screen capture solutions for macOS</h1>
 		
     <span class="date">
         
-        <time datetime="2020-07-17">
-            July 17, 2020
-        </time>
-    </span>
-
-&nbsp;&nbsp;
-    <span class="date">
-        Updated: 
         <time datetime="2020-07-19">
             July 19, 2020
         </time>
     </span>
 
+&nbsp;&nbsp;
 
   </div>
 
   <div id="notes-entry-container">
     <content>
-      <h2 id="cli-tools">CLI tools</h2>
-<h3 id="ripgrep-as-a-replacement-for-grep">ripgrep as a replacement for grep</h3>
+      <p>I did a little research into open source solutions for doing quick screen
+captures for my notes.</p>
+
+<h2 id="my-requirements">My requirements</h2>
 <ul>
-  <li>GitHub project
+  <li>Should be able to show key presses</li>
+  <li>Should be able to produce gifs easily
     <ul>
-      <li><a href="https://github.com/BurntSushi/ripgrep">BurntSushi/ripgrep: ripgrep recursively searches directories for a regex pattern</a></li>
+      <li>gif are the most portable format, easiest to work with</li>
+      <li>however, they are not ideal for longer videos as they can be much larger than
+mp4 or webm</li>
     </ul>
   </li>
-  <li>File searching tool
+</ul>
+
+<h2 id="inspiration">Inspiration</h2>
+<ul>
+  <li><a href="https://sidneyliebrand.io/blog/how-fzf-and-ripgrep-improved-my-workflow">How FZF and ripgrep improved my workflow</a>
     <ul>
-      <li>claims to be much faster than grep</li>
-      <li>installing
+      <li>though site used gifs at first but they are actually mp4 and webm videos</li>
+      <li>Got in contact with author, he uses a program called <a href="https://www.araelium.com/screenflick-mac-screen-recorder">Screenflick – Mac Screen Recorder with Audio</a> to generate the videos
         <ul>
-          <li><code class="highlighter-rouge">brew install ripgrep</code></li>
-          <li>looks like perl compatible regular expressions are built in with the brew
-install</li>
-        </ul>
-      </li>
-      <li>usage
-        <ul>
-          <li>simplest case:
-            <ul>
-              <li><code class="highlighter-rouge">rg search_term_here</code></li>
-            </ul>
-          </li>
-          <li>version
-            <ul>
-              <li><code class="highlighter-rouge">rg --version</code></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>documentation
-        <ul>
-          <li><code class="highlighter-rouge">man rg</code></li>
-          <li><code class="highlighter-rouge">rg [OPTIONS] PATTERN [PATH...]</code></li>
+          <li>Screenflick is $35</li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h3 id="fzf">fzf</h3>
+<h2 id="doesnt-macos-already-come-with-good-screen-capture-software">Doesn’t macOS already come with good screen capture software?</h2>
 <ul>
-  <li>see <a href="/fzf">fzf</a></li>
+  <li>Yes it does</li>
+  <li>However, it doesn’t capture and display key presses, one of my requirements</li>
 </ul>
 
-<h2 id="random-tip-and-tricks">Random tip and tricks</h2>
+<h2 id="open-source-alternatives">Open source alternatives?</h2>
 <ul>
-  <li>open man page as a pdf
+  <li>I tested one:
     <ul>
-      <li><code class="highlighter-rouge">man -t rg | open -f -a Preview.app</code></li>
-    </ul>
-  </li>
-  <li>speed up repeat speed when key is held down
-    <ul>
-      <li>see second line here:
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
-defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
-</code></pre></div>        </div>
+      <li><a href="https://github.com/wulkano/Kap">wulkano/Kap: An open-source screen recorder built with web technology</a></li>
+      <li>Limitations of Kap
+        <ul>
+          <li>export process is very confusing
+            <ul>
+              <li>unable to find the exported files in the file system</li>
+            </ul>
+          </li>
+          <li>does not show key presses
+            <ul>
+              <li>however, has a plugin that shows key presses
+                <ul>
+                  <li>however, plugin is not executed very well
+                    <ul>
+                      <li>only one character shows at a time</li>
+                      <li>however, there is another open source GitHub project that displays
+key presses to the screen:
+                        <ul>
+                          <li><a href="https://github.com/keycastr/keycastr">keycastr/keycastr: KeyCastr, an open-source keystroke visualizer</a>
+                            <ul>
+                              <li>keycastr works pretty well</li>
+                              <li>you can drag the keycastr display where you want and display it
+in the capture area of Kap</li>
+                              <li><strong>however</strong> it turns out keycastr is buggy and doesn’t work well
+on my iMac 5K
+                                <ul>
+                                  <li>see <a href="https://github.com/keycastr/keycastr/issues/173">Cannot be displayed on right side of large screens? · Issue #173 · keycastr/keycastr</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </li>
-      <li>From <a href="https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x">How to increase keyboard key repeat rate on OS X? - Ask Different</a></li>
     </ul>
   </li>
+</ul>
+
+<h2 id="inconclusion">Inconclusion</h2>
+<ul>
+  <li>Right now, I’m leaning toward springing the $35 for Screenflick. Its ease of use is probably worth saving
+myself the aggravation of using the open source alternatives.</li>
+  <li>Or, I may just restrict using keycastr on my secondary monitors (I have 3) for
+now, use the built-in screencast solution on macOS and hope the developer can
+fix the bug so I can use it on my main monitor.</li>
 </ul>
 
 <hr />
@@ -193,7 +212,7 @@ defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
 				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
 			</svg>
-			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/MacOS.md">View the edit history</a>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/Screen capture solutions.md">View the edit history</a>
 </article>
 
         
