@@ -3,13 +3,14 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-19 14:23:14'
+updated: '2020-07-19 14:49:59'
 updated_logo: '1'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
 * [Digital Gardening](/Digital-Gardening)
 * [How this site is built](/How-this-site-is-built)
+* [Screen capture solutions](/Screen-capture-solutions)
 * [Web dev](/Web-dev)
 
 ## Free Software (Open Source)

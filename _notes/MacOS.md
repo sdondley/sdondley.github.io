@@ -3,7 +3,7 @@ date: '2020-07-17 23:27:59'
 new: '1'
 title: MacOS
 update_logo: '0'
-updated: '2020-07-18 23:34:59'
+updated: '2020-07-19 14:49:40'
 updated_logo: '0'
 ---
 ## CLI tools
