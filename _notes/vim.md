@@ -3,7 +3,7 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: '0'
-updated: '2020-07-18 23:31:24'
+updated: '2020-07-20 04:37:37'
 updated_logo: '1'
 ---
 ## Why vim?

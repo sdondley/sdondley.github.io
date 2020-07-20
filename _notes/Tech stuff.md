@@ -3,7 +3,7 @@ date: '2020-07-13 04:18:35'
 new: 0
 title: 'Tech stuff'
 update_logo: '0'
-updated: '2020-07-19 14:49:59'
+updated: '2020-07-19 19:31:17'
 updated_logo: '1'
 ---
 ## Misc. Topics
