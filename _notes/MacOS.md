@@ -1,10 +1,10 @@
 ---
 date: '2020-07-17 23:27:59'
-new: '1'
+new: 0
 title: MacOS
 update_logo: '0'
-updated: '2020-07-19 14:49:40'
-updated_logo: '0'
+updated: '2020-07-20 05:38:52'
+updated_logo: '1'
 ---
 ## CLI tools
 ### ripgrep as a replacement for grep

@@ -1,9 +1,9 @@
 ---
 date: '2020-07-18 10:43:12'
-new: '1'
+new: 0
 title: fzf
-updated: '2020-07-19 12:53:31'
-updated_logo: '0'
+updated: '2020-07-20 05:38:32'
+updated_logo: '1'
 ---
 ## What is fzf and how does it work, exactly?
 * It's a filter and a finder
@@ -163,7 +163,7 @@ updated_logo: '0'
 
 [How This Site Works](/How-this-site-is-built)
 
-[fzf.vim plugin](/fzf.vim)
+[fzf vim plugin](/fzf-vim-plugin)
 
 [MacOS](/MacOS)
 

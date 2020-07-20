@@ -3,7 +3,7 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: '0'
-updated: '2020-07-20 04:37:37'
+updated: '2020-07-20 05:55:58'
 updated_logo: '1'
 ---
 ## Why vim?
@@ -99,8 +99,6 @@ updated_logo: '1'
     * to edit a macro in the middle, do:
       * `:let @w='<c-r> <REGISTER>`
 
-
-
 ## Maps
 
 Here's a random collection of vim maps I use:
@@ -113,7 +111,7 @@ Some useful plugins I use (not a complete list):
 * [CtrlP](/CtrlP) - for opening files quickly
 
 ### Plugins I'm currently exploring
-* [fzf.vim](/fzf.vim)
+* [fzfvim plugin](/fzf-vim-plugin)
 
 ## Jump lists
 * [Understanding Vim’s Jump List. One of the great joys of Vim is its… | by Kade Killary | Medium](https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0)

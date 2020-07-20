@@ -3,7 +3,7 @@ date: '2020-07-17 01:40:48'
 new: 0
 title: 'Web Development'
 update_logo: '0'
-updated: '2020-07-18 00:19:12'
+updated: '2020-07-20 12:41:54'
 updated_logo: '1'
 ---
 ## css
@@ -30,6 +30,9 @@ a.link { text-indent: 0 }
 Hat tip to commenter "judyofthewoods" at
 [https://ryansechrest.com](https://ryansechrest.com/2012/11/change-your-list-bullet-to-a-custom-character-in-css/#comment-331251)
 for this trick.
+
+## Sandbox areas
+* [Embedding tweet](/Embedding-tweet)
 
 ---
 #### Other notes linking here:

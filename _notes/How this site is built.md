@@ -3,7 +3,7 @@ date: '2020-07-13 07:36:05'
 new: 0
 title: 'How This Site Works'
 update_logo: '0'
-updated: '2020-07-18 16:49:47'
+updated: '2020-07-20 06:16:32'
 updated_logo: '1'
 ---
 ## Technical overview

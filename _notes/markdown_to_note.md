@@ -66,3 +66,5 @@ let g:vimwiki_list                  = [wiki_1]
 [Diary entry for 2020-07-13](/2020-07-13)
 
 [Diary entry for 2020-07-14](/2020-07-14)
+
+[Diary entry for 2020-07-20](/2020-07-20)
