@@ -2,6 +2,7 @@
 date: '2020-07-19 14:53:47'
 new: '1'
 title: 'Open source screen capture solutions for macOS'
+updated: '2020-07-20 15:57:42'
 updated_logo: '0'
 ---
 I did a little research into open source solutions for doing quick screen
@@ -44,12 +45,13 @@ captures for my notes.
                 on my iMac 5K
                 * see [Cannot be displayed on right side of large screens? · Issue #173 · keycastr/keycastr](https://github.com/keycastr/keycastr/issues/173)
 
-## Inconclusion
-* Right now, I'm leaning toward springing the $35 for Screenflick. Its ease of use is probably worth saving
+## Conclusion
+* I ended up springing the $35 for Screenflick. Its ease of use is probably worth saving
   myself the aggravation of using the open source alternatives.
-* Or, I may just restrict using keycastr on my secondary monitors (I have 3) for
-  now, use the built-in screencast solution on macOS and hope the developer can
+* I thought about using keycastr on my secondary monitors (I have 3) for
+  now, use the built-in screencast solution on macOS and then hope the developer can
   fix the bug so I can use it on my main monitor.
+  * Decided against it
 
 ---
 #### Other notes linking here:

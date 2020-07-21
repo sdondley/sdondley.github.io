@@ -3,7 +3,7 @@ date: '2020-07-17 01:40:48'
 new: 0
 title: 'Web Development'
 update_logo: '0'
-updated: '2020-07-20 12:41:54'
+updated: '2020-07-20 17:13:08'
 updated_logo: '1'
 ---
 ## css
@@ -33,6 +33,7 @@ for this trick.
 
 ## Sandbox areas
 * [Embedding tweet](/Embedding-tweet)
+* [Embedding file](/Embedding-file)
 
 ---
 #### Other notes linking here:

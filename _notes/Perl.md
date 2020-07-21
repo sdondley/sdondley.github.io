@@ -4,7 +4,7 @@ new: 0
 title: Perl
 update_logo: '0'
 updated: '2020-07-18 20:52:51'
-updated_logo: '1'
+updated_logo: 0
 ---
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.
