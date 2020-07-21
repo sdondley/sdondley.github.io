@@ -145,18 +145,17 @@ switching files and finding text in a project.</li>
   </li>
   <li>The site is statically generated in two stages
     <ul>
-      <li>First stage
+      <li>First stage (writing the wiki)
         <ul>
           <li>uses vimwiki to export markdown pages written with vimwiki to prepare
 markdown files for stage 2 page generation with Jekyll</li>
-          <li>first stage uses vimwiki’s <code class="highlighter-rouge">VimwikiAll2HTML</code> command
+          <li>first stage uses vimwiki’s <code class="highlighter-rouge">Vimwiki2HTML</code> command whenever a file is
             <ul>
-              <li>prepares and saves all existing markdown files in my wiki
+              <li>saves existing markdown files in the wiki
                 <ul>
-                  <li>I manually run this command after many pages have been updated</li>
-                  <li>when a single file is saved, the <code class="highlighter-rouge">Vimwiki2HTML</code> command is
-automatically called</li>
-                  <li>saved to my <code class="highlighter-rouge">_notes</code> directory within Jekyll directory</li>
+                  <li>when a file is saved, the <code class="highlighter-rouge">Vimwiki2HTML</code> command is automatically called</li>
+                  <li>files are converted and saved to my <code class="highlighter-rouge">_notes</code> directory within Jekyll
+directory as well as the wiki directory</li>
                 </ul>
               </li>
               <li>the command typically outputs markdown files to HTML with an <code class="highlighter-rouge">.html</code> extension
@@ -265,15 +264,6 @@ link along with the title (grabbed from the HTML source code) into my document.
     </ul>
   </li>
 </ul>
-
-<hr />
-<h4 id="other-notes-linking-here">Other notes linking here:</h4>
-
-<p><a href="/Tech-stuff">Tech stuff</a></p>
-
-<p><a href="/2020-07-17">Diary entry for 2020-07-17</a></p>
-
-<p><a href="/Tech-stuff.md">Tech stuff</a></p>
 
     </content>
     <hr />
