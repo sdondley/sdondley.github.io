@@ -20,15 +20,14 @@ this site you are looking at.
           switching files and finding text in a project.
         * see [Unix is my IDE – mkaz.blog](https://mkaz.blog/code/unix-is-my-ide/)
 * The site is statically generated in two stages
-  * First stage
+  * First stage (writing the wiki)
     * uses vimwiki to export markdown pages written with vimwiki to prepare
       markdown files for stage 2 page generation with Jekyll
-    * first stage uses vimwiki's `VimwikiAll2HTML` command
-      * prepares and saves all existing markdown files in my wiki
-        * I manually run this command after many pages have been updated
-        * when a single file is saved, the `Vimwiki2HTML` command is
-          automatically called
-        * saved to my `_notes` directory within Jekyll directory
+    * first stage uses vimwiki's `Vimwiki2HTML` command whenever a file is
+      * saves existing markdown files in the wiki
+        * when a file is saved, the `Vimwiki2HTML` command is automatically called
+        * files are converted and saved to my `_notes` directory within Jekyll
+          directory as well as the wiki directory
       * the command typically outputs markdown files to HTML with an `.html` extension
         * however, you can tell the command to use a custom script instead.
           * this allows you to convert and save the files however you like
@@ -85,12 +84,3 @@ here:
   link along with the title (grabbed from the HTML source code) into my document.
   * Huge time saver
   * See [Insert hyper links](/Insert-hyper-links) for documentation
-
----
-#### Other notes linking here:
-
-[Tech stuff](/Tech-stuff)
-
-[Diary entry for 2020-07-17](/2020-07-17)
-
-[Tech stuff](/Tech-stuff.md)

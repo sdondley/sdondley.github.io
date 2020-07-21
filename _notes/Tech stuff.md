@@ -172,8 +172,3 @@ on them which is probably a bit obsessive, I'll admit. We've all got our vices.
 
 I'm currently waiting for the new iMac Pro line on the ARM architecture to
 replace my aging iMac 5K machine. It might be a couple of years.
-
----
-#### Other notes linking here:
-
-[Wiki Index](/index/)
