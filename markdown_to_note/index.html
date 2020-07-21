@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-14T11:11:33-04:00">
-        <meta property="article:modified_time" content="2020-07-17T12:08:03-04:00">
+        <meta property="article:modified_time" content="2020-07-21T18:30:22-04:00">
     <meta property="og:url" content="https://steve.dondley.com/markdown_to_note/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -107,8 +107,8 @@
 &nbsp;&nbsp;
     <span class="date">
         Updated: 
-        <time datetime="2020-07-17">
-            July 17, 2020
+        <time datetime="2020-07-21">
+            July 21, 2020
         </time>
     </span>
 
@@ -129,10 +129,10 @@ _notes directory</p>
 <p>Er, it’s a bit complicated. But here’s a rather cryptic explanation you can
 puzzle through:</p>
 
-<p>The script gets run whenever I save a wiki note in my ~/vimwiki/webnotes folder.
-It is triggered by an autocmd found in my vim configuration:</p>
+<p>The script gets run whenever a wiki note is updated in my ~/vimwiki/webnotes
+folder.  It is triggered by an autocmd found in my vim configuration:</p>
 
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd <span class="nb">BufWritePost</span> *<span class="p">.</span>md <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'no_update'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':silent! Vimwiki2HTML'</span> <span class="p">|</span> <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':redraw!'</span>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd <span class="nb">BufWritePost</span> *<span class="p">.</span>md <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':silent Vimwiki2HTML'</span> <span class="p">|</span> <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':redraw!'</span>
 </code></pre></div></div>
 
 <p>When I want to convert all the files at once, which is necessary to get accurate
@@ -143,8 +143,7 @@ configuration to trigger this process:</p>
 command<span class="p">!</span> CvimwikiAll2HTML <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'no_update'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':silent! VimwikiAll2HTML'</span> <span class="p">|</span> <span class="k">call</span> vimwiki#vars#set_wikilocal<span class="p">(</span><span class="s1">'custom_wiki2html_args'</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="p">|</span> <span class="nb">execute</span> <span class="s1">':redraw!'</span>
 </code></pre></div></div>
 
-<p>As you can see, it’s basically the same as the autocmd except it call
-<code class="highlighter-rouge">VimwikiAll2HTML</code> instead of <code class="highlighter-rouge">Vimwiki2HTML</code> command for a single file.</p>
+<p>As you can see, it’s basically the same as the autocmd except it calls <code class="highlighter-rouge">VimwikiAll2HTML</code> instead of <code class="highlighter-rouge">Vimwiki2HTML</code> command for a single file.</p>
 
 <p>The autocmd and map does not tell the whole vim configuration story, however.
 The key to getting the <code class="highlighter-rouge">markdown_to_note</code> script to be called called is to set
@@ -162,21 +161,6 @@ like this in your vimrc file:</p>
 <span class="k">let</span> <span class="nv">g:vimwiki_list</span>                  <span class="p">=</span> <span class="p">[</span>wiki_1<span class="p">]</span>
 
 </code></pre></div></div>
-
-<hr />
-<h4 id="other-notes-linking-here">Other notes linking here:</h4>
-
-<p><a href="/2020-07-18">Diary entry for 2020-07-18</a></p>
-
-<p><a href="/How-this-site-is-built">How This Site Works</a></p>
-
-<p><a href="/2020-07-13">Diary entry for 2020-07-13</a></p>
-
-<p><a href="/2020-07-14">Diary entry for 2020-07-14</a></p>
-
-<p><a href="/2020-07-20">Diary entry for 2020-07-20</a></p>
-
-<p><a href="/2020-07-21">Diary entry for 2020-07-21</a></p>
 
     </content>
     <hr />

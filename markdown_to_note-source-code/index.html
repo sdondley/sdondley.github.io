@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source code for markdown_to_note</title>
+<meta name="author" content="Steve Dondley">
+<meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<link rel="icon" href="/favicon.ico?v=1.0">
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700%7COswald:300,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/css/index.css">
+<!-- OpenGraph meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley">
+<meta property="article:author" content="/about/">
+<meta name="twitter:site" content="@steve_dondley">
+<meta name="twitter:creator" content="@steve_dondley">
+<meta property="og:title" content="Source code for markdown_to_note">
+<meta name="twitter:title" content="Source code for markdown_to_note">
+<meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+<meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+    <meta property="og:type" content="article">
+        <meta property="article:published_time" content="2020-07-21T18:38:44-04:00">
+    <meta property="og:url" content="https://steve.dondley.com/markdown_to_note-source-code/">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-138585660-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-138585660-1');
+</script>
+
+
+    
+        <!-- 'sha256-vQ6kkBQ50jW5d0S7bnjM/OI075QRW9anAnq7ABM3gEk=' --><style type="text/css">
+        .hero {
+            background-color: #d3dbe7;
+            background-image: url('/images/hero/laugh.jpg');
+        }
+@media (max-device-width: 1440px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1440px.jpg');
+	}
+}
+@media (max-device-width: 1200px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1200px.jpg');
+	}
+}
+@media (max-device-width: 800px) {
+	.hero {
+		background-image: url('/images/hero/laugh-800px.jpg');
+	}
+}
+@media (max-device-width: 550px) {
+	.hero {
+		background-image: url('/images/hero/laugh-550px.jpg');
+	}
+}
+@media (max-device-width: 380px) {
+	.hero {
+		background-image: url('/images/hero/laugh-380px.jpg');
+	}
+}
+        </style>
+
+<!-- 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' --><style></style>
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <a href="/notes/">NOTES</a>
+            <a href="/about/">ABOUT</a>
+        </nav>
+         
+        <div class="title">
+            <a href="/">
+                <h1>OFFERINGS</h1>
+                <p>by <span title="Steve Dondley">Steve Dondley</span></p>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+       <div class="container">
+           
+           <p><a href="/notes">⬅  Notes listing</a></p>
+<article>
+  <div>
+    <h1 style="font-size: 1.8em; margin-bottom: 0em">Source code for markdown_to_note</h1>
+		
+    <span class="date">
+        
+        <time datetime="2020-07-21">
+            July 21, 2020
+        </time>
+    </span>
+
+  
+
+  </div>
+
+  <div id="notes-entry-container">
+    <content>
+      <p><strong>Note, this script is in a state of flux and may not be up-to-date and may
+contain bugs. It also has hard-coded paths and was written to be a quick and
+dirty for my own use. You’re on your own with it.</strong></p>
+
+<div class="language-perl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nv">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nv">warnings</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">File::</span><span class="nv">Slurp</span> <span class="sx">qw(read_file write_file)</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">File::</span><span class="nv">Basename</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">File::</span><span class="nv">Spec</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">YAML::</span><span class="nv">Tiny</span><span class="p">;</span>
+<span class="k">use</span> <span class="nv">POSIX</span> <span class="p">'</span><span class="s1">strftime</span><span class="p">';</span>
+<span class="k">use</span> <span class="nn">Log::Log4perl::</span><span class="nv">Shortcuts</span> <span class="sx">qw(:all)</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">Time::</span><span class="nv">Piece</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">URI::</span><span class="nv">URL</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">Time::</span><span class="nv">Seconds</span><span class="p">;</span>
+
+<span class="c1"># This is a "glue" script used to convert a markdown file written by vimwiki</span>
+<span class="c1"># into a markdown file more appropriate for use in a Jekyll static website</span>
+<span class="c1"># generator.</span>
+
+<span class="c1"># The path to this glue script must be set in vim configuration file so it can</span>
+<span class="c1"># be called by the vimwiki plugin.</span>
+
+<span class="c1"># get args passed from wimwiki plugin</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$force</span><span class="p">,</span> <span class="nv">$syntax</span><span class="p">,</span> <span class="nv">$ext</span><span class="p">,</span> <span class="nv">$output_dir</span><span class="p">,</span> <span class="nv">$input_file</span><span class="p">,</span> <span class="nv">$css_file</span><span class="p">,</span>
+    <span class="nv">$template_path</span><span class="p">,</span> <span class="nv">$template_default</span><span class="p">,</span> <span class="nv">$template_ext</span><span class="p">,</span> <span class="nv">$root_path</span><span class="p">,</span> <span class="nv">$custom_args</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="c1"># Set vars for later processing</span>
+<span class="k">my</span> <span class="nv">$force_new_header</span>            <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">,</span> <span class="nv">$dirs</span><span class="p">,</span> <span class="nv">$suffix</span><span class="p">)</span> <span class="o">=</span> <span class="nv">fileparse</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">,</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
+<span class="k">my</span> <span class="nv">$output_file</span>                 <span class="o">=</span> <span class="nn">File::</span><span class="nv">Spec</span><span class="o">-&gt;</span><span class="nv">catfile</span><span class="p">(</span><span class="nv">$output_dir</span><span class="p">,</span> <span class="nv">$file_name</span> <span class="o">.</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
+<span class="k">my</span> <span class="nv">$new_file</span>                    <span class="o">=</span> <span class="o">!-</span><span class="nv">e</span> <span class="nv">$output_file</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$is_diary</span>                    <span class="o">=</span> <span class="nv">$file_name</span> <span class="o">=~</span> <span class="sr">m|\d{4}-\d{2}-\d{2}|</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$input_text</span>                  <span class="o">=</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">);</span>
+<span class="k">my</span> <span class="nv">$output_text</span>                 <span class="o">=</span> <span class="nv">$new_file</span> <span class="p">?</span> <span class="p">''</span> <span class="p">:</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$output_file</span><span class="p">);</span>
+<span class="k">my</span> <span class="nv">$has_header</span>                  <span class="o">=</span> <span class="nv">$new_file</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="nv">$output_text</span> <span class="o">=~</span> <span class="sr">m|^---\n|m</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$curr_time</span>                   <span class="o">=</span> <span class="nv">strftime</span> <span class="p">("</span><span class="s2">%F %T</span><span class="p">",</span> <span class="nb">localtime</span> <span class="nb">time</span><span class="p">);</span>
+<span class="k">my</span> <span class="o">%</span><span class="nv">headers</span>                     <span class="o">=</span> <span class="p">();</span>
+<span class="o">%</span><span class="nv">headers</span>                        <span class="o">=</span> <span class="nv">extract_headers</span><span class="p">()</span> <span class="k">if</span> <span class="nv">$has_header</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$header_day</span>                  <span class="o">=</span> <span class="p">'';</span>
+<span class="k">my</span> <span class="nv">$update_day</span>                  <span class="o">=</span> <span class="p">'';</span>
+<span class="k">my</span> <span class="nv">$curr_day</span>                    <span class="o">=</span> <span class="p">'';</span>
+<span class="nv">$header_day</span>                     <span class="o">=</span> <span class="nv">get_day</span><span class="p">(</span><span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">})</span> <span class="k">if</span> <span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">};</span> <span class="c1"># returns \d\d\d\d-\d\d-\d\d</span>
+<span class="nv">$update_day</span>                     <span class="o">=</span> <span class="nv">get_day</span><span class="p">(</span><span class="nv">$headers</span><span class="p">{</span><span class="nv">update</span><span class="p">})</span> <span class="k">if</span> <span class="nv">$headers</span><span class="p">{</span><span class="nv">update</span><span class="p">};</span> <span class="c1"># returns \d\d\d\d-\d\d-\d\d</span>
+<span class="nv">$curr_day</span>                       <span class="o">=</span> <span class="nv">get_day</span><span class="p">(</span><span class="nv">$curr_time</span><span class="p">);</span>
+<span class="nv">$headers</span><span class="p">{</span><span class="nv">title</span><span class="p">}</span>                 <span class="o">=</span> <span class="nv">extract_title</span><span class="p">();</span>
+
+<span class="c1"># fix up links in input text to make them Jekyll-friendly</span>
+<span class="nv">process_links</span><span class="p">();</span>
+
+<span class="c1"># remove headings with nothing under them</span>
+<span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/^##\s+[^\n]+\s+(?=^## )//gsm</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$out</span> <span class="o">=</span> <span class="p">`</span><span class="sb">rsync -a '/Users/me/vimwiki/webnotes/files/' '/Users/me/git_repos/sdondley.github.io/images/note_images'</span><span class="p">`;</span>
+
+<span class="nv">$headers</span><span class="p">{</span><span class="nv">updated_logo</span><span class="p">}</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$curr_t</span> <span class="o">=</span> <span class="nn">Time::</span><span class="nv">Piece</span><span class="o">-&gt;</span><span class="nv">strptime</span><span class="p">(</span><span class="nv">$curr_time</span><span class="p">,</span> <span class="p">'</span><span class="s1">%Y-%m-%d %H:%M:%S</span><span class="p">');</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$headers</span><span class="p">{</span><span class="nv">updated</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">my</span> <span class="nv">$update_t</span> <span class="o">=</span> <span class="nn">Time::</span><span class="nv">Piece</span><span class="o">-&gt;</span><span class="nv">strptime</span><span class="p">(</span><span class="nv">$headers</span><span class="p">{</span><span class="nv">updated</span><span class="p">},</span> <span class="p">'</span><span class="s1">%Y-%m-%d %H:%M:%S</span><span class="p">');</span>
+  <span class="k">my</span> <span class="nv">$seconds</span> <span class="o">=</span> <span class="nv">$curr_t</span><span class="o">-&gt;</span><span class="nv">epoch</span> <span class="o">-</span> <span class="nv">$update_t</span><span class="o">-&gt;</span><span class="nv">epoch</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$seconds</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">48</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$headers</span><span class="p">{</span><span class="nv">updated_logo</span><span class="p">}</span> <span class="o">=</span> <span class="p">'</span><span class="s1">1</span><span class="p">';</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$headers</span><span class="p">{</span><span class="k">new</span><span class="p">}</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">exists</span> <span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">})</span> <span class="p">{</span>
+  <span class="nv">$headers</span><span class="p">{</span><span class="k">new</span><span class="p">}</span> <span class="o">=</span> <span class="p">'</span><span class="s1">1</span><span class="p">';</span>
+  <span class="nv">$headers</span><span class="p">{</span><span class="nv">updated_logo</span><span class="p">}</span> <span class="o">=</span> <span class="p">'</span><span class="s1">0</span><span class="p">';</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">my</span> <span class="nv">$post_t</span> <span class="o">=</span> <span class="nn">Time::</span><span class="nv">Piece</span><span class="o">-&gt;</span><span class="nv">strptime</span><span class="p">(</span><span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">},</span> <span class="p">'</span><span class="s1">%Y-%m-%d %H:%M:%S</span><span class="p">');</span>
+  <span class="k">my</span> <span class="nv">$seconds</span> <span class="o">=</span> <span class="nv">$curr_t</span><span class="o">-&gt;</span><span class="nv">epoch</span> <span class="o">-</span> <span class="nv">$post_t</span><span class="o">-&gt;</span><span class="nv">epoch</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$seconds</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">48</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$headers</span><span class="p">{</span><span class="k">new</span><span class="p">}</span> <span class="o">=</span> <span class="p">'</span><span class="s1">1</span><span class="p">';</span>
+    <span class="nv">$headers</span><span class="p">{</span><span class="nv">updated_logo</span><span class="p">}</span> <span class="o">=</span> <span class="p">'</span><span class="s1">0</span><span class="p">';</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$headers</span><span class="p">{</span><span class="nv">title</span><span class="p">}</span> <span class="o">=~</span> <span class="sr">/Keep/</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">logd</span> <span class="nv">$headers</span><span class="p">{</span><span class="k">new</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$new_file</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$force_new_header</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$custom_args</span> <span class="ow">ne</span> <span class="p">'</span><span class="s1">no_update</span><span class="p">')</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$update_day</span> <span class="o">&amp;&amp;</span> <span class="nv">$update_day</span> <span class="ow">ne</span> <span class="nv">$curr_day</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$headers</span><span class="p">{</span><span class="nv">updated</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$curr_time</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">elsif</span> <span class="p">(</span><span class="nv">$header_day</span> <span class="o">&amp;&amp;</span> <span class="nv">$header_day</span> <span class="ow">ne</span> <span class="nv">$curr_day</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$headers</span><span class="p">{</span><span class="nv">updated</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$curr_time</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$curr_time</span> <span class="k">if</span> <span class="o">!</span> <span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">};</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nv">$headers</span><span class="p">{</span><span class="nv">date</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$curr_time</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">my</span> <span class="nv">$header_text</span> <span class="o">=</span> <span class="nn">YAML::</span><span class="nv">Tiny</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span> <span class="o">\%</span><span class="nv">headers</span> <span class="p">)</span><span class="o">-&gt;</span><span class="nv">write_string</span><span class="p">;</span>
+<span class="nv">$header_text</span> <span class="o">.=</span> <span class="p">"</span><span class="s2">---</span><span class="se">\n</span><span class="p">";</span>
+<span class="c1">#my $backlinks_text = generate_backlinks();</span>
+
+<span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/^\s+//g</span><span class="p">;</span>  <span class="c1"># get rid of any leading whitespace</span>
+<span class="c1">#my $new_output_text = $header_text . $input_text . $backlinks_text;</span>
+<span class="k">my</span> <span class="nv">$new_output_text</span> <span class="o">=</span> <span class="nv">$header_text</span> <span class="o">.</span> <span class="nv">$input_text</span><span class="p">;</span>
+<span class="nv">write_file</span><span class="p">(</span><span class="nv">$output_file</span><span class="p">,</span> <span class="nv">$new_output_text</span><span class="p">);</span>
+
+<span class="c1">### Helper functions ###</span>
+<span class="c1">#TODO: regex's should be documented with X</span>
+<span class="k">sub </span><span class="nf">process_links</span> <span class="p">{</span>
+
+  <span class="k">my</span> <span class="nv">@links</span> <span class="o">=</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">m|(\[[^]]+]\([^)]+\))|g</span><span class="p">;</span>
+  <span class="k">my</span> <span class="nv">@wiki_links</span> <span class="o">=</span> <span class="p">();</span>
+  <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$l</span> <span class="p">(</span><span class="nv">@links</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$url</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|]\(([^)]+)|</span><span class="p">;</span>
+
+    <span class="c1"># handle links to files</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$url</span> <span class="o">=~</span> <span class="sr">/^file:/</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="nv">$orig_l</span> <span class="o">=</span> <span class="nv">$l</span><span class="p">;</span>
+      <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">s|\[file:///Users/me/vimwiki/webnotes/files/(.*)]\((.*?)\)|&lt;div style="margin-top: 1em;"&gt;&lt;a href="/images/note_images/$1"&gt;&lt;img style="width: 100%; height: 100%" src="/images/note_images/$1" /&gt;&lt;/a&gt;&lt;/div&gt;|</span><span class="p">;</span>
+      <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s|\Q$orig_l\E|$l|</span><span class="p">;</span>
+      <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># handle local wiki links</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$url</span> <span class="o">!~</span> <span class="sr">/^http/</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$url</span> <span class="o">=~</span> <span class="sr">s/ /-/g</span><span class="p">;</span>
+      <span class="nv">$url</span> <span class="o">=</span> <span class="p">'</span><span class="s1">/</span><span class="p">'</span> <span class="o">.</span> <span class="nv">$url</span><span class="p">;</span>
+      <span class="nb">push</span> <span class="nv">@wiki_links</span><span class="p">,</span> <span class="nv">$url</span><span class="p">;</span>
+      <span class="k">my</span> <span class="nv">$orig_l</span> <span class="o">=</span> <span class="nv">$l</span><span class="p">;</span>
+      <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">s|]\((.*)$|]($url)|</span><span class="p">;</span>
+      <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s|\Q$orig_l\E|$l|</span><span class="p">;</span>
+      <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># process twitter links</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$url</span> <span class="o">=~</span> <span class="sr">m|^https://twitter.com|</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$twitter_url</span><span class="p">,</span> <span class="nv">$twitter_user</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|\[[^]]+]\((https://twitter.com/(.*?)/status/\d+\))|</span><span class="p">;</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$full_name</span><span class="p">,</span> <span class="nv">$tweet</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|\[(.*) on Twitter: "(.*)"|</span><span class="p">;</span>
+      <span class="k">my</span> <span class="nv">$output</span> <span class="o">=</span>  <span class="p">'</span><span class="s1">&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;</span><span class="p">';</span>
+      <span class="nv">$output</span> <span class="o">.=</span> <span class="p">"</span><span class="si">$tweet</span><span class="s2">&lt;/p&gt;&amp;mdash; </span><span class="si">$full_name</span><span class="s2"> (</span><span class="err">\</span><span class="s2">@</span><span class="si">$twitter_user</span><span class="s2">)</span><span class="p">";</span>
+      <span class="nv">$output</span> <span class="o">.=</span> <span class="p">"</span><span class="s2">&lt;a href=</span><span class="se">\"</span><span class="si">$twitter_url</span><span class="s2">?ref_src=twsrc%5#tfw</span><span class="se">\"</span><span class="s2">&gt;Link&lt;/a&gt;&lt;/blockquote&gt;</span><span class="p">";</span>
+      <span class="nv">$output</span> <span class="o">.=</span> <span class="p">'</span><span class="s1">&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;</span><span class="p">';</span>
+      <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/\Q$l\E/$output/</span><span class="p">;</span>
+      <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># process youtube links</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$url</span> <span class="o">=~</span> <span class="sr">m|^https://www.youtube.com|</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$video_id</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|\(https://www.youtube.com/watch\?v=([^&amp;]+)&amp;.*\)|</span><span class="p">;</span>
+      <span class="k">my</span> <span class="nv">$output</span> <span class="o">=</span> <span class="sx">qq(&lt;iframe width="560" style="margin-left: 2.0em" height="315" src="https://www.youtube.com/embed/$video_id" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;)</span><span class="p">;</span>
+      <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/\Q$l\E/$output/</span><span class="p">;</span>
+      <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1"># remove paths from markdown url descriptions to shorten them</span>
+  <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s|(\[https*://[^/]+)[^\]]+(.*)|$1$2|g</span><span class="p">;</span>
+
+  <span class="c1"># make "naked" hyperlinks clickable</span>
+  <span class="k">my</span> <span class="nv">@matches</span> <span class="o">=</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">m|(\s(https*://(.*?))\s)|g</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nv">@matches</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="nv">$match_with_ws</span> <span class="o">=</span> <span class="nb">shift</span> <span class="nv">@matches</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$url</span> <span class="o">=</span> <span class="nb">shift</span> <span class="nv">@matches</span><span class="p">;</span>
+    <span class="nb">shift</span> <span class="nv">@matches</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$shortened_url</span> <span class="o">=</span> <span class="nv">$url</span><span class="p">;</span>
+    <span class="k">next</span> <span class="k">if</span> <span class="nv">$shortened_url</span> <span class="o">=~</span> <span class="sr">m|https://t.co|</span><span class="p">;</span>
+    <span class="nv">$shortened_url</span> <span class="o">=~</span> <span class="sr">s|(https*://[^/]+).*|$1|</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$url_markdown</span> <span class="o">=</span> <span class="p">'</span><span class="s1">[</span><span class="p">'</span> <span class="o">.</span> <span class="nv">$shortened_url</span> <span class="o">.</span> <span class="p">'</span><span class="s1">]</span><span class="p">'</span> <span class="o">.</span> <span class="p">'</span><span class="s1">(</span><span class="p">'</span> <span class="o">.</span> <span class="nv">$url</span> <span class="o">.</span> <span class="p">'</span><span class="s1">)</span><span class="p">';</span>
+    <span class="k">my</span> <span class="nv">$match_with_ws_orig</span> <span class="o">=</span> <span class="nv">$match_with_ws</span><span class="p">;</span>
+    <span class="nv">$match_with_ws</span> <span class="o">=~</span> <span class="sr">s/$url/$url_markdown/</span><span class="p">;</span>
+    <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/$match_with_ws_orig/$match_with_ws/</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$new_file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># get text of existing file</span>
+    <span class="k">my</span> <span class="nv">$existing_file_text</span> <span class="o">=</span> <span class="nv">$output_text</span><span class="p">;</span>
+<span class="c1">#    logd $existing_file_text;</span>
+    <span class="c1"># chop off other notes linking here</span>
+    <span class="nv">$existing_file_text</span> <span class="o">=~</span> <span class="sr">s/^---\n#### Other(.*)//ms</span><span class="p">;</span>
+
+    <span class="c1"># find all local wiki_links in existing file</span>
+
+    <span class="k">my</span> <span class="nv">@links</span> <span class="o">=</span> <span class="nv">$existing_file_text</span> <span class="o">=~</span> <span class="sr">m|(\[[^\]]+]\([^\)]+\))|g</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">@urls</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$l</span> <span class="p">(</span><span class="nv">@links</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|\[[^\]]+]\((.*)\)|</span><span class="p">;</span>
+      <span class="nb">push</span> <span class="nv">@urls</span><span class="p">,</span> <span class="nv">$1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">my</span> <span class="nv">@existing_wiki_links</span> <span class="o">=</span> <span class="p">();</span>
+    <span class="nv">@existing_wiki_links</span> <span class="o">=</span> <span class="nb">grep</span> <span class="p">{</span> <span class="o">!</span><span class="sr">/^http/</span> <span class="p">}</span> <span class="nv">@urls</span><span class="p">;</span>
+
+    <span class="c1">## compare to existing wiki_links</span>
+    <span class="c1"># see which links are new</span>
+    <span class="k">my</span> <span class="nv">@new_links</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$cwl</span> <span class="p">(</span><span class="nv">@wiki_links</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="nv">$already_exists</span> <span class="o">=</span> <span class="nb">grep</span> <span class="p">{</span> <span class="nv">$cwl</span> <span class="ow">eq</span> <span class="nv">$_</span> <span class="p">}</span> <span class="nv">@existing_wiki_links</span><span class="p">;</span>
+      <span class="nb">push</span> <span class="p">(</span><span class="nv">@new_links</span><span class="p">,</span> <span class="nv">$cwl</span><span class="p">)</span> <span class="k">if</span> <span class="o">!</span><span class="nv">$already_exists</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># see which links have been removed</span>
+    <span class="k">my</span> <span class="nv">@removed_links</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$ewl</span> <span class="p">(</span><span class="nv">@existing_wiki_links</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="nv">$exists</span> <span class="o">=</span> <span class="nb">grep</span> <span class="p">{</span> <span class="nv">$ewl</span> <span class="ow">eq</span> <span class="nv">$_</span> <span class="p">}</span> <span class="nv">@wiki_links</span><span class="p">;</span>
+      <span class="nb">push</span> <span class="p">(</span><span class="nv">@removed_links</span><span class="p">,</span> <span class="nv">$ewl</span><span class="p">)</span> <span class="k">if</span> <span class="o">!</span><span class="nv">$exists</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># modify target files as appropriate</span>
+    <span class="c1"># add link</span>
+    <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$nl</span> <span class="p">(</span><span class="nv">@new_links</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$nl</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/^\///</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/-/ /</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$file</span> <span class="o">.</span> <span class="p">'</span><span class="s1">.md</span><span class="p">';</span>
+      <span class="k">my</span> <span class="nv">$linked_file</span> <span class="o">=</span> <span class="nn">File::</span><span class="nv">Spec</span><span class="o">-&gt;</span><span class="nv">catfile</span><span class="p">(</span><span class="nv">$output_dir</span><span class="p">,</span> <span class="nv">$file</span><span class="p">);</span>
+      <span class="k">my</span> <span class="nv">$other_file_txt</span> <span class="o">=</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">);</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$backlinks_text</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$other_file_txt</span> <span class="o">=~</span> <span class="sr">m|^---\n#### Other[^\n]+\n(.*)|ms</span><span class="p">;</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$the_file_name</span><span class="p">)</span> <span class="o">=</span> <span class="nv">fileparse</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">,</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
+      <span class="nv">$the_file_name</span> <span class="o">=~</span> <span class="sr">s/ /-/g</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$backlinks_text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">---</span><span class="se">\n</span><span class="s2">#### Other notes linking here:</span><span class="se">\n</span><span class="p">";</span>
+        <span class="k">my</span> <span class="nv">$url_link</span> <span class="o">=</span> <span class="nv">$file_name</span><span class="p">;</span>
+        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">[</span><span class="si">$headers</span><span class="s2">{title}](//</span><span class="si">$the_file_name</span><span class="s2">)</span><span class="p">";</span>
+        <span class="nv">write_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">,</span> <span class="nv">$other_file_txt</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">elsif</span> <span class="p">(</span><span class="nv">$backlinks_text</span> <span class="o">!~</span> <span class="sr">m|\(/$the_file_name\)|</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">[</span><span class="si">$headers</span><span class="s2">{title}](//</span><span class="si">$the_file_name</span><span class="s2">)</span><span class="p">";</span>
+        <span class="nv">write_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">,</span> <span class="nv">$other_file_txt</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1"># remove links from target files</span>
+    <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$rl</span> <span class="p">(</span><span class="nv">@removed_links</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$rl</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/^\///</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/-/ /</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$file</span> <span class="o">.</span> <span class="p">'</span><span class="s1">.md</span><span class="p">';</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$the_file_name</span><span class="p">)</span> <span class="o">=</span> <span class="nv">fileparse</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">,</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
+      <span class="nv">$the_file_name</span> <span class="o">=~</span> <span class="sr">s/ /-/g</span><span class="p">;</span>
+      <span class="nv">$the_file_name</span> <span class="o">=</span> <span class="p">'</span><span class="s1">/</span><span class="p">'</span> <span class="o">.</span> <span class="nv">$the_file_name</span><span class="p">;</span>
+      <span class="k">my</span> <span class="nv">$linked_file</span> <span class="o">=</span> <span class="nn">File::</span><span class="nv">Spec</span><span class="o">-&gt;</span><span class="nv">catfile</span><span class="p">(</span><span class="nv">$output_dir</span><span class="p">,</span> <span class="nv">$file</span><span class="p">);</span>
+      <span class="k">my</span> <span class="nv">$other_file_txt</span> <span class="o">=</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">);</span>
+      <span class="k">my</span> <span class="p">(</span><span class="nv">$backlinks_text</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$other_file_txt</span> <span class="o">=~</span> <span class="sr">m|(^---\n#### Other[^\n]+\n(.*))|ms</span><span class="p">;</span>
+      <span class="nv">$backlinks_text</span> <span class="o">=~</span> <span class="sr">s|^\[[^\]]+\]\($the_file_name\)(.*?)\n*||sm</span><span class="p">;</span>
+      <span class="nv">$other_file_txt</span> <span class="o">=~</span> <span class="sr">s/^---\n#### Other(.*)//ms</span><span class="p">;</span>
+      <span class="nv">$backlinks_text</span> <span class="o">=~</span> <span class="sr">s/\n*$//</span><span class="p">;</span>
+      <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="nv">$backlinks_text</span><span class="p">;</span>
+      <span class="nv">write_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">,</span> <span class="nv">$other_file_txt</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="c1">#  my @matches = $input_text =~ m|(\[[^]]+]\((?!http)[^)]+\))|g;</span>
+<span class="c1">#  my ($file_name) = fileparse($input_file);</span>
+<span class="c1">#  $file_name =~ s/ /-/g;</span>
+<span class="c1">#  foreach my $m (@matches) {</span>
+<span class="c1">#    my ($file) = $m =~ m|\((.*)\)$|;</span>
+<span class="c1">#    $file = $file . '.md';</span>
+<span class="c1">#    my $linked_file = File::Spec-&gt;catfile($output_dir, $file);</span>
+<span class="c1">#    my $other_file_txt = read_file($linked_file);</span>
+<span class="c1">#    my ($backlinks_text) = $other_file_txt =~ m|^---\n#### Other[^\n]+\n(.*)|ms;</span>
+<span class="c1">#    if (!$backlinks_text) {</span>
+<span class="c1">#      $other_file_txt .= "\n\n---\n#### Other notes linking here:\n";</span>
+<span class="c1">#      $other_file_txt .= "\n[$headers{title}](//$file)";</span>
+<span class="c1">#      write_file($linked_file, $other_file_txt);</span>
+<span class="c1">#    } elsif ($backlinks_text !~ m|\(/$file_name\)|) {</span>
+<span class="c1">#      $other_file_txt .= "\n[$headers{title}](//$file_name)";</span>
+<span class="c1">#      write_file($linked_file, $other_file_txt);</span>
+<span class="c1">#    }</span>
+
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># THIS FUNCTION IS DEPRECATED, NO LONGER USED</span>
+<span class="c1"># Superseded by new code in process_links</span>
+<span class="k">sub </span><span class="nf">generate_backlinks</span> <span class="p">{</span>
+  <span class="k">my</span> <span class="nv">$backlinks_text</span><span class="p">;</span>
+  <span class="nb">opendir</span><span class="p">(</span><span class="k">my</span> <span class="nv">$dh</span><span class="p">,</span> <span class="nv">$dirs</span><span class="p">)</span> <span class="o">||</span> <span class="nb">die</span> <span class="p">"</span><span class="s2">Can't opendir </span><span class="si">$output_dir</span><span class="s2">: $!</span><span class="p">";</span>
+  <span class="k">my</span> <span class="nv">@files</span> <span class="o">=</span> <span class="nb">grep</span> <span class="p">{</span> <span class="o">-</span><span class="nv">f</span> <span class="p">"</span><span class="si">$dirs</span><span class="s2">/</span><span class="si">$_</span><span class="p">"</span> <span class="p">}</span> <span class="nb">readdir</span><span class="p">(</span><span class="nv">$dh</span><span class="p">);</span>
+  <span class="nb">closedir</span> <span class="nv">$dh</span><span class="p">;</span>
+  <span class="k">my</span> <span class="nv">$links_text</span> <span class="o">=</span> <span class="p">'';</span>
+  <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$f</span> <span class="p">(</span><span class="nv">@files</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="nv">$bn</span> <span class="o">=</span> <span class="nv">basename</span> <span class="nv">$f</span><span class="p">,</span> <span class="p">'</span><span class="s1">.md</span><span class="p">';</span>
+    <span class="k">my</span> <span class="nv">$content</span> <span class="o">=</span> <span class="nv">read_file</span><span class="p">("</span><span class="si">$dirs</span><span class="s2">/</span><span class="si">$f</span><span class="p">");</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nv">$content</span> <span class="o">=~</span> <span class="sr">/\($file_name\)/</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">my</span> <span class="nv">$bn_orig</span> <span class="o">=</span> <span class="nv">$bn</span><span class="p">;</span>
+      <span class="nv">$bn</span> <span class="o">=~</span> <span class="sr">s/ /-/g</span><span class="p">;</span>
+
+      <span class="k">my</span> <span class="nv">$title</span><span class="p">;</span>
+      <span class="k">my</span> <span class="nv">$linked_from_diary</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$bn</span> <span class="o">=~</span> <span class="sr">/^(\d{4}-\d{2}-\d{2})/</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$linked_from_diary</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nv">$title</span> <span class="o">=</span> <span class="p">"</span><span class="s2">Diary entry for $1</span><span class="p">";</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nv">$content</span> <span class="o">=~</span> <span class="sr">/^# (.*?)\n/s</span><span class="p">;</span>
+        <span class="nv">$title</span> <span class="o">=</span> <span class="nv">$1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$bn</span> <span class="ow">eq</span> <span class="p">'</span><span class="s1">index</span><span class="p">')</span> <span class="p">{</span>
+          <span class="nv">$bn</span> <span class="o">.=</span> <span class="p">'</span><span class="s1">/</span><span class="p">';</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="nv">$links_text</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n</span><span class="s2">[</span><span class="p">"</span> <span class="o">.</span> <span class="nv">$title</span> <span class="o">.</span> <span class="p">'</span><span class="s1">](//</span><span class="p">'</span><span class="o">-.-</span><span class="nv">$bn</span><span class="o">-.-</span><span class="p">'</span><span class="s1">)</span><span class="p">'</span> <span class="o">.</span> <span class="p">"</span><span class="se">\n</span><span class="p">"</span> <span class="k">if</span> <span class="nv">$title</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$links_text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$links_text</span> <span class="o">=</span> <span class="p">"</span><span class="se">\n</span><span class="s2">---</span><span class="se">\n</span><span class="s2">#### Other notes linking here:</span><span class="se">\n</span><span class="p">"</span> <span class="o">.</span> <span class="nv">$links_text</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nv">$links_text</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">extract_title</span> <span class="p">{</span>
+  <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">/^# (.*)/</span><span class="p">;</span>
+  <span class="k">my</span> <span class="nv">$title</span> <span class="o">=</span> <span class="nv">$1</span> <span class="o">||</span> <span class="p">'';</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/^# $1//</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="p">"</span><span class="s2">Diary entry for </span><span class="si">$file_name</span><span class="p">"</span> <span class="k">if</span> <span class="nv">$is_diary</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nv">$title</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">extract_headers</span> <span class="p">{</span>
+  <span class="k">my</span> <span class="o">%</span><span class="nv">headers</span><span class="p">;</span>
+  <span class="nv">$output_text</span> <span class="o">=~</span> <span class="sr">m|^---\n(.*?)^---\n|ms</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">()</span> <span class="k">if</span> <span class="o">!</span><span class="nv">$1</span><span class="p">;</span>
+
+  <span class="k">my</span> <span class="nv">$yaml</span>      <span class="o">=</span> <span class="nn">YAML::</span><span class="nv">Tiny</span><span class="o">-&gt;</span><span class="nv">read_string</span><span class="p">(</span><span class="nv">$1</span><span class="p">);</span>
+  <span class="k">my</span> <span class="nv">$config</span>    <span class="o">=</span> <span class="nv">$yaml</span><span class="o">-&gt;</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$k</span> <span class="p">(</span> <span class="nb">keys</span> <span class="o">%</span><span class="nv">$config</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$headers</span><span class="p">{</span><span class="nv">$k</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$config</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$k</span><span class="p">};</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="o">%</span><span class="nv">headers</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">get_day</span> <span class="p">{</span>
+  <span class="k">my</span> <span class="nv">$date</span> <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+  <span class="nv">$date</span> <span class="o">=~</span> <span class="sr">/(^\d{4}-\d{2}-\d{2})/</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nv">$1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </content>
+    <hr>
+			<svg class="octicon octicon-history" viewbox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
+			</svg>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/markdown_to_note%20source%20code.md">View the edit history</a>
+</div></article>
+
+        
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://twitter.com/steve_dondley">Twitter</a>
+            </li>
+            <li>
+                <a href="/feed.xml">RSS Feed</a>
+            </li>
+            <li>
+                <a href="https://github.com/sdondley/sdondley.github.io">Source</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+
+
+</body>
+</html>
