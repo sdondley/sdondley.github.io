@@ -8,7 +8,7 @@ updated_logo: '0'
 contain bugs. It also has hard-coded paths and was written to be a quick and
 dirty for my own use. You're on your own with it.**
 
-```perl
+{% highlight perl linenos %}
 #!/usr/bin/env perl
 use strict;
 use warnings;
@@ -340,11 +340,4 @@ sub get_day {
   $date =~ /(^\d{4}-\d{2}-\d{2})/;
   return $1;
 }
-```
-
-
----
-#### Other notes linking here:
-
-
-[markdown_to_note perl script](/markdown_to_note)
+{% endhighlight %}
