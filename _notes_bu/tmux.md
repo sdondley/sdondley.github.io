@@ -14,5 +14,3 @@ updated_logo: 0
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Tech stuff](/Tech-stuff.md)

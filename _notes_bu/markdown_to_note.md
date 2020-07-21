@@ -68,5 +68,3 @@ let g:vimwiki_list                  = [wiki_1]
 [Diary entry for 2020-07-14](/2020-07-14)
 
 [Diary entry for 2020-07-20](/2020-07-20)
-
-[Diary entry for 2020-07-21](/2020-07-21)

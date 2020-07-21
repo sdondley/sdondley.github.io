@@ -43,5 +43,3 @@ updated_logo: '1'
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Tech stuff](/Tech-stuff.md)

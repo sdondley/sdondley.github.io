@@ -212,5 +212,3 @@ From vim command line, run:
 [How This Site Works](/How-this-site-is-built)
 
 [vimwiki](/vimwiki)
-
-[Tech stuff](/Tech-stuff.md)

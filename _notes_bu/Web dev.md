@@ -41,5 +41,3 @@ for this trick.
 [Tech stuff](/Tech-stuff)
 
 [Diary entry for 2020-07-17](/2020-07-17)
-
-[Tech stuff](/Tech-stuff.md)

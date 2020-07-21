@@ -28,5 +28,3 @@ programming quality and skills.
 [Tech stuff](/Tech-stuff)
 
 [Perl](/Perl)
-
-[Tech stuff](/Tech-stuff.md)

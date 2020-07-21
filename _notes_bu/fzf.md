@@ -166,3 +166,5 @@ updated_logo: '1'
 [fzf vim plugin](/fzf-vim-plugin)
 
 [MacOS](/MacOS)
+
+[fzf](/fzf)

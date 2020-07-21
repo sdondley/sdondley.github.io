@@ -16,5 +16,3 @@ a lot more fun again.
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Tech stuff](/Tech-stuff.md)
