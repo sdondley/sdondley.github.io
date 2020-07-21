@@ -3,7 +3,7 @@ date: '2020-07-13 07:36:05'
 new: 0
 title: 'How This Site Works'
 update_logo: '0'
-updated: '2020-07-20 06:16:32'
+updated: '2020-07-21 17:56:57'
 updated_logo: '1'
 ---
 ## Technical overview
@@ -17,13 +17,13 @@ this site you are looking at.
       * However, I just (re)discovered [fzf](/fzf) for finding files and it looks
         fantastically promising.
         * Apparently, coupled with ripgrep, it could be a real game changer for
-          switching files and finding text in a project.
+          switching files and finding text in a project
         * see [Unix is my IDE – mkaz.blog](https://mkaz.blog/code/unix-is-my-ide/)
 * The site is statically generated in two stages
   * First stage (writing the wiki)
     * uses vimwiki to export markdown pages written with vimwiki to prepare
       markdown files for stage 2 page generation with Jekyll
-    * first stage uses vimwiki's `Vimwiki2HTML` command whenever a file is
+    * first stage uses vimwiki's `Vimwiki2HTML` command whenever a file is saved
       * saves existing markdown files in the wiki
         * when a file is saved, the `Vimwiki2HTML` command is automatically called
         * files are converted and saved to my `_notes` directory within Jekyll
