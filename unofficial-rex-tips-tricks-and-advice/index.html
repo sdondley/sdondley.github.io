@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<head>
+       
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unofficial Rex Tips, Tricks, and Advice</title>
+<meta name="author" content="Steve Dondley">
+<meta name="description" content="Helpful guidance for Rex">
+<link rel="icon" href="/favicon.ico?v=1.0">
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700|Oswald:300,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/css/index.css">
+<!-- OpenGraph meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley">
+<meta property="article:author" content="/about/">
+<meta name="twitter:site" content="@steve_dondley">
+<meta name="twitter:creator" content="@steve_dondley">
+<meta property="og:title" content="Unofficial Rex Tips, Tricks, and Advice">
+<meta name="twitter:title" content="Unofficial Rex Tips, Tricks, and Advice">
+<meta property="og:description" content="Helpful guidance for Rex">
+<meta name="twitter:description" content="Helpful guidance for Rex">
+<meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+<meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+    <meta property="og:type" content="article">
+        <meta property="article:published_time" content="2020-04-16T00:00:00+00:00">
+        <meta property="article:modified_time" content="2020-07-08T00:00:00+00:00">
+    <meta property="og:url" content="https://steve.dondley.com/unofficial-rex-tips-tricks-and-advice/">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138585660-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-138585660-1');
+</script>
+
+
+    
+        <style type="text/css">
+        .hero {
+            background-color: #d3dbe7;
+            background-image: url('/images/hero/laugh.jpg');
+        }
+@media (max-device-width: 1440px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1440px.jpg');
+	}
+}
+@media (max-device-width: 1200px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1200px.jpg');
+	}
+}
+@media (max-device-width: 800px) {
+	.hero {
+		background-image: url('/images/hero/laugh-800px.jpg');
+	}
+}
+@media (max-device-width: 550px) {
+	.hero {
+		background-image: url('/images/hero/laugh-550px.jpg');
+	}
+}
+@media (max-device-width: 380px) {
+	.hero {
+		background-image: url('/images/hero/laugh-380px.jpg');
+	}
+}
+        </style>
+
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <a href="/notes/">NOTES</a>
+            <a href="/about/">ABOUT</a>
+        </nav>
+         
+        <div class="title">
+            <a href="/">
+                <h1>OFFERINGS</h1>
+                <p>by <span title="Steve Dondley">Steve Dondley</span></p>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+       <div class="container">
+           
+           <article class="post">
+	
+	<header>
+		<h1>Unofficial Rex Tips, Tricks, and Advice</h1>
+		
+    <span class="date">
+        
+        <time datetime="2020-04-16">
+            April 16, 2020
+        </time>
+    </span>
+
+&nbsp;&nbsp;
+    <span class="date">
+        Updated: 
+        <time datetime="2020-07-08">
+            July  8, 2020
+        </time>
+    </span>
+
+
+	</header>
+	
+
+	<p><strong>This post is about the <a href="https://www.rexify.org">Rex framework</a>, a suite of
+modules written in Perl, for automating the remote control of one or more computers.</strong></p>
+
+<p>Rex is a great time saver. Unfortunately, its documentation is rather
+disjointed and a bit cryptic. This post tries to flatten the learning curve a
+bit by offering some big picture ideas and fine-grained recipes to get you
+productively using the Rex framework faster than you would otherwise.
+<!-- more --></p>
+
+<h2 id="tip-1-learn-rexs-typical-use-case">Tip #1: Learn Rex’s typical use case</h2>
+<p>Rex is an open-ended framework and it’s documentation doesn’t spell things out,
+so it can be a little confusing to know what it’s typical use case is. The most
+typical, easiest use case is to have one Rexfile in a single directory and all
+tasks split out and grouped into modules to make them maintainable. So let’s
+spell out how to accomplish this:</p>
+
+<ol>
+  <li>You should have one dedicated directory on your hard drive for your rex tasks. Example: <code class="highlighter-rouge">~/rex</code></li>
+  <li>Inside this directory, you will have a file named <code class="highlighter-rouge">Rexfile</code>.</li>
+  <li>While it’s possible to throw all your tasks into this one Rexfile, don’t do
+it. It’ll probably be a huge maintenance headache as it grows in size.</li>
+  <li>Instead, create modules in your rex directory for holding your tasks. Each
+module should have a collection of related tasks. For example, you might have
+a module in this directory called <code class="highlighter-rouge">Local::Network::Configuration</code> for
+containing tasks related to managing your local network. You might have another
+directory called <code class="highlighter-rouge">Web::Servers::Mail</code> for administering mail servers, etc.,
+etc., so on and so forth.</li>
+  <li>Create a module with the following command: <code class="highlighter-rouge">rexify Your::Module::Name
+--create-module</code>. If your Rexfile already exists, your modules will be placed
+inside a <code class="highlighter-rouge">lib</code> directory. If the Rexfile hasn’t been created yet, your
+modules will be placed directly into the current directory.</li>
+  <li>Repeat step 5 for each of your modules.</li>
+  <li>Edit/create your Rexfile. For each module you added and want to access with
+the rex command, place <code class="highlighter-rouge">require Your::Module::Name;</code> at the top. Also be sure
+you have <code class="highlighter-rouge">use Rex</code> along with any <code class="highlighter-rouge">-feature</code> import argument <a href="https://www.rexify.org/docs/guides/feature_flags.html">per the
+documenation.</a></li>
+  <li>Add your tasks to the <code class="highlighter-rouge">__module__.pm</code> automatically generated for you inside
+the last directory of each module. You can safely delete the meta.yml file.
+It’s not needed with newer versions of Rex.</li>
+  <li>Now, <code class="highlighter-rouge">rex &lt;command&gt;</code> can access any task from inside each of the module
+directories you just created.</li>
+  <li>By default, you must prefix all tasks with the module name like so: <code class="highlighter-rouge">rex
+Your:Module:name:task_name</code> Note the single colon, not a double colon, between
+each of the path segments. Note also that when tasks are called by another
+task, they must also used this notation to fully qualify the task name.</li>
+  <li>You don’t have to prefix task names if you are careful
+about avoiding namespace clashes by ensuring your tasks have unique names
+across all your different <code class="highlighter-rouge">__module__.pm</code> files containing your tasks. To
+pull this off, simply remove the <code class="highlighter-rouge"><span class="k">package</span> <span class="n">Your</span><span class="p">::</span><span class="n">Module</span><span class="p">::</span><span class="n">Name</span><span class="p">;</span></code> line form the
+<code class="highlighter-rouge">__module__.pm</code> file from each of your modules you’d prefer to not prefix
+them with a module name. <strong>NOTE: This is an unsupported hack. Use it at your
+own peril.</strong></li>
+</ol>
+
+<h2 id="tip-2-set-up-tab-completions">Tip #2: Set up tab completions</h2>
+
+<p>Tab completion allows you to quickly type in task names, group names, file
+names, host names, and environment names from the command line. You simply type
+in the first few letters of the name, hit the <TAB> key and bash will do it's
+best to finish typing in the rest of the name for you, or as much as it can
+until you type in another letter or two and hit <TAB> again.</TAB></TAB></p>
+
+<p>Tab completion for rex kicks in when you type in the <code class="highlighter-rouge">rex</code> command at the
+command line and hit the <TAB> key. bash will then look for a Rexfile or rex
+yaml file in the current directory to compile a list of potential completions.
+The completion feature also determines where in the rex command you are to help
+determine which name you intend to type. For example, if you just typed in the
+`-G` option, followed by a couple of letters, and then hit <TAB>, rex's bash
+completion script will provide bash with list of possible groups based on the
+letters you typed.</TAB></TAB></p>
+
+<h3 id="setting-up-tab-completion">Setting up tab completion</h3>
+
+<p>Follow these steps to get rex’s tab completion feature working on your command line:</p>
+
+<ol>
+  <li>Download or copy and paste the appropriate <a href="https://metacpan.org/release/Rex/source/share">Rex tab completion
+script</a>. Place the script into
+your desired location, usually in your home directory.</li>
+  <li>Source the script with by running <code class="highlighter-rouge">source
+/path/to/script/rex-tab-completion.bash</code> on the command line.</li>
+  <li>If desired, add the command in step 3 to your <code class="highlighter-rouge">.bashrc</code> file so it will be
+available every time you log into your shell.</li>
+  <li>If you add more commands and entities to your Rexfile, type <code class="highlighter-rouge">exec bash</code> on
+the command line to update your completions. Note that you must have
+completed step 3 for this to work.</li>
+</ol>
+
+<h2 id="tip-3-run-rex-from-any-directory-on-your-local-machine">Tip #3: Run rex from any directory on your local machine</h2>
+<p>Typically, you have to go to the <code class="highlighter-rouge">~/rex</code> directory (or to whatever directory
+contains a Rexfile) to issue Rex commands. Alternatively, with a little bit of
+bash magic, you can run your rex tasks from anywhere on the machine and even
+keep your bash completion. This works best when you have all your rex modules
+and Rexfile in a single directory as described in Tip #1.</p>
+
+<p>Here’s how to set it up:</p>
+
+<ol>
+  <li>First, add following function into the appropriate bash script for your system (usually .bashrc or .bash_profile) so that the function loads when you log into bash:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> r <span class="o">()</span> <span class="o">{</span>
+   <span class="nb">builtin cd</span> <span class="nv">$HOME</span>/rex     <span class="c"># set this to the path where you store your Rexfile</span>
+   rex <span class="nv">$@</span>
+   <span class="nb">builtin cd</span> <span class="nv">$OLDPWD</span>
+ <span class="o">}</span>
+</code></pre></div>    </div>
+    <p>This function temporarily switches you to where your Rexfile is located, runs the rex command, and then hops back to the directory where you started. That’s it! Now you can just type in <code class="highlighter-rouge">r &lt;command&gt;</code> from anywhere on your machine. Don’t forget to resource your bash configuration to get it working.</p>
+  </li>
+  <li>If you set up bash completion in Tip #2, you’ll need to modify the completion script added in Tip #2, step 1. Carefully modify the script according to the comments, denoted with <code class="highlighter-rouge">###</code>, below:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> _rex<span class="o">()</span>
+ <span class="o">{</span>
+ ...
+     <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="nv">$_rex_yaml</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+         <span class="c">### on the following line, change 'Rexfile' to your full Rexfile path</span>
+         <span class="nv">_rex_yaml</span><span class="o">=</span><span class="si">$(</span>rex <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="nt">-Ty</span> 2&gt;/dev/null<span class="si">)</span>
+     <span class="k">fi</span>
+ ...
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+ ...
+             <span class="k">fi</span>
+             <span class="p">;;</span>
+         <span class="nt">-E</span><span class="o">)</span>
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">#### change 'Rexfile' to your full Rexfile path</span>
+ ...
+             <span class="k">fi</span>
+             <span class="p">;;</span>
+         <span class="nt">-G</span><span class="o">)</span>
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+ ...
+             <span class="k">fi</span>
+             <span class="p">;;</span>
+
+         <span class="k">*</span><span class="o">)</span>
+             <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$HOME</span>/rex/Rexfile <span class="o">]</span><span class="p">;</span> <span class="k">then</span>    <span class="c">### change 'Rexfile' to your full Rexfile path</span>
+ ...
+ <span class="nb">complete</span> <span class="nt">-F</span> _rex rex
+
+ <span class="c">### Add this line</span>
+ <span class="nb">complete</span> <span class="nt">-F</span> _rex r
+
+ ...
+</code></pre></div>    </div>
+  </li>
+  <li>Now save your file and open up a new bash process and you should now be able to do <code class="highlighter-rouge">r &lt;partial_command&gt;&lt;tab&gt;</code> and perform rex bash completions from anywhere on your machine.</li>
+</ol>
+
+<h2 id="tip-4-use-rexdondleyprocesstaskargs-to-process-arguments-passed-to-your-tasks">Tip #4: Use Rex::Dondley::ProcessTaskArgs to process arguments passed to your tasks</h2>
+
+<p>The way arguments are passed into Rex tasks is a little…weird. Command line
+argument with names, those preceded with a double dashed label (e.g.
+<code class="highlighter-rouge">--arg_name=value</code>), are passed to tasks with a hash reference. Unnamed
+arguments get passed in via an array reference. So the special variable for the
+argument array, <code class="highlighter-rouge">@_</code>, will look something like this:</p>
+
+<p><code class="highlighter-rouge">({ --arg1=value1 --arg2=value2 }, [ arg3, arg4 ])</code>.</p>
+
+<p>The Rex::Dondley::ProcessTaskArgs was created by yours truly to make processing these arguments a little less painful. You can easily set which arguments are required and set defaults for any arguments that aren’t passed in. Appropriate errors are set if the passed arguments don’t meet your criteria. You can think of this module as a specialized version of the Params::Validate perl module.</p>
+
+<p>See the documentation for
+<a href="https://metacpan.org/pod/Rex::Dondley::ProcessTaskArgs">Rex::Dondley::ProcessTaskArgs</a>
+for more details.</p>
+
+<h2 id="tip-5-document-arguments-to-your-tasks-using-the-desc-function">Tip #5: Document arguments to your tasks using the <code class="highlighter-rouge">desc</code> function</h2>
+
+<p>As most developers can bear witness, undocumented code is useless code even
+you wrote it yourself. Unless you are blessed with mental superpowers, there’s
+simply no way you are going to remember the commands you wrote years, months,
+days, or even hours ago (and speaking for myself, minutes). So here’s a quick
+hack to painlessly document your task arguments and make them easily accessible
+right from the command line.</p>
+
+<ol>
+  <li>Before each task, write a simple <code class="highlighter-rouge">desc</code> of the task followed by the argument it takes:
+<code class="highlighter-rouge">desc 'this task does X | --domain=some.domain.com [ --quiet ]';</code></li>
+  <li>Place optional arguments in square brackets</li>
+  <li>For arguments that take values, provide a sample argument</li>
+  <li>Notice the “pipe” character to help provide visual separation from the description</li>
+</ol>
+
+<h2 id="tip-6-use-the-cmdb-feature-to-load-information-about-your-machines">Tip #6: Use the CMDB feature to load information about your machines</h2>
+
+<p>Rex already automatically probes a remote server to get details about its
+hardware for you which you can access using the <a href="https://metacpan.org/pod/Rex::Hardware">Rex::Hardware
+module</a>. But frequently, you would like
+to get other bits of information about both the server you are controlling
+as well as for your local machine. For example, you might wish to store the path
+to where backups are saved. This information can be stored in what’s called a
+configuration management database or <strong>CMDB</strong>. In the world of IT, a CMDB helps
+IT administrators track all the hardware and software in use across their entire
+infrastructure.</p>
+
+<p>This tip will show you a recipe for using Rex’s built-in CMDB feature to access
+properties about your servers using the default YAML file format. Just follow these
+steps:</p>
+
+<ol>
+  <li>Create a <code class="highlighter-rouge">cmdb</code> directory in the same directory as your Rexfile</li>
+  <li>In the <code class="highlighter-rouge">cmdb</code> directory create the following directories:
+    <ul>
+      <li><code class="highlighter-rouge">default</code></li>
+      <li>A directory for each of the different kinds of operating systems you have
+(<code class="highlighter-rouge">Darwin</code>, <code class="highlighter-rouge">Debian</code>, etc.)</li>
+      <li>A directory for each of the different environments you run (<code class="highlighter-rouge">testing,</code> <code class="highlighter-rouge">production</code>, etc.)</li>
+    </ul>
+  </li>
+  <li>In the <code class="highlighter-rouge">default</code> directory, create a <code class="highlighter-rouge">.yml</code> file for each of the different
+hosts you have. Some exmaple file names:
+    <ul>
+      <li><code class="highlighter-rouge">192.1.59.3.yml</code></li>
+      <li><code class="highlighter-rouge">iMac.yml</code></li>
+      <li><code class="highlighter-rouge">charlie.example.com.yml</code></li>
+    </ul>
+  </li>
+  <li>Inside each of the operating system and environment directories, create a
+symlink to each machine that is a member of that operating system or
+environement. For example, if your iMac machine is part of your testing
+environment, create a symlink in the <code class="highlighter-rouge">Darwin</code> folder to the
+<code class="highlighter-rouge">default/iMac.yml</code> file.</li>
+</ol>
+
+<p>When you are finished, you should have a directory structure that looks
+something like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rexfile
++-- cmdb
+|   +-- default
+|   |   +-- iMac.yml
+|   |   +-- 192.1.1.3.yml
+|   |   +-- charlie.example.com.yml
+|   +-- Darwin
+|   |   +-- iMac.yml -&gt; ../default/iMac.yml
+|   |   +-- 192.1.1.3.yml -&gt; ../default/192.1.1.3.yml
+|   +-- Debian
+|   |   +-- charlie.example.com.yml -&gt; ../default/charlie.example.com.yml
+|   +-- production
+|   |   +-- charlie.example.com.yml -&gt; ../default/charlie.example.com.yml
+|   +-- testing
+|   |   +-- 192.1.1.3.yml -&gt; ../default/192.1.1.3.yml
+
+</code></pre></div></div>
+
+<p>The next step is to populate each of the yaml files in the <code class="highlighter-rouge">default</code> directory with
+your key/value pairs using yaml syntax like in the following example:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">archive_dir</span><span class="pi">:</span> <span class="s">/path/to/archive_dir</span>
+<span class="na">backup_frequency</span><span class="pi">:</span> <span class="s">daily</span>
+<span class="na">sftp_dir</span><span class="pi">:</span> <span class="s">/path/to/sftp</span>
+<span class="na">user</span><span class="pi">:</span> <span class="s">my_user</span>
+<span class="na">user_password</span><span class="pi">:</span> <span class="s">letmein</span>
+<span class="na">sudo_password</span><span class="pi">:</span> <span class="s">letmeinsudo</span>
+<span class="na">ssh_port</span><span class="pi">:</span> <span class="m">22</span>
+</code></pre></div></div>
+
+<p>Now that your text-based cmdb is set up, you can query it from within your
+Rexfile and tasks:</p>
+
+<figure class="highlight"><pre><code class="language-perl" data-lang="perl"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="code"><pre><span class="k">use</span> <span class="nv">Rex</span> <span class="o">-</span><span class="nv">feature</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="sx">qw( 1.4 )</span> <span class="p">];</span>
+<span class="k">use</span> <span class="nv">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nv">warnings</span><span class="p">;</span>
+
+<span class="c1"># outside of a task, get cmdb() retrieves all the key/value pairs for the local machine</span>
+<span class="k">my</span> <span class="nv">$cmdb_l</span> <span class="o">=</span> <span class="nv">get</span> <span class="nv">cmdb</span><span class="p">();</span>
+
+<span class="nv">task</span> <span class="p">'</span><span class="s1">some_task</span><span class="p">'</span> <span class="o">=&gt;</span> <span class="k">sub </span><span class="p">{</span>
+  <span class="nv">say</span> <span class="nv">$cmdb_l</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">sudo_password</span><span class="p">}</span>   <span class="c1"># access cmdb values for local machine in the task</span>
+  <span class="nv">say</span> <span class="nv">get</span> <span class="nv">cmdb</span><span class="p">('</span><span class="s1">archive_dir</span><span class="p">')</span>    <span class="c1"># access cdmb values for the remote machine</span>
+
+<span class="p">};</span>
+
+<span class="nv">before_task_start</span> <span class="p">'</span><span class="s1">ALL</span><span class="p">'</span> <span class="o">=&gt;</span> <span class="k">sub </span><span class="p">{</span>
+  <span class="c1"># save current cmdb path so we can restore it later</span>
+  <span class="k">my</span> <span class="nv">$current_cmdb_path</span> <span class="o">=</span> <span class="nv">$_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">path</span><span class="p">};</span>
+
+  <span class="c1"># We set a simpler path to pull cmcdb values from yml files in the cmdb/default directory</span>
+  <span class="nv">set</span> <span class="p">(</span> <span class="nv">cmdb</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nv">path</span> <span class="o">=&gt;</span> <span class="p">'</span><span class="s1">cmdb</span><span class="p">',</span>
+      <span class="nv">type</span> <span class="o">=&gt;</span> <span class="p">'</span><span class="s1">YAML</span><span class="p">',</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+
+  <span class="k">my</span> <span class="nv">$server</span>    <span class="o">=</span> <span class="nv">$_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="nv">server</span><span class="o">-&gt;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="nv">name</span><span class="p">;</span>  <span class="c1"># get the server name</span>
+
+  <span class="k">my</span> <span class="nv">$cmdb_r</span>    <span class="o">=</span> <span class="nv">get</span> <span class="nv">cmdb</span><span class="p">('',</span> <span class="nv">$server</span><span class="p">);</span>     <span class="c1"># load all the values from the yaml file</span>
+
+  <span class="c1"># pull values form the yml file</span>
+  <span class="nv">user</span>          <span class="nv">$cmdb_r</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">user</span><span class="p">};</span>
+  <span class="nv">user_password</span> <span class="nv">$cmdb_r</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">password</span><span class="p">};</span>
+  <span class="nv">ssh_port</span>      <span class="nv">$cmdb_r</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">port</span><span class="p">};</span>
+
+  <span class="c1"># restore cmdb path</span>
+  <span class="nv">set</span> <span class="p">(</span> <span class="nv">cmdb</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nv">path</span> <span class="o">=&gt;</span> <span class="nv">$current_cmdb_path</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>For more details on using the cmdb module, including how you can set default
+yaml values for your machines, <a href="https://metacpan.org/pod/Rex::CMDB">refer to the Rex::CMDB module
+documentation</a></p>
+
+
+	
+
+
+
+	<ul class="article-links">
+		
+		<li>
+			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
+			</svg>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_posts/2020-07-08-unofficial-rex-tips-tricks-and-advice.md">View the edit history</a>
+		</li>
+		
+		
+	</ul>
+
+
+<a href="/" id="back">&laquo; Back </a>
+
+</article>
+
+
+	
+
+
+        
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://twitter.com/steve_dondley">Twitter</a>
+            </li>
+            <li>
+                <a href="/feed.xml">RSS Feed</a>
+            </li>
+            <li>
+                <a href="https://github.com/sdondley/sdondley.github.io">Source</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>

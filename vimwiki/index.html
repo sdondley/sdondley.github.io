@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<head>
+       
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vimwiki</title>
+<meta name="author" content="Steve Dondley">
+<meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<link rel="icon" href="/favicon.ico?v=1.0">
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700|Oswald:300,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/css/index.css">
+<!-- OpenGraph meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley">
+<meta property="article:author" content="/about/">
+<meta name="twitter:site" content="@steve_dondley">
+<meta name="twitter:creator" content="@steve_dondley">
+<meta property="og:title" content="vimwiki">
+<meta name="twitter:title" content="vimwiki">
+<meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
+<meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+<meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
+    <meta property="og:type" content="article">
+        <meta property="article:published_time" content="2020-07-13T04:19:04+00:00">
+        <meta property="article:modified_time" content="2020-07-20T06:12:10+00:00">
+    <meta property="og:url" content="https://steve.dondley.com/vimwiki/">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138585660-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-138585660-1');
+</script>
+
+
+    
+        <style type="text/css">
+        .hero {
+            background-color: #d3dbe7;
+            background-image: url('/images/hero/laugh.jpg');
+        }
+@media (max-device-width: 1440px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1440px.jpg');
+	}
+}
+@media (max-device-width: 1200px) {
+	.hero {
+		background-image: url('/images/hero/laugh-1200px.jpg');
+	}
+}
+@media (max-device-width: 800px) {
+	.hero {
+		background-image: url('/images/hero/laugh-800px.jpg');
+	}
+}
+@media (max-device-width: 550px) {
+	.hero {
+		background-image: url('/images/hero/laugh-550px.jpg');
+	}
+}
+@media (max-device-width: 380px) {
+	.hero {
+		background-image: url('/images/hero/laugh-380px.jpg');
+	}
+}
+        </style>
+
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <a href="/notes/">NOTES</a>
+            <a href="/about/">ABOUT</a>
+        </nav>
+         
+        <div class="title">
+            <a href="/">
+                <h1>OFFERINGS</h1>
+                <p>by <span title="Steve Dondley">Steve Dondley</span></p>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+       <div class="container">
+           
+           <p><a href="/notes">⬅  Notes listing</a></p>
+<article>
+  <div>
+    <h1 style="font-size: 1.8em; margin-bottom: 0em">vimwiki</h1>
+		
+    <span class="date">
+        
+        <time datetime="2020-07-13">
+            July 13, 2020
+        </time>
+    </span>
+
+&nbsp;&nbsp;
+    <span class="date">
+        Updated: 
+        <time datetime="2020-07-20">
+            July 20, 2020
+        </time>
+    </span>
+
+
+  </div>
+
+  <div id="notes-entry-container">
+    <content>
+      <ul>
+  <li>See the <a href="https://vimwiki.github.io">vimwiki plugin page</a></li>
+</ul>
+
+<h2 id="what-is-it">What is it?</h2>
+
+<p>vimwiki is a <a href="/vim">vim</a> plugin that helps you write a wiki, which is just a
+collection of hyperlinked documents.</p>
+
+<h2 id="what-makes-it-so-good">What makes it so good?</h2>
+
+<p>I’m still learning the ropes but the short answer is:</p>
+
+<ol>
+  <li>Double tap <code class="highlighter-rouge">&lt;enter&gt;</code> on word or highlighte group of words to open and edit
+a new wike page.</li>
+  <li>Type into your new document</li>
+  <li>Hit <code class="highlighter-rouge">&lt;backspace&gt;</code> to return to your original document</li>
+  <li>Easily navigate between your wiki pages</li>
+  <li>Easily maintain a diary. See <a href="/Keeping-a-diary">keeping a diary</a></li>
+  <li>Absolutely fantastic for generating content as an outline which is far faster
+and easier to write than prose.</li>
+</ol>
+
+<h2 id="random-tech-notes">Random tech notes</h2>
+<ul>
+  <li>vimwiki is running out of my <code class="highlighter-rouge">~/git_repos</code> directory using the
+<code class="highlighter-rouge">customizations</code> branch</li>
+</ul>
+
+<h2 id="searching-and-navigating-a-vimwiki-quickly">Searching and navigating a vimwiki quickly</h2>
+<ul>
+  <li>use <a href="/ctrlp">CtrlP</a> plugin to jump to files</li>
+  <li>Searching the wiki:
+    <ul>
+      <li>use <code class="highlighter-rouge">:VWS /term/</code>
+        <ul>
+          <li>use <code class="highlighter-rouge">:lopen</code> to see results</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="diary-navigation">Diary navigation</h3>
+<ul>
+  <li><code class="highlighter-rouge">&lt;C-Up_Arrow&gt;</code>
+    <ul>
+      <li>Open the previous day’s diary link if available.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">&lt;C-Down_Arrow&gt;</code>
+    <ul>
+      <li>Open the next day’s diary link if available.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="other-tips-tricks-and-advice">Other Tips, Tricks and Advice</h2>
+<h3 id="if-used-in-conjunctions-with-a-jekyll-site">If used in conjunctions with a Jekyll site</h3>
+<ul>
+  <li>Be sure to use markdown as the syntax for best integration with Jekyll site
+generation</li>
+  <li>Do not place diary in subdirectory (this is the default)
+    <ul>
+      <li>Instead, ensure entries are created in same folder as wiki so that documents
+in diary can link to wiki documents not in the diary
+        <ul>
+          <li>Accomplished by modifying <code class="highlighter-rouge">g:vimwiki_list</code>:
+            <ul>
+              <li><code class="highlighter-rouge">let wiki_1.diary_rel_path = '.'</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Use omni completion to find existing file names:
+    <ul>
+      <li>Type <code class="highlighter-rouge">[](ind</code>
+        <ul>
+          <li>Now type <code class="highlighter-rouge">&lt;C-x&gt;&lt;C-o&gt;</code> to search for files that begin with <code class="highlighter-rouge">ind</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="maps">Maps</h2>
+<ul>
+  <li>Insert link to another wiki page:
+    <ul>
+      <li>type in first couple of letters and then:
+        <ul>
+          <li><code class="highlighter-rouge">inoremap &lt;buffer&gt; &lt;leader&gt;xo &lt;C-o&gt;"cciW[](&lt;C-r&gt;c)&lt;left&gt;&lt;c-x&gt;&lt;c-o&gt;</code></li>
+          <li>Then to actually select a file:
+            <ul>
+              <li><code class="highlighter-rouge">inoremap &lt;buffer&gt; &lt;c-y&gt;&lt;c-y&gt; &lt;c-y&gt;&lt;esc&gt;&lt;esc&gt;T(vt)y&lt;esc&gt;F[pf)a  &lt;left&gt;</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Rewrite <code class="highlighter-rouge">&lt;cr&gt;</code> to <code class="highlighter-rouge">Vimwiki 3, 5</code> per help file
+    <ul>
+      <li>Needed if you are using hard wraps</li>
+      <li>This will create a bullet on the next line after hitting return if there is
+more than one line in the bullet</li>
+    </ul>
+  </li>
+  <li>faster indenting
+    <ul>
+      <li><code class="highlighter-rouge">&lt;c-d&gt;</code> and <code class="highlighter-rouge">&lt;c-t&gt;</code> outdent and indent
+        <ul>
+          <li>too slow
+            <ul>
+              <li>remap <code class="highlighter-rouge">&lt;&lt;</code> to outdent</li>
+              <li>remap <code class="highlighter-rouge">&gt;&gt;</code> to indent
+```vim
+“ faster in/outdenting
+inoremap « <c-d>
+inoremap &gt;&gt; <c-t></c-t></c-d></li>
+            </ul>
+
+            <p>“outdent all the way to margin
+inoremap <leader>,, <esc>0dt*$a
+nnoremap <leader>,, 0dt*$</leader></esc></leader></p>
+
+            <p>” needed for vimwiki plugin with hard wrapping
+inoremap <cr> <esc>:VimwikiReturn 3, 5<cr></cr></esc></cr></p>
+
+            <p>” in/outdent next bullet
+imap <c-i><cr> <cr><c-t>
+imap <c-i><c-i><cr> <cr><c-d>
+```</c-d></cr></cr></c-i></c-i></c-t></cr></cr></c-i></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">&lt;tab&gt;</code> key should be remapped
+    <ul>
+      <li>by default vimwiki maps <code class="highlighter-rouge">&lt;tab&gt;</code> to <code class="highlighter-rouge">VimwikiNextLink</code>
+        <ul>
+          <li>Since <code class="highlighter-rouge">&lt;tab&gt;</code> and <code class="highlighter-rouge">&lt;c-i&gt;</code> are the same as a result of some terminal quirk,
+you are also overriding the default behavior of <code class="highlighter-rouge">&lt;c-i&gt;</code>
+            <ul>
+              <li>default behavior is to go forward in jump list</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><a href="https://mkaz.blog/working-with-vim/vimwiki/">https://mkaz.blog</a></li>
+  <li><a href="https://blog.mague.com/?p=602">Getting started guide</a> <strong>broken link as of 7/16/2020</strong></li>
+  <li><a href="https://www.youtube.com/watch?v=GPSmRuKL5KQ">A Better Way of Using Vimwiki - YouTube</a>
+    <ul>
+      <li>guy in video keeps syaing to use mod-v
+        <ul>
+          <li>actual combo by default:
+            <ul>
+              <li>
+                <leader>ww
+</leader>
+              </li>
+              <li>consult documentation for how to quickly open other wikis</li>
+              <li>:h vimwiki-global-mappings</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h4 id="other-notes-linking-here">Other notes linking here:</h4>
+
+<p><a href="/vim">vim</a></p>
+
+<p><a href="/How-this-site-is-built">How This Site Works</a></p>
+
+<p><a href="/Digital-Gardening">Thoughts on Digital Gardening</a></p>
+
+<p><a href="/2020-07-14">Diary entry for 2020-07-14</a></p>
+
+    </content>
+    <hr />
+			<svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+				<path d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"></path>
+			</svg>
+			<a href="https://github.com/sdondley/sdondley.github.io/commits/local/_notes/vimwiki.md">View the edit history</a>
+</article>
+
+        
+        </div>
+    </main>
+    <footer>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://twitter.com/steve_dondley">Twitter</a>
+            </li>
+            <li>
+                <a href="/feed.xml">RSS Feed</a>
+            </li>
+            <li>
+                <a href="https://github.com/sdondley/sdondley.github.io">Source</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>
