@@ -3,9 +3,12 @@ date: '2020-07-14 11:11:33'
 new: 0
 title: 'markdown_to_note perl script'
 update_logo: '0'
-updated: '2020-07-21 18:30:22'
-updated_logo: 0
+updated: '2020-07-21 18:57:05'
+updated_logo: '1'
 ---
+## Source code
+[markdown_to_note source code](/markdown_to_note-source-code)
+
 ## What is it?
 This is bit of perl "glue" script I wrote which is run whenever I save a note in my
 wiki. It is located in my bin path.
@@ -25,8 +28,8 @@ folder.  It is triggered by an autocmd found in my vim configuration:
 autocmd BufWritePost *.md call vimwiki#vars#set_wikilocal('custom_wiki2html_args', '', 0) | execute ':silent Vimwiki2HTML' | call vimwiki#vars#set_wikilocal('custom_wiki2html_args', '', 0) | execute ':redraw!'
 ```
 
-When I want to convert all the files at once, which is necessary to get accurate
-bidirectional links, the script gets run for every file. I have a map in my vim
+When I want to generate all the files at once, ~~which is necessary to get accurate
+bidirectional links,~~ the script gets run for every file. I have a map in my vim
 configuration to trigger this process:
 
 ```vim
@@ -34,9 +37,12 @@ nnoremap <leader>wha :CvimwikiAll2HTML<cr>
 command! CvimwikiAll2HTML call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'no_update', 0) | execute ':silent! VimwikiAll2HTML' | call vimwiki#vars#set_wikilocal('custom_wiki2html_args', 'hi', 0) | execute ':redraw!'
 ```
 
-As you can see, it's basically the same as the autocmd except it calls `VimwikiAll2HTML` instead of `Vimwiki2HTML` command for a single file.
+As you can see, it's basically the same as the autocmd except it calls
+`VimwikiAll2HTML` instead of `Vimwiki2HTML` command for a single file. Since
+updating the markdown_to_note script, it is no longer necessary to run this
+command.
 
-The autocmd and map does not tell the whole vim configuration story, however.
+The map and autocmd does not tell the whole vim configuration story, however.
 The key to getting the `markdown_to_note` script to be called called is to set
 the `custom_wiki2html` key for for the wiki in `g:vimwiki_list` with something
 like this in your vimrc file:
@@ -51,5 +57,7 @@ let wiki_1.syntax                   = 'markdown'
 let wiki_1.custom_wiki2html         = '/Users/me/bin/markdown_to_note'
 let wiki_1.custom_wiki2html_args    = ''
 let g:vimwiki_list                  = [wiki_1]
-
 ```
+
+Note the `custom_wiki2html` key. It tells `vimwiki` to the use the
+markdown_to_note script to generate the markdown files used by Jekyll.
