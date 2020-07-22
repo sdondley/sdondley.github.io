@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
-        <meta property="article:published_time" content="2020-07-21T18:38:44-04:00">
+        <meta property="article:published_time" content="2020-07-22T08:18:11-04:00">
     <meta property="og:url" content="https://steve.dondley.com/markdown_to_note-source-code/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -100,8 +100,8 @@
 		
     <span class="date">
         
-        <time datetime="2020-07-21">
-            July 21, 2020
+        <time datetime="2020-07-22">
+            July 22, 2020
         </time>
     </span>
 
@@ -443,10 +443,6 @@ dirty for my own use. You’re on your own with it.</strong></p>
 325
 326
 327
-328
-329
-330
-331
 </pre></td>
 <td class="code"><pre><span class="c1">#!/usr/bin/env perl</span>
 <span class="k">use</span> <span class="nv">strict</span><span class="p">;</span>
@@ -477,7 +473,7 @@ dirty for my own use. You’re on your own with it.</strong></p>
 <span class="k">my</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">,</span> <span class="nv">$dirs</span><span class="p">,</span> <span class="nv">$suffix</span><span class="p">)</span> <span class="o">=</span> <span class="nv">fileparse</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">,</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
 <span class="k">my</span> <span class="nv">$output_file</span>                 <span class="o">=</span> <span class="nn">File::</span><span class="nv">Spec</span><span class="o">-&gt;</span><span class="nv">catfile</span><span class="p">(</span><span class="nv">$output_dir</span><span class="p">,</span> <span class="nv">$file_name</span> <span class="o">.</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
 <span class="k">my</span> <span class="nv">$new_file</span>                    <span class="o">=</span> <span class="o">!-</span><span class="nv">e</span> <span class="nv">$output_file</span><span class="p">;</span>
-<span class="k">my</span> <span class="nv">$is_diary</span>                    <span class="o">=</span> <span class="nv">$file_name</span> <span class="o">=~</span> <span class="sr">m|\d{4}-\d{2}-\d{2}|</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$is_diary</span>                    <span class="o">=</span> <span class="nv">$file_name</span> <span class="o">=~</span> <span class="sr">m|^\d{4}-\d{2}-\d{2}|</span><span class="p">;</span>
 <span class="k">my</span> <span class="nv">$input_text</span>                  <span class="o">=</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">);</span>
 <span class="k">my</span> <span class="nv">$output_text</span>                 <span class="o">=</span> <span class="nv">$new_file</span> <span class="p">?</span> <span class="p">''</span> <span class="p">:</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$output_file</span><span class="p">);</span>
 <span class="k">my</span> <span class="nv">$has_header</span>                  <span class="o">=</span> <span class="nv">$new_file</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="nv">$output_text</span> <span class="o">=~</span> <span class="sr">m|^---\n|m</span><span class="p">;</span>
@@ -496,9 +492,10 @@ dirty for my own use. You’re on your own with it.</strong></p>
 <span class="nv">process_links</span><span class="p">();</span>
 
 <span class="c1"># remove headings with nothing under them</span>
-<span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/^##\s+[^\n]+\s+(?=^## )//gsm</span><span class="p">;</span>
+<span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/^###*\s+[^\n]+\s+(?=^##)//gsm</span><span class="p">;</span>
 
-<span class="k">my</span> <span class="nv">$out</span> <span class="o">=</span> <span class="p">`</span><span class="sb">rsync -a '/Users/me/vimwiki/webnotes/files/' '/Users/me/git_repos/sdondley.github.io/images/note_images'</span><span class="p">`;</span>
+<span class="c1">#r</span>
+<span class="k">my</span> <span class="nv">$out</span> <span class="o">=</span> <span class="p">`</span><span class="sb">rsync -a '/Users/stevedondley/vimwiki/webnotes/files/' '/Users/stevedondley/git_repos/sdondley.github.io/images/note_images'</span><span class="p">`;</span>
 
 <span class="nv">$headers</span><span class="p">{</span><span class="nv">updated_logo</span><span class="p">}</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">my</span> <span class="nv">$curr_t</span> <span class="o">=</span> <span class="nn">Time::</span><span class="nv">Piece</span><span class="o">-&gt;</span><span class="nv">strptime</span><span class="p">(</span><span class="nv">$curr_time</span><span class="p">,</span> <span class="p">'</span><span class="s1">%Y-%m-%d %H:%M:%S</span><span class="p">');</span>
@@ -542,11 +539,11 @@ dirty for my own use. You’re on your own with it.</strong></p>
 
 <span class="k">my</span> <span class="nv">$header_text</span> <span class="o">=</span> <span class="nn">YAML::</span><span class="nv">Tiny</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span> <span class="o">\%</span><span class="nv">headers</span> <span class="p">)</span><span class="o">-&gt;</span><span class="nv">write_string</span><span class="p">;</span>
 <span class="nv">$header_text</span> <span class="o">.=</span> <span class="p">"</span><span class="s2">---</span><span class="se">\n</span><span class="p">";</span>
-<span class="c1">#my $backlinks_text = generate_backlinks();</span>
 
 <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s/^\s+//g</span><span class="p">;</span>  <span class="c1"># get rid of any leading whitespace</span>
-<span class="c1">#my $new_output_text = $header_text . $input_text . $backlinks_text;</span>
-<span class="k">my</span> <span class="nv">$new_output_text</span> <span class="o">=</span> <span class="nv">$header_text</span> <span class="o">.</span> <span class="nv">$input_text</span><span class="p">;</span>
+<span class="c1">#my $backlinks = ''; #generate_backlinks();</span>
+<span class="k">my</span> <span class="nv">$backlinks</span> <span class="o">=</span> <span class="nv">generate_backlinks</span><span class="p">();</span>
+<span class="k">my</span> <span class="nv">$new_output_text</span> <span class="o">=</span> <span class="nv">$header_text</span> <span class="o">.</span> <span class="nv">$input_text</span> <span class="o">.</span> <span class="nv">$backlinks</span><span class="p">;</span>
 <span class="nv">write_file</span><span class="p">(</span><span class="nv">$output_file</span><span class="p">,</span> <span class="nv">$new_output_text</span><span class="p">);</span>
 
 <span class="c1">### Helper functions ###</span>
@@ -555,13 +552,19 @@ dirty for my own use. You’re on your own with it.</strong></p>
 
   <span class="k">my</span> <span class="nv">@links</span> <span class="o">=</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">m|(\[[^]]+]\([^)]+\))|g</span><span class="p">;</span>
   <span class="k">my</span> <span class="nv">@wiki_links</span> <span class="o">=</span> <span class="p">();</span>
+  <span class="k">my</span> <span class="nv">$has_fenced_code</span> <span class="o">=</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">/^```|^{&amp;percnt;\s*highlight/m</span><span class="p">;</span>
+  <span class="nv">logd</span> <span class="nv">$has_fenced_code</span><span class="p">;</span>
   <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$l</span> <span class="p">(</span><span class="nv">@links</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$has_fenced_code</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">next</span> <span class="k">if</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">m|^```\S(.*?)\Q$l\E(.*?)^```|ms</span><span class="p">;</span>
+      <span class="k">next</span> <span class="k">if</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">m|^{&amp;percnt\s*highlight\s(.*?)\Q$l\E(.*?)^{&amp;percnt;|ms</span><span class="p">;</span>
+    <span class="p">}</span>
     <span class="k">my</span> <span class="p">(</span><span class="nv">$url</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|]\(([^)]+)|</span><span class="p">;</span>
 
     <span class="c1"># handle links to files</span>
     <span class="k">if</span> <span class="p">(</span><span class="nv">$url</span> <span class="o">=~</span> <span class="sr">/^file:/</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">my</span> <span class="nv">$orig_l</span> <span class="o">=</span> <span class="nv">$l</span><span class="p">;</span>
-      <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">s|\[file:///Users/me/vimwiki/webnotes/files/(.*)]\((.*?)\)|&lt;div style="margin-top: 1em;"&gt;&lt;a href="/images/note_images/$1"&gt;&lt;img style="width: 100%; height: 100%" src="/images/note_images/$1" /&gt;&lt;/a&gt;&lt;/div&gt;|</span><span class="p">;</span>
+      <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">s|\[file:///Users/stevedondley/vimwiki/webnotes/files/(.*)]\((.*?)\)|&lt;div style="margin-top: 1em;"&gt;&lt;a href="/images/note_images/$1"&gt;&lt;img style="width: 100%; height: 100%" src="/images/note_images/$1" /&gt;&lt;/a&gt;&lt;/div&gt;|</span><span class="p">;</span>
       <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">s|\Q$orig_l\E|$l|</span><span class="p">;</span>
       <span class="k">next</span><span class="p">;</span>
     <span class="p">}</span>
@@ -619,7 +622,7 @@ dirty for my own use. You’re on your own with it.</strong></p>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$new_file</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1"># get text of existing file</span>
     <span class="k">my</span> <span class="nv">$existing_file_text</span> <span class="o">=</span> <span class="nv">$output_text</span><span class="p">;</span>
-<span class="c1">#    logd $existing_file_text;</span>
+
     <span class="c1"># chop off other notes linking here</span>
     <span class="nv">$existing_file_text</span> <span class="o">=~</span> <span class="sr">s/^---\n#### Other(.*)//ms</span><span class="p">;</span>
 
@@ -627,7 +630,13 @@ dirty for my own use. You’re on your own with it.</strong></p>
 
     <span class="k">my</span> <span class="nv">@links</span> <span class="o">=</span> <span class="nv">$existing_file_text</span> <span class="o">=~</span> <span class="sr">m|(\[[^\]]+]\([^\)]+\))|g</span><span class="p">;</span>
     <span class="k">my</span> <span class="nv">@urls</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$existing_has_fenced_code</span> <span class="o">=</span> <span class="nv">$existing_file_text</span> <span class="o">=~</span> <span class="sr">/^```|^{&amp;percnt;\s*highlight/m</span><span class="p">;</span>
     <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$l</span> <span class="p">(</span><span class="nv">@links</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$existing_has_fenced_code</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">next</span> <span class="k">if</span> <span class="nv">$input_text</span> <span class="o">=~</span> <span class="sr">m|^```\S(.*?)\Q$l\E(.*?)^```|ms</span><span class="p">;</span>
+        <span class="k">next</span> <span class="k">if</span> <span class="nv">$input_text</span> <span class="o">=~</span>
+        <span class="sr">m|^{&amp;percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&amp;percnt;|ms</span><span class="p">;</span>
+      <span class="p">}</span>
       <span class="nv">$l</span> <span class="o">=~</span> <span class="sr">m|\[[^\]]+]\((.*)\)|</span><span class="p">;</span>
       <span class="nb">push</span> <span class="nv">@urls</span><span class="p">,</span> <span class="nv">$1</span><span class="p">;</span>
     <span class="p">}</span>
@@ -654,9 +663,12 @@ dirty for my own use. You’re on your own with it.</strong></p>
     <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$nl</span> <span class="p">(</span><span class="nv">@new_links</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">my</span> <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$nl</span><span class="p">;</span>
       <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/^\///</span><span class="p">;</span>
-      <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/-/ /</span><span class="p">;</span>
+      <span class="nv">$file</span> <span class="o">=~</span> <span class="sr">s/-/ /g</span><span class="p">;</span>
       <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$file</span> <span class="o">.</span> <span class="p">'</span><span class="s1">.md</span><span class="p">';</span>
       <span class="k">my</span> <span class="nv">$linked_file</span> <span class="o">=</span> <span class="nn">File::</span><span class="nv">Spec</span><span class="o">-&gt;</span><span class="nv">catfile</span><span class="p">(</span><span class="nv">$output_dir</span><span class="p">,</span> <span class="nv">$file</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!-</span><span class="nv">e</span> <span class="nv">$linked_file</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">`</span><span class="sb">touch </span><span class="si">$linked_file</span><span class="p">`;</span>
+      <span class="p">}</span>
       <span class="k">my</span> <span class="nv">$other_file_txt</span> <span class="o">=</span> <span class="nv">read_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">);</span>
       <span class="k">my</span> <span class="p">(</span><span class="nv">$backlinks_text</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$other_file_txt</span> <span class="o">=~</span> <span class="sr">m|^---\n#### Other[^\n]+\n(.*)|ms</span><span class="p">;</span>
       <span class="k">my</span> <span class="p">(</span><span class="nv">$the_file_name</span><span class="p">)</span> <span class="o">=</span> <span class="nv">fileparse</span><span class="p">(</span><span class="nv">$input_file</span><span class="p">,</span> <span class="p">'</span><span class="s1">.md</span><span class="p">');</span>
@@ -664,10 +676,10 @@ dirty for my own use. You’re on your own with it.</strong></p>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$backlinks_text</span><span class="p">)</span> <span class="p">{</span>
         <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">---</span><span class="se">\n</span><span class="s2">#### Other notes linking here:</span><span class="se">\n</span><span class="p">";</span>
         <span class="k">my</span> <span class="nv">$url_link</span> <span class="o">=</span> <span class="nv">$file_name</span><span class="p">;</span>
-        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">[</span><span class="si">$headers</span><span class="s2">{title}](//</span><span class="si">$the_file_name</span><span class="s2">)</span><span class="p">";</span>
+        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">[</span><span class="si">$headers</span><span class="s2">{title}](/</span><span class="si">$the_file_name</span><span class="s2">)</span><span class="p">";</span>
         <span class="nv">write_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">,</span> <span class="nv">$other_file_txt</span><span class="p">);</span>
       <span class="p">}</span> <span class="k">elsif</span> <span class="p">(</span><span class="nv">$backlinks_text</span> <span class="o">!~</span> <span class="sr">m|\(/$the_file_name\)|</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">[</span><span class="si">$headers</span><span class="s2">{title}](//</span><span class="si">$the_file_name</span><span class="s2">)</span><span class="p">";</span>
+        <span class="nv">$other_file_txt</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n\n</span><span class="s2">[</span><span class="si">$headers</span><span class="s2">{title}](/</span><span class="si">$the_file_name</span><span class="s2">)</span><span class="p">";</span>
         <span class="nv">write_file</span><span class="p">(</span><span class="nv">$linked_file</span><span class="p">,</span> <span class="nv">$other_file_txt</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -692,29 +704,9 @@ dirty for my own use. You’re on your own with it.</strong></p>
     <span class="p">}</span>
   <span class="p">}</span>
 
-<span class="c1">#  my @matches = $input_text =~ m|(\[[^]]+]\((?!http)[^)]+\))|g;</span>
-<span class="c1">#  my ($file_name) = fileparse($input_file);</span>
-<span class="c1">#  $file_name =~ s/ /-/g;</span>
-<span class="c1">#  foreach my $m (@matches) {</span>
-<span class="c1">#    my ($file) = $m =~ m|\((.*)\)$|;</span>
-<span class="c1">#    $file = $file . '.md';</span>
-<span class="c1">#    my $linked_file = File::Spec-&gt;catfile($output_dir, $file);</span>
-<span class="c1">#    my $other_file_txt = read_file($linked_file);</span>
-<span class="c1">#    my ($backlinks_text) = $other_file_txt =~ m|^---\n#### Other[^\n]+\n(.*)|ms;</span>
-<span class="c1">#    if (!$backlinks_text) {</span>
-<span class="c1">#      $other_file_txt .= "\n\n---\n#### Other notes linking here:\n";</span>
-<span class="c1">#      $other_file_txt .= "\n[$headers{title}](//$file)";</span>
-<span class="c1">#      write_file($linked_file, $other_file_txt);</span>
-<span class="c1">#    } elsif ($backlinks_text !~ m|\(/$file_name\)|) {</span>
-<span class="c1">#      $other_file_txt .= "\n[$headers{title}](//$file_name)";</span>
-<span class="c1">#      write_file($linked_file, $other_file_txt);</span>
-<span class="c1">#    }</span>
-
   <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1"># THIS FUNCTION IS DEPRECATED, NO LONGER USED</span>
-<span class="c1"># Superseded by new code in process_links</span>
 <span class="k">sub </span><span class="nf">generate_backlinks</span> <span class="p">{</span>
   <span class="k">my</span> <span class="nv">$backlinks_text</span><span class="p">;</span>
   <span class="nb">opendir</span><span class="p">(</span><span class="k">my</span> <span class="nv">$dh</span><span class="p">,</span> <span class="nv">$dirs</span><span class="p">)</span> <span class="o">||</span> <span class="nb">die</span> <span class="p">"</span><span class="s2">Can't opendir </span><span class="si">$output_dir</span><span class="s2">: $!</span><span class="p">";</span>
@@ -741,7 +733,7 @@ dirty for my own use. You’re on your own with it.</strong></p>
         <span class="p">}</span>
       <span class="p">}</span>
 
-      <span class="nv">$links_text</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n</span><span class="s2">[</span><span class="p">"</span> <span class="o">.</span> <span class="nv">$title</span> <span class="o">.</span> <span class="p">'</span><span class="s1">](//</span><span class="p">'</span><span class="o">-.-</span><span class="nv">$bn</span><span class="o">-.-</span><span class="p">'</span><span class="s1">)</span><span class="p">'</span> <span class="o">.</span> <span class="p">"</span><span class="se">\n</span><span class="p">"</span> <span class="k">if</span> <span class="nv">$title</span><span class="p">;</span>
+      <span class="nv">$links_text</span> <span class="o">.=</span> <span class="p">"</span><span class="se">\n</span><span class="s2">[</span><span class="p">"</span> <span class="o">.</span> <span class="nv">$title</span> <span class="o">.</span> <span class="p">'</span><span class="s1">](/</span><span class="p">'</span> <span class="o">.</span> <span class="nv">$bn</span> <span class="o">.</span> <span class="p">'</span><span class="s1">)</span><span class="p">'</span> <span class="o">.</span> <span class="p">"</span><span class="se">\n</span><span class="p">"</span> <span class="k">if</span> <span class="nv">$title</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
   <span class="k">if</span> <span class="p">(</span><span class="nv">$links_text</span><span class="p">)</span> <span class="p">{</span>
@@ -782,6 +774,10 @@ dirty for my own use. You’re on your own with it.</strong></p>
 </pre></td>
 </tr></tbody></table></code></pre></figure>
 
+<hr>
+<h4 id="other-notes-linking-here">Other notes linking here:</h4>
+
+<p><a href="/markdown_to_note">markdown_to_note perl script</a></p>
 
     </content>
     <hr>
