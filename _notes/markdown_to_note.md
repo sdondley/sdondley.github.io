@@ -76,3 +76,6 @@ markdown_to_note script to generate the markdown files used by Jekyll.
 [Diary entry for 2020-07-20](/2020-07-20)
 
 [Diary entry for 2020-07-21](/2020-07-21)
+
+
+[Diary entry for 2020-07-22](/2020-07-22)
