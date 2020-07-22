@@ -1,5 +1,5 @@
 ---
-date: '2020-07-22 08:18:11'
+date: '2020-07-22 09:32:22'
 new: '1'
 title: 'Source code for markdown_to_note'
 updated_logo: '0'
@@ -9,6 +9,7 @@ contain bugs. It also has hard-coded paths and was written to be a quick and
 dirty for my own use. You're on your own with it.**
 
 {% highlight perl linenos %}
+
 #!/usr/bin/env perl
 use strict;
 use warnings;
@@ -58,6 +59,9 @@ process_links();
 
 # remove headings with nothing under them
 $input_text =~ s/^###*\s+[^\n]+\s+(?=^##)//gsm;
+
+# escape text that will confuse jekyll processor
+$input_text =~ s/^((.*?)\S+(.*?)){&percnt;/$1\{&percnt;/mg;
 
 #r
 my $out = `rsync -a '/Users/stevedondley/vimwiki/webnotes/files/' '/Users/stevedondley/git_repos/sdondley.github.io/images/note_images'`;
@@ -122,7 +126,7 @@ sub process_links {
   foreach my $l (@links) {
     if ($has_fenced_code) {
       next if $input_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
-      next if $input_text =~ m|^{&percnt\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
+      next if $input_text =~ m|^{&percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
     }
     my ($url) = $l =~ m|]\(([^)]+)|;
 
@@ -199,8 +203,7 @@ sub process_links {
     foreach my $l (@links) {
       if ($existing_has_fenced_code) {
         next if $input_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
-        next if $input_text =~
-        m|^{&percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
+        next if $input_text =~ m|^{&percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
       }
       $l =~ m|\[[^\]]+]\((.*)\)|;
       push @urls, $1;
