@@ -3,8 +3,8 @@ date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
 update_logo: '0'
-updated: '2020-07-20 06:12:10'
-updated_logo: '1'
+updated: '2020-07-22 17:36:44'
+updated_logo: 0
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
 
@@ -95,7 +95,7 @@ I'm still learning the ropes but the short answer is:
 ## Resources
 * [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)
 * [Getting started guide](https://blog.mague.com/?p=602) **broken link as of 7/16/2020**
-* [A Better Way of Using Vimwiki - YouTube](https://www.youtube.com/watch?v=GPSmRuKL5KQ)
+* <iframe width="560" style="margin-left: 2.0em" height="315" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   * guy in video keeps syaing to use mod-v
     * actual combo by default:
       * <leader>ww

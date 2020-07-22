@@ -3,8 +3,8 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: '0'
-updated: '2020-07-20 05:55:58'
-updated_logo: '1'
+updated: '2020-07-22 17:35:41'
+updated_logo: 0
 ---
 ## Why vim?
 * To my knowledge, it is the fastest way for a human to process text on a
@@ -212,5 +212,3 @@ From vim command line, run:
 [How This Site Works](/How-this-site-is-built)
 
 [vimwiki](/vimwiki)
-
-[Tech stuff](/Tech-stuff.md)

@@ -3,7 +3,7 @@ date: '2020-07-13 07:36:05'
 new: 0
 title: 'How This Site Works'
 update_logo: '0'
-updated: '2020-07-21 17:56:57'
+updated: '2020-07-22 17:44:31'
 updated_logo: '1'
 ---
 ## Technical overview
@@ -84,3 +84,10 @@ here:
   link along with the title (grabbed from the HTML source code) into my document.
   * Huge time saver
   * See [Insert hyper links](/Insert-hyper-links) for documentation
+
+---
+#### Other notes linking here:
+
+[Tech stuff](/Tech-stuff)
+
+[Diary entry for 2020-07-17](/2020-07-17)

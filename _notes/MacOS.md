@@ -3,7 +3,7 @@ date: '2020-07-17 23:27:59'
 new: 0
 title: MacOS
 update_logo: '0'
-updated: '2020-07-20 05:38:52'
+updated: '2020-07-22 17:45:21'
 updated_logo: '1'
 ---
 ## CLI tools
@@ -28,7 +28,7 @@ updated_logo: '1'
 ### fzf
 * see [fzf](/fzf)
 
-## Random tip and tricks
+## Random tips and tricks
 * open man page as a pdf
   * `man -t rg | open -f -a Preview.app`
 * speed up repeat speed when key is held down
@@ -43,5 +43,3 @@ updated_logo: '1'
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Tech stuff](/Tech-stuff.md)

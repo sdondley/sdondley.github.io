@@ -3,7 +3,7 @@ date: '2020-07-13 07:00:43'
 new: 0
 title: 'Thoughts on Digital Gardening'
 update_logo: '0'
-updated: '2020-07-19 14:25:12'
+updated: '2020-07-22 17:43:59'
 updated_logo: '1'
 ---
 There's apparently a new trend happening right now called "Digital Gardening." I
@@ -70,5 +70,3 @@ Why? I have a few speculative theories:
 [Tech stuff](/Tech-stuff)
 
 [Diary entry for 2020-07-17](/2020-07-17)
-
-[Tech stuff](/Tech-stuff.md)

@@ -1,9 +1,9 @@
 ---
 date: '2020-07-19 14:53:47'
-new: '1'
+new: 0
 title: 'Open source screen capture solutions for macOS'
-updated: '2020-07-20 15:57:42'
-updated_logo: '0'
+updated: '2020-07-22 17:45:54'
+updated_logo: '1'
 ---
 I did a little research into open source solutions for doing quick screen
 captures for my notes.
@@ -57,5 +57,3 @@ captures for my notes.
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Tech stuff](/Tech-stuff.md)

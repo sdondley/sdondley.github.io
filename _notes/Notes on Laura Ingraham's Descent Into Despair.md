@@ -3,6 +3,7 @@ date: '2020-07-16 12:45:36'
 new: 0
 title: "Notes on \"Laura Ingraham's Descent Into Despair\" Atlantic article"
 update_logo: '0'
+updated: '2020-07-22 17:45:28'
 updated_logo: 0
 ---
 * See [Laura Ingraham’s Descent Into Despair - The Atlantic](https://www.theatlantic.com/ideas/archive/2020/07/laura-ingrahams-descent-into-despair/614245/?utm_source=digg)

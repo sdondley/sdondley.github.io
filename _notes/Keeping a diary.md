@@ -3,6 +3,7 @@ date: '2020-07-13 04:19:25'
 new: 0
 title: 'Keeping a diary in vimwiki'
 update_logo: '0'
+updated: '2020-07-22 17:45:03'
 updated_logo: 0
 ---
 ## Default Mappings

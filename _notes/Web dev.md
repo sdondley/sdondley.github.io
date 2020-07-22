@@ -3,7 +3,7 @@ date: '2020-07-17 01:40:48'
 new: 0
 title: 'Web Development'
 update_logo: '0'
-updated: '2020-07-20 17:13:08'
+updated: '2020-07-22 17:46:05'
 updated_logo: '1'
 ---
 ## css
@@ -41,5 +41,3 @@ for this trick.
 [Tech stuff](/Tech-stuff)
 
 [Diary entry for 2020-07-17](/2020-07-17)
-
-[Tech stuff](/Tech-stuff.md)

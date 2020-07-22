@@ -1,10 +1,8 @@
 ---
-date: '2020-07-13 04:18:35'
-new: 0
+date: '2020-07-22 09:43:35'
+new: '1'
 title: 'Tech stuff'
-update_logo: '0'
-updated: '2020-07-21 10:02:13'
-updated_logo: '1'
+updated_logo: '0'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
@@ -172,3 +170,8 @@ on them which is probably a bit obsessive, I'll admit. We've all got our vices.
 
 I'm currently waiting for the new iMac Pro line on the ARM architecture to
 replace my aging iMac 5K machine. It might be a couple of years.
+
+---
+#### Other notes linking here:
+
+[Wiki Index](/index/)

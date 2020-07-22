@@ -3,7 +3,7 @@ date: '2020-07-14 11:11:33'
 new: 0
 title: 'markdown_to_note perl script'
 update_logo: '0'
-updated: '2020-07-22 07:25:39'
+updated: '2020-07-22 17:34:57'
 updated_logo: '1'
 ---
 ## Source code
@@ -69,6 +69,8 @@ markdown_to_note script to generate the markdown files used by Jekyll.
 
 [How This Site Works](/How-this-site-is-built)
 
+[Diary entry for 2020-07-22](/2020-07-22)
+
 [Diary entry for 2020-07-13](/2020-07-13)
 
 [Diary entry for 2020-07-14](/2020-07-14)
@@ -76,6 +78,3 @@ markdown_to_note script to generate the markdown files used by Jekyll.
 [Diary entry for 2020-07-20](/2020-07-20)
 
 [Diary entry for 2020-07-21](/2020-07-21)
-
-
-[Diary entry for 2020-07-22](/2020-07-22)

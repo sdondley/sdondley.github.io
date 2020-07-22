@@ -3,7 +3,7 @@ date: '2020-07-16 11:52:33'
 new: 0
 title: 'tmux notes'
 update_logo: '0'
-updated: '2020-07-18 20:45:57'
+updated: '2020-07-22 17:38:48'
 updated_logo: 0
 ---
 * [see my super-guide to the split-window command](https://steve.dondley.com/super-guide-to-the-split-window-tmux-subcommand-and-beyond/)
@@ -14,5 +14,3 @@ updated_logo: 0
 #### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Tech stuff](/Tech-stuff.md)

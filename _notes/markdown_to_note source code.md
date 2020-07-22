@@ -1,5 +1,5 @@
 ---
-date: '2020-07-22 09:32:22'
+date: '2020-07-22 10:46:34'
 new: '1'
 title: 'Source code for markdown_to_note'
 updated_logo: '0'
@@ -115,7 +115,6 @@ my $backlinks = generate_backlinks();
 my $new_output_text = $header_text . $input_text . $backlinks;
 write_file($output_file, $new_output_text);
 
-### Helper functions ###
 #TODO: regex's should be documented with X
 sub process_links {
 
@@ -340,8 +339,3 @@ sub get_day {
   return $1;
 }
 {% endhighlight %}
-
----
-#### Other notes linking here:
-
-[markdown_to_note perl script](/markdown_to_note)

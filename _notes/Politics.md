@@ -3,8 +3,8 @@ date: '2020-07-13 05:48:52'
 new: 0
 title: Politics
 update_logo: '0'
-updated: '2020-07-19 12:03:24'
-updated_logo: '1'
+updated: '2020-07-22 17:45:41'
+updated_logo: 0
 ---
 ## F Trump
 I'm a passionate Democrat with a strong pragmatic streak. I'm extremely
