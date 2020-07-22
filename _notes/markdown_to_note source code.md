@@ -1,5 +1,5 @@
 ---
-date: '2020-07-21 18:38:44'
+date: '2020-07-22 08:18:11'
 new: '1'
 title: 'Source code for markdown_to_note'
 updated_logo: '0'
@@ -38,7 +38,7 @@ my $force_new_header            = 0;
 my ($file_name, $dirs, $suffix) = fileparse($input_file, '.md');
 my $output_file                 = File::Spec->catfile($output_dir, $file_name . '.md');
 my $new_file                    = !-e $output_file;
-my $is_diary                    = $file_name =~ m|\d{4}-\d{2}-\d{2}|;
+my $is_diary                    = $file_name =~ m|^\d{4}-\d{2}-\d{2}|;
 my $input_text                  = read_file($input_file);
 my $output_text                 = $new_file ? '' : read_file($output_file);
 my $has_header                  = $new_file ? 0 : $output_text =~ m|^---\n|m;
@@ -57,9 +57,10 @@ $headers{title}                 = extract_title();
 process_links();
 
 # remove headings with nothing under them
-$input_text =~ s/^##\s+[^\n]+\s+(?=^## )//gsm;
+$input_text =~ s/^###*\s+[^\n]+\s+(?=^##)//gsm;
 
-my $out = `rsync -a '/Users/me/vimwiki/webnotes/files/' '/Users/me/git_repos/sdondley.github.io/images/note_images'`;
+#r
+my $out = `rsync -a '/Users/stevedondley/vimwiki/webnotes/files/' '/Users/stevedondley/git_repos/sdondley.github.io/images/note_images'`;
 
 $headers{updated_logo} = 0;
 my $curr_t = Time::Piece->strptime($curr_time, '%Y-%m-%d %H:%M:%S');
@@ -103,11 +104,11 @@ if (!$new_file && !$force_new_header) {
 
 my $header_text = YAML::Tiny->new( \%headers )->write_string;
 $header_text .= "---\n";
-#my $backlinks_text = generate_backlinks();
 
 $input_text =~ s/^\s+//g;  # get rid of any leading whitespace
-#my $new_output_text = $header_text . $input_text . $backlinks_text;
-my $new_output_text = $header_text . $input_text;
+#my $backlinks = ''; #generate_backlinks();
+my $backlinks = generate_backlinks();
+my $new_output_text = $header_text . $input_text . $backlinks;
 write_file($output_file, $new_output_text);
 
 ### Helper functions ###
@@ -116,13 +117,19 @@ sub process_links {
 
   my @links = $input_text =~ m|(\[[^]]+]\([^)]+\))|g;
   my @wiki_links = ();
+  my $has_fenced_code = $input_text =~ /^```|^{&percnt;\s*highlight/m;
+  logd $has_fenced_code;
   foreach my $l (@links) {
+    if ($has_fenced_code) {
+      next if $input_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
+      next if $input_text =~ m|^{&percnt\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
+    }
     my ($url) = $l =~ m|]\(([^)]+)|;
 
     # handle links to files
     if ($url =~ /^file:/) {
       my $orig_l = $l;
-      $l =~ s|\[file:///Users/me/vimwiki/webnotes/files/(.*)]\((.*?)\)|<div style="margin-top: 1em;"><a href="/images/note_images/$1"><img style="width: 100%; height: 100%" src="/images/note_images/$1" /></a></div>|;
+      $l =~ s|\[file:///Users/stevedondley/vimwiki/webnotes/files/(.*)]\((.*?)\)|<div style="margin-top: 1em;"><a href="/images/note_images/$1"><img style="width: 100%; height: 100%" src="/images/note_images/$1" /></a></div>|;
       $input_text =~ s|\Q$orig_l\E|$l|;
       next;
     }
@@ -180,7 +187,7 @@ sub process_links {
   if (!$new_file) {
     # get text of existing file
     my $existing_file_text = $output_text;
-#    logd $existing_file_text;
+
     # chop off other notes linking here
     $existing_file_text =~ s/^---\n#### Other(.*)//ms;
 
@@ -188,7 +195,13 @@ sub process_links {
 
     my @links = $existing_file_text =~ m|(\[[^\]]+]\([^\)]+\))|g;
     my @urls;
+    my $existing_has_fenced_code = $existing_file_text =~ /^```|^{&percnt;\s*highlight/m;
     foreach my $l (@links) {
+      if ($existing_has_fenced_code) {
+        next if $input_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
+        next if $input_text =~
+        m|^{&percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
+      }
       $l =~ m|\[[^\]]+]\((.*)\)|;
       push @urls, $1;
     }
@@ -215,9 +228,12 @@ sub process_links {
     foreach my $nl (@new_links) {
       my $file = $nl;
       $file =~ s/^\///;
-      $file =~ s/-/ /;
+      $file =~ s/-/ /g;
       $file = $file . '.md';
       my $linked_file = File::Spec->catfile($output_dir, $file);
+      if (!-e $linked_file) {
+        `touch $linked_file`;
+      }
       my $other_file_txt = read_file($linked_file);
       my ($backlinks_text) = $other_file_txt =~ m|^---\n#### Other[^\n]+\n(.*)|ms;
       my ($the_file_name) = fileparse($input_file, '.md');
@@ -225,10 +241,10 @@ sub process_links {
       if (!$backlinks_text) {
         $other_file_txt .= "\n\n---\n#### Other notes linking here:\n";
         my $url_link = $file_name;
-        $other_file_txt .= "\n\n[$headers{title}](//$the_file_name)";
+        $other_file_txt .= "\n\n[$headers{title}](/$the_file_name)";
         write_file($linked_file, $other_file_txt);
       } elsif ($backlinks_text !~ m|\(/$the_file_name\)|) {
-        $other_file_txt .= "\n\n[$headers{title}](//$the_file_name)";
+        $other_file_txt .= "\n\n[$headers{title}](/$the_file_name)";
         write_file($linked_file, $other_file_txt);
       }
     }
@@ -253,29 +269,9 @@ sub process_links {
     }
   }
 
-#  my @matches = $input_text =~ m|(\[[^]]+]\((?!http)[^)]+\))|g;
-#  my ($file_name) = fileparse($input_file);
-#  $file_name =~ s/ /-/g;
-#  foreach my $m (@matches) {
-#    my ($file) = $m =~ m|\((.*)\)$|;
-#    $file = $file . '.md';
-#    my $linked_file = File::Spec->catfile($output_dir, $file);
-#    my $other_file_txt = read_file($linked_file);
-#    my ($backlinks_text) = $other_file_txt =~ m|^---\n#### Other[^\n]+\n(.*)|ms;
-#    if (!$backlinks_text) {
-#      $other_file_txt .= "\n\n---\n#### Other notes linking here:\n";
-#      $other_file_txt .= "\n[$headers{title}](//$file)";
-#      write_file($linked_file, $other_file_txt);
-#    } elsif ($backlinks_text !~ m|\(/$file_name\)|) {
-#      $other_file_txt .= "\n[$headers{title}](//$file_name)";
-#      write_file($linked_file, $other_file_txt);
-#    }
-
   return;
 }
 
-# THIS FUNCTION IS DEPRECATED, NO LONGER USED
-# Superseded by new code in process_links
 sub generate_backlinks {
   my $backlinks_text;
   opendir(my $dh, $dirs) || die "Can't opendir $output_dir: $!";
@@ -302,7 +298,7 @@ sub generate_backlinks {
         }
       }
 
-      $links_text .= "\n[" . $title . '](//'-.-$bn-.-')' . "\n" if $title;
+      $links_text .= "\n[" . $title . '](/' . $bn . ')' . "\n" if $title;
     }
   }
   if ($links_text) {
@@ -341,3 +337,8 @@ sub get_day {
   return $1;
 }
 {% endhighlight %}
+
+---
+#### Other notes linking here:
+
+[markdown_to_note perl script](/markdown_to_note)
