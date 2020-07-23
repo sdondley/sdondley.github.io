@@ -3,8 +3,8 @@ date: '2020-07-13 04:19:25'
 new: 0
 title: 'Keeping a diary in vimwiki'
 update_logo: '0'
-updated: '2020-07-22 17:45:03'
-updated_logo: 0
+updated: '2020-07-22 20:46:27'
+updated_logo: '1'
 ---
 ## Default Mappings
 
@@ -36,6 +36,6 @@ Example of diary section: >
 See `g:vimwiki_diary_months` if you would like to rename months.
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [vimwiki](/vimwiki)

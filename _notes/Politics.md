@@ -3,8 +3,8 @@ date: '2020-07-13 05:48:52'
 new: 0
 title: Politics
 update_logo: '0'
-updated: '2020-07-22 17:45:41'
-updated_logo: 0
+updated: '2020-07-22 20:46:28'
+updated_logo: '1'
 ---
 ## F Trump
 I'm a passionate Democrat with a strong pragmatic streak. I'm extremely
@@ -17,6 +17,6 @@ witnessing from my fellow Americans.
   * maybe useful for twitter?
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Wiki Index](/index/)

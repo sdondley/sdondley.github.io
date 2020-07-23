@@ -3,8 +3,8 @@ date: '2020-07-15 09:59:05'
 new: 0
 title: 'Learning ctags'
 update_logo: '0'
-updated: '2020-07-22 17:45:15'
-updated_logo: 0
+updated: '2020-07-22 20:46:28'
+updated_logo: '1'
 ---
 Notes compiled from various source to help learn what ctags are and how to use
 them in vim with a particular current interest in using them with vimwiki.
@@ -54,6 +54,6 @@ BSD Unix 3 was released in '79?
     * vim -t <tag>
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [vim](/vim)

@@ -3,13 +3,13 @@ layout: default
 ---
 
 <p><a href="/notes">⬅  Notes listing</a></p>
-<article>
+<article class="note">
   <div>
-    <h1 style="font-size: 1.8em; margin-bottom: 0em">{{ page.title }}</h1>
+    <h1 style="font-size: 2.3em; margin-bottom: 0em; font-family: Oswald, sans-serif;">{{ page.title }}</h1>
 		{% include date.html date=page.date %}&nbsp;&nbsp;{% include update_date.html prefix="Updated: " date=page.updated %}
   </div>
 
-  <div id="notes-entry-container">
+  <div id="notes-entry-container" class="post">
     <content>
       {{ content }}
     </content>

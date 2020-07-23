@@ -3,7 +3,7 @@ date: '2020-07-14 11:11:33'
 new: 0
 title: 'markdown_to_note perl script'
 update_logo: '0'
-updated: '2020-07-22 17:34:57'
+updated: '2020-07-22 20:46:30'
 updated_logo: '1'
 ---
 ## Source code
@@ -63,7 +63,7 @@ Note the `custom_wiki2html` key. It tells `vimwiki` to the use the
 markdown_to_note script to generate the markdown files used by Jekyll.
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Diary entry for 2020-07-18](/2020-07-18)
 

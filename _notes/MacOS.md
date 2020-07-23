@@ -3,7 +3,7 @@ date: '2020-07-17 23:27:59'
 new: 0
 title: MacOS
 update_logo: '0'
-updated: '2020-07-22 17:45:21'
+updated: '2020-07-22 20:46:28'
 updated_logo: '1'
 ---
 ## CLI tools
@@ -40,6 +40,6 @@ updated_logo: '1'
   * From [How to increase keyboard key repeat rate on OS X? - Ask Different](https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x)
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)

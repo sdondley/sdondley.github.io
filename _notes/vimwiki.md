@@ -3,8 +3,8 @@ date: '2020-07-13 04:19:04'
 new: 0
 title: vimwiki
 update_logo: '0'
-updated: '2020-07-22 17:36:44'
-updated_logo: 0
+updated: '2020-07-22 20:46:31'
+updated_logo: '1'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
 
@@ -103,7 +103,7 @@ I'm still learning the ropes but the short answer is:
       * :h vimwiki-global-mappings
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [vim](/vim)
 

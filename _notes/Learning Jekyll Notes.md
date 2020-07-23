@@ -3,8 +3,8 @@ date: '2020-07-14 11:11:32'
 new: 0
 title: 'Learning Jekyll'
 update_logo: '0'
-updated: '2020-07-22 17:45:08'
-updated_logo: 0
+updated: '2020-07-22 20:46:27'
+updated_logo: '1'
 ---
 * Future home of notes for learning about Jekyll
 
@@ -14,6 +14,6 @@ updated_logo: 0
 *
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Jekyll site](/Jekyll-site)

@@ -3,8 +3,8 @@ date: '2020-07-13 05:41:57'
 new: 0
 title: vim
 update_logo: '0'
-updated: '2020-07-22 17:35:41'
-updated_logo: 0
+updated: '2020-07-22 20:46:30'
+updated_logo: '1'
 ---
 ## Why vim?
 * To my knowledge, it is the fastest way for a human to process text on a
@@ -205,7 +205,7 @@ From vim command line, run:
   * `:vim[grep][!] /{pattern}/[g][j] {file} ...`
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
 

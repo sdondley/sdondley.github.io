@@ -13,6 +13,9 @@
 span.date {
   margin-top: .5em;
   font-size: .9em;
+  font-family: "Oswald",sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 code {
@@ -32,3 +35,11 @@ li.updated:before { content: "🆙"; margin-left: -1.5em; }
 li.plain:before { content: "●"; margin-left: -1.2em; margin-right: .3em; }
 
 .twitter-tweet { margin-left: 2.0em; }
+
+.note h4 {
+  display: block;
+}
+
+#notes-entry-container.post hr {
+  width: 100%;
+}

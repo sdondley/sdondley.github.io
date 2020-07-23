@@ -2,8 +2,8 @@
 date: '2020-07-18 10:43:12'
 new: 0
 title: fzf
-updated: '2020-07-22 17:39:13'
-updated_logo: 0
+updated: '2020-07-22 20:46:29'
+updated_logo: '1'
 ---
 ## What is fzf and how does it work, exactly?
 * It's a filter and a finder
@@ -155,7 +155,7 @@ updated_logo: 0
 * [How FZF and ripgrep improved my workflow](https://sidneyliebrand.io/blog/how-fzf-and-ripgrep-improved-my-workflow)
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Diary entry for 2020-07-18](/2020-07-18)
 

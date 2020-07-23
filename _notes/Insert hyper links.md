@@ -1,13 +1,9 @@
 ---
-date: '2020-07-14 14:23:47'
-new: 0
+date: '2020-07-22 21:05:42'
+new: '1'
 title: 'Insert hyperlinks into vim (Mac only)'
-update_logo: '0'
-updated: '2020-07-20 13:58:18'
-updated_logo: '1'
+updated_logo: '0'
 ---
-# Insert hyperlinks into vim (Mac only)
-
 ## These are useful maps for quickly popping in titles/urls/links open in Safari browser into vim
 
 * These maps run apple scripts which are posted below
@@ -24,8 +20,8 @@ inoremap <Leader>gt <esc>:silent !~/bin/copy_safari_title.osa <cr>a <esc>"+p<cr>
 nnoremap <Leader>gt :silent !~/bin/copy_safari_title.osa <cr>"+p<cr>
 
 " Copy and paste **markdown link** of current open Safari tab into vim using title and url
-inoremap <leader>gg <esc>:set fo-=t <cr>:noautocmd !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '\\|', 'g')<cr>:let @x=@+<cr>:noautocmd !~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z='[' . getreg('x') . '](/'-.-getreg('y') . ')'<cr>"zp:set fo+=t<cr>a
-nnoremap <leader>gg :set fo-=t <cr>:noautocmd !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>:let @x=@+<cr>:noautocmd !~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z='[' . getreg('x') . '](/'-.-getreg('y') . ')'<cr>"zp:set fo+=t<cr>
+inoremap <leader>gg <esc>:set fo-=t <cr>:noautocmd !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '\\|', 'g')<cr>:let @x=@+<cr>:noautocmd !~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z='[' . getreg('x') . '](' . getreg('y') . ')'<cr>"zp:set fo+=t<cr>a
+nnoremap <leader>gg :set fo-=t <cr>:noautocmd !~/bin/copy_safari_title.osa <cr>:let @+ = substitute(@+, '\|', '', 'g')<cr>:let @x=@+<cr>:noautocmd !~/bin/copy_safari_url.osa <cr>:let @+ = substitute(@+, '(', '%28', 'g')<cr>:let @+ = substitute(@+, ')', '%29', 'g')<cr>:let @y=@+<cr>:let @z='[' . getreg('x') . '](' . getreg('y') . ')'<cr>"zp:set fo+=t<cr>
 ```
 
 Note the `:noautcmd` in the calls to the external commands. This prevents
@@ -40,7 +36,7 @@ Add these Applescripts to a directory in your shell's bin `$PATH`
 
 tell application "Safari"
 	set theURL to URL of current tab of front window
-	set the clipboard to theURL
+	set the clipboard to [theURL](theURL)
 end tell
 ```
 
@@ -54,7 +50,7 @@ end tell
 ```
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Diary entry for 2020-07-18](/2020-07-18)
 

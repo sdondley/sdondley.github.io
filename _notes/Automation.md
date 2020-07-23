@@ -3,7 +3,7 @@ date: '2020-07-13 05:55:15'
 new: 0
 title: Automation
 update_logo: '0'
-updated: '2020-07-22 17:37:20'
+updated: '2020-07-22 20:46:25'
 updated_logo: '1'
 ---
 I'm currently writing automation scripts and looking for tools to help remove
@@ -13,6 +13,6 @@ a lot more fun again.
 * [Rex](/Rex), framework for running commands on many machines
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)

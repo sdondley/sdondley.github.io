@@ -2,7 +2,7 @@
 date: '2020-07-20 17:16:57'
 new: 0
 title: 'Embedding file'
-updated: '2020-07-22 17:44:18'
+updated: '2020-07-22 20:46:26'
 updated_logo: '1'
 ---
 ## adding screenshot to page
@@ -21,6 +21,6 @@ This is just a sandbox area for testing embedding of a file
 <div style="margin-top: 1em;"><a href="/images/note_images/Screen Shot 2020-07-20 at 8.47.00 PM.png"><img style="width: 100%; height: 100%" src="/images/note_images/Screen Shot 2020-07-20 at 8.47.00 PM.png" /></a></div>
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Web Development](/Web-dev)

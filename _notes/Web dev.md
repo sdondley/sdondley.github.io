@@ -3,7 +3,7 @@ date: '2020-07-17 01:40:48'
 new: 0
 title: 'Web Development'
 update_logo: '0'
-updated: '2020-07-22 17:46:05'
+updated: '2020-07-22 20:46:29'
 updated_logo: '1'
 ---
 ## css
@@ -36,7 +36,7 @@ for this trick.
 * [Embedding file](/Embedding-file)
 
 ---
-#### Other notes linking here:
+### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
 
