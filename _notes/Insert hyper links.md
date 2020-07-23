@@ -1,8 +1,7 @@
 ---
-date: '2020-07-22 21:05:42'
-new: '1'
+date: '2020-07-14 14:23:47'
 title: 'Insert hyperlinks into vim (Mac only)'
-updated_logo: '0'
+updated: '2020-07-20 13:58:18'
 ---
 ## These are useful maps for quickly popping in titles/urls/links open in Safari browser into vim
 

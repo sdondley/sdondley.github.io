@@ -1,10 +1,7 @@
 ---
 date: '2020-07-13 07:36:05'
-new: 0
 title: 'How This Site Works'
-update_logo: '0'
 updated: '2020-07-22 20:46:27'
-updated_logo: '1'
 ---
 ## Technical overview
 Below are some bullet points that provide an outline of what's under the hood of

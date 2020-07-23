@@ -1,9 +1,7 @@
 ---
 date: '2020-07-14 09:43:35'
-new: 0
 title: 'Tech stuff'
-updated: '2020-07-22 20:46:29'
-updated_logo: '1'
+updated: '2020-07-23 10:23:09'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
@@ -26,7 +24,7 @@ enjoy it immensely.
 * [vim](/vim)
 * [tmux](/tmux)
 * *nix
-  * [MacOS](/MacOS)
+  * [macOS](/macOS)
 
 ### Computer hardware
 #### Early years
@@ -169,8 +167,10 @@ on them which is probably a bit obsessive, I'll admit. We've all got our vices.
 * 2020
   * Apple Watch Series 5
 
-I'm currently waiting for the new iMac Pro line on the ARM architecture to
-replace my aging iMac 5K machine. It might be a couple of years.
+I'm currently waiting for the new [iMac Pro](/iMac-Pro) line on the ARM
+architecture to replace my aging iMac 5K machine. It might be a couple of years
+or it may never even happen. Goal is to hold out until a new, more powerful
+computer comes out with ARM architecture.
 
 ---
 ### Other notes linking here:

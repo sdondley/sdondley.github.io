@@ -1,8 +1,6 @@
 ---
 date: '2020-07-22 10:46:34'
-new: '1'
 title: 'Source code for markdown_to_note'
-updated_logo: '0'
 ---
 **Note, this script is in a state of flux and may not be up-to-date and may
 contain bugs. It also has hard-coded paths and was written to be a quick and

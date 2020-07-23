@@ -1,9 +1,7 @@
 ---
 date: '2020-07-20 11:05:21'
-new: 0
 title: 'Embedding a tweet'
-updated: '2020-07-22 20:46:26'
-updated_logo: '1'
+updated: '2020-07-21 10:02:26'
 ---
 ## This note is just an experimental playground. It's not meant to convey anything except. It's here so I can test embedding tweets on this website.
 

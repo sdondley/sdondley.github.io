@@ -1,15 +1,12 @@
 ---
 date: '2020-07-13 06:14:27'
-new: 0
 title: Perl
-update_logo: '0'
-updated: '2020-07-22 20:46:28'
-updated_logo: '1'
+updated: '2020-07-23 10:53:44'
 ---
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.
 
-[Perl](/Perl) gets knocked around quite a bit these day for not being elegant. Maybe it
+Perl gets knocked around quite a bit these day for not being elegant. Maybe it
 is, and maybe it isn't, I'm not knowledgeable enough about programming languages
 to provide a definitive answer. All I know is it's useful for me and its the
 easiest way for me to get things done. And remember that English isn't a very elegant
@@ -26,5 +23,3 @@ programming quality and skills.
 ### Other notes linking here:
 
 [Tech stuff](/Tech-stuff)
-
-[Perl](/Perl)

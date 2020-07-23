@@ -1,10 +1,7 @@
 ---
 date: '2020-07-14 11:11:33'
-new: 0
 title: 'markdown_to_note perl script'
-update_logo: '0'
 updated: '2020-07-22 20:46:30'
-updated_logo: '1'
 ---
 ## Source code
 [markdown_to_note source code](/markdown_to_note-source-code)

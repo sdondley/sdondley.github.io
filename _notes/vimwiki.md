@@ -1,10 +1,7 @@
 ---
 date: '2020-07-13 04:19:04'
-new: 0
 title: vimwiki
-update_logo: '0'
-updated: '2020-07-22 20:46:31'
-updated_logo: '1'
+updated: '2020-07-20 06:12:10'
 ---
 * See the [vimwiki plugin page](https://vimwiki.github.io)
 

@@ -1,9 +1,7 @@
 ---
 date: '2020-07-20 17:16:57'
-new: 0
 title: 'Embedding file'
-updated: '2020-07-22 20:46:26'
-updated_logo: '1'
+updated: '2020-07-21 12:02:17'
 ---
 ## adding screenshot to page
 1. Take screenshot

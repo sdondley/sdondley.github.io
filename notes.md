@@ -35,16 +35,27 @@ Anyway, here are some notes on my notes:
 
 <ul style="list-style:none">
 {% for post in site.notes %}
-    {% if post.new == '1' %}
-      <li class="new">
-    {% else %}
-      {% if post.updated_logo == '1' %}
-      <li class="updated">
-
+    {% assign post_date = post.date | date: '%s' %}
+    {% assign updated_date = post.updated | date: '%s' %}
+    {% assign now = 'now' | date: '%s' %}
+    {% assign age = now | minus: post_date %}
+    {% assign threshold = 3600 | times: 48 %}
+    {% if age < threshold %}
+      {% assign class = 'new' %}
+    {% elsif updated_date %}
+      {% assign update_age = now | minus: updated_date %}
+      {% if update_age < threshold %}
+        {% assign class = 'updated' %}
       {% else %}
-        <li class="plain">
+        {% assign class = 'plain' %}
       {% endif %}
+    {% else %}
+      {% assign class = 'plain' %}
     {% endif %}
+
+
+
+    <li class="{{ class }}">
     <a style="text-indent: 0" href="{{ post.url }}">{{ post.title }}</a>
     </li>
 {% endfor %}

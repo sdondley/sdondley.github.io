@@ -1,9 +1,7 @@
 ---
 date: '2020-07-18 10:43:12'
-new: 0
 title: fzf
-updated: '2020-07-22 20:46:29'
-updated_logo: '1'
+updated: '2020-07-20 05:38:49'
 ---
 ## What is fzf and how does it work, exactly?
 * It's a filter and a finder
@@ -82,7 +80,7 @@ updated_logo: '1'
   * fuzzy auto-completion
 * vim/neovim plugin
 
-### install (for MacOS)
+### install (for macOS)
   * `brew install fzf`
   * to use in vim:
     * add to vimrc (may have different path on your machine):
@@ -165,6 +163,9 @@ updated_logo: '1'
 
 [fzf vim plugin](/fzf-vim-plugin)
 
-[MacOS](/MacOS)
+[macOS](/MacOS)
 
 [fzf](/fzf)
+
+
+[](/macOS)
