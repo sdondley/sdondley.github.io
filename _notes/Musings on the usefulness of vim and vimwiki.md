@@ -36,3 +36,26 @@ else you can imagine getting expressed with characters.
 
 The most important similarity I want to focus on is that in order to truly
 master them, you have to learn how to be hyper-efficient with them.
+
+...more later
+
+## Author's notes
+The above is a very rough initial draft. Thrust of the article will be the
+importance of tweaking an instrument so it gets out of the way, so you don't
+have to think about the tool while you are in the process of creating or
+documenting your thoughts. You want thinking about your thoughts to be your
+primary focus, not thinking about how to play instrument. And the more
+efficiently and quickly you can both document and access your thoughts, the
+better you will think.
+
+This idea is not original (few of mine are). Damian Conway, a master Perl
+programmer, alluded to this concept while giving a presentation on his vim set
+up.
+
+<iframe width="560" style="margin-left: 2.0em" height="315" src="https://www.youtube.com/embed/aHm36-na4-4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+* Damian Conway quote:
+  * **It’s such an extraordinary tool. It makes me more efficient, more
+    productive, and even smarter…by keeping out of the way and helping me stay
+    in the coding trance. I’d be lost without it.**
+    * From [Damian Conway - Interview on How I Vim](http://howivim.com/2016/damian-conway/)
