@@ -1,13 +1,13 @@
 ---
 date: '2020-07-17 01:40:48'
 title: 'Web Development'
-updated: '2020-07-20 17:13:08'
+updated: '2020-07-24 11:04:40'
 ---
 ## css
 ### utf8 characters for bullets
 
-This solution solves the problem of long bulleted text wrapping below the
-bullet.
+This solution solves the problem when longer bulleted text wrap around on a line
+and appears below the bullet.
 
 ```html
 <style>
@@ -23,6 +23,16 @@ a.link { text-indent: 0 }
 <li class="plain"><a class="link" href="">Some text</a></li>
 </ul>
 ```
+
+Fix for  bullets appearing at the bottom of an item with an ifram:
+* [css - Position the <li> dot at the top - Stack Overflow](https://stackoverflow.com/questions/28681147/position-the-li-dot-at-the-top)
+```css
+li > * {
+    vertical-align: text-top;
+}
+```
+
+
 
 Hat tip to commenter "judyofthewoods" at
 [https://ryansechrest.com](https://ryansechrest.com/2012/11/change-your-list-bullet-to-a-custom-character-in-css/#comment-331251)

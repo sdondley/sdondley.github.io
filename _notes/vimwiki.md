@@ -1,12 +1,11 @@
 ---
 date: '2020-07-13 04:19:04'
 title: vimwiki
-updated: '2020-07-23 20:21:27'
+updated: '2020-07-24 11:48:10'
 ---
 * Home page [vimwiki plugin page](https://vimwiki.github.io)
 * GitHub page: [vimwiki/vimwiki: Personal Wiki for Vim](https://github.com/vimwiki/vimwiki)
 * vimwiki issue queue: [Issues · vimwiki/vimwiki](https://github.com/vimwiki/vimwiki/issues)
-
 
 ## What is it?
 
@@ -64,6 +63,7 @@ alias diary='vim -c ":VimwikiMakeDiaryNote"'
 # launch index page from command line
 alias vw='vim -c ":VimwikiIndex"'
 ```
+## [Musings on the usefulness of vim and vimwiki](Musings on the usefulness of vim and vimwiki# Musings on the usefulness of vim and vimwiki)
 
 ### Maps
 * Insert link to another wiki page:
@@ -117,6 +117,9 @@ nnoremap <leader>b :up<cr>:Buffers<cr>
 inoremap <leader>lb <esc>^wy$i[<esc>$a](<esc>pa)<esc>:VimwikiFollowLink<cr>i# <esc>p:w<cr>a<cr><cr>
 ```
 
+### vimscripting
+* [vimscript](/vimscript)
+
 ## Resources
 * [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)
 * [Getting started guide](https://blog.mague.com/?p=602) ~~**broken link as of
@@ -131,7 +134,6 @@ inoremap <leader>lb <esc>^wy$i[<esc>$a](<esc>pa)<esc>:VimwikiFollowLink<cr>i# <e
 ## Bugs and Troubles
 Stuff I'm having problems with
 * [No file extension generated for new files generated with :VimwikiFollowLink that contain a period in URL (markdown syntax) · Issue #950 · vimwiki/vimwiki](https://github.com/vimwiki/vimwiki/issues/950)
-*
 
 ---
 ### Other notes linking here:

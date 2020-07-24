@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-20 05:55:58'
+updated: '2020-07-24 09:52:23'
 ---
 ## Why vim?
 * To my knowledge, it is the fastest way for a human to process text on a
@@ -183,6 +183,12 @@ From vim command line, run:
   * zG -> add word under cursor to dictionary temporarily
 * more mappings:
   [http://vimdoc.sourceforge.net](http://vimdoc.sourceforge.net/htmldoc/spell.html)
+* `z=`:
+  * have vim suggest alternatives
+* `]s`:
+  * move to next misspelled word
+* [s:
+  * move to back to previous misspelled word
 
 ## Useful resources and good reads
 * [At least one Vim trick you might not know • Hillel Wayne](https://www.hillelwayne.com/post/intermediate-vim/)

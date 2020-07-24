@@ -43,3 +43,7 @@ li.plain:before { content: "●"; margin-left: -1.2em; margin-right: .3em; }
 #notes-entry-container.post hr {
   width: 100%;
 }
+
+li > * {
+    vertical-align: text-top;
+}
