@@ -1,13 +1,13 @@
 ---
 date: '2020-07-22 10:46:34'
 title: 'Source code for markdown_to_note'
+updated: '2020-07-23 23:03:54'
 ---
-**Note, this script is in a state of flux and may not be up-to-date and may
-contain bugs. It also has hard-coded paths and was written to be a quick and
-dirty for my own use. You're on your own with it.**
+**Note, this script was my meant for my personal use and was not written for
+public consumption. It uses hard-coded paths and is a quick and
+dirty script. It's here only for the curious. You're on your own with it.**
 
 {% highlight perl linenos %}
-
 #!/usr/bin/env perl
 use strict;
 use warnings;
@@ -28,17 +28,23 @@ use Time::Seconds;
 # The path to this glue script must be set in vim configuration file so it can
 # be called by the vimwiki plugin.
 
+# Almost all of this could probably be offloaded to Jekyll but since I'm not
+# familiar with Jekyll or Ruby, it's done with good ol' trusty Perl
+
 # get args passed from wimwiki plugin
 my ($force, $syntax, $ext, $output_dir, $input_file, $css_file,
     $template_path, $template_default, $template_ext, $root_path, $custom_args) = @ARGV;
 
 # Set vars for later processing
 my $force_new_header            = 0;
+my $batch_update                = $custom_args eq 'batch' ? 1 : 0;
 my ($file_name, $dirs, $suffix) = fileparse($input_file, '.md');
 my $output_file                 = File::Spec->catfile($output_dir, $file_name . '.md');
 my $new_file                    = !-e $output_file;
 my $is_diary                    = $file_name =~ m|^\d{4}-\d{2}-\d{2}|;
-my $input_text                  = read_file($input_file);
+my $input_text                  = $batch_update ? read_file($output_file) : read_file($input_file);
+my $vimwiki_input               = $batch_update ? 0 : 1;
+my $note_input                  = $batch_update ? 1 : 0;
 my $output_text                 = $new_file ? '' : read_file($output_file);
 my $has_header                  = $new_file ? 0 : $output_text =~ m|^---\n|m;
 my $curr_time                   = strftime ("%F %T", localtime time);
@@ -50,49 +56,31 @@ my $curr_day                    = '';
 $header_day                     = get_day($headers{date}) if $headers{date}; # returns \d\d\d\d-\d\d-\d\d
 $update_day                     = get_day($headers{update}) if $headers{update}; # returns \d\d\d\d-\d\d-\d\d
 $curr_day                       = get_day($curr_time);
-$headers{title}                 = extract_title();
+$headers{title}                 = extract_title() if $vimwiki_input;
 
-# fix up links in input text to make them Jekyll-friendly
-process_links();
+if ($vimwiki_input) {
+  # escape text that will confuse jekyll processor
+  $input_text =~ s/(\S){&percnt;/$1\{&percnt;/mg;
+  $input_text =~ s/\|/|/sg;
+  $input_text =~ s|/Users/me|/Users/me|g;
 
-# remove headings with nothing under them
-$input_text =~ s/^###*\s+[^\n]+\s+(?=^##)//gsm;
+  # fix up links in input text to make them Jekyll-friendly
+  process_links();
 
-# escape text that will confuse jekyll processor
-$input_text =~ s/^((.*?)\S+(.*?)){&percnt;/$1\{&percnt;/mg;
+  # remove headings with nothing under them
+  $input_text =~ s/^#{2}\s+[^\n]+\s+(?=^#{2}[^#])//gsm;
+  $input_text =~ s/^#{3}\s+[^\n]+\s+(?=^#{1,3}[^#])//gsm;
+  $input_text =~ s/^#{4}\s+[^\n]+\s+(?=^#{1,4}[^#])//gsm;
+  $input_text =~ s/^#{5}\s+[^\n]+\s+(?=^#{1,5}[^#])//gsm;
+  $input_text =~ s/^###*.*\n\z//m;
 
-#r
-my $out = `rsync -a '/Users/stevedondley/vimwiki/webnotes/files/' '/Users/stevedondley/git_repos/sdondley.github.io/images/note_images'`;
+  my $out = `rsync -a '/Users/me/vimwiki/webnotes/files/' '/Users/me/git_repos/sdondley.github.io/images/note_images'`;
+}
 
-$headers{updated_logo} = 0;
+# set header dates
 my $curr_t = Time::Piece->strptime($curr_time, '%Y-%m-%d %H:%M:%S');
-if ($headers{updated}) {
-  my $update_t = Time::Piece->strptime($headers{updated}, '%Y-%m-%d %H:%M:%S');
-  my $seconds = $curr_t->epoch - $update_t->epoch;
-  if ($seconds < (48 * 3600)) {
-    $headers{updated_logo} = '1';
-  }
-}
-
-$headers{new} = 0;
-if (!exists $headers{date}) {
-  $headers{new} = '1';
-  $headers{updated_logo} = '0';
-} else {
-  my $post_t = Time::Piece->strptime($headers{date}, '%Y-%m-%d %H:%M:%S');
-  my $seconds = $curr_t->epoch - $post_t->epoch;
-  if ($seconds < (48 * 3600)) {
-    $headers{new} = '1';
-    $headers{updated_logo} = '0';
-  }
-}
-
-if ($headers{title} =~ /Keep/) {
-  logd $headers{new};
-}
-
 if (!$new_file && !$force_new_header) {
-  if ($custom_args ne 'no_update') {
+  if ($vimwiki_input) {
     if ($update_day && $update_day ne $curr_day) {
       $headers{updated} = $curr_time;
     } elsif ($header_day && $header_day ne $curr_day) {
@@ -107,10 +95,21 @@ if (!$new_file && !$force_new_header) {
 my $header_text = YAML::Tiny->new( \%headers )->write_string;
 $header_text .= "---\n";
 
+my $backlinks = '';
+$backlinks = generate_backlinks() if $vimwiki_input;
+
+# strip header if doing a batch update
+if ($note_input) {
+  $input_text =~ s|^---(.*?)---\n||s;
+}
+
 $input_text =~ s/^\s+//g;  # get rid of any leading whitespace
-#my $backlinks = ''; #generate_backlinks();
-my $backlinks = generate_backlinks();
-my $new_output_text = $header_text . $input_text . $backlinks;
+my $new_output_text;
+if ($note_input) {
+  $new_output_text = $header_text . $input_text;
+} else {
+  $new_output_text = $header_text . $input_text . $backlinks;
+}
 write_file($output_file, $new_output_text);
 
 #TODO: regex's should be documented with X
@@ -119,7 +118,6 @@ sub process_links {
   my @links = $input_text =~ m|(\[[^]]+]\([^)]+\))|g;
   my @wiki_links = ();
   my $has_fenced_code = $input_text =~ /^```|^{&percnt;\s*highlight/m;
-  logd $has_fenced_code;
   foreach my $l (@links) {
     if ($has_fenced_code) {
       next if $input_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
@@ -130,7 +128,7 @@ sub process_links {
     # handle links to files
     if ($url =~ /^file:/) {
       my $orig_l = $l;
-      $l =~ s|\[file:///Users/stevedondley/vimwiki/webnotes/files/(.*)]\((.*?)\)|<div style="margin-top: 1em;"><a href="/images/note_images/$1"><img style="width: 100%; height: 100%" src="/images/note_images/$1" /></a></div>|;
+      $l =~ s|\[file:///Users/me/vimwiki/webnotes/files/(.*)]\((.*?)\)|<div style="margin-top: 1em;"><a href="/images/note_images/$1"><img style="width: 100%; height: 100%" src="/images/note_images/$1" /></a></div>|;
       $input_text =~ s|\Q$orig_l\E|$l|;
       next;
     }
@@ -190,7 +188,7 @@ sub process_links {
     my $existing_file_text = $output_text;
 
     # chop off other notes linking here
-    $existing_file_text =~ s/^---\n#### Other(.*)//ms;
+    $existing_file_text =~ s/^---\n### Other(.*)//ms;
 
     # find all local wiki_links in existing file
 
@@ -199,8 +197,8 @@ sub process_links {
     my $existing_has_fenced_code = $existing_file_text =~ /^```|^{&percnt;\s*highlight/m;
     foreach my $l (@links) {
       if ($existing_has_fenced_code) {
-        next if $input_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
-        next if $input_text =~ m|^{&percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
+        next if $existing_file_text =~ m|^```\S(.*?)\Q$l\E(.*?)^```|ms;
+        next if $existing_file_text =~ m|^{&percnt;\s*highlight\s(.*?)\Q$l\E(.*?)^{&percnt;|ms;
       }
       $l =~ m|\[[^\]]+]\((.*)\)|;
       push @urls, $1;
@@ -228,18 +226,18 @@ sub process_links {
     foreach my $nl (@new_links) {
       my $file = $nl;
       $file =~ s/^\///;
-      $file =~ s/-/ /g;
+      $file =~ s/-/ /g if $file !~ m|^\d{4}-\d{2}-\d{2}|;
       $file = $file . '.md';
       my $linked_file = File::Spec->catfile($output_dir, $file);
       if (!-e $linked_file) {
-        `touch $linked_file`;
+        logd $linked_file;
       }
       my $other_file_txt = read_file($linked_file);
-      my ($backlinks_text) = $other_file_txt =~ m|^---\n#### Other[^\n]+\n(.*)|ms;
+      my ($backlinks_text) = $other_file_txt =~ m|^---\n### Other[^\n]+\n(.*)|ms;
       my ($the_file_name) = fileparse($input_file, '.md');
       $the_file_name =~ s/ /-/g;
       if (!$backlinks_text) {
-        $other_file_txt .= "\n\n---\n#### Other notes linking here:\n";
+        $other_file_txt .= "\n\n---\n### Other notes linking here:\n";
         my $url_link = $file_name;
         $other_file_txt .= "\n\n[$headers{title}](/$the_file_name)";
         write_file($linked_file, $other_file_txt);
@@ -253,16 +251,16 @@ sub process_links {
     foreach my $rl (@removed_links) {
       my $file = $rl;
       $file =~ s/^\///;
-      $file =~ s/-/ /;
+      $file =~ s/-/ /g if $file !~ m|^\d{4}-\d{2}-\d{2}|;
       $file = $file . '.md';
       my ($the_file_name) = fileparse($input_file, '.md');
       $the_file_name =~ s/ /-/g;
       $the_file_name = '/' . $the_file_name;
       my $linked_file = File::Spec->catfile($output_dir, $file);
       my $other_file_txt = read_file($linked_file);
-      my ($backlinks_text) = $other_file_txt =~ m|(^---\n#### Other[^\n]+\n(.*))|ms;
+      my ($backlinks_text) = $other_file_txt =~ m|(^---\n### Other[^\n]+\n(.*))|ms;
       $backlinks_text =~ s|^\[[^\]]+\]\($the_file_name\)(.*?)\n*||sm;
-      $other_file_txt =~ s/^---\n#### Other(.*)//ms;
+      $other_file_txt =~ s/^---\n### Other(.*)//ms;
       $backlinks_text =~ s/\n*$//;
       $other_file_txt .= $backlinks_text;
       write_file($linked_file, $other_file_txt);
@@ -302,16 +300,16 @@ sub generate_backlinks {
     }
   }
   if ($links_text) {
-    $links_text = "\n---\n#### Other notes linking here:\n" . $links_text;
+    $links_text = "\n---\n### Other notes linking here:\n" . $links_text;
   }
   return $links_text;
 }
 
 sub extract_title {
-  $input_text =~ /^# (.*)/;
+  $input_text =~ /^# (.*)/m;
   my $title = $1 || '';
   if ($title) {
-    $input_text =~ s/^# $1//;
+    $input_text =~ s/^# \Q$title\E//m;
   }
 
   return "Diary entry for $file_name" if $is_diary;

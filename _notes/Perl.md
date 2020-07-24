@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 06:14:27'
 title: Perl
-updated: '2020-07-23 10:53:44'
+updated: '2020-07-23 14:23:08'
 ---
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.
@@ -18,6 +18,16 @@ and usefulness.
 
 Over the last couple of years, I have made a concerted effort to improve my
 programming quality and skills.
+
+## Regexes
+
+### substitute text when *not* between two strings of text:
+* see [https://stackoverflow.com](https://stackoverflow.com/questions/12493128/regex-replace-text-but-exclude-when-text-is-between-specific-tag)
+* used in [markdown_to_note](/markdown_to_note) code:
+```perl
+    $input_text =~ s@(&#124;)(?!(.(?!^{٪\s*highlight))*{٪ endhighlight ٪})@|@ms;
+    $input_text =~ s@(&#124;)(?!(.(?!^```\S))*^```})@|@ms;
+```
 
 ---
 ### Other notes linking here:
