@@ -1,7 +1,7 @@
 ---
 date: '2020-07-14 09:43:35'
 title: 'Tech stuff'
-updated: '2020-07-23 10:23:09'
+updated: '2020-07-25 08:52:19'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
@@ -22,7 +22,9 @@ enjoy it immensely.
 ## Tools I Use
 ### Software
 * [vim](/vim)
+* [bash](/bash)
 * [tmux](/tmux)
+* [mailman](/mailman)
 * *nix
   * [macOS](/macOS)
 

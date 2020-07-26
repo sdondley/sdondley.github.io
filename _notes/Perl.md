@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 06:14:27'
 title: Perl
-updated: '2020-07-23 14:23:08'
+updated: '2020-07-26 16:18:36'
 ---
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.
@@ -22,12 +22,23 @@ programming quality and skills.
 ## Regexes
 
 ### substitute text when *not* between two strings of text:
-* see [https://stackoverflow.com](https://stackoverflow.com/questions/12493128/regex-replace-text-but-exclude-when-text-is-between-specific-tag)
+* see [https://stackoverflow.com](https://stackoverflow.com/a/46937770/1641112)
 * used in [markdown_to_note](/markdown_to_note) code:
 ```perl
-    $input_text =~ s@(&#124;)(?!(.(?!^{٪\s*highlight))*{٪ endhighlight ٪})@|@ms;
-    $input_text =~ s@(&#124;)(?!(.(?!^```\S))*^```})@|@ms;
+    $input_text =~ s@(&#124;)(?!(.(?!^{٪\s*highlight))*{٪ endhighlight ٪})@&#124;@ms;
+    $input_text =~ s@(&#124;)(?!(.(?!^```\S))*^```})@&#124;@ms;
 ```
+  * above code will not replace `&#124;` if it is between fenced code markers
+
+## Modules
+
+### Web::Scraper
+* tool for pulling content from scraped web pages
+* metacpan page: [Web::Scraper - Web Scraping Toolkit using HTML and CSS Selectors or XPath expressions - metacpan.org](https://metacpan.org/pod/Web::Scraper)
+
+#### Tips
+* Always use the Web::Scraper::LibXML
+  * works better than HTML::TreeBuilder::XPath
 
 ---
 ### Other notes linking here:

@@ -1,8 +1,10 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-24 09:52:23'
+updated: '2020-07-26 09:03:25'
 ---
+* [neovim](/neovim)
+
 ## Why vim?
 * To my knowledge, it is the fastest way for a human to process text on a
   computer
@@ -98,6 +100,12 @@ updated: '2020-07-24 09:52:23'
 
 ## Maps
 
+### Viewing existing maps
+* `:nmap` for normal mode mappings
+* `:vmap` for visual mode mappings
+* `:imap` for insert mode mappings
+* `:verbose map`
+
 Here's a random collection of vim maps I use:
 * [Insert hyper links from Safari](/Insert-hyper-links)
 * [Insert date](/Insert-date)
@@ -111,7 +119,7 @@ Some useful plugins I use (not a complete list):
 * [fzfvim plugin](/fzf-vim-plugin)
 
 ## Jump lists
-* [Understanding Vim’s Jump List. One of the great joys of Vim is its… | by Kade Killary | Medium](https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0)
+* [Understanding Vim’s Jump List. One of the great joys of Vim is its… &#124; by Kade Killary &#124; Medium](https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0)
 
 ## Completion
 
@@ -199,6 +207,7 @@ From vim command line, run:
 * [Learning ctags](/Learning-ctags)
 
 ## Vim scripting
+* [vimscript](/vimscript)
 * [https://devhints.io](https://devhints.io/vimscript)
 
 ## Searching

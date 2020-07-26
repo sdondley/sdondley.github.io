@@ -1,5 +1,5 @@
-
-
+---
+title: ripgrep
 ---
 ### Other notes linking here:
 

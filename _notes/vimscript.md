@@ -1,6 +1,7 @@
 ---
 date: '2020-07-23 22:25:09'
 title: vimscripting
+updated: '2020-07-25 22:32:03'
 ---
 ## Official documentation
 [Vim documentation: usr_41](http://vimdoc.sourceforge.net/htmldoc/usr_41.html)
@@ -14,6 +15,14 @@ title: vimscripting
   * test if not equal
     * `!=?`
     * `!=#`
+* echoing variables
+  * echom
+* abort after function name
+  * When the [abort] argument is added, the function [will](/will) abort as soon as an error is detected.
+
+## Functions
+* functions with `!` after their name override pre-existing functions with the
+  same name
 
 ## Tutorials and guides
 * [Vim scripting cheatsheet](https://devhints.io/vimscript)
@@ -22,4 +31,4 @@ title: vimscripting
 ---
 ### Other notes linking here:
 
-[vimwiki](/vimwiki)
+[vim](/vim)

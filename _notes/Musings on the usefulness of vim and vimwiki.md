@@ -1,6 +1,7 @@
 ---
 date: '2020-07-24 11:45:24'
 title: 'Musings on the usefulness of vim and vimwiki'
+updated: '2020-07-26 09:06:35'
 ---
 Our thoughts are prisoners locked in our brain. They never see the light of day
 until a physical medium comes along to transfer them out and, from there, they
@@ -59,3 +60,10 @@ up.
     productive, and even smarter…by keeping out of the way and helping me stay
     in the coding trance. I’d be lost without it.**
     * From [Damian Conway - Interview on How I Vim](http://howivim.com/2016/damian-conway/)
+
+
+---
+### Other notes linking here:
+
+
+[vimwiki](/vimwiki)

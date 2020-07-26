@@ -10,3 +10,6 @@ title: 'fzf vim plugin'
 ### Other notes linking here:
 
 [vim](/vim)
+
+
+[vimwiki](/vimwiki)

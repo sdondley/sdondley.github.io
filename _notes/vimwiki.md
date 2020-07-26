@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 04:19:04'
 title: vimwiki
-updated: '2020-07-24 11:48:10'
+updated: '2020-07-26 16:20:00'
 ---
 * Home page [vimwiki plugin page](https://vimwiki.github.io)
 * GitHub page: [vimwiki/vimwiki: Personal Wiki for Vim](https://github.com/vimwiki/vimwiki)
@@ -42,6 +42,7 @@ I'm still learning the ropes but the short answer is:
   * Open the next day's diary link if available.
 
 ## Other Tips, Tricks and Advice
+
 ### If used in conjunctions with a Jekyll site
   * Be sure to use markdown as the syntax for best integration with Jekyll site
     generation
@@ -50,20 +51,21 @@ I'm still learning the ropes but the short answer is:
       in diary can link to wiki documents not in the diary
       * Accomplished by modifying `g:vimwiki_list`:
         * `let wiki_1.diary_rel_path = '.'`
-* use [fzf](fzf) and [ripgrep](/ripgrep) to search vimwiki
+* use [fzf](/fzf) and [ripgrep](/ripgrep) to search vimwiki
   * see maps section below
 
 ### Shell integration
-#### useful aliases
+
+#### Useful aliases
 Launch default wiki pages from command line:
 ```bash
 # launch diary from command line:
 alias diary='vim -c ":VimwikiMakeDiaryNote"'
 
-# launch index page from command line
+## launch index page from command line
 alias vw='vim -c ":VimwikiIndex"'
 ```
-## [Musings on the usefulness of vim and vimwiki](Musings on the usefulness of vim and vimwiki# Musings on the usefulness of vim and vimwiki)
+[Musings on the usefulness of vim and vimwiki](/Musings-on-the-usefulness-of-vim-and-vimwiki)
 
 ### Maps
 * Insert link to another wiki page:
@@ -97,13 +99,13 @@ alias vw='vim -c ":VimwikiIndex"'
         imap <c-i><cr> <cr><c-t>
         imap <c-i><c-i><cr> <cr><c-d>
         ```
-* search file names, buffers and file text quickly with [fzf](fzf)/[fzf vim plugin](fzf vim plugin)
+* search file names, buffers and file text quickly with [fzf](/fzf)/[fzf vim plugin](/fzf-vim-plugin)
 ```vim
 nnoremap <leader>f :up<cr>:Files<cr>
 nnoremap <leader>r :up<cr>:Rg<cr>
 nnoremap <leader>b :up<cr>:Buffers<cr>
 ```
-  * see [How FZF and ripgrep improved my workflow | by Sidney Liebrand | Medium](https://medium.com/@sidneyliebrand/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861) for more details
+  * see [How FZF and ripgrep improved my workflow &#124; by Sidney Liebrand &#124; Medium](https://medium.com/@sidneyliebrand/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861) for more details
 
 * `<tab>` key should be remapped
   * by default vimwiki maps `<tab>` to `VimwikiNextLink`
@@ -114,11 +116,9 @@ nnoremap <leader>b :up<cr>:Buffers<cr>
 
 * Create link and new vimwiki page with same title as bullet:
 ```vim
-inoremap <leader>lb <esc>^wy$i[<esc>$a](<esc>pa)<esc>:VimwikiFollowLink<cr>i# <esc>p:w<cr>a<cr><cr>
+inoremap <leader>lb <esc>^wy$i[<esc>$a](/<esc>pa)<esc>:VimwikiFollowLink<cr>i# <esc>p:w<cr>a<cr><cr>
 ```
 
-### vimscripting
-* [vimscript](/vimscript)
 
 ## Resources
 * [https://mkaz.blog](https://mkaz.blog/working-with-vim/vimwiki/)
