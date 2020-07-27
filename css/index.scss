@@ -47,3 +47,13 @@ li.plain:before { content: "●"; margin-left: -1.2em; margin-right: .3em; }
 li > * {
     vertical-align: text-top;
 }
+
+table.foo {
+  margin-left: 0em;
+  border: none;
+  width: 75%;
+}
+
+table.foo td {
+  border: none;
+}

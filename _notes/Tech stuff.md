@@ -1,7 +1,7 @@
 ---
 date: '2020-07-14 09:43:35'
 title: 'Tech stuff'
-updated: '2020-07-25 08:52:19'
+updated: '2020-07-26 16:26:26'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
@@ -29,6 +29,7 @@ enjoy it immensely.
   * [macOS](/macOS)
 
 ### Computer hardware
+
 #### Early years
 Since I was a young boy, I've always been fascinated by all things digital. The
 first bit of technology to transfix me was owned by my cousin's husband,

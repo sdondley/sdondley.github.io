@@ -1,52 +1,38 @@
 ---
-date: '2020-07-13 04:17:41'
-title: 'Wiki Index'
-updated: '2020-07-27 09:18:47'
+date: '2020-07-26 22:07:11'
+title: 'Portland protesters use leaf blowers to clear tear gas as nightly demonstrations against DHS forces continue to grow The Washington Post'
 ---
-* [Tech stuff](/Tech-stuff)
-* [Politics](/Politics)
-* [Climate change](/Climate-change)
-
-
-[Portland protesters use leaf blowers to clear tear gas as nightly demonstrations against DHS forces continue to grow - The Washington Post](https://www.washingtonpost.com/nation/2020/07/26/leaf-blower-wars-how-portland-protesters-are-fighting-back-against-tear-gas-forming-walls-veterans-lawyers-nurses/?hpid=hp_hp-top-table-high_portlandprotesters-1252am%3Ahomepage%2Fstory-ans)
-Full text: [Portland protesters use leaf blowers to clear tear gas as nightly demonstrations against DHS forces continue to grow The Washington Post](/Portland-protesters-use-leaf-blowers-to-clear-tear-gas-as-nightly-demonstrations-against-DHS-forces-continue-to-grow-The-Washington-Post)
-
-
 ## PEOPLE
 
-{:.foo}
-| Michelle Heisler | 3 |
-| Leshan Terry | 2 |
-| Lewis Nelson | 2 |
-| Tessa Terry | 2 |
-| Eddie | 1 |
-| Kate Brown | 1 |
-| Mark O. Hatfield Courthouse | 1 |
-| Ted Wheeler | 1 |
-| Terry | 1 |
-| Trump | 1 |
+|Michelle Heisler|                                             3|
+|Leshan Terry    |                                             2|
+
+* Tessa Terry                                                  2
+* Lewis Nelson                                                 2
+* Ted Wheeler                                                  1
+* Trump                                                        1
+* Eddie                                                        1
+* Terry                                                        1
+* Kate Brown                                                   1
+* Mark O. Hatfield Courthouse                                  1
 
 ## ORGANIZATIONS
-
-{:.foo}
-| Navy | 2 |
-| Black Lives Matter | 1 |
-| Physicians for Human Rights | 1 |
-| New Jersey Poison | 1 |
-| Multnomah County Justice Center | 1 |
-| Rutgers New Jersey Medical School | 1 |
-| BLM | 1 |
-| Terrys | 1 |
-| Lawyers for Black Lives | 1 |
+* Navy                                                         2
+* Physicians for Human Rights                                  1
+* Black Lives Matter                                           1
+* BLM                                                          1
+* New Jersey Poison                                            1
+* Terrys                                                       1
+* Lawyers for Black Lives                                      1
+* Multnomah County Justice Center                              1
+* Rutgers New Jersey Medical School                            1
 
 ## LOCATIONS
-
-{:.foo}
-| Portland | 8 |
-| United States | 1 |
-| PORTLAND | 1 |
-| Oregon | 1 |
-| Ore. | 1 |
+* Portland                                                     8
+* Ore.                                                         1
+* PORTLAND                                                     1
+* United States                                                1
+* Oregon                                                       1
 
 Leaf-blower wars: How Portland protesters are fighting back against tear gas and forming ‘walls’ of veterans, lawyers, nurses
 
