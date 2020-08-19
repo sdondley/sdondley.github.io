@@ -1,7 +1,7 @@
 ---
 date: '2020-07-23 22:25:09'
 title: vimscripting
-updated: '2020-07-25 22:32:03'
+updated: '2020-07-27 13:27:30'
 ---
 ## Official documentation
 [Vim documentation: usr_41](http://vimdoc.sourceforge.net/htmldoc/usr_41.html)
@@ -23,6 +23,9 @@ updated: '2020-07-25 22:32:03'
 ## Functions
 * functions with `!` after their name override pre-existing functions with the
   same name
+* passing arguments to functions
+  * [Function Arguments / Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/chapters/24.html)
+  * arguments passed must be prefixed with `a:`
 
 ## Tutorials and guides
 * [Vim scripting cheatsheet](https://devhints.io/vimscript)

@@ -1,7 +1,7 @@
 ---
 date: '2020-07-19 14:53:47'
 title: 'Open source screen capture solutions for macOS'
-updated: '2020-07-20 15:57:42'
+updated: '2020-07-27 09:58:29'
 ---
 I did a little research into open source solutions for doing quick screen
 captures for my notes.
@@ -15,7 +15,7 @@ captures for my notes.
 
 ## Inspiration
 * [How FZF and ripgrep improved my workflow](https://sidneyliebrand.io/blog/how-fzf-and-ripgrep-improved-my-workflow)
-  * though site used gifs at first but they are actually mp4 and webm videos
+  * I first thought site used gifs at first but they are actually mp4 and webm videos
   * Got in contact with author, he uses a program called [Screenflick – Mac Screen Recorder with Audio](https://www.araelium.com/screenflick-mac-screen-recorder) to generate the videos
     * Screenflick is $35
 

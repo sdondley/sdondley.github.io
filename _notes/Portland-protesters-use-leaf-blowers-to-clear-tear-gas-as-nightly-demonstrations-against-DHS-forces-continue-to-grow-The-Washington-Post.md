@@ -1,20 +1,19 @@
 ---
-date: '2020-07-26 22:07:11'
-title: 'Portland protesters use leaf blowers to clear tear gas as nightly demonstrations against DHS forces continue to grow The Washington Post'
-updated: '2020-07-27 09:30:07'
+date: '2020-07-28 02:04:10'
+title: 'Portland protesters use leaf blowers to clear tear gas as nightly demonstrations against DHS forces continue to grow - The Washington Post'
 ---
 ## PEOPLE
 
 {:.foo}
 | Michelle Heisler | 3 |
-| Leshan Terry | 2 |
 | Lewis Nelson | 2 |
+| Leshan Terry | 2 |
 | Tessa Terry | 2 |
 | Ted Wheeler | 1 |
-| Terry | 1 |
-| Mark O. Hatfield Courthouse | 1 |
-| Kate Brown | 1 |
 | Trump | 1 |
+| Terry | 1 |
+| Kate Brown | 1 |
+| Mark O. Hatfield Courthouse | 1 |
 | Eddie | 1 |
 
 ## ORGANIZATIONS
@@ -22,21 +21,21 @@ updated: '2020-07-27 09:30:07'
 {:.foo}
 | Navy | 2 |
 | Multnomah County Justice Center | 1 |
-| Terrys | 1 |
-| Physicians for Human Rights | 1 |
-| BLM | 1 |
-| Lawyers for Black Lives | 1 |
-| New Jersey Poison | 1 |
-| Rutgers New Jersey Medical School | 1 |
 | Black Lives Matter | 1 |
+| Terrys | 1 |
+| BLM | 1 |
+| Physicians for Human Rights | 1 |
+| Rutgers New Jersey Medical School | 1 |
+| New Jersey Poison | 1 |
+| Lawyers for Black Lives | 1 |
 
 ## LOCATIONS
 
 {:.foo}
 | Portland | 8 |
-| Ore. | 1 |
 | PORTLAND | 1 |
 | United States | 1 |
+| Ore. | 1 |
 | Oregon | 1 |
 
 Leaf-blower wars: How Portland protesters are fighting back against tear gas and forming ‘walls’ of veterans, lawyers, nurses

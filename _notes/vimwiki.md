@@ -145,3 +145,6 @@ Stuff I'm having problems with
 [Thoughts on Digital Gardening](/Digital-Gardening)
 
 [Diary entry for 2020-07-14](/2020-07-14)
+
+
+[Diary entry for 2020-07-25](/2020-07-25)

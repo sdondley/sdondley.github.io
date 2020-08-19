@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 06:14:27'
 title: Perl
-updated: '2020-07-26 16:18:36'
+updated: '2020-07-30 08:43:32'
 ---
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.
@@ -18,6 +18,10 @@ and usefulness.
 
 Over the last couple of years, I have made a concerted effort to improve my
 programming quality and skills.
+
+## print to stdout
+* `binmode STDOUT, ":encoding(utf8)";`
+
 
 ## Regexes
 

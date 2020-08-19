@@ -1,23 +1,31 @@
 ---
-date: '2020-07-26 08:28:07'
+date: '2020-07-28 02:47:49'
 title: 'A methane leak in Antarctica provides new insight into how methane-eating microbes evolve'
 ---
-Original link: [A methane leak in Antarctica provides new insight into how methane-eating microbes evolve &#124; Salon.com](https://www.salon.com/2020/07/24/a-methane-leak-in-antarctica-provides-new-insight-into-how-methane-eating-microbes-evolve/)
-PEOPLE
-[Kevin Trenberth](/Kevin-Trenberth)                3
-[Michael E. Mann](/Michael-E.-Mann)                1
-Andrew Thurber                 1
+Original link: [A methane leak in Antarctica provides new insight into how methane-eating microbes evolve | Salon.com](https://www.salon.com/2020/07/24/a-methane-leak-in-antarctica-provides-new-insight-into-how-methane-eating-microbes-evolve/)
+## PEOPLE
 
-ORGANIZATIONS
-University Corporation for Atmospheric Research 1
-Oregon State University        1
-Penn State University          1
-National Center for Atmospheric Research 1
+{:.foo}
+| [Kevin Trenberth](/Kevin-Trenberth) | 3 |
+| [Michael E. Mann](/Michael-E.-Mann) | 1 |
+| Andrew Thurber                     | 1 |
 
-LOCATIONS
-Ross                           2
-Antarctica                     1
-Earth                          1
+## ORGANIZATIONS
+
+{:.foo}
+| University Corporation for Atmospheric Research | 1 |
+| Oregon State University                         | 1 |
+| Penn State University                           | 1 |
+| National Center for Atmospheric Research 1
+
+## LOCATIONS
+
+{:.foo}
+| Ross       | 2 |
+| Antarctica | 1 |
+| Earth      | 1 |
+
+## CONTENT
 
 A methane leak in Antarctica provides new insight into how methane-eating microbes evolve
 

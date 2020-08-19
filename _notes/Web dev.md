@@ -24,19 +24,17 @@ a.link { text-indent: 0 }
 </ul>
 ```
 
-Fix for  bullets appearing at the bottom of an item with an ifram:
-* [css - Position the <li> dot at the top - Stack Overflow](https://stackoverflow.com/questions/28681147/position-the-li-dot-at-the-top)
-```css
-li > * {
-    vertical-align: text-top;
-}
-```
-
-
-
 Hat tip to commenter "judyofthewoods" at
 [https://ryansechrest.com](https://ryansechrest.com/2012/11/change-your-list-bullet-to-a-custom-character-in-css/#comment-331251)
 for this trick.
+
+Fix for  bullets appearing at the bottom of an item with an iframe:
+* [css - Position the <li> dot at the top - Stack Overflow](https://stackoverflow.com/questions/28681147/position-the-li-dot-at-the-top)
+```css
+li > * {
+vertical-align: text-top;
+}
+```
 
 ## Sandbox areas
 * [Embedding tweet](/Embedding-tweet)

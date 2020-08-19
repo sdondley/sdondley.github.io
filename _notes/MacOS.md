@@ -1,7 +1,7 @@
 ---
 date: '2020-07-17 23:27:59'
-title: macOS
-updated: '2020-07-23 08:13:21'
+title: MacOS
+updated: '2020-07-29 13:56:56'
 ---
 ## CLI tools
 ### ripgrep as a replacement for grep
@@ -25,9 +25,9 @@ updated: '2020-07-23 08:13:21'
 ### fzf
 * see [fzf](/fzf)
 
-## Random tips and tricks
+## Random tip and tricks
 * open man page as a pdf
-  * `man -t rg | open -f -a Preview.app`
+  * `man -t rg &#124; open -f -a Preview.app`
 * speed up repeat speed when key is held down
   * see second line here:
   ```
@@ -35,8 +35,6 @@ updated: '2020-07-23 08:13:21'
   defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
   ```
   * From [How to increase keyboard key repeat rate on OS X? - Ask Different](https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x)
-
----
-### Other notes linking here:
-
-[Tech stuff](/Tech-stuff)
+### curl
+* download html page and save to file
+  * `curl -s -o ./file.html -k [https://example.com`](https://example.com`)
