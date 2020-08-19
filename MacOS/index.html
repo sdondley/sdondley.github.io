@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>macOS</title>
+<title>MacOS</title>
 <meta name="author" content="Steve Dondley">
 <meta name="description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <link rel="icon" href="/favicon.ico?v=1.0">
@@ -19,15 +19,15 @@
 <meta property="article:author" content="/about/">
 <meta name="twitter:site" content="@steve_dondley">
 <meta name="twitter:creator" content="@steve_dondley">
-<meta property="og:title" content="macOS">
-<meta name="twitter:title" content="macOS">
+<meta property="og:title" content="MacOS">
+<meta name="twitter:title" content="MacOS">
 <meta property="og:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta name="twitter:description" content="A (mostly) technical blog for offering understanding, solutions, ideas and other thoughts.">
 <meta property="og:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
 <meta name="twitter:image" content="https://steve.dondley.com/images/hero/laugh.jpg">
     <meta property="og:type" content="article">
         <meta property="article:published_time" content="2020-07-17T23:27:59-04:00">
-        <meta property="article:modified_time" content="2020-07-23T08:13:21-04:00">
+        <meta property="article:modified_time" content="2020-07-29T13:56:56-04:00">
     <meta property="og:url" content="https://steve.dondley.com/MacOS/">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="OFFERINGS&amp;nbsp;&amp;ndash;&amp;nbsp;by Steve Dondley" href="/feed.xml">
@@ -99,7 +99,7 @@
 
 <article class="note">
   <div>
-    <h1 style="font-size: 2.3em; margin-bottom: 0em; font-family: Oswald, sans-serif;">macOS</h1>
+    <h1 style="font-size: 2.3em; margin-bottom: 0em; font-family: Oswald, sans-serif;">MacOS</h1>
 		
     <span class="date">
         
@@ -111,8 +111,8 @@
 &nbsp;&nbsp;
     <span class="date">
         Updated: 
-        <time datetime="2020-07-23">
-            July 23, 2020
+        <time datetime="2020-07-29">
+            July 29, 2020
         </time>
     </span>
 
@@ -168,11 +168,11 @@ install</li>
   <li>see <a href="/fzf">fzf</a></li>
 </ul>
 
-<h2 id="random-tips-and-tricks">Random tips and tricks</h2>
+<h2 id="random-tip-and-tricks">Random tip and tricks</h2>
 <ul>
   <li>open man page as a pdf
     <ul>
-      <li><code class="highlighter-rouge">man -t rg | open -f -a Preview.app</code></li>
+      <li><code class="highlighter-rouge">man -t rg &amp;#124; open -f -a Preview.app</code></li>
     </ul>
   </li>
   <li>speed up repeat speed when key is held down
@@ -182,15 +182,17 @@ install</li>
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 </code></pre></div>        </div>
       </li>
-      <li>From <a href="https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x">How to increase keyboard key repeat rate on OS X? - Ask Different</a></li>
+      <li>From <a href="https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x">How to increase keyboard key repeat rate on OS X? - Ask Different</a>
+        <h3 id="curl">curl</h3>
+      </li>
+    </ul>
+  </li>
+  <li>download html page and save to file
+    <ul>
+      <li><code class="highlighter-rouge">curl -s -o ./file.html -k [https://example.com</code>](https://example.com`)</li>
     </ul>
   </li>
 </ul>
-
-<hr />
-<h3 id="other-notes-linking-here">Other notes linking here:</h3>
-
-<p><a href="/Tech-stuff">Tech stuff</a></p>
 
     </content>
     <hr />
