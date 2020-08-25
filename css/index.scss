@@ -45,7 +45,7 @@ li.plain:before { content: "●"; margin-left: -1.2em; margin-right: .3em; }
 }
 
 li > * {
-    vertical-align: text-top;
+    /* vertical-align: text-top; */
 }
 
 table.foo {

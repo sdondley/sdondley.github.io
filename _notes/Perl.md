@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 06:14:27'
 title: Perl
-updated: '2020-07-30 08:43:32'
+updated: '2020-08-24 10:20:25'
 ---
 Perl is my native programming language and the one I know the best. It was the
 lingua franca back in the late 90s when I first started web development.

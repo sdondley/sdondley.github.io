@@ -1,5 +1,5 @@
 ---
-date: '2020-07-28 02:47:49'
+date: '2020-08-23 14:42:40'
 title: 'A methane leak in Antarctica provides new insight into how methane-eating microbes evolve'
 ---
 Original link: [A methane leak in Antarctica provides new insight into how methane-eating microbes evolve | Salon.com](https://www.salon.com/2020/07/24/a-methane-leak-in-antarctica-provides-new-insight-into-how-methane-eating-microbes-evolve/)
