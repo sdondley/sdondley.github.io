@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 05:41:57'
 title: vim
-updated: '2020-07-26 09:03:25'
+updated: '2020-08-25 08:41:28'
 ---
 * [neovim](/neovim)
 
@@ -18,7 +18,6 @@ updated: '2020-07-26 09:03:25'
 * vim was created mostly for coders, but is also an excellent platform for
   writers. If you are coder and a writer, vim is pure joy to work with.
 
-## Registers
 
 ### vim documentation
 * `:h registers`
@@ -121,6 +120,14 @@ Some useful plugins I use (not a complete list):
 ## Jump lists
 * [Understanding Vim’s Jump List. One of the great joys of Vim is its… &#124; by Kade Killary &#124; Medium](https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0)
 
+## Command Line History
+* :help history
+* type in first few letters, hit up arrow
+  * finds previous commands that start with those letters
+* :his:
+  * lists all previous commands
+* More info: [Using command-line history &#124; Vim Tips Wiki &#124; Fandom](https://vim.fandom.com/wiki/Using_command-line_history)
+
 ## Completion
 
 * `echo complete_info()` to get current completion info
@@ -180,7 +187,6 @@ From vim command line, run:
       * comes from the fzf.vim plugin
         * allows for a more forgiving fuzzy match of buffer names
         * author has set up fzf and ripgrep for advanced searching
-
 
 
 ## spell check feature

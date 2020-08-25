@@ -1,6 +1,7 @@
 ---
 date: '2020-08-23 14:42:40'
 title: 'A methane leak in Antarctica provides new insight into how methane-eating microbes evolve'
+updated: '2020-08-25 06:45:29'
 ---
 Original link: [A methane leak in Antarctica provides new insight into how methane-eating microbes evolve | Salon.com](https://www.salon.com/2020/07/24/a-methane-leak-in-antarctica-provides-new-insight-into-how-methane-eating-microbes-evolve/)
 ## PEOPLE
@@ -16,7 +17,7 @@ Original link: [A methane leak in Antarctica provides new insight into how metha
 | University Corporation for Atmospheric Research | 1 |
 | Oregon State University                         | 1 |
 | Penn State University                           | 1 |
-| National Center for Atmospheric Research 1
+| National Center for Atmospheric Research        | 1 |
 
 ## LOCATIONS
 

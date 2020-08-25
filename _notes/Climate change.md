@@ -1,7 +1,7 @@
 ---
 date: '2020-07-13 05:49:31'
 title: 'Climate change'
-updated: '2020-07-26 00:26:12'
+updated: '2020-08-25 06:50:14'
 ---
 ## Notable Climate Scientists
 * [Michael E. Mann](/Michael-E.-Mann)
