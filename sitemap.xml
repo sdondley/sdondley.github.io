@@ -2,11 +2,15 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://steve.dondley.com/A-methane-leak-in-Antarctica-provides-new-insight-into-how-methane-eating-microbes-evolve/</loc>
-<lastmod>2020-07-28T02:47:49-04:00</lastmod>
+<lastmod>2020-08-23T14:42:40-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/Automation/</loc>
 <lastmod>2020-07-13T05:55:15-04:00</lastmod>
+</url>
+<url>
+<loc>https://steve.dondley.com/Biden-Said-Most-Cops-Are-Good-But-Progressives-Want-Systemic-Change-The-New-York-Times/</loc>
+<lastmod>2020-08-19T14:56:43-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/California-wildfires-live-updates-Urgent-evacuations-in-Vacaville-as-winddriven-fires-advance-The-Washington-Post/</loc>
@@ -19,6 +23,10 @@
 <url>
 <loc>https://steve.dondley.com/CtrlP/</loc>
 <lastmod>2020-07-15T00:08:58-04:00</lastmod>
+</url>
+<url>
+<loc>https://steve.dondley.com/Debt-eviction-and-hunger-Millions-fall-back-into-crisis-as-stimulus-and-safety-nets-vanish-The-Washington-Post/</loc>
+<lastmod>2020-08-24T10:20:24-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/diary/</loc>
@@ -105,6 +113,14 @@
 <lastmod>2020-08-19T13:15:32-04:00</lastmod>
 </url>
 <url>
+<loc>https://steve.dondley.com/2020-08-23/</loc>
+<lastmod>2020-08-23T14:38:58-04:00</lastmod>
+</url>
+<url>
+<loc>https://steve.dondley.com/2020-08-24/</loc>
+<lastmod>2020-08-24T12:53:51-04:00</lastmod>
+</url>
+<url>
 <loc>https://steve.dondley.com/Embedding-tweet/</loc>
 <lastmod>2020-07-20T11:05:21-04:00</lastmod>
 </url>
@@ -185,6 +201,10 @@
 <lastmod>2020-07-13T06:14:27-04:00</lastmod>
 </url>
 <url>
+<loc>https://steve.dondley.com/perlretut/</loc>
+<lastmod>2020-08-24T10:20:24-04:00</lastmod>
+</url>
+<url>
 <loc>https://steve.dondley.com/Politics/</loc>
 <lastmod>2020-07-13T05:48:52-04:00</lastmod>
 </url>
@@ -246,7 +266,7 @@
 </url>
 <url>
 <loc>https://steve.dondley.com/ripgrep/</loc>
-<lastmod>2020-08-19T14:12:17-04:00</lastmod>
+<lastmod>2020-08-25T06:26:01-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/Home+-2f+Twitter/</loc>
