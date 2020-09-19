@@ -1,6 +1,7 @@
 ---
 date: '2020-09-15 20:15:56'
 title: 'Tech stuff'
+updated: '2020-09-19 16:34:22'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
