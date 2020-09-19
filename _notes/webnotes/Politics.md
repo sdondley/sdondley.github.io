@@ -1,7 +1,7 @@
 ---
-date: '2020-07-13 05:48:52'
+date: '2020-09-13 18:09:26'
 title: Politics
-updated: '2020-09-13 17:47:59'
+updated: '2020-09-18 10:50:30'
 ---
 ## F Trump
 I'm a passionate Democrat with a strong pragmatic streak. I'm extremely
@@ -19,7 +19,10 @@ witnessing from my fellow Americans.
     * [3 Weeks After Primary, N.Y. Officials Still Can’t Say Who Won Key Races](/3-Weeks-After-Primary,-N.Y.-Officials-Still-Can’t-Say-Who-Won-Key-Races)
 
 ## Letter and [essays](/essays)
-* letter to the editor about qanon
+* [letter to the editor about qanon](/letter-to-the-editor-about-qanon)
+
+## Westfield
+* [pease accuses allie of dirty politics](/pease-accuses-allie-of-dirty-politics)
 
 ---
 ### Other notes linking here:

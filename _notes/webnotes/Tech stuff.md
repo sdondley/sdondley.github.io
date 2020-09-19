@@ -1,7 +1,6 @@
 ---
-date: '2020-07-14 09:43:35'
+date: '2020-09-15 20:15:56'
 title: 'Tech stuff'
-updated: '2020-09-10 11:34:19'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
@@ -9,7 +8,7 @@ updated: '2020-09-10 11:34:19'
 * [How this site is built](/How-this-site-is-built)
 * [Screen capture solutions](/Screen-capture-solutions)
 * [Web dev](/Web-dev)
-* Keyboard shortcuts
+* [Keyboard shortcuts](/Keyboard-shortcuts)
 
 ## Free Software (Open Source)
 I'm a huge fan of the Free Software Movement, though I don't always live up to
