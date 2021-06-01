@@ -1,4 +1,0 @@
-
-
----
-### Other notes linking here:
