@@ -1,16 +1,17 @@
 ---
-date: '2020-07-14 09:43:35'
+date: '2020-09-26 01:19:36'
 title: 'Tech stuff'
-updated: '2020-09-26 00:54:30'
+updated: '2021-06-01 00:00:42'
 ---
 ## Misc. Topics
 * [Automation](/Automation)
 * [Digital Gardening](/Digital-Gardening)
-* Docker
+* [Docker](/Docker)
 * [How this site is built](/How-this-site-is-built)
 * [Screen capture solutions](/Screen-capture-solutions)
 * [Web dev](/Web-dev)
 * [Keyboard shortcuts](/Keyboard-shortcuts)
+
 
 ## Free Software (Open Source)
 I'm a huge fan of the Free Software Movement, though I don't always live up to
@@ -171,6 +172,7 @@ on them which is probably a bit obsessive, I'll admit. We've all got our vices.
   * iPhone 11 Pro
 * 2020
   * Apple Watch Series 5
+  * iPhone 12 Pro
 
 I'm currently waiting for the new [iMac Pro](/iMac-Pro) line on the ARM
 architecture to replace my aging iMac 5K machine. It might be a couple of years

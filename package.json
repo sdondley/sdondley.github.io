@@ -27,5 +27,8 @@
 		"test": "bundle exec rake test",
 		"watch": "gulp watch",
 		"clean": "gulp clean"
+	},
+	"dependencies": {
+		"sharp": "^0.28.3"
 	}
 }

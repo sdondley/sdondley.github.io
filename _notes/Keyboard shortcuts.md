@@ -4,4 +4,4 @@
 ### Other notes linking here:
 
 
-[Climate change](/Climate-change)
+[Tech stuff](/Tech-stuff)
