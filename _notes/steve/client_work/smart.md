@@ -1,7 +1,7 @@
 ---
 date: '2020-10-02 12:17:28'
 title: 'smart 63'
-updated: '2021-06-01 08:26:16'
+updated: '2021-06-01 08:26:56'
 ---
 ### Stuff that was changed
 * /etc/hostname
