@@ -1,7 +1,7 @@
 ---
 date: '2020-10-02 12:17:28'
 title: 'smart 63'
-updated: '2021-06-01 08:24:19'
+updated: '2021-06-01 08:26:16'
 ---
 ### Stuff that was changed
 * /etc/hostname
@@ -39,7 +39,6 @@ name change
 they like the seiu loyout
 
 postfixadmin
-* user: lu63mailadmin/25dyLich#&
 
 ## tasks &#124; project:prometheus.client.smart63 status:pending
 
