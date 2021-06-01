@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://steve.dondley.com/2020_10_07/</loc>
-<lastmod>2020-10-07T17:48:36-04:00</lastmod>
-</url>
-<url>
 <loc>https://steve.dondley.com/blah/</loc>
 <lastmod>2021-05-31T17:13:15-04:00</lastmod>
 </url>
@@ -354,7 +350,7 @@
 </url>
 <url>
 <loc>https://steve.dondley.com/ripgrep/</loc>
-<lastmod>2021-06-01T00:45:00-04:00</lastmod>
+<lastmod>2021-06-01T00:54:57-04:00</lastmod>
 </url>
 <url>
 <loc>https://steve.dondley.com/smart/</loc>
